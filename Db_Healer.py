@@ -244,9 +244,21 @@ class MissingFilesDownloader:
             await page.evaluate('window.scrollTo(0, document.body.scrollHeight)')
             await human_delay(0.5, 1)
             
-            # Click search button
-            await page.click('input#ctl0_CONTENU_PAGE_AdvancedSearch_lancerRecherche')
-            logger.info("Clicked search button")
+            # Click search button with retry logic
+            search_btn_selector = 'input#ctl0_CONTENU_PAGE_AdvancedSearch_lancerRecherche'
+            try:
+                # Wait for button to be visible
+                await page.wait_for_selector(search_btn_selector, state='visible', timeout=10000)
+                await page.click(search_btn_selector, force=True)
+                logger.info("Clicked search button")
+            except Exception as e:
+                logger.warning(f"Standard click failed: {e}. Trying JS click...")
+                try:
+                    await page.evaluate(f"document.querySelector('{search_btn_selector}').click()")
+                    logger.info("Clicked search button via JS")
+                except Exception as js_e:
+                    logger.error(f"JS click failed: {js_e}")
+                    return False
             
             # Wait for page load
             await page.wait_for_load_state('networkidle')
@@ -627,7 +639,15 @@ class MissingFilesDownloader:
     async def process_missing_file(self, page: Page, missing_file: Dict) -> bool:
         """Process a single missing file"""
         reference = missing_file['reference']
-        expected_filename = missing_file['expected_filename']
+        # Derive expected filename since it might not be in the JSON
+        # Tries to get 'expected_filename', if not found, constructs it from reference
+        if 'expected_filename' in missing_file:
+             expected_filename = missing_file['expected_filename']
+        else:
+             # Sanitize reference to create filename (similar to how expected_folder is likely created)
+             # e.g. 16/2025_COMRUROULELGAR -> 16_2025_COMRUROULELGAR.zip
+             clean_ref = reference.replace('/', '_').replace("'", "_").replace(' ', '_')
+             expected_filename = f"{clean_ref}.zip"
         
         logger.info(f"\n{'='*80}")
         logger.info(f"Processing: {reference}")

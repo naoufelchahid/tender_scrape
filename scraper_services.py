@@ -29,7 +29,7 @@ def generate_initials(name):
         return "UNK"
     
     # Common words to ignore
-    ignore = ['LE', 'LA', 'LES', 'DE', 'DES', 'DU', 'ET', 'EN', 'AU', 'AUX', 'A']
+    ignore = ['LE', 'LA', 'LES', 'DE', 'DES', 'DU', 'ET', 'EN', 'AU', 'AUX', 'A', "L'"]
     
     # Clean name
     clean_name = name.upper().replace('-', ' ').replace('_', ' ').replace("'", " ")

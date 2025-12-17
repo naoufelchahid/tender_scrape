@@ -2,7 +2,7 @@
 """
 Database Health Checker
 Checks for inconsistencies between the database and S3 bucket.
-Specifically, identifies tenders in the database that are missing their corresponding ZIP file in S3.
+Specifically, identifies tenders in the database that are missing their corresponding unzipped folder in S3.
 Generates a JSON report of missing files.
 """
 import os
@@ -65,18 +65,23 @@ class DbHealthChecker:
         logger.info(f"Found {len(tenders)} tenders in database")
         return tenders
 
-    def check_s3_file_exists(self, reference: str) -> bool:
-        """Check if the ZIP file for a given reference exists in S3"""
-        # Convert reference to filename format (replace / with _)
+    def check_s3_folder_exists(self, reference: str) -> bool:
+        """Check if the folder for a given reference exists in S3"""
+        # Convert reference to folder name format
         # Sanitize reference same way as scraper
         safe_ref = "".join([c if c.isalnum() or c in ('-', '_') else '_' for c in reference])
-        filename = f"{safe_ref}.zip"
-        key = f"tender-documents/{filename}"
+        folder_prefix = f"tenders_doc_final/{safe_ref}/"
         
         try:
-            self.s3_client.head_object(Bucket=self.s3_bucket, Key=key)
-            return True
-        except:
+            # Check if any objects exist with this prefix
+            response = self.s3_client.list_objects_v2(
+                Bucket=self.s3_bucket, 
+                Prefix=folder_prefix,
+                MaxKeys=1
+            )
+            return 'Contents' in response
+        except Exception as e:
+            logger.error(f"Error checking S3 folder for {reference}: {e}")
             return False
 
     def run_health_check(self):
@@ -89,19 +94,19 @@ class DbHealthChecker:
         missing_files = []
         
         total = len(tenders)
-        logger.info(f"Checking S3 files for {total} tenders...")
+        logger.info(f"Checking S3 folders for {total} tenders...")
         
         for i, tender in enumerate(tenders, 1):
             ref = tender['reference']
-            if not self.check_s3_file_exists(ref):
+            if not self.check_s3_folder_exists(ref):
                 # Sanitize reference same way as scraper
                 safe_ref = "".join([c if c.isalnum() or c in ('-', '_') else '_' for c in ref])
                 missing_files.append({
                     'tender_id': tender['id'],
                     'reference': ref,
-                    'expected_filename': f"{safe_ref}.zip"
+                    'expected_folder': f"tenders_doc_final/{safe_ref}/"
                 })
-                logger.warning(f"Missing S3 file for tender: {ref}")
+                logger.warning(f"Missing S3 folder for tender: {ref}")
             
             if i % 10 == 0:
                 logger.info(f"Progress: {i}/{total}")

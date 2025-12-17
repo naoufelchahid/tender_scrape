@@ -1,1227 +1,142 @@
 {
-    "timestamp": "2025-12-12T14:06:14.892273",
-    "total_tenders_checked": 1672,
-    "missing_files_count": 244,
+    "timestamp": "2025-12-17T12:03:47.333915",
+    "total_tenders_checked": 3339,
+    "missing_files_count": 27,
     "missing_files": [
         {
-            "tender_id": 1560,
-            "reference": "52/2025_DIRREGSANREGDARTAF",
-            "expected_filename": "52_2025_DIRREGSANREGDARTAF.zip"
+            "tender_id": 1931,
+            "reference": "004/2025_COMMUNEEDDACHRA",
+            "expected_folder": "tenders_doc_final/004_2025_COMMUNEEDDACHRA/"
         },
         {
-            "tender_id": 1563,
-            "reference": "18/2025/INDH_GOUVERNEURNADOR",
-            "expected_filename": "18_2025_INDH_GOUVERNEURNADOR.zip"
+            "tender_id": 1943,
+            "reference": "03/2025_COMMUNEEDDACHRA",
+            "expected_folder": "tenders_doc_final/03_2025_COMMUNEEDDACHRA/"
         },
         {
-            "tender_id": 1570,
-            "reference": "41/2025_MINISTEREINTERIEUR",
-            "expected_filename": "41_2025_MINISTEREINTERIEUR.zip"
+            "tender_id": 894,
+            "reference": "22/2025/DRSPSFM_DIRREGSANREGFESMEK",
+            "expected_folder": "tenders_doc_final/22_2025_DRSPSFM_DIRREGSANREGFESMEK/"
         },
         {
-            "tender_id": 1572,
-            "reference": "30/2025_CENHOSREGFES",
-            "expected_filename": "30_2025_CENHOSREGFES.zip"
+            "tender_id": 2125,
+            "reference": "03/2025_COMRURAINMED",
+            "expected_folder": "tenders_doc_final/03_2025_COMRURAINMED/"
         },
         {
-            "tender_id": 1573,
-            "reference": "03/2025_COMRURS.AHMOUABD",
-            "expected_filename": "03_2025_COMRURS_AHMOUABD.zip"
+            "tender_id": 3392,
+            "reference": "52/2025/ND/MOPEMCE_S.DNOUDEVS.A",
+            "expected_folder": "tenders_doc_final/52_2025_ND_MOPEMCE_S_DNOUDEVS_A/"
         },
         {
-            "tender_id": 1574,
-            "reference": "14/2025_COMRURBENKHL",
-            "expected_filename": "14_2025_COMRURBENKHL.zip"
+            "tender_id": 3424,
+            "reference": "41/2025/C.S_COMURBESSEM",
+            "expected_folder": "tenders_doc_final/41_2025_C_S_COMURBESSEM/"
         },
         {
-            "tender_id": 1575,
-            "reference": "06/2025_DIRREGEQUTRALOGSOUMASAGAIDDOUT",
-            "expected_filename": "06_2025_DIRREGEQUTRALOGSOUMASAGAIDDOUT.zip"
+            "tender_id": 3458,
+            "reference": "99/2025/MID_DIRPROL’ENATMID",
+            "expected_folder": "tenders_doc_final/99_2025_MID_DIRPROL_ENATMID/"
         },
         {
-            "tender_id": 1576,
-            "reference": "06/2025_GROCOLTERELWAH",
-            "expected_filename": "06_2025_GROCOLTERELWAH.zip"
+            "tender_id": 3459,
+            "reference": "106/2025/ERR_DIRPROL’ENATERR",
+            "expected_folder": "tenders_doc_final/106_2025_ERR_DIRPROL_ENATERR/"
         },
         {
-            "tender_id": 1577,
-            "reference": "42/2025_MINISTEREINTERIEUR",
-            "expected_filename": "42_2025_MINISTEREINTERIEUR.zip"
+            "tender_id": 3460,
+            "reference": "35/INV/2025_DIRPROL’ENATJER",
+            "expected_folder": "tenders_doc_final/35_INV_2025_DIRPROL_ENATJER/"
         },
         {
-            "tender_id": 1579,
-            "reference": "18/2025_DELMINSANPRESAL",
-            "expected_filename": "18_2025_DELMINSANPRESAL.zip"
-        },
-        {
-            "tender_id": 1581,
-            "reference": "16/2025_POLYCLINIQUECNSSTANGER",
-            "expected_filename": "16_2025_POLYCLINIQUECNSSTANGER.zip"
-        },
-        {
-            "tender_id": 1582,
-            "reference": "18/2025_CENHOSPROSAF",
-            "expected_filename": "18_2025_CENHOSPROSAF.zip"
-        },
-        {
-            "tender_id": 1583,
-            "reference": "27/2025_COMMUNEURBAINESAFI",
-            "expected_filename": "27_2025_COMMUNEURBAINESAFI.zip"
-        },
-        {
-            "tender_id": 1584,
-            "reference": "46/2025/DAMPS/MDT_N/A",
-            "expected_filename": "46_2025_DAMPS_MDT_N_A.zip"
-        },
-        {
-            "tender_id": 1585,
-            "reference": "08/2025_COMMUNEHADBOUMOUSSA",
-            "expected_filename": "08_2025_COMMUNEHADBOUMOUSSA.zip"
-        },
-        {
-            "tender_id": 1586,
-            "reference": "15/2025_OFFNATHYDMIN",
-            "expected_filename": "15_2025_OFFNATHYDMIN.zip"
-        },
-        {
-            "tender_id": 477,
-            "reference": "21/2025_COMMUNEURBAINEBERKANE",
-            "expected_filename": "21_2025_COMMUNEURBAINEBERKANE.zip"
-        },
-        {
-            "tender_id": 533,
-            "reference": "195/2025/AREF/FM_ACAREGEDUFORFESMEK",
-            "expected_filename": "195_2025_AREF_FM_ACAREGEDUFORFESMEK.zip"
-        },
-        {
-            "tender_id": 405,
-            "reference": "07/2025_COMMUNESOUIHLA",
-            "expected_filename": "07_2025_COMMUNESOUIHLA.zip"
-        },
-        {
-            "tender_id": 54,
-            "reference": "13/2025_ARRONDISSEMENTAGDAL",
-            "expected_filename": "13_2025_ARRONDISSEMENTAGDAL.zip"
-        },
-        {
-            "tender_id": 56,
-            "reference": "08/2025_DELPROJEUSPOBEN",
-            "expected_filename": "08_2025_DELPROJEUSPOBEN.zip"
-        },
-        {
-            "tender_id": 67,
-            "reference": "10001044_SOCREGMULSOUMASSA",
-            "expected_filename": "10001044_SOCREGMULSOUMASSA.zip"
-        },
-        {
-            "tender_id": 77,
-            "reference": "18/2025_AGENCEURBAINEERRACHIDIA",
-            "expected_filename": "18_2025_AGENCEURBAINEERRACHIDIA.zip"
-        },
-        {
-            "tender_id": 110,
-            "reference": "34/2025_GOUVERNEURPROVINCEYOUSSOUFIA",
-            "expected_filename": "34_2025_GOUVERNEURPROVINCEYOUSSOUFIA.zip"
-        },
-        {
-            "tender_id": 147,
-            "reference": "28/2025_DIRREGMINJEUSPOREGTANTETALHOC",
-            "expected_filename": "28_2025_DIRREGMINJEUSPOREGTANTETALHOC.zip"
-        },
-        {
-            "tender_id": 172,
-            "reference": "36/2025_GOUVERNEURPROVINCEYOUSSOUFIA",
-            "expected_filename": "36_2025_GOUVERNEURPROVINCEYOUSSOUFIA.zip"
-        },
-        {
-            "tender_id": 202,
-            "reference": "14/2025_DELMINSANPRESKHTEM",
-            "expected_filename": "14_2025_DELMINSANPRESKHTEM.zip"
-        },
-        {
-            "tender_id": 222,
-            "reference": "39/2025_MINAMETERNATURBHABPOLVIL",
-            "expected_filename": "39_2025_MINAMETERNATURBHABPOLVIL.zip"
-        },
-        {
-            "tender_id": 228,
-            "reference": "38/2025_GOUVERNEURPROVINCEYOUSSOUFIA",
-            "expected_filename": "38_2025_GOUVERNEURPROVINCEYOUSSOUFIA.zip"
-        },
-        {
-            "tender_id": 240,
-            "reference": "30/2025_DELMINSANPREINEML",
-            "expected_filename": "30_2025_DELMINSANPREINEML.zip"
-        },
-        {
-            "tender_id": 280,
-            "reference": "25/2025_COMMUNEURBAINETAROUDANT",
-            "expected_filename": "25_2025_COMMUNEURBAINETAROUDANT.zip"
-        },
-        {
-            "tender_id": 284,
-            "reference": "32/2025_DIRRÉGAGRMARSAF",
-            "expected_filename": "32_2025_DIRRÉGAGRMARSAF.zip"
-        },
-        {
-            "tender_id": 301,
-            "reference": "94/2025_DIRDOUIMPINDRAB",
-            "expected_filename": "94_2025_DIRDOUIMPINDRAB.zip"
-        },
-        {
-            "tender_id": 324,
-            "reference": "46/2025_DIRPROL’ENATCHE",
-            "expected_filename": "46_2025_DIRPROL_ENATCHE.zip"
-        },
-        {
-            "tender_id": 337,
-            "reference": "52/2025_DIRPROEQUTRALOGAGAIDDOUT",
-            "expected_filename": "52_2025_DIRPROEQUTRALOGAGAIDDOUT.zip"
-        },
-        {
-            "tender_id": 381,
-            "reference": "41/2025_CENHOSPREARRMOURCHCAS",
-            "expected_filename": "41_2025_CENHOSPREARRMOURCHCAS.zip"
-        },
-        {
-            "tender_id": 394,
-            "reference": "18/2025/INDH_GOUVERNEURPROVINCEKHENIFRA",
-            "expected_filename": "18_2025_INDH_GOUVERNEURPROVINCEKHENIFRA.zip"
-        },
-        {
-            "tender_id": 423,
-            "reference": "28/2025/AREFDT_ACAREGEDUFORDRATAF",
-            "expected_filename": "28_2025_AREFDT_ACAREGEDUFORDRATAF.zip"
-        },
-        {
-            "tender_id": 424,
-            "reference": "51/bg/2025_GOUVERNEURPROVINCELARACHE",
-            "expected_filename": "51_bg_2025_GOUVERNEURPROVINCELARACHE.zip"
-        },
-        {
-            "tender_id": 440,
-            "reference": "90/2025_GOUVERNEURPROVINCETAROUDANNT",
-            "expected_filename": "90_2025_GOUVERNEURPROVINCETAROUDANNT.zip"
-        },
-        {
-            "tender_id": 452,
-            "reference": "39/2025/SM_COMMUNEURBAINEAZROU",
-            "expected_filename": "39_2025_SM_COMMUNEURBAINEAZROU.zip"
-        },
-        {
-            "tender_id": 459,
-            "reference": "34/INV/2025/GUELMIM_DIRPROL’ENATGUE",
-            "expected_filename": "34_INV_2025_GUELMIM_DIRPROL_ENATGUE.zip"
-        },
-        {
-            "tender_id": 466,
-            "reference": "42/2025/E.AREF.MS_ACAREGEDUFORMARSAF",
-            "expected_filename": "42_2025_E_AREF_MS_ACAREGEDUFORMARSAF.zip"
-        },
-        {
-            "tender_id": 475,
-            "reference": "29/2025_DELMINSANPREINEML",
-            "expected_filename": "29_2025_DELMINSANPREINEML.zip"
-        },
-        {
-            "tender_id": 479,
-            "reference": "15/EXP/2025_DIRPROL’ENATIFR",
-            "expected_filename": "15_EXP_2025_DIRPROL_ENATIFR.zip"
-        },
-        {
-            "tender_id": 491,
-            "reference": "74/ZAG/2025_DIRPROL’ENATZAG",
-            "expected_filename": "74_ZAG_2025_DIRPROL_ENATZAG.zip"
-        },
-        {
-            "tender_id": 492,
-            "reference": "75/ZAG/2025_DIRPROL’ENATZAG",
-            "expected_filename": "75_ZAG_2025_DIRPROL_ENATZAG.zip"
-        },
-        {
-            "tender_id": 493,
-            "reference": "76/ZAG/2025_DIRPROL’ENATZAG",
-            "expected_filename": "76_ZAG_2025_DIRPROL_ENATZAG.zip"
-        },
-        {
-            "tender_id": 510,
-            "reference": "09BI/2025/FSO_FACULTESCIENCESOUJDA",
-            "expected_filename": "09BI_2025_FSO_FACULTESCIENCESOUJDA.zip"
-        },
-        {
-            "tender_id": 515,
-            "reference": "20/2025/AHM_ARRONDISSEMENTHAYMOHAMMADI",
-            "expected_filename": "20_2025_AHM_ARRONDISSEMENTHAYMOHAMMADI.zip"
-        },
-        {
-            "tender_id": 519,
-            "reference": "24/25/FA_DIRPROL’ENATFAHANJ",
-            "expected_filename": "24_25_FA_DIRPROL_ENATFAHANJ.zip"
-        },
-        {
-            "tender_id": 526,
-            "reference": "04/2025/ENIAD_ECONATINTARTDIGBER",
-            "expected_filename": "04_2025_ENIAD_ECONATINTARTDIGBER.zip"
-        },
-        {
-            "tender_id": 527,
-            "reference": "23/25/FA_DIRPROL’ENATFAHANJ",
-            "expected_filename": "23_25_FA_DIRPROL_ENATFAHANJ.zip"
-        },
-        {
-            "tender_id": 541,
-            "reference": "08/CK/2025_COLLECTIVITÉTERRITORIALEKCEIBYA",
-            "expected_filename": "08_CK_2025_COLLECTIVITÉTERRITORIALEKCEIBYA.zip"
-        },
-        {
-            "tender_id": 548,
-            "reference": "25/2025/UMPO_PRESIDENCEUNIVERSITEMOHAMMED",
-            "expected_filename": "25_2025_UMPO_PRESIDENCEUNIVERSITEMOHAMMED.zip"
-        },
-        {
-            "tender_id": 559,
-            "reference": "23/2025/UMPO_PRESIDENCEUNIVERSITEMOHAMMED",
-            "expected_filename": "23_2025_UMPO_PRESIDENCEUNIVERSITEMOHAMMED.zip"
-        },
-        {
-            "tender_id": 560,
-            "reference": "05BI/2025/FSO_FACULTESCIENCESOUJDA",
-            "expected_filename": "05BI_2025_FSO_FACULTESCIENCESOUJDA.zip"
-        },
-        {
-            "tender_id": 561,
-            "reference": "22/2025/UMPO_PRESIDENCEUNIVERSITEMOHAMMED",
-            "expected_filename": "22_2025_UMPO_PRESIDENCEUNIVERSITEMOHAMMED.zip"
-        },
-        {
-            "tender_id": 570,
-            "reference": "52/2025/INDH/PT_GOUVERNEURPROVINCETAZA",
-            "expected_filename": "52_2025_INDH_PT_GOUVERNEURPROVINCETAZA.zip"
-        },
-        {
-            "tender_id": 575,
-            "reference": "15/2025/DRCARSK_DIRREGOFFNATCONAGRRABSALKÉN",
-            "expected_filename": "15_2025_DRCARSK_DIRREGOFFNATCONAGRRABSALKÉN.zip"
-        },
-        {
-            "tender_id": 576,
-            "reference": "24/2025/DRCABK_DIRREGCONAGRRÉGBENMELKHE",
-            "expected_filename": "24_2025_DRCABK_DIRREGCONAGRRÉGBENMELKHE.zip"
-        },
-        {
-            "tender_id": 581,
-            "reference": "10/EXP/2025/DPMY_DIRPROL’ENATMOUYAC",
-            "expected_filename": "10_EXP_2025_DPMY_DIRPROL_ENATMOUYAC.zip"
-        },
-        {
-            "tender_id": 584,
-            "reference": "01/2025/AMI_GOUVERNEURPROVINCETAROUDANNT",
-            "expected_filename": "01_2025_AMI_GOUVERNEURPROVINCETAROUDANNT.zip"
-        },
-        {
-            "tender_id": 586,
-            "reference": "60/EXP/2025_DIRPROL’ENATBER",
-            "expected_filename": "60_EXP_2025_DIRPROL_ENATBER.zip"
-        },
-        {
-            "tender_id": 590,
-            "reference": "25/2025/DRSM_DIRREGMINJEUSPOREGSOUMAS",
-            "expected_filename": "25_2025_DRSM_DIRREGMINJEUSPOREGSOUMAS.zip"
-        },
-        {
-            "tender_id": 595,
-            "reference": "04BI/2025/FSO_FACULTESCIENCESOUJDA",
-            "expected_filename": "04BI_2025_FSO_FACULTESCIENCESOUJDA.zip"
-        },
-        {
-            "tender_id": 599,
-            "reference": "23/2025/DAASI_MINTRAENEDEVDURDEPTRAENE",
-            "expected_filename": "23_2025_DAASI_MINTRAENEDEVDURDEPTRAENE.zip"
-        },
-        {
-            "tender_id": 600,
-            "reference": "04/2025/DRMCO/BG_DIRREGMETCENOUECAS",
-            "expected_filename": "04_2025_DRMCO_BG_DIRREGMETCENOUECAS.zip"
-        },
-        {
-            "tender_id": 601,
-            "reference": "25/2025/AA_ARRONDISSEMENTANNAKHIL",
-            "expected_filename": "25_2025_AA_ARRONDISSEMENTANNAKHIL.zip"
-        },
-        {
-            "tender_id": 610,
-            "reference": "03BI/2025/FSO_FACULTESCIENCESOUJDA",
-            "expected_filename": "03BI_2025_FSO_FACULTESCIENCESOUJDA.zip"
-        },
-        {
-            "tender_id": 616,
-            "reference": "04BF/2025/FSO_FACULTESCIENCESOUJDA",
-            "expected_filename": "04BF_2025_FSO_FACULTESCIENCESOUJDA.zip"
-        },
-        {
-            "tender_id": 617,
-            "reference": "27/EQ.TATA/2025_DIRPROL’ENATTAT",
-            "expected_filename": "27_EQ_TATA_2025_DIRPROL_ENATTAT.zip"
-        },
-        {
-            "tender_id": 621,
-            "reference": "32/MOB/2025_MINL’ENATPRÉSPO",
-            "expected_filename": "32_MOB_2025_MINL_ENATPRÉSPO.zip"
-        },
-        {
-            "tender_id": 633,
-            "reference": "75/2025/EXP.IFNI_DIRPROL’ENATSIDIFN",
-            "expected_filename": "75_2025_EXP_IFNI_DIRPROL_ENATSIDIFN.zip"
-        },
-        {
-            "tender_id": 637,
-            "reference": "33/2025_DIRRÉGAGRMARSAF",
-            "expected_filename": "33_2025_DIRRÉGAGRMARSAF.zip"
-        },
-        {
-            "tender_id": 640,
-            "reference": "31/2025/I.AREF.MS_ACAREGEDUFORMARSAF",
-            "expected_filename": "31_2025_I_AREF_MS_ACAREGEDUFORMARSAF.zip"
-        },
-        {
-            "tender_id": 665,
-            "reference": "30/2025/I.AREF.MS_ACAREGEDUFORMARSAF",
-            "expected_filename": "30_2025_I_AREF_MS_ACAREGEDUFORMARSAF.zip"
-        },
-        {
-            "tender_id": 676,
-            "reference": "32/EXP/2025/GUELMIM_DIRPROL’ENATGUE",
-            "expected_filename": "32_EXP_2025_GUELMIM_DIRPROL_ENATGUE.zip"
-        },
-        {
-            "tender_id": 677,
-            "reference": "38/2025/Y/FCT_DIRPROL’ENATYOU",
-            "expected_filename": "38_2025_Y_FCT_DIRPROL_ENATYOU.zip"
-        },
-        {
-            "tender_id": 686,
-            "reference": "164/FSJESM/2025_FACSCIJURECOSOCMAR",
-            "expected_filename": "164_FSJESM_2025_FACSCIJURECOSOCMAR.zip"
-        },
-        {
-            "tender_id": 691,
-            "reference": "13/25/CPR_CONSEILPRÉFECTURERABAT",
-            "expected_filename": "13_25_CPR_CONSEILPRÉFECTURERABAT.zip"
-        },
-        {
-            "tender_id": 695,
-            "reference": "082025_INSTITUTIONMÉDIATEURROYAUME",
-            "expected_filename": "082025_INSTITUTIONMÉDIATEURROYAUME.zip"
-        },
-        {
-            "tender_id": 701,
-            "reference": "12/A.E.A/2025_ARRONDISSEMENTASSOUKHOURASSAWDA",
-            "expected_filename": "12_A_E_A_2025_ARRONDISSEMENTASSOUKHOURASSAWDA.zip"
-        },
-        {
-            "tender_id": 713,
-            "reference": "51/2025_DIRPROEQUTRALOGAGAIDDOUT",
-            "expected_filename": "51_2025_DIRPROEQUTRALOGAGAIDDOUT.zip"
-        },
-        {
-            "tender_id": 715,
-            "reference": "21/2025/INDH_GOUVERNEURPROVINCERHAMNA",
-            "expected_filename": "21_2025_INDH_GOUVERNEURPROVINCERHAMNA.zip"
-        },
-        {
-            "tender_id": 716,
-            "reference": "29/2025/INDH_GOUVERNEURPROVINCEDRIOUECH",
-            "expected_filename": "29_2025_INDH_GOUVERNEURPROVINCEDRIOUECH.zip"
-        },
-        {
-            "tender_id": 722,
-            "reference": "11/2025/EXP.DP.AZ_DIRPROL’ENATASSZAG",
-            "expected_filename": "11_2025_EXP_DP_AZ_DIRPROL_ENATASSZAG.zip"
-        },
-        {
-            "tender_id": 723,
-            "reference": "37/2025/Y/INV_DIRPROL’ENATYOU",
-            "expected_filename": "37_2025_Y_INV_DIRPROL_ENATYOU.zip"
-        },
-        {
-            "tender_id": 724,
-            "reference": "59/2025/SEF_DIRPROL’ENATSEF",
-            "expected_filename": "59_2025_SEF_DIRPROL_ENATSEF.zip"
-        },
-        {
-            "tender_id": 725,
-            "reference": "22/AO/EXP/2025/DPTANTAN_DIRPROL’ENATTAN",
-            "expected_filename": "22_AO_EXP_2025_DPTANTAN_DIRPROL_ENATTAN.zip"
-        },
-        {
-            "tender_id": 726,
-            "reference": "11EXP/N/2025_DIRPROL’ENATNAD",
-            "expected_filename": "11EXP_N_2025_DIRPROL_ENATNAD.zip"
-        },
-        {
-            "tender_id": 728,
-            "reference": "99/2025/ERR_DIRPROL’ENATERR",
-            "expected_filename": "99_2025_ERR_DIRPROL_ENATERR.zip"
-        },
-        {
-            "tender_id": 736,
-            "reference": "100/2025/ERR_DIRPROL’ENATERR",
-            "expected_filename": "100_2025_ERR_DIRPROL_ENATERR.zip"
-        },
-        {
-            "tender_id": 744,
-            "reference": "65/2025/DRSPSRO_DIRREGSANREGORI",
-            "expected_filename": "65_2025_DRSPSRO_DIRREGSANREGORI.zip"
-        },
-        {
-            "tender_id": 750,
-            "reference": "13/2025/SONARGES_SOCNATREAGESÉQUSPO",
-            "expected_filename": "13_2025_SONARGES_SOCNATREAGESÉQUSPO.zip"
-        },
-        {
-            "tender_id": 769,
-            "reference": "31/MB/2025_MINL’ENATPRÉSPO",
-            "expected_filename": "31_MB_2025_MINL_ENATPRÉSPO.zip"
-        },
-        {
-            "tender_id": 771,
-            "reference": "02BF/2025/FSO_FACULTESCIENCESOUJDA",
-            "expected_filename": "02BF_2025_FSO_FACULTESCIENCESOUJDA.zip"
-        },
-        {
-            "tender_id": 774,
-            "reference": "01BF/2025/FSO_FACULTESCIENCESOUJDA",
-            "expected_filename": "01BF_2025_FSO_FACULTESCIENCESOUJDA.zip"
-        },
-        {
-            "tender_id": 775,
-            "reference": "96/2025/OUJDAMEN/EXP_DIRPROL’ENATD’OANG",
-            "expected_filename": "96_2025_OUJDAMEN_EXP_DIRPROL_ENATD_OANG.zip"
-        },
-        {
-            "tender_id": 776,
-            "reference": "36/2025/Y/INV_DIRPROL’ENATYOU",
-            "expected_filename": "36_2025_Y_INV_DIRPROL_ENATYOU.zip"
-        },
-        {
-            "tender_id": 777,
-            "reference": "13/2025/CAGCS_CHAAGRRÉGCASSET",
-            "expected_filename": "13_2025_CAGCS_CHAAGRRÉGCASSET.zip"
-        },
-        {
-            "tender_id": 783,
-            "reference": "34AFJ2025_DIRPROL’ENATJER",
-            "expected_filename": "34AFJ2025_DIRPROL_ENATJER.zip"
-        },
-        {
-            "tender_id": 784,
-            "reference": "09/EXP/2025_DIRPROL’ENATTAO",
-            "expected_filename": "09_EXP_2025_DIRPROL_ENATTAO.zip"
-        },
-        {
-            "tender_id": 785,
-            "reference": "33/MOB/2025_MINL’ENATPRÉSPO",
-            "expected_filename": "33_MOB_2025_MINL_ENATPRÉSPO.zip"
-        },
-        {
-            "tender_id": 789,
-            "reference": "29/2025/CHUSM_CENHOSUNISOUMAS",
-            "expected_filename": "29_2025_CHUSM_CENHOSUNISOUMAS.zip"
-        },
-        {
-            "tender_id": 792,
-            "reference": "53/CHT/2025_DIRPROL’ENATCHTAITBAH",
-            "expected_filename": "53_CHT_2025_DIRPROL_ENATCHTAITBAH.zip"
-        },
-        {
-            "tender_id": 801,
-            "reference": "30/2025/INDH_GOUVERNEURPROVINCEDRIOUECH",
-            "expected_filename": "30_2025_INDH_GOUVERNEURPROVINCEDRIOUECH.zip"
-        },
-        {
-            "tender_id": 802,
-            "reference": "82/2025/DPA/46_DIRPROAGRTAN",
-            "expected_filename": "82_2025_DPA_46_DIRPROAGRTAN.zip"
-        },
-        {
-            "tender_id": 803,
-            "reference": "23/2025_ENTRAIDENATIONALE",
-            "expected_filename": "23_2025_ENTRAIDENATIONALE.zip"
-        },
-        {
-            "tender_id": 805,
-            "reference": "7/E/2025_DIRPROL’ENATMOURAC",
-            "expected_filename": "7_E_2025_DIRPROL_ENATMOURAC.zip"
-        },
-        {
-            "tender_id": 806,
-            "reference": "25/INZ/2025_DIRPROL’ENATINZAITMEL",
-            "expected_filename": "25_INZ_2025_DIRPROL_ENATINZAITMEL.zip"
-        },
-        {
-            "tender_id": 807,
-            "reference": "19MATSCI/2025/FSA_FACULTESCIENCESAGADIR",
-            "expected_filename": "19MATSCI_2025_FSA_FACULTESCIENCESAGADIR.zip"
-        },
-        {
-            "tender_id": 808,
-            "reference": "167/UCA/2025_PREUNICADAYY",
-            "expected_filename": "167_UCA_2025_PREUNICADAYY.zip"
-        },
-        {
-            "tender_id": 810,
-            "reference": "34/2025/SONARGES_SOCNATREAGESÉQUSPO",
-            "expected_filename": "34_2025_SONARGES_SOCNATREAGESÉQUSPO.zip"
-        },
-        {
-            "tender_id": 815,
-            "reference": "N60/DPA.50/2025_DIRPROAGRCHE",
-            "expected_filename": "N60_DPA_50_2025_DIRPROAGRCHE.zip"
-        },
-        {
-            "tender_id": 825,
-            "reference": "27/2025/BG_DIRPROL’ENATTAR",
-            "expected_filename": "27_2025_BG_DIRPROL_ENATTAR.zip"
-        },
-        {
-            "tender_id": 827,
-            "reference": "51/CHT/2025_DIRPROL’ENATCHTAITBAH",
-            "expected_filename": "51_CHT_2025_DIRPROL_ENATCHTAITBAH.zip"
-        },
-        {
-            "tender_id": 828,
-            "reference": "31/I/2025_DIRPROL’ENATMOH",
-            "expected_filename": "31_I_2025_DIRPROL_ENATMOH.zip"
-        },
-        {
-            "tender_id": 829,
-            "reference": "31/INV/2025_CHAGESDELPRONOU",
-            "expected_filename": "31_INV_2025_CHAGESDELPRONOU.zip"
-        },
-        {
-            "tender_id": 830,
-            "reference": "18/MATENSEIGN/2025/FSA_FACULTESCIENCESAGADIR",
-            "expected_filename": "18_MATENSEIGN_2025_FSA_FACULTESCIENCESAGADIR.zip"
-        },
-        {
-            "tender_id": 831,
-            "reference": "166/UCA/2025_PREUNICADAYY",
-            "expected_filename": "166_UCA_2025_PREUNICADAYY.zip"
-        },
-        {
-            "tender_id": 835,
-            "reference": "36/2025/SONARGES_SOCNATREAGESÉQUSPO",
-            "expected_filename": "36_2025_SONARGES_SOCNATREAGESÉQUSPO.zip"
-        },
-        {
-            "tender_id": 844,
-            "reference": "14/2025/CUAO_COMURBAITOUR",
-            "expected_filename": "14_2025_CUAO_COMURBAITOUR.zip"
-        },
-        {
-            "tender_id": 849,
-            "reference": "34/2025/PSSAGADIR_POLYCLINIQUECNSSAGADIR",
-            "expected_filename": "34_2025_PSSAGADIR_POLYCLINIQUECNSSAGADIR.zip"
-        },
-        {
-            "tender_id": 850,
-            "reference": "12/DRSI/2025_MINTRAENEDÉVDURDÉPDÉVDUR",
-            "expected_filename": "12_DRSI_2025_MINTRAENEDÉVDURDÉPDÉVDUR.zip"
-        },
-        {
-            "tender_id": 852,
-            "reference": "17/2025/SONARGES_SOCNATREAGESÉQUSPO",
-            "expected_filename": "17_2025_SONARGES_SOCNATREAGESÉQUSPO.zip"
-        },
-        {
-            "tender_id": 853,
-            "reference": "03/ENSAH/2025_ECONATSCIAPPALHOC",
-            "expected_filename": "03_ENSAH_2025_ECONATSCIAPPALHOC.zip"
-        },
-        {
-            "tender_id": 855,
-            "reference": "08/ANRF/2025_AUTNATRENFIN",
-            "expected_filename": "08_ANRF_2025_AUTNATRENFIN.zip"
-        },
-        {
-            "tender_id": 879,
-            "reference": "262/25/ELEC_SOCREGMULMARSAFS.A",
-            "expected_filename": "262_25_ELEC_SOCREGMULMARSAFS_A.zip"
-        },
-        {
-            "tender_id": 880,
-            "reference": "264/25/ELEC_SOCREGMULMARSAFS.A",
-            "expected_filename": "264_25_ELEC_SOCREGMULMARSAFS_A.zip"
-        },
-        {
-            "tender_id": 883,
-            "reference": "26/2025/BG_DIRPROL’ENATTAR",
-            "expected_filename": "26_2025_BG_DIRPROL_ENATTAR.zip"
-        },
-        {
-            "tender_id": 884,
-            "reference": "68/INV/2025_DIRPROL’ENATOUA",
-            "expected_filename": "68_INV_2025_DIRPROL_ENATOUA.zip"
-        },
-        {
-            "tender_id": 886,
-            "reference": "06/E/2025_DIRPROL’ENATMOH",
-            "expected_filename": "06_E_2025_DIRPROL_ENATMOH.zip"
-        },
-        {
-            "tender_id": 887,
-            "reference": "95/2025/ERR_DIRPROL’ENATERR",
-            "expected_filename": "95_2025_ERR_DIRPROL_ENATERR.zip"
-        },
-        {
-            "tender_id": 888,
-            "reference": "96/2025/ERR_DIRPROL’ENATERR",
-            "expected_filename": "96_2025_ERR_DIRPROL_ENATERR.zip"
-        },
-        {
-            "tender_id": 889,
-            "reference": "30/INV/2025_CHAGESDELPRONOU",
-            "expected_filename": "30_INV_2025_CHAGESDELPRONOU.zip"
-        },
-        {
-            "tender_id": 890,
-            "reference": "10/I/2025_DIRPROL’ENATCASANF",
-            "expected_filename": "10_I_2025_DIRPROL_ENATCASANF.zip"
-        },
-        {
-            "tender_id": 893,
-            "reference": "2/2025/CHPRHAMNA_CENHOSPROREH",
-            "expected_filename": "2_2025_CHPRHAMNA_CENHOSPROREH.zip"
-        },
-        {
-            "tender_id": 901,
-            "reference": "27/2025/DRSM_DIRREGMINJEUSPOREGSOUMAS",
-            "expected_filename": "27_2025_DRSM_DIRREGMINJEUSPOREGSOUMAS.zip"
-        },
-        {
-            "tender_id": 904,
-            "reference": "27/2025/CHUSM_CENHOSUNISOUMAS",
-            "expected_filename": "27_2025_CHUSM_CENHOSUNISOUMAS.zip"
-        },
-        {
-            "tender_id": 926,
-            "reference": "30/MB/2025_MINL’ENATPRÉSPO",
-            "expected_filename": "30_MB_2025_MINL_ENATPRÉSPO.zip"
-        },
-        {
-            "tender_id": 932,
-            "reference": "39/FIG/2025_DIRPROL’ENATFIG",
-            "expected_filename": "39_FIG_2025_DIRPROL_ENATFIG.zip"
-        },
-        {
-            "tender_id": 933,
-            "reference": "05/E/25/2025/DPELFIDA_DIRPROL’ENATELFIDMERSUL",
-            "expected_filename": "05_E_25_2025_DPELFIDA_DIRPROL_ENATELFIDMERSUL.zip"
-        },
-        {
-            "tender_id": 936,
-            "reference": "08/2025/EXPDGF_DIRPROL’ENATGUE",
-            "expected_filename": "08_2025_EXPDGF_DIRPROL_ENATGUE.zip"
-        },
-        {
-            "tender_id": 939,
-            "reference": "85/2025/EXP_DIRPROL’ENATTAR",
-            "expected_filename": "85_2025_EXP_DIRPROL_ENATTAR.zip"
-        },
-        {
-            "tender_id": 941,
-            "reference": "84/2025/EQ_DIRPROL’ENATTAR",
-            "expected_filename": "84_2025_EQ_DIRPROL_ENATTAR.zip"
-        },
-        {
-            "tender_id": 942,
-            "reference": "83/2025/EQ_DIRPROL’ENATTAR",
-            "expected_filename": "83_2025_EQ_DIRPROL_ENATTAR.zip"
-        },
-        {
-            "tender_id": 947,
-            "reference": "85IUH2C/2025_PREUNIHASIICAS",
-            "expected_filename": "85IUH2C_2025_PREUNIHASIICAS.zip"
-        },
-        {
-            "tender_id": 948,
-            "reference": "98IUH2C/2025_PREUNIHASIICAS",
-            "expected_filename": "98IUH2C_2025_PREUNIHASIICAS.zip"
-        },
-        {
-            "tender_id": 971,
-            "reference": "09/2025/PUSMS_PREUNISULMOUSLI",
-            "expected_filename": "09_2025_PUSMS_PREUNISULMOUSLI.zip"
-        },
-        {
-            "tender_id": 972,
-            "reference": "25/2025/AREFDT_ACAREGEDUFORDRATAF",
-            "expected_filename": "25_2025_AREFDT_ACAREGEDUFORDRATAF.zip"
-        },
-        {
-            "tender_id": 974,
-            "reference": "74/ELH/2025_DIRPROL’ENATD’EHAJ",
-            "expected_filename": "74_ELH_2025_DIRPROL_ENATD_EHAJ.zip"
-        },
-        {
-            "tender_id": 978,
-            "reference": "33/2025/AMEE_AGEMARPOUL’EENE",
-            "expected_filename": "33_2025_AMEE_AGEMARPOUL_EENE.zip"
-        },
-        {
-            "tender_id": 984,
-            "reference": "08/2025/PUSMS_PREUNISULMOUSLI",
-            "expected_filename": "08_2025_PUSMS_PREUNISULMOUSLI.zip"
-        },
-        {
-            "tender_id": 997,
-            "reference": "AO94/2025/DRA.DT_DIRREGL’ADRATAF",
-            "expected_filename": "AO94_2025_DRA_DT_DIRREGL_ADRATAF.zip"
-        },
-        {
-            "tender_id": 999,
-            "reference": "07/2026_AGEREGEXEPROREGBENMELKHE",
-            "expected_filename": "07_2026_AGEREGEXEPROREGBENMELKHE.zip"
-        },
-        {
-            "tender_id": 1021,
-            "reference": "19BIS/CD/2025_COMMUNERURALEDEROUA",
-            "expected_filename": "19BIS_CD_2025_COMMUNERURALEDEROUA.zip"
-        },
-        {
-            "tender_id": 1028,
-            "reference": "500/2025/SRMCS_SOCREGMULCASSETSA",
-            "expected_filename": "500_2025_SRMCS_SOCREGMULCASSETSA.zip"
-        },
-        {
-            "tender_id": 1032,
-            "reference": "SAPSB/11/2025_SOCAMEPROSIDBEN",
-            "expected_filename": "SAPSB_11_2025_SOCAMEPROSIDBEN.zip"
-        },
-        {
-            "tender_id": 1037,
-            "reference": "SAPSB/10/2025_SOCAMEPROSIDBEN",
-            "expected_filename": "SAPSB_10_2025_SOCAMEPROSIDBEN.zip"
-        },
-        {
-            "tender_id": 1042,
-            "reference": "20/PK/BP/2025_PROVINCEKENITRA",
-            "expected_filename": "20_PK_BP_2025_PROVINCEKENITRA.zip"
-        },
-        {
-            "tender_id": 1043,
-            "reference": "SAPSB/09/2025_SOCAMEPROSIDBEN",
-            "expected_filename": "SAPSB_09_2025_SOCAMEPROSIDBEN.zip"
-        },
-        {
-            "tender_id": 1063,
-            "reference": "71/TS/2025_DIRPROL’ENATSAL",
-            "expected_filename": "71_TS_2025_DIRPROL_ENATSAL.zip"
-        },
-        {
-            "tender_id": 1064,
-            "reference": "181/2025/S2A_SOCDÉVLOCAGASOUMASAMÉSA",
-            "expected_filename": "181_2025_S2A_SOCDÉVLOCAGASOUMASAMÉSA.zip"
-        },
-        {
-            "tender_id": 1069,
-            "reference": "25/2025/DRANEF/GON_DIRREGAGENATEAUFORGUEOUENOU",
-            "expected_filename": "25_2025_DRANEF_GON_DIRREGAGENATEAUFORGUEOUENOU.zip"
-        },
-        {
-            "tender_id": 899,
-            "reference": "99/2025_SOCALOMRDRATAF",
-            "expected_filename": "99_2025_SOCALOMRDRATAF.zip"
-        },
-        {
-            "tender_id": 344,
-            "reference": "16/2025_COMURBELHAJ",
-            "expected_filename": "16_2025_COMURBELHAJ.zip"
-        },
-        {
-            "tender_id": 425,
-            "reference": "15/2025_COMURBTITMEL",
-            "expected_filename": "15_2025_COMURBTITMEL.zip"
-        },
-        {
-            "tender_id": 1103,
-            "reference": "116/CL/2025_COMMUNEURBAINELAAYOUNE",
-            "expected_filename": "116_CL_2025_COMMUNEURBAINELAAYOUNE.zip"
-        },
-        {
-            "tender_id": 1105,
-            "reference": "115/CL/2025_COMMUNEURBAINELAAYOUNE",
-            "expected_filename": "115_CL_2025_COMMUNEURBAINELAAYOUNE.zip"
-        },
-        {
-            "tender_id": 1124,
-            "reference": "503/2025/SRMCS_SOCREGMULCASSETSA",
-            "expected_filename": "503_2025_SRMCS_SOCREGMULCASSETSA.zip"
-        },
-        {
-            "tender_id": 1125,
-            "reference": "95/2025_DIRDOUIMPINDRAB",
-            "expected_filename": "95_2025_DIRDOUIMPINDRAB.zip"
-        },
-        {
-            "tender_id": 1131,
-            "reference": "AO002/2026/ANCFCC/DOSI_AGENATCONFONCADCAR",
-            "expected_filename": "AO002_2026_ANCFCC_DOSI_AGENATCONFONCADCAR.zip"
-        },
-        {
-            "tender_id": 1129,
-            "reference": "95/2025/ADERFES_AGEPOUDEVREHVILFES",
-            "expected_filename": "95_2025_ADERFES_AGEPOUDEVREHVILFES.zip"
-        },
-        {
-            "tender_id": 1138,
-            "reference": "11/SMTF/DM/FSH/2025_DIRECTIONMOSQUÉES",
-            "expected_filename": "11_SMTF_DM_FSH_2025_DIRECTIONMOSQUÉES.zip"
-        },
-        {
-            "tender_id": 1152,
-            "reference": "03/CTT/2025_COMMUNETAGANTE",
-            "expected_filename": "03_CTT_2025_COMMUNETAGANTE.zip"
-        },
-        {
-            "tender_id": 1168,
-            "reference": "189/2025/SAO_SOCALOREGL’O",
-            "expected_filename": "189_2025_SAO_SOCALOREGL_O.zip"
-        },
-        {
-            "tender_id": 1169,
-            "reference": "191/2025/SAO_SOCALOREGL’O",
-            "expected_filename": "191_2025_SAO_SOCALOREGL_O.zip"
-        },
-        {
-            "tender_id": 1170,
-            "reference": "192/2025/SAO_SOCALOREGL’O",
-            "expected_filename": "192_2025_SAO_SOCALOREGL_O.zip"
-        },
-        {
-            "tender_id": 1171,
-            "reference": "193/2025/SAO_SOCALOREGL’O",
-            "expected_filename": "193_2025_SAO_SOCALOREGL_O.zip"
-        },
-        {
-            "tender_id": 1181,
-            "reference": "10/SMTF/DM/FSH/2025_DIRECTIONMOSQUÉES",
-            "expected_filename": "10_SMTF_DM_FSH_2025_DIRECTIONMOSQUÉES.zip"
-        },
-        {
-            "tender_id": 1187,
-            "reference": "98/2025_REGIONSOUSMASSA",
-            "expected_filename": "98_2025_REGIONSOUSMASSA.zip"
-        },
-        {
-            "tender_id": 1193,
-            "reference": "05/2025/SP/BM_DIRPROL’ENATBENMEL",
-            "expected_filename": "05_2025_SP_BM_DIRPROL_ENATBENMEL.zip"
-        },
-        {
-            "tender_id": 1201,
-            "reference": "617/2025/GTC/PREST/L16_CASABLANCAAMENAGEMENTSA",
-            "expected_filename": "617_2025_GTC_PREST_L16_CASABLANCAAMENAGEMENTSA.zip"
-        },
-        {
-            "tender_id": 1197,
-            "reference": "95/2025/INV_DIRPROL’ENATTAR",
-            "expected_filename": "95_2025_INV_DIRPROL_ENATTAR.zip"
-        },
-        {
-            "tender_id": 1232,
-            "reference": "20/2025_COMMUNEURBAINESEFROU",
-            "expected_filename": "20_2025_COMMUNEURBAINESEFROU.zip"
-        },
-        {
-            "tender_id": 1247,
-            "reference": "10002914_SOCREGMULORIS.A",
-            "expected_filename": "10002914_SOCREGMULORIS_A.zip"
-        },
-        {
-            "tender_id": 1281,
-            "reference": "07/2025_COMMUNERURALEECHCHALLALATE",
-            "expected_filename": "07_2025_COMMUNERURALEECHCHALLALATE.zip"
-        },
-        {
-            "tender_id": 1285,
-            "reference": "17/2025_SECRETARIATGENERALGOUVERNEMENT",
-            "expected_filename": "17_2025_SECRETARIATGENERALGOUVERNEMENT.zip"
-        },
-        {
-            "tender_id": 1291,
-            "reference": "13/2025/C.T_COMMUNERURALETAMEDIT",
-            "expected_filename": "13_2025_C_T_COMMUNERURALETAMEDIT.zip"
-        },
-        {
-            "tender_id": 1309,
-            "reference": "05.2025_COMRURMYAISBENDRI",
-            "expected_filename": "05_2025_COMRURMYAISBENDRI.zip"
-        },
-        {
-            "tender_id": 1315,
-            "reference": "21/2025_COMURBKELSRA",
-            "expected_filename": "21_2025_COMURBKELSRA.zip"
-        },
-        {
-            "tender_id": 1316,
-            "reference": "20/2025_COMURBKELSRA",
-            "expected_filename": "20_2025_COMURBKELSRA.zip"
-        },
-        {
-            "tender_id": 1319,
-            "reference": "11/2025_COMRURSAHOULHRI",
-            "expected_filename": "11_2025_COMRURSAHOULHRI.zip"
-        },
-        {
-            "tender_id": 1345,
-            "reference": "01/2025_COMRURAITOUR",
-            "expected_filename": "01_2025_COMRURAITOUR.zip"
-        },
-        {
-            "tender_id": 1347,
-            "reference": "18/2025_COMMUNEURBAINETEMARA",
-            "expected_filename": "18_2025_COMMUNEURBAINETEMARA.zip"
-        },
-        {
-            "tender_id": 1349,
-            "reference": "05/2025_COMMUNELAAMAMRA",
-            "expected_filename": "05_2025_COMMUNELAAMAMRA.zip"
-        },
-        {
-            "tender_id": 1351,
-            "reference": "04/2025_COMRURAITSEDSAH",
-            "expected_filename": "04_2025_COMRURAITSEDSAH.zip"
-        },
-        {
-            "tender_id": 1352,
-            "reference": "03/CM/2025_COMMUNEURBAINEMISSOUR",
-            "expected_filename": "03_CM_2025_COMMUNEURBAINEMISSOUR.zip"
-        },
-        {
-            "tender_id": 1357,
-            "reference": "11/2025/CMS_COMURBMECSTI",
-            "expected_filename": "11_2025_CMS_COMURBMECSTI.zip"
-        },
-        {
-            "tender_id": 1367,
-            "reference": "35/2025_CENHOSREGFES",
-            "expected_filename": "35_2025_CENHOSREGFES.zip"
-        },
-        {
-            "tender_id": 1368,
-            "reference": "11/2025_CENHOSPROKEN",
-            "expected_filename": "11_2025_CENHOSPROKEN.zip"
-        },
-        {
-            "tender_id": 1376,
-            "reference": "N69/DPA.50/2025_DIRPROAGRCHE",
-            "expected_filename": "N69_DPA_50_2025_DIRPROAGRCHE.zip"
-        },
-        {
-            "tender_id": 1377,
-            "reference": "03/2025_DIRREGENTNATSOUMAS",
-            "expected_filename": "03_2025_DIRREGENTNATSOUMAS.zip"
-        },
-        {
-            "tender_id": 1378,
-            "reference": "12/2025/DAR_GOUVERNEURPROVINCEIFRANE",
-            "expected_filename": "12_2025_DAR_GOUVERNEURPROVINCEIFRANE.zip"
-        },
-        {
-            "tender_id": 1381,
-            "reference": "N67/DPA.50/2025_DIRPROAGRCHE",
-            "expected_filename": "N67_DPA_50_2025_DIRPROAGRCHE.zip"
-        },
-        {
-            "tender_id": 1382,
-            "reference": "04/DRERRACHIDIA/2025_DIRREGENTNATDRATAF",
-            "expected_filename": "04_DRERRACHIDIA_2025_DIRREGENTNATDRATAF.zip"
-        },
-        {
-            "tender_id": 1384,
-            "reference": "N66/DPA.50/2025_DIRPROAGRCHE",
-            "expected_filename": "N66_DPA_50_2025_DIRPROAGRCHE.zip"
-        },
-        {
-            "tender_id": 1386,
-            "reference": "05DRCASABLANCA2025_COOREGL’ENATCAS",
-            "expected_filename": "05DRCASABLANCA2025_COOREGL_ENATCAS.zip"
-        },
-        {
-            "tender_id": 1387,
-            "reference": "05/2025/DRMARRAKECH_DIRREGENTNATMARSAF",
-            "expected_filename": "05_2025_DRMARRAKECH_DIRREGENTNATMARSAF.zip"
-        },
-        {
-            "tender_id": 1395,
-            "reference": "94/2025/INV_DIRPROL’ENATTAR",
-            "expected_filename": "94_2025_INV_DIRPROL_ENATTAR.zip"
-        },
-        {
-            "tender_id": 1400,
-            "reference": "76/2025_REGIONSOUSMASSA",
-            "expected_filename": "76_2025_REGIONSOUSMASSA.zip"
-        },
-        {
-            "tender_id": 1401,
-            "reference": "06/2025_COMMUNEZEGZEL",
-            "expected_filename": "06_2025_COMMUNEZEGZEL.zip"
-        },
-        {
-            "tender_id": 1407,
-            "reference": "59/2025_POSTEMAROC",
-            "expected_filename": "59_2025_POSTEMAROC.zip"
-        },
-        {
-            "tender_id": 1412,
-            "reference": "193/2025/HABOUS_CGIMANAGEMENT",
-            "expected_filename": "193_2025_HABOUS_CGIMANAGEMENT.zip"
-        },
-        {
-            "tender_id": 1413,
-            "reference": "491/2025/SRMCS_SOCREGMULCASSETSA",
-            "expected_filename": "491_2025_SRMCS_SOCREGMULCASSETSA.zip"
-        },
-        {
-            "tender_id": 1417,
-            "reference": "110/TTH/TE/2025_ALOMRTANTETALHOC",
-            "expected_filename": "110_TTH_TE_2025_ALOMRTANTETALHOC.zip"
-        },
-        {
-            "tender_id": 1418,
-            "reference": "02/2025_COMMUNEAITKAMRA",
-            "expected_filename": "02_2025_COMMUNEAITKAMRA.zip"
-        },
-        {
-            "tender_id": 1423,
-            "reference": "109/TTH/TE/2025_ALOMRTANTETALHOC",
-            "expected_filename": "109_TTH_TE_2025_ALOMRTANTETALHOC.zip"
-        },
-        {
-            "tender_id": 1424,
-            "reference": "41/2025/SM_COMMUNEURBAINEAZROU",
-            "expected_filename": "41_2025_SM_COMMUNEURBAINEAZROU.zip"
-        },
-        {
-            "tender_id": 1428,
-            "reference": "29/2025/CL_COMMUNEURBAINELARACHE",
-            "expected_filename": "29_2025_CL_COMMUNEURBAINELARACHE.zip"
-        },
-        {
-            "tender_id": 1429,
-            "reference": "10/2025_COMMUNEHADBOUMOUSSA",
-            "expected_filename": "10_2025_COMMUNEHADBOUMOUSSA.zip"
-        },
-        {
-            "tender_id": 1430,
-            "reference": "22/2025_COMSIDYAHZAE",
-            "expected_filename": "22_2025_COMSIDYAHZAE.zip"
-        },
-        {
-            "tender_id": 1431,
-            "reference": "37/2025_COMFQUBENSAL",
-            "expected_filename": "37_2025_COMFQUBENSAL.zip"
-        },
-        {
-            "tender_id": 1442,
-            "reference": "108/TTH/TE/2025_ALOMRTANTETALHOC",
-            "expected_filename": "108_TTH_TE_2025_ALOMRTANTETALHOC.zip"
-        },
-        {
-            "tender_id": 1445,
-            "reference": "66/2025_POSTEMAROC",
-            "expected_filename": "66_2025_POSTEMAROC.zip"
-        },
-        {
-            "tender_id": 1458,
-            "reference": "37/2025_DIRRÉGAGENATEQUPUBTANTETALHOC",
-            "expected_filename": "37_2025_DIRRÉGAGENATEQUPUBTANTETALHOC.zip"
-        },
-        {
-            "tender_id": 1468,
-            "reference": "16/2025_COMMUNEURBAINEBOUJDOUR",
-            "expected_filename": "16_2025_COMMUNEURBAINEBOUJDOUR.zip"
-        },
-        {
-            "tender_id": 1470,
-            "reference": "02/2025_COMMUNETIMEZGADIOUINE",
-            "expected_filename": "02_2025_COMMUNETIMEZGADIOUINE.zip"
-        },
-        {
-            "tender_id": 1471,
-            "reference": "11/2025_COMOULAAMTIZ",
-            "expected_filename": "11_2025_COMOULAAMTIZ.zip"
-        },
-        {
-            "tender_id": 1472,
-            "reference": "10/2025_COMMUNEOULEDDLIM",
-            "expected_filename": "10_2025_COMMUNEOULEDDLIM.zip"
-        },
-        {
-            "tender_id": 1473,
-            "reference": "03/2025_COMMUNEICHAMRAREN",
-            "expected_filename": "03_2025_COMMUNEICHAMRAREN.zip"
-        },
-        {
-            "tender_id": 1476,
-            "reference": "07/2025_COMMUNEKRIFATE",
-            "expected_filename": "07_2025_COMMUNEKRIFATE.zip"
-        },
-        {
-            "tender_id": 1479,
-            "reference": "15/2025_COMMUNETIGHEDOUINE",
-            "expected_filename": "15_2025_COMMUNETIGHEDOUINE.zip"
-        },
-        {
-            "tender_id": 1482,
-            "reference": "3/2026/OR/OZ/SGRID_OFFREGMISVALAGROUA",
-            "expected_filename": "3_2026_OR_OZ_SGRID_OFFREGMISVALAGROUA.zip"
-        },
-        {
-            "tender_id": 1505,
+            "tender_id": 3461,
             "reference": "93/2025_REGIONSOUSMASSA",
-            "expected_filename": "93_2025_REGIONSOUSMASSA.zip"
+            "expected_folder": "tenders_doc_final/93_2025_REGIONSOUSMASSA/"
         },
         {
-            "tender_id": 1511,
-            "reference": "08/2025_COMMUNESOUIHLA",
-            "expected_filename": "08_2025_COMMUNESOUIHLA.zip"
+            "tender_id": 3465,
+            "reference": "67/2025/BG_DIRPROL’ENATTAR",
+            "expected_folder": "tenders_doc_final/67_2025_BG_DIRPROL_ENATTAR/"
         },
         {
-            "tender_id": 1512,
-            "reference": "82/2025/DRANEFRSK_DIRREGAGENATEAUFORRABSALKEN",
-            "expected_filename": "82_2025_DRANEFRSK_DIRREGAGENATEAUFORRABSALKEN.zip"
+            "tender_id": 3466,
+            "reference": "75/DKHT/2025_DIRPROL’ENATKHE",
+            "expected_folder": "tenders_doc_final/75_DKHT_2025_DIRPROL_ENATKHE/"
         },
         {
-            "tender_id": 1515,
-            "reference": "188/2025/MODPDR_CGIMANAGEMENT",
-            "expected_filename": "188_2025_MODPDR_CGIMANAGEMENT.zip"
+            "tender_id": 3467,
+            "reference": "131/2025/OR/OZ_OFFREGMISVALAGROUA",
+            "expected_folder": "tenders_doc_final/131_2025_OR_OZ_OFFREGMISVALAGROUA/"
         },
         {
-            "tender_id": 839,
-            "reference": "28/2025/CHUSM_CENHOSUNISOUMAS",
-            "expected_filename": "28_2025_CHUSM_CENHOSUNISOUMAS.zip"
+            "tender_id": 3468,
+            "reference": "AO48/2025_DIRPROEQUTRALOGEAURAB",
+            "expected_folder": "tenders_doc_final/AO48_2025_DIRPROEQUTRALOGEAURAB/"
         },
         {
-            "tender_id": 45,
-            "reference": "01/2025._COLLECTIVITÉTERRITORIALEZOUADA",
-            "expected_filename": "01_2025__COLLECTIVITÉTERRITORIALEZOUADA.zip"
+            "tender_id": 3469,
+            "reference": "130/2025/OR/OZ_OFFREGMISVALAGROUA",
+            "expected_folder": "tenders_doc_final/130_2025_OR_OZ_OFFREGMISVALAGROUA/"
         },
         {
-            "tender_id": 868,
-            "reference": "18/2025/BG_GOUPROESSMA",
-            "expected_filename": "18_2025_BG_GOUPROESSMA.zip"
+            "tender_id": 3470,
+            "reference": "98/DO/INV/2025/DPMENOUJDA_DIRPROL’ENATD’OANG",
+            "expected_folder": "tenders_doc_final/98_DO_INV_2025_DPMENOUJDA_DIRPROL_ENATD_OANG/"
         },
         {
-            "tender_id": 398,
-            "reference": "42/2025_COMMUNEURBAINEKHENIFRA",
-            "expected_filename": "42_2025_COMMUNEURBAINEKHENIFRA.zip"
+            "tender_id": 3471,
+            "reference": "74/DKHT/2025_DIRPROL’ENATKHE",
+            "expected_folder": "tenders_doc_final/74_DKHT_2025_DIRPROL_ENATKHE/"
         },
         {
-            "tender_id": 4,
-            "reference": "05/2025_COMMUNERURALEKISSANE",
-            "expected_filename": "05_2025_COMMUNERURALEKISSANE.zip"
+            "tender_id": 3472,
+            "reference": "61/2025/INVTAOU_AREFESMEKDIRPROMENTAO",
+            "expected_folder": "tenders_doc_final/61_2025_INVTAOU_AREFESMEKDIRPROMENTAO/"
+        },
+        {
+            "tender_id": 3485,
+            "reference": "10004762_SOCREGMULORIS.A",
+            "expected_folder": "tenders_doc_final/10004762_SOCREGMULORIS_A/"
+        },
+        {
+            "tender_id": 3494,
+            "reference": "10/2025_COMMUNEOULEDZMAM",
+            "expected_folder": "tenders_doc_final/10_2025_COMMUNEOULEDZMAM/"
+        },
+        {
+            "tender_id": 3495,
+            "reference": "02/2025_COMMUNECHAKRANE",
+            "expected_folder": "tenders_doc_final/02_2025_COMMUNECHAKRANE/"
+        },
+        {
+            "tender_id": 3497,
+            "reference": "66/2025/DRSPSRO_DIRREGSANREGORI",
+            "expected_folder": "tenders_doc_final/66_2025_DRSPSRO_DIRREGSANREGORI/"
+        },
+        {
+            "tender_id": 3516,
+            "reference": "27/DRSI/2025_MINTRAENEDÉVDURDÉPDÉVDUR",
+            "expected_folder": "tenders_doc_final/27_DRSI_2025_MINTRAENEDÉVDURDÉPDÉVDUR/"
+        },
+        {
+            "tender_id": 3520,
+            "reference": "621/2025/MEDTM/EQ/L2_CASABLANCAAMENAGEMENTSA",
+            "expected_folder": "tenders_doc_final/621_2025_MEDTM_EQ_L2_CASABLANCAAMENAGEMENTSA/"
+        },
+        {
+            "tender_id": 3521,
+            "reference": "620/2025/MEDTM/EQ/L1_CASABLANCAAMENAGEMENTSA",
+            "expected_folder": "tenders_doc_final/620_2025_MEDTM_EQ_L1_CASABLANCAAMENAGEMENTSA/"
+        },
+        {
+            "tender_id": 3524,
+            "reference": "0011/2025/ABM_ARRONDISSEMENTBENSICK",
+            "expected_folder": "tenders_doc_final/0011_2025_ABM_ARRONDISSEMENTBENSICK/"
+        },
+        {
+            "tender_id": 3525,
+            "reference": "0012/2025/ABM_ARRONDISSEMENTBENSICK",
+            "expected_folder": "tenders_doc_final/0012_2025_ABM_ARRONDISSEMENTBENSICK/"
         }
     ]
 }
