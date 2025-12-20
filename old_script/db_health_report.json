@@ -1,0 +1,302 @@
+{
+    "timestamp": "2025-12-19T19:35:13.028371",
+    "total_tenders_checked": 3635,
+    "missing_files_count": 59,
+    "missing_files": [
+        {
+            "tender_id": 1931,
+            "reference": "004/2025_COMMUNEEDDACHRA",
+            "expected_folder": "tenders_doc_final/004_2025_COMMUNEEDDACHRA/"
+        },
+        {
+            "tender_id": 894,
+            "reference": "22/2025/DRSPSFM_DIRREGSANREGFESMEK",
+            "expected_folder": "tenders_doc_final/22_2025_DRSPSFM_DIRREGSANREGFESMEK/"
+        },
+        {
+            "tender_id": 2125,
+            "reference": "03/2025_COMRURAINMED",
+            "expected_folder": "tenders_doc_final/03_2025_COMRURAINMED/"
+        },
+        {
+            "tender_id": 3726,
+            "reference": "97DR1/CI/2025_OFFNATELEEAUPOTBRAEAU",
+            "expected_folder": "tenders_doc_final/97DR1_CI_2025_OFFNATELEEAUPOTBRAEAU/"
+        },
+        {
+            "tender_id": 3737,
+            "reference": "6/2025_COMMUNERURALEOUAOUMANA",
+            "expected_folder": "tenders_doc_final/6_2025_COMMUNERURALEOUAOUMANA/"
+        },
+        {
+            "tender_id": 3738,
+            "reference": "04/25_DÉLÉGATIONPROVINCIALERHAMNA",
+            "expected_folder": "tenders_doc_final/04_25_DÉLÉGATIONPROVINCIALERHAMNA/"
+        },
+        {
+            "tender_id": 3739,
+            "reference": "20/2025/BP/PSS/2025_PROVINCESIDISLIMANE",
+            "expected_folder": "tenders_doc_final/20_2025_BP_PSS_2025_PROVINCESIDISLIMANE/"
+        },
+        {
+            "tender_id": 3742,
+            "reference": "13/2025/CNSSSOUSSMASSA_CNSDIRREGAGA",
+            "expected_folder": "tenders_doc_final/13_2025_CNSSSOUSSMASSA_CNSDIRREGAGA/"
+        },
+        {
+            "tender_id": 3744,
+            "reference": "03/KS/2026_DIRPROL’ENATKELESSRA",
+            "expected_folder": "tenders_doc_final/03_KS_2026_DIRPROL_ENATKELESSRA/"
+        },
+        {
+            "tender_id": 3746,
+            "reference": "02/KS/2026_DIRPROL’ENATKELESSRA",
+            "expected_folder": "tenders_doc_final/02_KS_2026_DIRPROL_ENATKELESSRA/"
+        },
+        {
+            "tender_id": 3748,
+            "reference": "01/KS/2026_DIRPROL’ENATKELESSRA",
+            "expected_folder": "tenders_doc_final/01_KS_2026_DIRPROL_ENATKELESSRA/"
+        },
+        {
+            "tender_id": 1943,
+            "reference": "03/2025_COMMUNEEDDACHRA",
+            "expected_folder": "tenders_doc_final/03_2025_COMMUNEEDDACHRA/"
+        },
+        {
+            "tender_id": 3781,
+            "reference": "07/2025_COMMUNEBOUGUEDRA",
+            "expected_folder": "tenders_doc_final/07_2025_COMMUNEBOUGUEDRA/"
+        },
+        {
+            "tender_id": 3783,
+            "reference": "06/2025_COMMUNERAMER",
+            "expected_folder": "tenders_doc_final/06_2025_COMMUNERAMER/"
+        },
+        {
+            "tender_id": 3802,
+            "reference": "10004633_SOCREGMULSOUMASSA",
+            "expected_folder": "tenders_doc_final/10004633_SOCREGMULSOUMASSA/"
+        },
+        {
+            "tender_id": 3803,
+            "reference": "10004372_SOCREGMULSOUMASSA",
+            "expected_folder": "tenders_doc_final/10004372_SOCREGMULSOUMASSA/"
+        },
+        {
+            "tender_id": 3805,
+            "reference": "10000939_SOCREGMULSOUMASSA",
+            "expected_folder": "tenders_doc_final/10000939_SOCREGMULSOUMASSA/"
+        },
+        {
+            "tender_id": 3806,
+            "reference": "76/2025/DRANEF_MS_DIRREGAGENATEAUFORMARSAF",
+            "expected_folder": "tenders_doc_final/76_2025_DRANEF_MS_DIRREGAGENATEAUFORMARSAF/"
+        },
+        {
+            "tender_id": 3809,
+            "reference": "12/2025_COLLECTIVITÉTERRITORIALETATOFT",
+            "expected_folder": "tenders_doc_final/12_2025_COLLECTIVITÉTERRITORIALETATOFT/"
+        },
+        {
+            "tender_id": 3811,
+            "reference": "13/2025_DELMINSANPREARRHAYHAS",
+            "expected_folder": "tenders_doc_final/13_2025_DELMINSANPREARRHAYHAS/"
+        },
+        {
+            "tender_id": 3813,
+            "reference": "11/2025_DELMINSANPREARRHAYHAS",
+            "expected_folder": "tenders_doc_final/11_2025_DELMINSANPREARRHAYHAS/"
+        },
+        {
+            "tender_id": 3817,
+            "reference": "27/2025_POLYCLINIQUECNSSOUJDA",
+            "expected_folder": "tenders_doc_final/27_2025_POLYCLINIQUECNSSOUJDA/"
+        },
+        {
+            "tender_id": 3821,
+            "reference": "21/2025_DELMINSANPREARRHAYHAS",
+            "expected_folder": "tenders_doc_final/21_2025_DELMINSANPREARRHAYHAS/"
+        },
+        {
+            "tender_id": 3824,
+            "reference": "14/2025_DELMINSANPREARRHAYHAS",
+            "expected_folder": "tenders_doc_final/14_2025_DELMINSANPREARRHAYHAS/"
+        },
+        {
+            "tender_id": 3670,
+            "reference": "10004893_SOCREGMULORIS.A",
+            "expected_folder": "tenders_doc_final/10004893_SOCREGMULORIS_A/"
+        },
+        {
+            "tender_id": 3678,
+            "reference": "03/2025_COMMUNEURBAINEMEDIOUNA",
+            "expected_folder": "tenders_doc_final/03_2025_COMMUNEURBAINEMEDIOUNA/"
+        },
+        {
+            "tender_id": 3679,
+            "reference": "01/2026_CNSDIRREGDAKOUEEDD",
+            "expected_folder": "tenders_doc_final/01_2026_CNSDIRREGDAKOUEEDD/"
+        },
+        {
+            "tender_id": 3684,
+            "reference": "04/2025_COMRUROULSBA",
+            "expected_folder": "tenders_doc_final/04_2025_COMRUROULSBA/"
+        },
+        {
+            "tender_id": 3685,
+            "reference": "11/2025_COLLECTIVITÉTERRITORIALETATOFT",
+            "expected_folder": "tenders_doc_final/11_2025_COLLECTIVITÉTERRITORIALETATOFT/"
+        },
+        {
+            "tender_id": 3465,
+            "reference": "67/2025/BG_DIRPROL’ENATTAR",
+            "expected_folder": "tenders_doc_final/67_2025_BG_DIRPROL_ENATTAR/"
+        },
+        {
+            "tender_id": 3466,
+            "reference": "75/DKHT/2025_DIRPROL’ENATKHE",
+            "expected_folder": "tenders_doc_final/75_DKHT_2025_DIRPROL_ENATKHE/"
+        },
+        {
+            "tender_id": 3467,
+            "reference": "131/2025/OR/OZ_OFFREGMISVALAGROUA",
+            "expected_folder": "tenders_doc_final/131_2025_OR_OZ_OFFREGMISVALAGROUA/"
+        },
+        {
+            "tender_id": 3468,
+            "reference": "AO48/2025_DIRPROEQUTRALOGEAURAB",
+            "expected_folder": "tenders_doc_final/AO48_2025_DIRPROEQUTRALOGEAURAB/"
+        },
+        {
+            "tender_id": 3469,
+            "reference": "130/2025/OR/OZ_OFFREGMISVALAGROUA",
+            "expected_folder": "tenders_doc_final/130_2025_OR_OZ_OFFREGMISVALAGROUA/"
+        },
+        {
+            "tender_id": 3470,
+            "reference": "98/DO/INV/2025/DPMENOUJDA_DIRPROL’ENATD’OANG",
+            "expected_folder": "tenders_doc_final/98_DO_INV_2025_DPMENOUJDA_DIRPROL_ENATD_OANG/"
+        },
+        {
+            "tender_id": 3471,
+            "reference": "74/DKHT/2025_DIRPROL’ENATKHE",
+            "expected_folder": "tenders_doc_final/74_DKHT_2025_DIRPROL_ENATKHE/"
+        },
+        {
+            "tender_id": 3472,
+            "reference": "61/2025/INVTAOU_AREFESMEKDIRPROMENTAO",
+            "expected_folder": "tenders_doc_final/61_2025_INVTAOU_AREFESMEKDIRPROMENTAO/"
+        },
+        {
+            "tender_id": 3497,
+            "reference": "66/2025/DRSPSRO_DIRREGSANREGORI",
+            "expected_folder": "tenders_doc_final/66_2025_DRSPSRO_DIRREGSANREGORI/"
+        },
+        {
+            "tender_id": 3540,
+            "reference": "01/RTTA/2026_REGIONTANGERTETOUAN",
+            "expected_folder": "tenders_doc_final/01_RTTA_2026_REGIONTANGERTETOUAN/"
+        },
+        {
+            "tender_id": 3549,
+            "reference": "45/RDOE/2025_REGIONOUEDEDDAHAB",
+            "expected_folder": "tenders_doc_final/45_RDOE_2025_REGIONOUEDEDDAHAB/"
+        },
+        {
+            "tender_id": 3563,
+            "reference": "53/2025/ND/TMNP_S.DNOUDEVS.A",
+            "expected_folder": "tenders_doc_final/53_2025_ND_TMNP_S_DNOUDEVS_A/"
+        },
+        {
+            "tender_id": 3570,
+            "reference": "13/2025/CM_COMMUNERURALEMAZGUITAM",
+            "expected_folder": "tenders_doc_final/13_2025_CM_COMMUNERURALEMAZGUITAM/"
+        },
+        {
+            "tender_id": 3572,
+            "reference": "48/TM/2025_SOCDÉVLOC\"TAMOB",
+            "expected_folder": "tenders_doc_final/48_TM_2025_SOCDÉVLOC_TAMOB/"
+        },
+        {
+            "tender_id": 3574,
+            "reference": "12/2025/CM_COMMUNERURALEMAZGUITAM",
+            "expected_folder": "tenders_doc_final/12_2025_CM_COMMUNERURALEMAZGUITAM/"
+        },
+        {
+            "tender_id": 3587,
+            "reference": "04/2025_COMMUNEAITZAL",
+            "expected_folder": "tenders_doc_final/04_2025_COMMUNEAITZAL/"
+        },
+        {
+            "tender_id": 3591,
+            "reference": "173/2025/ADHA_AGEDEVHAUATL",
+            "expected_folder": "tenders_doc_final/173_2025_ADHA_AGEDEVHAUATL/"
+        },
+        {
+            "tender_id": 3592,
+            "reference": "172/2025/ADHA_AGEDEVHAUATL",
+            "expected_folder": "tenders_doc_final/172_2025_ADHA_AGEDEVHAUATL/"
+        },
+        {
+            "tender_id": 3622,
+            "reference": "241/2025/OFPPT_OFFFORPROPROTRA",
+            "expected_folder": "tenders_doc_final/241_2025_OFPPT_OFFFORPROPROTRA/"
+        },
+        {
+            "tender_id": 3641,
+            "reference": "29/2025/GDSP/CAM_COMURBAITMEL",
+            "expected_folder": "tenders_doc_final/29_2025_GDSP_CAM_COMURBAITMEL/"
+        },
+        {
+            "tender_id": 3650,
+            "reference": "43/2025_OFFICENATIONALPECHES",
+            "expected_folder": "tenders_doc_final/43_2025_OFFICENATIONALPECHES/"
+        },
+        {
+            "tender_id": 3655,
+            "reference": "03/2025/CQASAT_CENQUAAGRSOUTLEALLTAZ",
+            "expected_folder": "tenders_doc_final/03_2025_CQASAT_CENQUAAGRSOUTLEALLTAZ/"
+        },
+        {
+            "tender_id": 3392,
+            "reference": "52/2025/ND/MOPEMCE_S.DNOUDEVS.A",
+            "expected_folder": "tenders_doc_final/52_2025_ND_MOPEMCE_S_DNOUDEVS_A/"
+        },
+        {
+            "tender_id": 3424,
+            "reference": "41/2025/C.S_COMURBESSEM",
+            "expected_folder": "tenders_doc_final/41_2025_C_S_COMURBESSEM/"
+        },
+        {
+            "tender_id": 3458,
+            "reference": "99/2025/MID_DIRPROL’ENATMID",
+            "expected_folder": "tenders_doc_final/99_2025_MID_DIRPROL_ENATMID/"
+        },
+        {
+            "tender_id": 3459,
+            "reference": "106/2025/ERR_DIRPROL’ENATERR",
+            "expected_folder": "tenders_doc_final/106_2025_ERR_DIRPROL_ENATERR/"
+        },
+        {
+            "tender_id": 3460,
+            "reference": "35/INV/2025_DIRPROL’ENATJER",
+            "expected_folder": "tenders_doc_final/35_INV_2025_DIRPROL_ENATJER/"
+        },
+        {
+            "tender_id": 3485,
+            "reference": "10004762_SOCREGMULORIS.A",
+            "expected_folder": "tenders_doc_final/10004762_SOCREGMULORIS_A/"
+        },
+        {
+            "tender_id": 3552,
+            "reference": "03J/EXP/2026_DIRPROL’ENATELJAD",
+            "expected_folder": "tenders_doc_final/03J_EXP_2026_DIRPROL_ENATELJAD/"
+        },
+        {
+            "tender_id": 3554,
+            "reference": "02J/EXP/2026_DIRPROL’ENATELJAD",
+            "expected_folder": "tenders_doc_final/02J_EXP_2026_DIRPROL_ENATELJAD/"
+        }
+    ]
+}

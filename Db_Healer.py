@@ -15,7 +15,7 @@ import unicodedata
 from playwright.async_api import Page
 from typing import List, Dict, Optional
 from dotenv import load_dotenv
-from database.models import Database, Tender, TenderDocument  # Added imports
+from database.models import Database, Tender, Buyer, Category
 from scraper.browser_config import create_browser
 from playwright_stealth import stealth_async
 
@@ -130,8 +130,7 @@ def generate_initials(name):
 class MissingFilesDownloader:
     """Downloads missing tender files by searching by reference"""
     
-    def __init__(self, health_report_file='db_health_report.json', downloads_dir='healer_downloads'):
-        self.health_report_file = Path(health_report_file)
+    def __init__(self, downloads_dir='healer_downloads'):
         self.downloads_dir = Path(downloads_dir)
         self.downloads_dir.mkdir(exist_ok=True)
         
@@ -152,11 +151,9 @@ class MissingFilesDownloader:
         
         if self.db_url:
             self.db = Database(self.db_url)
-            self.session = self.db.get_session()
         else:
             logger.error("Database configuration missing!")
-            self.db = None
-            self.session = None
+            raise ValueError("Database configuration missing")
 
         # Initialize S3 client
         self.s3_client = boto3.client(
@@ -179,24 +176,24 @@ class MissingFilesDownloader:
         logger.info(f"S3 Bucket: {self.s3_bucket}")
         logger.info(f"Downloads directory: {self.downloads_dir}")
     
-    def load_missing_references(self) -> List[Dict]:
-        """Load missing references from health report"""
-        logger.info(f"Loading missing references from {self.health_report_file}")
+    def fetch_missing_tenders_from_db(self) -> List[Tender]:
+        """Fetch tenders from database where is_documents is False"""
+        logger.info("Fetching missing tenders from database...")
         
-        if not self.health_report_file.exists():
-            logger.error(f"Health report file not found: {self.health_report_file}")
-            return []
-        
+        session = self.db.get_session()
         try:
-            with open(self.health_report_file, 'r', encoding='utf-8') as f:
-                report = json.load(f)
-            
-            missing_files = report.get('missing_files', [])
-            logger.info(f"Found {len(missing_files)} missing files")
-            return missing_files
+            tenders = session.query(Tender).filter(Tender.is_documents == False).all()
+            logger.info(f"Found {len(tenders)} tenders with missing documents")
+            # Detach objects so we can use them after session close if needed, 
+            # but better to keep session open or re-query. 
+            # For simplicity in this script structure, we'll keep IDs and re-fetch or use a session per process.
+            # Actually, let's return the list of IDs and references to be safe and simple.
+            return [{'id': t.id, 'reference': t.reference} for t in tenders]
         except Exception as e:
-            logger.error(f"Error loading health report: {e}")
+            logger.error(f"Error fetching from database: {e}")
             return []
+        finally:
+            session.close()
     
     async def search_by_reference(
         self,
@@ -297,10 +294,6 @@ class MissingFilesDownloader:
             # Search through all pages
             for current_page in range(1, total_pages + 1):
                 logger.info(f"Searching page {current_page}/{total_pages}")
-                
-                # If we need to paginate (i.e. we are on a new iteration and target page > 1)
-                # But here we are linear. We start at page 1.
-                # If current_page > 1, we need to have navigated there.
                 
                 # Get fresh HTML content for current page
                 html_content = await page.content()
@@ -552,110 +545,25 @@ class MissingFilesDownloader:
             logger.error(f"Error cleaning up file {file_path}: {e}")
             return False
     
-    def remove_from_health_report(self, reference: str):
-        """Remove processed file from health report"""
-        try:
-            if not self.health_report_file.exists():
-                return
-            
-            with open(self.health_report_file, 'r', encoding='utf-8') as f:
-                report = json.load(f)
-            
-            original_count = len(report.get('missing_files', []))
-            
-            # Filter out the processed reference
-            report['missing_files'] = [
-                f for f in report.get('missing_files', [])
-                if f['reference'] != reference
-            ]
-            
-            new_count = len(report['missing_files'])
-            report['missing_files_count'] = new_count
-            
-            if new_count < original_count:
-                with open(self.health_report_file, 'w', encoding='utf-8') as f:
-                    json.dump(report, f, ensure_ascii=False, indent=4)
-                logger.info(f"Removed {reference} from health report")
-                
-        except Exception as e:
-            logger.error(f"Error updating health report: {e}")
-    
-    def update_tender_document(self, reference: str, local_file_path: str, s3_path: str) -> bool:
-        """Update tender document record in database"""
-        if not self.session:
-            logger.warning("No database session available, skipping DB update")
-            return False
-            
-        try:
-            # Clean reference for matching (remove initials suffix if present in reference but not in DB yet, 
-            # OR try to match EXACT reference if provided composite)
-            # Actually, we should match by the reference we have.
-            
-            tender = self.session.query(Tender).filter_by(reference=reference).first()
-            if not tender:
-                # Try finding by original reference if composite failed
-                if '_' in reference:
-                    base_ref = reference.rsplit('_', 1)[0]
-                    tender = self.session.query(Tender).filter_by(reference=base_ref).first()
-            
-            if not tender:
-                logger.warning(f"Tender not found in DB for reference: {reference}")
-                return False
-                
-            file_name = Path(local_file_path).name
-            file_size = f"{Path(local_file_path).stat().st_size / 1024 / 1024:.2f} MB"
-            
-            # Check for existing document
-            doc = self.session.query(TenderDocument).filter_by(
-                tender_id=tender.id,
-                document_name=file_name
-            ).first()
-            
-            if doc:
-                doc.s3_path = s3_path
-                doc.downloaded = True
-                doc.document_size = file_size # Update size too
-                logger.info(f"Updated existing document record for {file_name}")
-            else:
-                doc = TenderDocument(
-                    tender_id=tender.id,
-                    document_name=file_name,
-                    document_type='zip',
-                    document_size=file_size,
-                    downloaded=True,
-                    s3_path=s3_path
-                )
-                self.session.add(doc)
-                logger.info(f"Created new document record for {file_name}")
-            
-            self.session.commit()
-            return True
-            
-        except Exception as e:
-            logger.error(f"Error updating database for {reference}: {e}")
-            self.session.rollback()
-            return False
 
-    async def process_missing_file(self, page: Page, missing_file: Dict) -> bool:
+
+    async def process_missing_file(self, page: Page, tender_info: Dict) -> bool:
         """Process a single missing file"""
-        reference = missing_file['reference']
-        # Derive expected filename since it might not be in the JSON
-        # Tries to get 'expected_filename', if not found, constructs it from reference
-        if 'expected_filename' in missing_file:
-             expected_filename = missing_file['expected_filename']
-        else:
-             # Sanitize reference to create filename (similar to how expected_folder is likely created)
-             # e.g. 16/2025_COMRUROULELGAR -> 16_2025_COMRUROULELGAR.zip
-             clean_ref = reference.replace('/', '_').replace("'", "_").replace(' ', '_')
-             expected_filename = f"{clean_ref}.zip"
+        tender_id = tender_info['id']
+        reference = tender_info['reference']
+        
+        # Sanitize reference to create filename
+        clean_ref = reference.replace('/', '_').replace("'", "_").replace(' ', '_')
+        # Ensure we just use alphanumeric and standard separators
+        clean_ref = "".join([c if c.isalnum() or c in ('-', '_') else '_' for c in reference])
+        expected_filename = f"{clean_ref}.zip"
         
         logger.info(f"\n{'='*80}")
-        logger.info(f"Processing: {reference}")
+        logger.info(f"Processing: {reference} (ID: {tender_id})")
         logger.info(f"{'='*80}")
         
         try:
             # Search for tender
-            # Strip buyer initials from reference for search (e.g. 123/2025_ONEE -> 123/2025)
             # We assume the reference format is ORIGINAL_REF_INITIALS
             search_ref = reference.rsplit('_', 1)[0]
             found = await self.search_by_reference(page, search_ref, reference)
@@ -675,15 +583,11 @@ class MissingFilesDownloader:
                 logger.error(f"❌ Failed to upload to S3: {reference}")
                 return False
             
-            # Update Database
-            s3_path = f"s3://{self.s3_bucket}/tender-documents/{Path(file_path).name}"
-            self.update_tender_document(reference, file_path, s3_path)
+            # Update Database - Logic handled by Lambda
+            logger.info("File uploaded to S3. DB update will be handled by Lambda.")
             
             # Cleanup local file
             self.cleanup_local_file(file_path)
-            
-            # Remove from health report
-            self.remove_from_health_report(reference)
             
             logger.info(f"✅ Successfully processed: {reference}")
             return True
@@ -726,13 +630,13 @@ class MissingFilesDownloader:
         logger.info("MISSING FILES DOWNLOADER - STARTING")
         logger.info("="*80)
         
-        # Load missing references
-        missing_files = self.load_missing_references()
-        if not missing_files:
-            logger.warning("No missing files to process")
+        # Fetch missing tenders from DB
+        missing_tenders = self.fetch_missing_tenders_from_db()
+        if not missing_tenders:
+            logger.warning("No missing files found in database.")
             return
         
-        self.stats['total'] = len(missing_files)
+        self.stats['total'] = len(missing_tenders)
         
         # Create browser
         browser = await create_browser(headless=False)
@@ -744,10 +648,10 @@ class MissingFilesDownloader:
             page.set_default_timeout(90000)
             
             # Process each missing file
-            for idx, missing_file in enumerate(missing_files, 1):
-                logger.info(f"\n[{idx}/{len(missing_files)}] Processing next file...")
+            for idx, tender_info in enumerate(missing_tenders, 1):
+                logger.info(f"\n[{idx}/{len(missing_tenders)}] Processing next tender...")
                 
-                success = await self.process_missing_file(page, missing_file)
+                success = await self.process_missing_file(page, tender_info)
                 
                 if success:
                     self.stats['successful'] += 1
@@ -756,7 +660,7 @@ class MissingFilesDownloader:
                 
                 # Progress update
                 if idx % 5 == 0:
-                    logger.info(f"Progress: {idx}/{len(missing_files)} | Success: {self.stats['successful']} | Failed: {self.stats['failed']}")
+                    logger.info(f"Progress: {idx}/{len(missing_tenders)} | Success: {self.stats['successful']} | Failed: {self.stats['failed']}")
                 
                 await human_delay(2, 4)
             
@@ -782,8 +686,12 @@ class MissingFilesDownloader:
 
 async def main():
     """Main entry point"""
-    downloader = MissingFilesDownloader()
-    await downloader.run()
+    # Remove older dependencies on args if any
+    try:
+        downloader = MissingFilesDownloader()
+        await downloader.run()
+    except Exception as e:
+        logger.error(f"Fatal error: {e}")
 
 
 if __name__ == '__main__':

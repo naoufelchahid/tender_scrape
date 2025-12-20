@@ -17,7 +17,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 from playwright.async_api import Page
 from playwright_stealth import stealth_async
-from database.models import Database, Tender, TenderDocument, Buyer, Category
+from database.models import Database, Tender, Buyer, Category
 from scraper.browser_config import create_browser
 from sqlalchemy.exc import IntegrityError
 
@@ -657,11 +657,16 @@ class DatabaseUpdater:
         for k, v in metadata.items():
             if v:
                 try:
+                    # Try to encode as is first
                     str(v).encode('ascii')
                     sanitized[k] = str(v)
                 except UnicodeEncodeError:
+                    # Normalize unicode characters
                     nfkd_form = unicodedata.normalize('NFKD', str(v))
-                    ascii_val = "".join([c for c in nfkd_form if not unicodedata.combining(c)])
+                    # Remove accents (combining characters)
+                    without_accents = "".join([c for c in nfkd_form if not unicodedata.combining(c)])
+                    # Force ASCII encoding, ignoring any remaining non-ASCII chars (like em-dash)
+                    ascii_val = without_accents.encode('ascii', 'ignore').decode('ascii')
                     sanitized[k] = ascii_val
         return sanitized
 
@@ -696,39 +701,6 @@ class DatabaseUpdater:
         except Exception as e:
             logger.error(f"Error uploading {file_path.name}: {e}")
             return None
-
-    def update_tender_document(self, session, tender: Tender, filename: str, s3_path: str, file_path: Path) -> bool:
-        """Update or insert TenderDocument record"""
-        try:
-            existing_doc = session.query(TenderDocument).filter_by(
-                tender_id=tender.id,
-                document_name=filename
-            ).first()
-
-            if existing_doc:
-                existing_doc.s3_path = s3_path
-                existing_doc.downloaded = True
-                logger.info(f"Updated existing document record for {filename}")
-            else:
-                file_size_mb = file_path.stat().st_size / (1024 * 1024)
-                new_doc = TenderDocument(
-                    tender_id=tender.id,
-                    document_name=filename,
-                    document_type='zip',
-                    document_size=f"{file_size_mb:.2f} MB",
-                    downloaded=True,
-                    s3_path=s3_path
-                )
-                session.add(new_doc)
-                logger.info(f"Created new document record for {filename}")
-            
-            session.commit()
-            return True
-            
-        except Exception as e:
-            session.rollback()
-            logger.error(f"Error updating database for {filename}: {e}")
-            return False
 
     def remove_from_new_references(self, reference: str):
         """Remove processed tender from new_references.json"""
@@ -816,10 +788,11 @@ class DatabaseUpdater:
                 logger.error(f"❌ Failed to upload to S3: {composite_reference}")
                 return False
                 
-            # Update Document in Database
-            if not self.update_tender_document(session, tender, Path(file_path).name, s3_path, Path(file_path)):
-                logger.error(f"❌ Failed to update document in DB: {composite_reference}")
-                return False
+            # Update Document in Database - Logic handled by Lambda
+            # if not self.update_tender_document(session, tender, Path(file_path).name, s3_path, Path(file_path)):
+            #     logger.error(f"❌ Failed to update document in DB: {composite_reference}")
+            #     return False
+            logger.info(f"File uploaded to S3. DB update will be handled by Lambda.")
             
             # Remove from new_references.json
             self.remove_from_new_references(composite_reference)

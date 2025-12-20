@@ -7,8 +7,10 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 cd "$SCRIPT_DIR"
 
 # Activate virtual environment if it exists
+PYTHON_CMD="python3"
 if [ -d "venv" ]; then
     source venv/bin/activate
+    PYTHON_CMD="$SCRIPT_DIR/venv/bin/python3"
 fi
 
 # Set error handling
@@ -26,7 +28,7 @@ for category in "${categories[@]}"; do
     echo "Running ref_updater.py for category: $category"
     output_file="new_references_${category}.json"
     
-    if python3 ref_updater.py --category "$category" --output "$output_file"; then
+    if $PYTHON_CMD ref_updater.py --category "$category" --output "$output_file"; then
         echo "✓ Successfully fetched references for $category"
     else
         echo "✗ Error running ref_updater.py for $category"
@@ -47,7 +49,7 @@ for category in "${categories[@]}"; do
     if [ -f "$input_file" ]; then
         echo "Running Db_updater.py for category: $category"
         
-        if python3 Db_updater.py --input-file "$input_file"; then
+        if $PYTHON_CMD Db_updater.py --input-file "$input_file"; then
             echo "✓ Successfully processed tenders for $category"
         else
             echo "✗ Error running Db_updater.py for $category"
