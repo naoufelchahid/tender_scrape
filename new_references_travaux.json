@@ -1,8 +1,21 @@
 {
     "category": "travaux",
-    "scan_date": "2025-12-19T23:12:21.405007",
-    "total_website_references": 0,
-    "total_database_references": 0,
-    "new_references_count": 0,
-    "new_references": []
+    "scan_date": "2025-12-25T23:23:22.218672",
+    "total_website_references": 641,
+    "total_database_references": 1277,
+    "new_references_count": 1,
+    "new_references": [
+        {
+            "reference": "03/2025_DELPROHAUCOMANCRESMEMARMLIBTAN",
+            "original_reference": "03/2025",
+            "buyer_initials": "DELPROHAUCOMANCRESMEMARMLIBTAN",
+            "category": "Travaux",
+            "launch_date": "25/12/2025",
+            "object": "Travaux d’achèvement de l’extension de l’Espace de la Mémoire Historique de la Résistance et de Libération dans la commune de TARGUISTE , province D’EL HOCEIMA...Travaux d’achèvement de l’extension de l’Espace de la Mémoire Historique de la Résistance et de Libération dans la commune de TARGUISTE , province D’EL HOCEIMA",
+            "buyer": "DELEGUE PROVINCIAL AU HAUT COMMISSARIAT AUX ANCIENS RESISTANTS ET MEMBRES ARMEE DE LIBERATION TANGER",
+            "deadline": "19/01/202610:00",
+            "city": "AL HOCEIMA...AL HOCEIMA",
+            "scraped_at": "2025-12-25T23:23:06.906433"
+        }
+    ]
 }

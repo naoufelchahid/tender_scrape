@@ -366,7 +366,7 @@ class DatabaseUpdater:
         page: Page, 
         original_reference: str,
         target_composite_reference: str
-    ) -> bool:
+    ) -> tuple[bool, Optional[datetime], Optional[str]]:
         """
         Search for tender by original reference and navigate to the correct one
         Searches through all pages if multiple results exist
@@ -377,7 +377,7 @@ class DatabaseUpdater:
             target_composite_reference: Full reference with initials (e.g., "11/2025_DPMS")
             
         Returns:
-            True if tender found and navigated to, False if no match found (don't download)
+            Tuple: (found_bool, deadline_datetime, city_string)
         """
         logger.info(f"Searching for reference: {original_reference}")
         logger.info(f"Target composite reference: {target_composite_reference}")
@@ -398,7 +398,7 @@ class DatabaseUpdater:
             reference_input = await page.query_selector('input#ctl0_CONTENU_PAGE_AdvancedSearch_reference')
             if not reference_input:
                 logger.error("Reference input field not found")
-                return False
+                return False, None, None
             
             await reference_input.fill(original_reference)
             logger.info(f"Filled reference: {original_reference}")
@@ -420,22 +420,61 @@ class DatabaseUpdater:
             tender_links = await page.query_selector_all('a[href*="EntrepriseDetailConsultation"]')
             if not tender_links:
                 logger.warning(f"No tender found for reference: {original_reference}")
-                return False
+                return False, None, None
             
             logger.info(f"Found {len(tender_links)} tender(s) for reference: {original_reference}")
             
-            # If only one result, navigate to it
-            if len(tender_links) == 1:
-                logger.info("Only one result found, navigating to it")
-                await tender_links[0].click()
-                await page.wait_for_load_state('networkidle')
-                await human_delay(1, 2)
-                return True
+            # Helper to extract metadata from row
+            def extract_metadata_from_row(row_element) -> tuple[Optional[datetime], Optional[str]]:
+                try:
+                    # 1. Extract Deadline from .cloture-line
+                    deadline_dt = None
+                    cloture_div = row_element.find('div', class_='cloture-line')
+                    if cloture_div:
+                        # Text could be "04/03/2026<br>10:00" -> "04/03/202610:00" if strict text, or replace br with space
+                        # get_text(separator=' ') gives "04/03/2026 10:00"
+                        deadline_str = cloture_div.get_text(separator=' ', strip=True) 
+                        # Clean up potentially extra spaces
+                        deadline_str = " ".join(deadline_str.split())
+                        deadline_dt = self.parse_date(deadline_str)
+                        logger.info(f"  Extracted deadline: {deadline_str} -> {deadline_dt}")
+
+                    # 2. Extract City
+                    city_val = None
+                    # Let's clean the text if we find it.
+                    # Inspecting the row text might be easier.
+                    
+                    # Heuristic: Iterate all tds, excluding known ones.
+                    # Look for cell with city names?
+                    # We assume it's one of the tds.
+                    tds = row_element.find_all('td')
+                    if len(tds) >= 4:
+                        # Candidate for city is often near the end.
+                        for td in tds:
+                            text = td.get_text(separator='|', strip=True)
+                            # If text is "CASABLANCA|...|CASABLANCA"
+                            parts = [p.strip() for p in text.split('|') if p.strip() and p.strip() != '...']
+                            if parts:
+                                # If all non-empty parts are identical, just take one.
+                                if len(set(parts)) == 1 and len(parts[0]) < 50 and not any(c in parts[0] for c in ['/', ':', '202']):
+                                    city_val = parts[0]
+                                    break
+                                # If parts are "CASABLANCA" and "CASABLANCA" (duplicates)
+                                if len(parts) >= 2 and parts[0] == parts[-1]:
+                                    if len(parts[0]) < 50: # City names are usually short
+                                        city_val = parts[0] 
+                                        break
+                    
+                    return deadline_dt, city_val
+
+                except Exception as e:
+                    logger.error(f"Error extracting metadata from row: {e}")
+                    return None, None
+
+            # ------------------------------------------------------------------
+            # Multi-page Search Logic
+            # ------------------------------------------------------------------
             
-            # Multiple results - need to match by buyer across all pages
-            logger.info("Multiple results found - matching by composite reference")
-            
-            # Read the number of pages from the span element
             from bs4 import BeautifulSoup
             html_content = await page.content()
             soup = BeautifulSoup(html_content, 'html.parser')
@@ -450,6 +489,9 @@ class DatabaseUpdater:
                     logger.warning("Could not parse page count, searching only current page")
             
             # Search through all pages
+            matched_deadline = None
+            matched_city = None
+            
             for current_page in range(1, total_pages + 1):
                 logger.info(f"Searching page {current_page}/{total_pages}")
                 
@@ -460,7 +502,7 @@ class DatabaseUpdater:
                 # Get tender links on current page
                 tender_links = await page.query_selector_all('a[href*="EntrepriseDetailConsultation"]')
                 
-                # Find all buyer divs
+                # Find all rows that contain the tenders by looking for buyer divs
                 buyer_divs = soup.find_all('div', id=lambda x: x and 'panelBlocDenomination' in x)
                 
                 if len(buyer_divs) != len(tender_links):
@@ -468,6 +510,7 @@ class DatabaseUpdater:
                 
                 # Extract buyer names and create composite references
                 matched_index = None
+                
                 for idx, buyer_div in enumerate(buyer_divs):
                     if idx >= len(tender_links):
                         break
@@ -488,6 +531,12 @@ class DatabaseUpdater:
                     if composite_ref == target_composite_reference:
                         logger.info(f"✅ MATCH FOUND at index {idx} on page {current_page}!")
                         matched_index = idx
+                        
+                        # Extract extra metadata from the row
+                        row = buyer_div.find_parent('tr')
+                        if row:
+                            matched_deadline, matched_city = extract_metadata_from_row(row)
+                        
                         break
                 
                 # If match found, navigate to it
@@ -496,7 +545,8 @@ class DatabaseUpdater:
                     await tender_links[matched_index].click()
                     await page.wait_for_load_state('networkidle')
                     await human_delay(1, 2)
-                    return True
+                    
+                    return True, matched_deadline, matched_city
                 
                 # If not found and there are more pages, navigate to next page
                 if current_page < total_pages:
@@ -515,11 +565,11 @@ class DatabaseUpdater:
             # No match found across all pages
             logger.error(f"❌ No match found for composite reference: {target_composite_reference} across {total_pages} page(s)")
             logger.warning("⚠️ Skipping download - no matching tender found")
-            return False
+            return False, None, None
             
         except Exception as e:
             logger.error(f"Error searching for reference {original_reference}: {e}")
-            return False
+            return False, None, None
     
     async def download_tender_file(
         self, 
@@ -760,11 +810,32 @@ class DatabaseUpdater:
                 return True
             
             # Search for tender using original reference and match by composite reference
-            found = await self.search_by_reference(page, original_reference, composite_reference)
+            found, new_deadline, new_city = await self.search_by_reference(page, original_reference, composite_reference)
             if not found:
                 logger.error(f"❌ Failed to find tender: {original_reference}")
                 self.stats['files_failed'] += 1
                 return False
+            
+            # Update tender with newly scraped data if available
+            if new_deadline or new_city:
+                try:
+                    updated = False
+                    if new_deadline:
+                        tender.deadline = new_deadline
+                        logger.info(f"Updated deadline: {new_deadline}")
+                        updated = True
+                    if new_city:
+                        tender.execution_location = new_city
+                        logger.info(f"Updated city: {new_city}")
+                        updated = True
+                    
+                    if updated:
+                        session.commit()
+                        logger.info("✅ Saved updated metadata to database")
+                        
+                except Exception as e:
+                    logger.error(f"Error updating tender metadata: {e}")
+                    # Continue anyway as we still want to download the file
             
             # Download file using composite reference for naming
             file_path = await self.download_tender_file(page, original_reference, composite_reference)

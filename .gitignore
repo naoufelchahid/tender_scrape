@@ -10,3 +10,5 @@ dist/
 
 # Ignore logs
 *.log
+
+/venv

@@ -1,33 +1,8 @@
 {
     "category": "services",
-    "scan_date": "2025-12-19T23:11:24.528486",
-    "total_website_references": 832,
-    "total_database_references": 1165,
-    "new_references_count": 2,
-    "new_references": [
-        {
-            "reference": "119/TTH/LA/2025_ALOMRTANTETALHOC",
-            "original_reference": "119/TTH/LA/2025",
-            "buyer_initials": "ALOMRTANTETALHOC",
-            "category": "Services",
-            "launch_date": "19/12/2025",
-            "object": "CONTROLE DE QUALITE DES TRAVAUX DE CONSTRUCTION DE L’OPERATION NPADL ASSAADA TR 1, A KSAR EL KEBIR - PROVINCE DE LARACHE...CONTROLE DE QUALITE DES TRAVAUX DE CONSTRUCTION DE L’OPERATION NPADL ASSAADA TR 1, A KSAR EL KEBIR - PROVINCE DE LARACHE",
-            "buyer": "AL OMRANE TANGER TETOUAN AL HOCEIMA",
-            "deadline": "...",
-            "city": "LARACHE...LARACHE",
-            "scraped_at": "2025-12-19T23:10:42.426674"
-        },
-        {
-            "reference": "26/CE/2025_COMMUNEURBAINEESSAOUIRA",
-            "original_reference": "26/CE/2025",
-            "buyer_initials": "COMMUNEURBAINEESSAOUIRA",
-            "category": "Services",
-            "launch_date": "19/12/2025",
-            "object": "Entretien de l’éclairage public pour la commune d’Essaouira...Entretien de l’éclairage public pour la commune d’Essaouira",
-            "buyer": "Commune urbaine de ESSAOUIRA",
-            "deadline": "...",
-            "city": "ESSAOUIRA...ESSAOUIRA",
-            "scraped_at": "2025-12-19T23:10:42.474792"
-        }
-    ]
+    "scan_date": "2025-12-25T23:22:27.035288",
+    "total_website_references": 751,
+    "total_database_references": 1319,
+    "new_references_count": 0,
+    "new_references": []
 }

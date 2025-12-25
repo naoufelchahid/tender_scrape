@@ -1,4 +1,4 @@
-#!/home/naoufel/projects/AO_scrape/venv/bin/python
+#!/home/naoufel/projects/AO_scrape/venv/bin/python3
 
 import sys
 import json

@@ -14,12 +14,8 @@ else
     exit 1
 fi
 
-# Run Health Checker
-echo "Starting Database Health Check..."
-python3 Db_health_checker.py
-
-# Run Healer regardless of health check output (as healer fixes issues found)
+# Run Database Healer
 echo "Starting Database Healer..."
 python3 Db_Healer.py
 
-echo "Health check and healing process completed."
+echo "Healing process completed."

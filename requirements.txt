@@ -1,3 +1,10 @@
+
+openai>=1.0.0
+pydantic>=2.0.0
+pdf2image
+python-docx
+pymupdf
+pillow
 playwright==1.40.0
 playwright-stealth==1.0.5
 psycopg2-binary==2.9.9
@@ -8,8 +15,17 @@ requests==2.31.0
 beautifulsoup4==4.12.2
 lxml==4.9.3
 tenacity==8.2.3
-pydantic==2.5.0
 faker==20.1.0
 pyyaml==6.0.1
-asyncio==3.4.3
 setuptools
+
+# DeepSeek OCR dependencies
+torch>=2.6.0
+transformers==4.46.3
+tokenizers==0.20.3
+einops
+addict
+easydict
+bitsandbytes
+accelerate
+flash-attn==2.7.3
