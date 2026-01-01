@@ -1,8 +1,57 @@
 {
     "category": "fournitures",
-    "scan_date": "2025-12-25T23:23:58.963812",
-    "total_website_references": 0,
+    "scan_date": "2025-12-26T11:24:21.607254",
+    "total_website_references": 351,
     "total_database_references": 1342,
-    "new_references_count": 0,
-    "new_references": []
+    "new_references_count": 4,
+    "new_references": [
+        {
+            "reference": "AO15/2025/DRCS_OFPDIRRÉGCASSET",
+            "original_reference": "AO15/2025/DRCS",
+            "buyer_initials": "OFPDIRRÉGCASSET",
+            "category": "Fournitures",
+            "launch_date": "25/12/2025",
+            "object": "Appel d'offres Ouvert simplifié sur offres des prix n° 15/ 2025 qui a pour objet : Vente des équipements réformés par les établissements relevant de la Direction Régionale Casablanca Settat Lot 1 : Equipements réformés...Appel d'offres Ouvert simplifié sur offres des prix n° 15/ 2025 qui a pour objet : Vente des équipements réformés par les établissements relevant de la Direction Régionale Casablanca Settat Lot 1 : Equipements réformés de l’ISTA MOHAMMEDIA Lot 2 : Equipements réformés de l’ISTA MEDIOUNA Lot 3 : Equipements réformés de l’ ISTA BERRECHID Lot 4 : Equipements réformés de CMC BERRECHID Lot 5 : Equipements réformés de l’ ISTICG BERRECHID Lot 6 : Equipements réformés de l’ISI CASABLANCA Lot 7 : Equipements réformés de l’ISTA BERNOUSSI Lot 8 : Equipements réformés de CREA Lot 9 : Equipements réformés de l’ISMC",
+            "buyer": "OFPPT/ DIRETION RÉGIONALE CASABLANCA SETTAT",
+            "deadline": "...",
+            "city": "MAROCCASABLANCA...MAROC, CASABLANCA, MOHAMMADIA, EL JADIDA, NOUACEUR, MEDIOUNA, BENSLIMANE, BERRECHID, SETTAT, SIDI BENNOUR",
+            "scraped_at": "2025-12-26T11:24:21.531774"
+        },
+        {
+            "reference": "AO109/2025/BP_PROVINCEASSAZAG",
+            "original_reference": "AO109/2025/BP",
+            "buyer_initials": "PROVINCEASSAZAG",
+            "category": "Fournitures",
+            "launch_date": "26/12/2025",
+            "object": "Acquisition d’Equipement et du matériel de chantier du Métallerie et inox au profit de la coopérative CHALKA à Assa...Acquisition d’Equipement et du matériel de chantier du Métallerie et inox au profit de la coopérative CHALKA à Assa",
+            "buyer": "Province de ASSA-ZAG",
+            "deadline": "21/01/202609:00",
+            "city": "ASSA-ZAG...ASSA-ZAG",
+            "scraped_at": "2025-12-26T11:24:21.531812"
+        },
+        {
+            "reference": "18/2025_COMURBTITMEL",
+            "original_reference": "18/2025",
+            "buyer_initials": "COMURBTITMEL",
+            "category": "Fournitures",
+            "launch_date": "26/12/2025",
+            "object": "ÉQUIPEMENT D'UN CENTRE CULTUREL A LA COMMUNE DE TIT MELLIL...ÉQUIPEMENT D'UN CENTRE CULTUREL A LA COMMUNE DE TIT MELLIL",
+            "buyer": "Commune urbaine de TIT MELLIL",
+            "deadline": "21/01/202609:00",
+            "city": "MEDIOUNA...MEDIOUNA",
+            "scraped_at": "2025-12-26T11:24:21.531887"
+        },
+        {
+            "reference": "06/2025_DOMAINEFORMATIONPROFESSIONNELLE",
+            "original_reference": "06/2025",
+            "buyer_initials": "DOMAINEFORMATIONPROFESSIONNELLE",
+            "category": "Fournitures",
+            "launch_date": "25/12/2025",
+            "object": "Achat des Notebooks et des coffrets de Notebook intégrant les informations et les activités de la formation professionnelle pour le Département de la formation professionnelle (lot unique)....Achat des Notebooks et des coffrets de Notebook intégrant les informations et les activités de la formation professionnelle pour le Département de la formation professionnelle (lot unique).",
+            "buyer": "DOMAINE DE LA FORMATION PROFESSIONNELLE",
+            "deadline": "...",
+            "city": "TANGER-ASSILAHMDIQ-FNIDEQ...TANGER-ASSILAH, MDIQ-FNIDEQ, TETOUAN, FAHS-ANJRA, LARACHE, AL HOCEIMA, CHEFCHAOUEN, OUEZZANE, OUJDA-ANGAD, NADOR, DRIOUCH, JERADA, BERKANE, TAOURIRT, GUERCIF, FIGUIG, FES, MEKNES, EL-HAJEB, IFRANE, MOULAY-YACOUB, SEFROU, BOULEMANE, TAOUNATE, TAZA, RABAT, SALE, SKHIRATE-TEMARA, KENITRA, KHEMISSET, SIDI KACEM, SIDI SLIMANE, BENI MELLAL, AZILAL, FQUIH BEN SALAH, KHENIFRA, KHOURIBGA, CASABLANCA, MOHAMMADIA, EL JADIDA, NOUACEUR, MEDIOUNA, BENSLIMANE, BERRECHID, SETTAT, SIDI BENNOUR, MARRAKECH, CHICHAOUA, AL HAOUZ, EL KELAA DES SRAGHNA, ESSAOUIRA, REHAMNA, SAFI, YOUSSOUFIA, ERRACHIDIA, OUARZAZATE, MIDELT, TINGHIR, ZAGORA, AGADIR IDA OU TANANE, INEZGANE-AIT MELLOUL, CHTOUKA-AIT BAHA, TAROUDANNT, TIZNIT, TATA, GUELMIM, ASSA-ZAG, TAN-TAN, SIDI IFNI, LAAYOUNE, BOUJDOUR, TARFAYA, ES-SEMARA, OUED ED DAHAB, AOUSSERD",
+            "scraped_at": "2025-12-26T11:24:21.536903"
+        }
+    ]
 }

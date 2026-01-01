@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 
 # Moroccan names for form filling (same as scraper_fournitures.py)
 MOROCCAN_FAMILY_NAMES = [
-    'Bennani', 'El Amrani', 'Alaoui', 'Idrissi', 'Berrada',
+    'Bennani', 'ElAmrani', 'Alaoui', 'Idrissi', 'Berrada',
     'Tazi', 'Fassi', 'Lazrak', 'Bensouda', 'ElKettani',
     'Chraibi', 'Sefrioui', 'Lahlou', 'Belkadi', 'Benjelloun',
     'Tahiri', 'Zniber', 'Amor', 'Bensaid', 'ElHarti',
