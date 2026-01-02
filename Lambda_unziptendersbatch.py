@@ -3,10 +3,12 @@ import urllib.parse
 import zipfile
 import os
 import shutil
+import json
 from typing import List, Dict, Any, Optional
 import psycopg2
 
 s3_client = boto3.client('s3')
+sqs_client = boto3.client('sqs')
 
 def get_db_connection():
     """Establish and return a database connection."""
@@ -22,6 +24,34 @@ def get_db_connection():
     except Exception as e:
         print(f"ERROR: Could not connect to database: {e}")
         return None
+
+def send_to_ocr_queue(tender_ref: str, s3_folder_key: str, s3_bucket: str):
+    """
+    Send a message to OCR_QUEUE to trigger OCR processing for the unzipped folder.
+    """
+    ocr_queue_url = os.environ.get('OCR_QUEUE_URL')
+    if not ocr_queue_url:
+        print("WARNING: OCR_QUEUE_URL not set, skipping SQS message")
+        return
+    
+    try:
+        # Construct S3 URI for the folder
+        s3_folder_uri = f"s3://{s3_bucket}/{s3_folder_key}"
+        
+        message_body = {
+            "tender_ref": tender_ref,
+            "s3_paths": [s3_folder_uri]
+        }
+        
+        response = sqs_client.send_message(
+            QueueUrl=ocr_queue_url,
+            MessageBody=json.dumps(message_body)
+        )
+        
+        print(f"SUCCESS: Sent message to OCR_QUEUE for {tender_ref}. MessageId: {response['MessageId']}")
+        
+    except Exception as e:
+        print(f"ERROR: Failed to send message to OCR_QUEUE: {e}")
 
 def update_tender_db(reference: str, s3_folder_key: str, s3_bucket: str):
     """
@@ -46,10 +76,11 @@ def update_tender_db(reference: str, s3_folder_key: str, s3_bucket: str):
                 s3_uri = %s,
                 updated_at = NOW()
             WHERE reference = %s
-            OR REPLACE(REPLACE(reference, '/', '_'), ' ', '_') = %s
+            OR REPLACE(REPLACE(REPLACE(reference, '/', '_'), ' ', '_'), '.', '_') = %s
         """
         
-        cur.execute(sql, (s3_folder_key, s3_uri, reference, reference))
+        # Both s3_path and s3_uri now contain the full S3 URI
+        cur.execute(sql, (s3_uri, s3_uri, reference, reference))
         conn.commit()
         
         if cur.rowcount > 0:
@@ -143,7 +174,11 @@ def process_zip_file_logic(s3_bucket: str, s3_key: str, task_id: Optional[str] =
         print(f"Updating DB for {zip_name_no_ext}...")
         update_tender_db(zip_name_no_ext, s3_folder_final_key, s3_bucket)
         
-        # 6. Delete Source File from S3 (Cleanup)
+        # 6. Send to OCR Queue
+        print(f"Sending {zip_name_no_ext} to OCR_QUEUE...")
+        send_to_ocr_queue(zip_name_no_ext, s3_folder_final_key, s3_bucket)
+        
+        # 7. Delete Source File from S3 (Cleanup)
         # Only if everything above succeeded
         print(f"Deleting source file {s3_bucket}/{s3_key}")
         s3_client.delete_object(Bucket=s3_bucket, Key=s3_key)

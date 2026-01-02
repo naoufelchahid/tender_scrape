@@ -254,6 +254,12 @@ class Article(Base):
     quantity = Column(Numeric(15, 2))
     price = Column(Numeric(15, 2))
     unity = Column(String(50))
+    
+    # Foreign Key
+    lot_id = Column(Integer, ForeignKey('lots_constitution.id'))
+    
+    # Relationship
+    lot = relationship("LotConstitution", back_populates="articles")
 
 
 class Designation(Base):
@@ -281,7 +287,7 @@ class LotConstitution(Base):
     
     # Foreign Keys
     wich_tender = Column(Integer, ForeignKey('tenders.id'))
-    articles_id = Column(Integer, ForeignKey('articles.id'))
+    # articles_id removed (Article now points to Lot)
     results_id = Column(Integer, ForeignKey('results.id'))
     
     # We also keep winner_contractor_id if it's still needed by Contractor relationship?
@@ -306,7 +312,7 @@ class LotConstitution(Base):
     # Relationships
     tender_parent = relationship("Tender", foreign_keys=[wich_tender], back_populates="lot_details")
     tender_relation = relationship("Tender", foreign_keys="[Tender.lots_constitution_id]", back_populates="lots")
-    articles = relationship("Article")
+    articles = relationship("Article", back_populates="lot", cascade="all, delete-orphan")
     results = relationship("Result")
     
     # Legacy support note: The Contractor model expects 'won_lots'. Since we removed the column, we must update Contractor too or it will error on mapper initialization.
