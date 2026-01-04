@@ -14,6 +14,13 @@ from src.database import DatabaseManager
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+# Load env vars for local dev
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 # Config
 SQS_QUEUE_URL = os.environ.get('EXTRACTION_QUEUE_URL')
 # New Queue for DB Filler
@@ -126,7 +133,13 @@ def handle_message(msg, sqs, s3, extractor, chunker):
         logger.info(f"Split into {len(docs)} documents: {[d.doc_type for d in docs]}")
         
         # 4. LLM-assisted chunking
-        chunks = chunker.chunk_all_documents(docs, tender_id)
+        # Pass tender_ref and extracted lots for ID generation mapping
+        chunks = chunker.chunk_all_documents(
+            docs=docs, 
+            tender_id=tender_id, 
+            tender_ref=tender_ref,
+            lots=extraction_output.lots if extraction_output else []
+        )
         
         # 5. Upload Chunks to S3
         chunk_key = f"chunks_tender/{tender_ref}/chunks.json"

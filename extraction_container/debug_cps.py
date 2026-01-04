@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 # Config
 load_dotenv()
 AWS_REGION = os.environ.get('AWS_REGION', 'eu-west-3')
-BEDROCK_MODEL = "qwen/qwen-2.5-72b-instruct"
+BEDROCK_MODEL = "nvidia/nemotron-3-nano-30b-a3b"
 OPENROUTER_API_KEY = os.environ.get('OPENROUTER_API_KEY')
 
 def run_debug():

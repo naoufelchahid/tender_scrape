@@ -117,12 +117,18 @@ class ExtractionService:
         
         extraction_result.products = all_products
         
-        # Post-process: Ensure lot_reference is populated
-        if extraction_result and extraction_result.lots:
-            for lot in extraction_result.lots:
-                if not lot.lot_reference:
-                    # Fallback: Create simplified reference
-                    lot.lot_reference = f"{tender_ref}-{lot.lot_number}"
+        # Post-process: Ensure lot_reference is populated correctly
+        if extraction_result:
+            if extraction_result.lots:
+                for lot in extraction_result.lots:
+                    # STRICT FORMAT: tender_ref + "_" + lot_number
+                    # lot_number should be simple like "1", "2". Clean it if necessary.
+                    clean_num = lot.lot_number.lower().replace("lot", "").strip()
+                    lot.lot_reference = f"{extraction_result.tender_info.tender_reference}_{clean_num}"
+            else:
+                # No lots found -> Create a default 'fake' lot reference for chunking mapping
+                # We won't add a Lot object, but we know implicit lot is 0
+                pass
         
         return extraction_result
                     
@@ -144,9 +150,14 @@ class ExtractionService:
                      "   - Buyer Details (Address, Phone, Email, Contact Person - if mentioned)\n"
                      "   - Publication Date\n"
                      "   - Submission Deadline\n"
+                     "   - Location (City/Region of execution)\n"
                      "   - Passation Mode (e.g. AO Ouvert)\n"
                      "   - Type/Domain (formerly Category)\n"
-                     "   - Global Budget & Agrements\n"
+                     "   - Agrements: Extract detailed list of D-codes (e.g., 'D1', 'D2', 'D13'...). " 
+                     "Check for: D1-Bâtiment, D2-VRD, D3-Hydra, D4-Routes, D5-Ouvrages, D6-Barrages, D7-Maritimes, "
+                     "D8-Défense, D9-Agricole, D10-Indus/Energie, D12-Géologie, D13-Etudes Gen, D14-Calcul Struct, "
+                     "D15-Courants, D16-Fluides, D17-Assainissement, D18-Elec, D19-Env, D20-Géologie, D21-Incendie.\n"
+                     "   - Global Budget\n"
                      "2. List of Lots (Number, Title, Budget, etc.).\n"
                      "   - For each lot, construct 'lot_reference' by combining Tender Ref + Lot Number (e.g. '12/2025-1').\n"
                      "Ignore product tables for now, focus on metadata and Lots.\n\n"
@@ -180,6 +191,8 @@ class ExtractionService:
             ("system", "You are a data extraction engine targeted at extracting 'Bordereau des Prix' tables."),
             ("user", "Extract all line items from the pricing table in the text.\n"
                      "- STRICT RULE: Create ONE JSON object for EACH row in the table.\n"
+                     "- STRICT RULE: Do NOT estimate, calculate, or guess any values (price, quantity, etc.).\n"
+                     "- STRICT RULE: If a value is not explicitly present in the document, return null or an empty string.\n"
                      "- Capture fields: 'designation', 'unit', 'quantity', 'estimated_price'.\n"
                      "- Ensure 'lot_number' is inferred.\n"
                      "- Ignore headers and subtotals.\n"

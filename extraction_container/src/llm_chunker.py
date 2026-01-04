@@ -89,17 +89,31 @@ class LLMChunker:
             separators=["\n\n", "\n", ". ", " "]
         )
     
-    def chunk_all_documents(self, docs: List[LogicalDocument], tender_id: int) -> List[Dict[str, Any]]:
+    def chunk_all_documents(self, docs: List[LogicalDocument], tender_id: int, tender_ref: str, lots: List[Any]) -> List[Dict[str, Any]]:
         """Process all documents and generate chunks.
         
         Args:
             docs: List of LogicalDocument objects
             tender_id: Database ID of the tender
+            tender_ref: Tender Reference string
+            lots: List of LotMetadata objects
             
         Returns:
             List of chunk dictionaries with id, content, metadata
         """
         all_chunks = []
+        
+        # Create a mapping of lot_number -> lot_reference
+        # If no lots, we use "0" -> "{tender_ref}_0"
+        lot_map = {}
+        if lots:
+            for lot in lots:
+                # normalize lot number to string "1", "2"
+                num = lot.lot_number.lower().replace("lot", "").strip()
+                lot_map[num] = lot.lot_reference
+        
+        # Fallback default
+        default_lot_ref = f"{tender_ref}_0"
         
         for doc in docs:
             doc_type = doc.doc_type
@@ -112,10 +126,10 @@ class LLMChunker:
             # Choose chunking strategy
             if doc_type in LLM_CHUNK_TYPES:
                 logger.info(f"LLM chunking for {doc.original_filename} (type: {doc_type}) using {'OpenRouter' if self.use_openrouter else 'Bedrock'}")
-                chunks = self._llm_chunk_document(doc, tender_id)
+                chunks = self._llm_chunk_document(doc, tender_id, tender_ref, lot_map, default_lot_ref)
             else:
                 logger.info(f"Standard chunking for {doc.original_filename} (type: {doc_type})")
-                chunks = self._standard_chunk_document(doc, tender_id)
+                chunks = self._standard_chunk_document(doc, tender_id, default_lot_ref)
             
             all_chunks.extend(chunks)
         
@@ -131,9 +145,9 @@ class LLMChunker:
         ]
         return any(pattern in fname_lower for pattern in exclude_patterns)
     
-    def _llm_chunk_document(self, doc: LogicalDocument, tender_id: int) -> List[Dict[str, Any]]:
+    def _llm_chunk_document(self, doc: LogicalDocument, tender_id: int, tender_ref: str, lot_map: Dict[str, str], default_lot_ref: str) -> List[Dict[str, Any]]:
         """Use LLM to intelligently chunk the document. Handles large files by segmentation."""
-        MAX_SEGMENT_CHARS = 40000  # Conservative limit for 32k context (~10-12k tokens + resp)
+        MAX_SEGMENT_CHARS = 40000 
         OVERLAP_CHARS = 1000
         
         content = doc.content
@@ -144,7 +158,6 @@ class LLMChunker:
             start = 0
             while start < len(content):
                 end = min(start + MAX_SEGMENT_CHARS, len(content))
-                # Attempt to split at a newline near the end
                 if end < len(content):
                     last_newline = content.rfind('\n', end - 2000, end)
                     if last_newline != -1:
@@ -152,7 +165,6 @@ class LLMChunker:
                 
                 segments.append(content[start:end])
                 
-                # Move start forward, ensuring overlap unless we hit end
                 if end >= len(content):
                     break
                 start = end - OVERLAP_CHARS
@@ -160,6 +172,7 @@ class LLMChunker:
             segments = [content]
             
         all_chunks = []
+        type_counters = {} # Key: (lot_ref, type) -> int
         
         # 2. Process each segment
         for i, segment in enumerate(segments):
@@ -177,18 +190,19 @@ class LLMChunker:
                     logger.warning(f"Empty/Tiny response for segment {i+1} of {doc.original_filename}")
                     continue
                     
-                seg_chunks = self._parse_chunk_markers(response, doc, tender_id)
+                seg_chunks, type_counters = self._parse_chunk_markers(
+                    response, doc, tender_id, lot_map, default_lot_ref, type_counters
+                )
                 all_chunks.extend(seg_chunks)
                 logger.info(f"Segment {i+1}: Parsed {len(seg_chunks)} chunks.")
                 
             except Exception as e:
                 logger.error(f"LLM chunking failed for segment {i+1} of {doc.original_filename}: {e}")
-                # Continue to next segment instead of total failure
         
-        # 3. Fallback only if NO chunks were generated at all
+        # 3. Fallback
         if not all_chunks:
             logger.warning(f"No chunks parsed from any segment for {doc.original_filename}, falling back to standard")
-            return self._standard_chunk_document(doc, tender_id)
+            return self._standard_chunk_document(doc, tender_id, default_lot_ref)
             
         return all_chunks
 
@@ -223,6 +237,7 @@ class LLMChunker:
                 }
             ],
             temperature=0.0,
+            # extra_body={"reasoning": {"enabled": True}} # Disabled as requested
             # max_tokens=4000 # Optional
         )
         
@@ -315,12 +330,12 @@ CRITICAL RULES:
 6. MANDATORY: Identify the Lot Number this item belongs to. If implicit, look at previous pages or headers.
 
 OUTPUT FORMAT - Insert these markers around each product. Add 'lot' attribute if known:
-<!-- CHUNK:product:item_NUMBER lot="LOT_NUMBER" -->
+<!-- CHUNK:products:item_NUMBER lot="LOT_NUMBER" designation="..." quantity="..." unit="..." -->
 [complete product row content]
 <!-- /CHUNK -->
 
 EXAMPLE:
-<!-- CHUNK:product:item_1 lot="1" -->
+<!-- CHUNK:products:item_1 lot="1" designation="Ordinateur Portable" quantity="5" unit="U" -->
 | 1 | Ordinateur Portable | i7, 16GB RAM | 5 | U |
 <!-- /CHUNK -->
 
@@ -334,27 +349,32 @@ NOW PROCESS THIS DOCUMENT:
 
 TASK: Identify logical sections (Articles, Chapters) AND embedded pricing tables (Bordereau des Prix).
 
+CLASSIFICATION TYPES:
+- 'products_specs': Technical specifications specific to materials/products.
+- 'general_technical_specs': General execution standards/norms.
+- 'products': If a pricing table (BDP) is found embedded here.
+
 CRITICAL RULES FOR TEXT SECTIONS:
 1. Each ARTICLE = ONE separate chunk (e.g., Article 1, Article 2...).
 2. STRICT PROHIBITION: NEVER merge multiple articles into a single chunk. Even short articles must be separate.
-3. Marker format: <!-- CHUNK:article:ARTICLE_NUMBER type="clause" -->
+3. Marker format: <!-- CHUNK:type:ARTICLE_NUMBER type="TYPE" -->
 4. Keep the article header exactly as is with its content.
 5. If an article has sub-points, keep them logically within that article's chunk.
 
 CRITICAL RULES FOR PRICING TABLES (BDP) - IF PRESENT:
-1. If you encounter a list of products/prices, switch to PRODUCT mode.
+1. If you encounter a list of products/prices, switch to PRODUCT mode via 'products' type.
 2. STRICT SEPARATION: One product row = ONE chunk. NEVER merge rows.
-3. Marker format: <!-- CHUNK:product:item_NUMBER lot="LOT_NUMBER" -->
+3. Marker format: <!-- CHUNK:products:item_NUMBER lot="LOT_NUMBER" -->
 
 OUTPUT FORMATS:
 
 For Articles:
-<!-- CHUNK:article:5 type="clause" -->
+<!-- CHUNK:products_specs:Art_5 type="products_specs" -->
 [article content]
 <!-- /CHUNK -->
 
 For Products (if table found):
-<!-- CHUNK:product:item_1 lot="4" -->
+<!-- CHUNK:products:item_1 lot="4" -->
 | 1 | Laptop HP | i5, 8GB | 5 | U |
 <!-- /CHUNK -->
 
@@ -368,14 +388,16 @@ NOW PROCESS THIS DOCUMENT:
 
 TASK: Identify administrative sections, eligibility criteria, and Articles.
 
+CLASSIFICATION TYPE: 'administrativ_specs'
+
 CRITICAL RULES:
 1. Each ARTICLE or discrete SECTION = ONE separate chunk.
 2. STRICT PROHIBITION: NEVER merge multiple articles into a single chunk.
-3. Marker format: <!-- CHUNK:admin:SECTION_NAME type="admin_rule" -->
-4. Example: <!-- CHUNK:admin:Article_1_Objet type="admin_rule" -->
+3. Marker format: <!-- CHUNK:administrativ_specs:SECTION_NAME type="administrativ_specs" -->
+4. Example: <!-- CHUNK:administrativ_specs:Article_1_Objet type="administrativ_specs" -->
 
 OUTPUT FORMAT:
-<!-- CHUNK:admin:Article_1 type="admin_rule" -->
+<!-- CHUNK:administrativ_specs:Article_1 type="administrativ_specs" -->
 [content of Article 1]
 <!-- /CHUNK -->
 
@@ -390,7 +412,7 @@ NOW PROCESS THIS DOCUMENT:
 TASK: Extract key information and create a single summary chunk.
 
 OUTPUT FORMAT:
-<!-- CHUNK:notice:summary type="tender_summary" -->
+<!-- CHUNK:general_technical_specs:summary type="general_technical_specs" -->
 [complete tender notice summary]
 <!-- /CHUNK -->
 
@@ -415,57 +437,71 @@ DOCUMENT:
 
 {content}"""
 
-    def _parse_chunk_markers(self, response: str, doc: LogicalDocument, tender_id: int) -> List[Dict[str, Any]]:
-        """Parse chunk markers from LLM response.
-        
-        Args:
-            response: LLM response with chunk markers
-            doc: Source document
-            tender_id: Database ID of the tender
-            
-        Returns:
-            List of parsed chunks
-        """
+    def _parse_chunk_markers(self, response: str, doc: LogicalDocument, tender_id: int, 
+                             lot_map: Dict[str, str], default_lot_ref: str, 
+                             type_counters: Dict) -> tuple[List[Dict[str, Any]], Dict]:
+        """Parse chunk markers and generate IDs: {lot_ref}_{type}_{increment}"""
         chunks = []
         
-        # Pattern to match chunk markers with optional attributes
         # Matches: <!-- CHUNK:type:id attributes --> content <!-- /CHUNK -->
         pattern = r'<!-- CHUNK:(\w+):(\w+)(.*?) -->\s*(.*?)\s*<!-- /CHUNK -->'
         matches = re.findall(pattern, response, re.DOTALL | re.IGNORECASE)
         
         for i, (chunk_type, chunk_id, attributes_str, content) in enumerate(matches):
             content = content.strip()
-            if not content or len(content) < 20:  # Skip tiny chunks
+            if not content or len(content) < 10: 
                 continue
             
-            # Parse attributes (e.g., lot="1" type="clause")
+            # Parse attributes
             metadata = {
-                "type": chunk_type,
+                "type": chunk_type, # Should be one of the 4 strict types match user req
                 "tender_id": tender_id,
-                "source_doc": doc.original_filename,
-                "chunk_id": chunk_id,
-                "generated_id": f"{chunk_type}_{tender_id}_{chunk_id}_{i}"
+                "source_doc": doc.original_filename
             }
             
-            # Extract simple key="value" attributes
+            # Extract attributes like lot="1", designation="...", etc.
             attr_pattern = r'(\w+)=["\']([^"\']+)["\']'
             attrs = re.findall(attr_pattern, attributes_str)
             for key, val in attrs:
                 metadata[key] = val
             
-            # Fallback for lot extraction if not in attributes
-            if "lot" not in metadata and "lot_ids" not in metadata:
-                 metadata["lot_ids"] = self._extract_lot_from_content(content)
-            elif "lot" in metadata:
-                 metadata["lot_ids"] = metadata["lot"] # standardized key
-
+            # Resolve Lot Reference
+            # 1. Try metadata['lot'] (from LLM)
+            lot_num_raw = metadata.get("lot")
+            lot_ref = default_lot_ref # Default if not found
+            
+            if lot_num_raw:
+                # Clean num "1"
+                c_num = str(lot_num_raw).lower().replace("lot","").strip()
+                if c_num in lot_map:
+                    lot_ref = lot_map[c_num]
+                else:
+                    # Fallback if LLM found a lot number not in extraction map?
+                    # Maybe construct it dynamically or fallback to default
+                    # We will construct it dynamically using tender_ref of default
+                    base_tender_ref = default_lot_ref.rsplit('_', 1)[0]
+                    lot_ref = f"{base_tender_ref}_{c_num}"
+            
+            metadata['lot_reference'] = lot_ref
+            
+            # Generate ID: lot_ref_type_increment
+            # Key for counter: (lot_ref, chunk_type)
+            k = (lot_ref, chunk_type)
+            if k not in type_counters:
+                type_counters[k] = 1
+            idx = type_counters[k]
+            type_counters[k] += 1
+            
+            # ID Construction
+            generated_id = f"{lot_ref}_{chunk_type}_{idx}"
+            
             chunks.append({
-                "id": metadata["generated_id"],
+                "id": generated_id,
                 "content": content,
                 "metadata": metadata
             })
         
-        return chunks
+        return chunks, type_counters
     
     def _extract_lot_from_content(self, content: str) -> str:
         """Extract lot identifier from chunk content."""
@@ -474,12 +510,13 @@ DOCUMENT:
             return lot_match.group(1)
         return "ALL"
     
-    def _standard_chunk_document(self, doc: LogicalDocument, tender_id: int) -> List[Dict[str, Any]]:
+    def _standard_chunk_document(self, doc: LogicalDocument, tender_id: int, default_lot_ref: str) -> List[Dict[str, Any]]:
         """Apply standard text splitting for non-LLM documents.
         
         Args:
             doc: LogicalDocument to chunk
             tender_id: Database ID of the tender
+            default_lot_ref: Default lot reference
             
         Returns:
             List of chunk dictionaries
@@ -487,18 +524,25 @@ DOCUMENT:
         chunks = []
         text_chunks = self.text_splitter.split_text(doc.content)
         
+        # Default type for unknown docs
+        c_type = "general_technical_specs"
+        
         for i, chunk_text in enumerate(text_chunks):
             if len(chunk_text.strip()) < 50:  # Skip very small chunks
                 continue
-                
+            
+            # ID: lot_ref_type_increment (using simple i as increment here, or should we track?)
+            # Since standard chunking is one-pass per doc, 'i+1' is fine.
+            generated_id = f"{default_lot_ref}_{c_type}_{i+1}"
+            
             chunks.append({
-                "id": f"doc_{tender_id}_{doc.doc_type}_{i}",
+                "id": generated_id,
                 "content": chunk_text.strip(),
                 "metadata": {
-                    "type": doc.doc_type,
+                    "type": c_type,
                     "tender_id": tender_id,
                     "source_doc": doc.original_filename,
-                    "lot_ids": "ALL"
+                    "lot_reference": default_lot_ref
                 }
             })
         
