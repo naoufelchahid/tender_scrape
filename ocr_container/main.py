@@ -45,10 +45,11 @@ class OCRService:
     def _download_tender_files(self, tender_ref: str, s3_paths: List[str]) -> List[str]:
         """
         Download tender files from S3.
+        Handles both individual file paths and folder paths.
         
         Args:
             tender_ref: Tender reference
-            s3_paths: List of S3 keys
+            s3_paths: List of S3 keys (can be files or folders)
             
         Returns:
             List of local file paths
@@ -57,8 +58,25 @@ class OCRService:
         os.makedirs(tender_temp_dir, exist_ok=True)
         
         local_paths = []
+        all_s3_file_keys = [] # This will store all actual file keys to download
         
-        for s3_key in s3_paths:
+        for s3_item_path in s3_paths:
+            # Check if this is a folder path (ends with /)
+            if s3_item_path.endswith('/'):
+                logger.info(f"Detected folder path: {s3_item_path}, listing contents...")
+                # List ALL files in folder (Lambda sanitizes filenames, so extensions may not have dots)
+                file_keys = self.s3_client.list_files(s3_item_path)
+                
+                if not file_keys:
+                    logger.warning(f"No files found in folder {s3_item_path}")
+                else:
+                    all_s3_file_keys.extend(file_keys)
+            else:
+                # It's a single file path
+                all_s3_file_keys.append(s3_item_path)
+        
+        # Now, download all collected file keys
+        for s3_key in all_s3_file_keys:
             # Get filename from S3 key
             filename = os.path.basename(s3_key)
             local_path = os.path.join(tender_temp_dir, filename)

@@ -237,8 +237,12 @@ class LLMChunker:
                 }
             ],
             temperature=0.0,
-            # extra_body={"reasoning": {"enabled": True}} # Disabled as requested
-            # max_tokens=4000 # Optional
+            extra_body={
+                "models": [
+                    "meta-llama/llama-3.1-8b-instruct",
+                    "mistralai/mistral-small-3.2-24b-instruct"
+                ]
+            }
         )
         
         return completion.choices[0].message.content

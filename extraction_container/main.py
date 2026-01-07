@@ -9,6 +9,7 @@ from src.extraction import ExtractionService
 from src.llm_chunker import LLMChunker
 from src.cleaning import DocumentCleaners
 from src.database import DatabaseManager
+from src.integrity import IntegrityChecker, IntegrityCheckError
 
 # Logging setup
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -148,7 +149,26 @@ def handle_message(msg, sqs, s3, extractor, chunker):
             Key=chunk_key,
             Body=json.dumps(chunks, ensure_ascii=False)
         )
-        logger.info(f"Saved chunks to {chunk_key}")
+        # 5.5 Integrity Check
+        logger.info("Performing output integrity checks...")
+        meta_valid = IntegrityChecker.check_metadata(extraction_output)
+        chunks_valid = IntegrityChecker.check_chunks(chunks)
+        
+        if not meta_valid or not chunks_valid:
+            logger.error(f"Integrity Check FAILED (Meta: {meta_valid}, Chunks: {chunks_valid}). rolling back S3 uploads.")
+            # Rollback: Delete the uploaded artifacts to prevent bad data
+            try:
+                s3.delete_object(Bucket=S3_BUCKET, Key=metadata_key)
+                s3.delete_object(Bucket=S3_BUCKET, Key=chunk_key)
+                logger.info("Rollback successful: Deleted invalid S3 artifacts.")
+            except Exception as cleanup_error:
+                logger.error(f"Rollback failed: {cleanup_error}")
+            
+            # Raise exception to trigger SQS retry (visibility timeout will put it back in queue)
+            # We specifically use a custom error to distinguish in logs
+            raise IntegrityCheckError(f"Validation failed for {tender_ref}. Metadata: {meta_valid}, Chunks: {chunks_valid}")
+            
+        logger.info("Integrity Check PASSED.")
 
         # 6. Notify DB Filler Queue
         # We need to construct the URL for db_filler if it's just a name

@@ -1,8 +1,57 @@
 {
     "category": "fournitures",
-    "scan_date": "2026-01-01T21:54:36.089502",
-    "total_website_references": 0,
+    "scan_date": "2026-01-06T09:57:47.307503",
+    "total_website_references": 357,
     "total_database_references": 1365,
-    "new_references_count": 0,
-    "new_references": []
+    "new_references_count": 4,
+    "new_references": [
+        {
+            "reference": "1/2026_DIRMAICENKEN",
+            "original_reference": "1/2026",
+            "buyer_initials": "DIRMAICENKEN",
+            "category": "Fournitures",
+            "launch_date": "05/01/2026",
+            "object": "Achat des médicaments livrables à la Maison centrale de kénitra...Achat des médicaments livrables à la Maison centrale de kénitra",
+            "buyer": "DIRECTEUR DE LA MAISON CENTRALE DE KENITRA",
+            "deadline": "...",
+            "city": "KENITRA...KENITRA",
+            "scraped_at": "2026-01-06T09:57:46.923938"
+        },
+        {
+            "reference": "02/2025_COMRURBOUJED",
+            "original_reference": "02/2025",
+            "buyer_initials": "COMRURBOUJED",
+            "category": "Fournitures",
+            "launch_date": "30/12/2025",
+            "object": "ACQUISITION D’UN VEHICULE UTILITAIRE POUR LA COMMUNE DE BOUJEDYANE....ACQUISITION D’UN VEHICULE UTILITAIRE POUR LA COMMUNE DE BOUJEDYANE.",
+            "buyer": "Commune rurale de BOU-JEDYANE",
+            "deadline": "26/01/202609:30",
+            "city": "LARACHE...LARACHE",
+            "scraped_at": "2026-01-06T09:57:46.953538"
+        },
+        {
+            "reference": "04/2025_COMMUNEMATMATA",
+            "original_reference": "04/2025",
+            "buyer_initials": "COMMUNEMATMATA",
+            "category": "Fournitures",
+            "launch_date": "29/12/2025",
+            "object": "l’acquisition d’une voiture de service au profit de la commune de Matmata....l’acquisition d’une voiture de service au profit de la commune de Matmata.",
+            "buyer": "Commune de MATMATA",
+            "deadline": "...",
+            "city": "Province de Taza...Province de Taza",
+            "scraped_at": "2026-01-06T09:57:46.961424"
+        },
+        {
+            "reference": "02/2026_CENHOSPROREH",
+            "original_reference": "02/2026",
+            "buyer_initials": "CENHOSPROREH",
+            "category": "Fournitures",
+            "launch_date": "03/01/2026",
+            "object": "Achat de mobilier de bureau pour Le centre Hospitalier Provincial RHAMNA, lot unique....Achat de mobilier de bureau pour Le centre Hospitalier Provincial RHAMNA, lot unique.",
+            "buyer": "Centre Hospitalier Provincial Rehamna",
+            "deadline": "22/01/202610:00",
+            "city": "REHAMNA...REHAMNA",
+            "scraped_at": "2026-01-06T09:57:46.962075"
+        }
+    ]
 }

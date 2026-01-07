@@ -37,7 +37,15 @@ class ExtractionService:
                 base_url="https://openrouter.ai/api/v1",
                 api_key=openrouter_api_key or os.environ.get("OPENROUTER_API_KEY"),
                 model=model_id,
-                temperature=0.0
+                temperature=0.0,
+                model_kwargs={
+                    "extra_body": {
+                        "models": [
+                            "meta-llama/llama-3.1-8b-instruct",
+                            "mistralai/mistral-small-3.2-24b-instruct"
+                        ]
+                    }
+                }
             )
         else:
             logger.info(f"Using AWS Bedrock with model: {model_id}")
@@ -165,12 +173,60 @@ class ExtractionService:
                      "Context:\n{context}")
         ])
         
-        chain = prompt | self.llm | self.meta_parser
+        # Split chain to handle parsing manually for robustness
+        chain = prompt | self.llm
         try:
-            return chain.invoke({
+            response = chain.invoke({
                 "context": text,
                 "format_instructions": self.meta_parser.get_format_instructions()
             })
+            content = response.content
+            
+            # 1. Try Standard Parser
+            try:
+                return self.meta_parser.parse(content)
+            except Exception:
+                # 2. Key Error/Validation Error -> Try Flexible Fallback
+                logger.warning("Standard metadata parsing failed. Attempting flexible fallback.")
+                
+                # Extract JSON from markdown code blocks if present
+                clean_content = content.replace("```json", "").replace("```", "").strip()
+                # Basic cleanup if model adds text around json
+                start_idx = clean_content.find("{")
+                end_idx = clean_content.rfind("}")
+                if start_idx != -1 and end_idx != -1:
+                    clean_content = clean_content[start_idx:end_idx+1]
+
+                data = json.loads(clean_content)
+                
+                # Check if it is a flat TenderMetadata object
+                # We assume if 'tender_reference' or 'buyer' is in root, it's flat
+                if "tender_info" not in data and ("tender_reference" in data or "buyer" in data):
+                    logger.info("Detected flat metadata structure. Reconstructing ExtractionOutput.")
+                    # Filter data to only valid TenderMetadata fields to avoid extra field errors
+                    valid_fields = TenderMetadata.model_fields.keys()
+                    filtered_data = {k: v for k, v in data.items() if k in valid_fields}
+                    
+                    tender_info = TenderMetadata(**filtered_data)
+                    
+                    # Try to extract lots if they are in the flat dict
+                    lots = []
+                    if "lots" in data and isinstance(data["lots"], list):
+                        for l in data["lots"]:
+                            try:
+                                lots.append(LotMetadata(**l))
+                            except:
+                                pass
+                    
+                    return ExtractionOutput(
+                        tender_info=tender_info,
+                        lots=lots,
+                        products=[]
+                    )
+                else:
+                    # Rerturning standard parse might raise specific error
+                    return self.meta_parser.parse(content)
+                    
         except Exception as e:
             logger.error(f"Metadata extraction failed: {e}")
             raise e

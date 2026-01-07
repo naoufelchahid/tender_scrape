@@ -35,12 +35,10 @@ def send_to_ocr_queue(tender_ref: str, s3_folder_key: str, s3_bucket: str):
         return
     
     try:
-        # Construct S3 URI for the folder
-        s3_folder_uri = f"s3://{s3_bucket}/{s3_folder_key}"
-        
+        # Send just the S3 key (not full URI) since OCR container constructs the full path
         message_body = {
             "tender_ref": tender_ref,
-            "s3_paths": [s3_folder_uri]
+            "s3_paths": [s3_folder_key]  # Changed from full URI to just the key
         }
         
         response = sqs_client.send_message(
@@ -101,13 +99,31 @@ def update_tender_db(reference: str, s3_folder_key: str, s3_bucket: str):
 def sanitize_filename(filename: str) -> str:
     """
     Sanitize the filename by replacing special characters with underscores.
+    Preserves file extension to maintain file type detection.
     Keeps only alphanumeric, dot, hyphen, and underscore.
     Replaces: non-ASCII, spaces, quotes, parentheses, etc. with '_'.
     """
-    # Whitelist: Alphanumeric, dot, hyphen, underscore. Everything else -> underscore
+    # Split filename into name and extension to preserve extension
+    if '.' in filename:
+        parts = filename.rsplit('.', 1)
+        name = parts[0]
+        ext = parts[1] if len(parts) > 1 else ''
+    else:
+        name = filename
+        ext = ''
+    
+    # Sanitize name only
     valid_chars = "-_"
-    sanitized = "".join([c if c.isalnum() or c in valid_chars else "_" for c in filename])
-    return sanitized
+    sanitized_name = "".join([c if c.isalnum() or c in valid_chars else "_" for c in name])
+    
+    # Sanitize extension (keep alphanumeric only)
+    sanitized_ext = "".join([c if c.isalnum() else "" for c in ext]) if ext else ""
+    
+    # Combine with dot if extension exists
+    if sanitized_ext:
+        return f"{sanitized_name}.{sanitized_ext}"
+    else:
+        return sanitized_name
 
 def process_zip_file_logic(s3_bucket: str, s3_key: str, task_id: Optional[str] = None) -> Dict[str, str]:
     """

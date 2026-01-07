@@ -1,45 +1,8 @@
 {
     "category": "services",
-    "scan_date": "2026-01-01T21:53:05.902403",
-    "total_website_references": 655,
-    "total_database_references": 1461,
-    "new_references_count": 3,
-    "new_references": [
-        {
-            "reference": "05/2025_COMMUNESIDIBIBI",
-            "original_reference": "05/2025",
-            "buyer_initials": "COMMUNESIDIBIBI",
-            "category": "Services",
-            "launch_date": "31/12/2025",
-            "object": "affermage des parking, souk hebdomadaire et ses annexes, mousem sidi bibi et sidi ouaggague CT de sidi bibi...affermage des parking, souk hebdomadaire et ses annexes, mousem sidi bibi et sidi ouaggague CT de sidi bibi",
-            "buyer": "Commune de SIDI BIBI",
-            "deadline": "...",
-            "city": "CHTOUKA-AIT BAHA...CHTOUKA-AIT BAHA",
-            "scraped_at": "2026-01-01T21:52:49.472845"
-        },
-        {
-            "reference": "01/2026_INSNATRECHAL",
-            "original_reference": "01/2026",
-            "buyer_initials": "INSNATRECHAL",
-            "category": "Services",
-            "launch_date": "30/12/2025",
-            "object": "la réalisation de prestations des services d’un consignataire pour les opérations d’escales techniques du navire de recherche AL AMIR MOULAY ABDALLAH de L’INRH aux ports portugais, dans le cadre des opérations de sa...la réalisation de prestations des services d’un consignataire pour les opérations d’escales techniques du navire de recherche AL AMIR MOULAY ABDALLAH de L’INRH aux ports portugais, dans le cadre des opérations de sa maintenance au chantier naval à Figueira Da Foz au Portugal.",
-            "buyer": "INSTITUT NATIONAL DE RECHERCHE HALIEUTIQUE",
-            "deadline": "...",
-            "city": "ESPAGNE...ESPAGNE",
-            "scraped_at": "2026-01-01T21:52:49.475039"
-        },
-        {
-            "reference": "05/2025_COMMUNEBABMARZOUKA",
-            "original_reference": "05/2025",
-            "buyer_initials": "COMMUNEBABMARZOUKA",
-            "category": "Services",
-            "launch_date": "30/12/2025",
-            "object": "التدبير المفوض لمرفق السوق الأسبوعي لجماعة باب مرزوقة...التدبير المفوض لمرفق السوق الأسبوعي لجماعة باب مرزوقة",
-            "buyer": "COMMUNE BAB MARZOUKA",
-            "deadline": "20/01/202610:00",
-            "city": "TAZA...TAZA",
-            "scraped_at": "2026-01-01T21:52:49.481232"
-        }
-    ]
+    "scan_date": "2026-01-06T09:55:02.857474",
+    "total_website_references": 0,
+    "total_database_references": 1516,
+    "new_references_count": 0,
+    "new_references": []
 }
