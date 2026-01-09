@@ -212,28 +212,28 @@ class ReferenceUpdater:
             logger.error(f"Error getting page HTML: {e}")
             raise
     
-    def extract_buyer_initials(self, buyer_text: str) -> str:
+    def generate_initials(self, name: str) -> str:
         """
-        Extract initials from buyer name for creating unique composite references
-        Matches the logic in Db_Healer.py generate_initials() function
+        Generate initials from buyer name - New logic provided by user
+        Matches logic in Db_Healer.py
         """
-        if not buyer_text or buyer_text == "N/A":
+        if not name or name == "N/A":
             return "UNK"
         
         # Common words to ignore
-        ignore = ['LE', 'LA', 'LES', 'DE', 'DES', 'DU', 'ET', 'EN', 'AU', 'AUX', 'A']
+        ignore = ['LE', 'LA', 'LES', 'DE', 'DES', 'DU', 'ET', 'EN', 'AU', 'AUX', 'A', "L'"]
         
         # Clean name
-        clean_name = buyer_text.upper().replace('-', ' ').replace('_', ' ').replace("'", " ")
+        clean_name = name.upper().replace('-', ' ').replace('_', ' ').replace("'", " ")
         words = [w for w in clean_name.split() if w not in ignore and len(w) > 1]
         
         if not words:
-            return buyer_text[:3].upper()
+            return name[:3].upper()
         
         if len(words) == 1:
             return words[0][:3]
         
-        # New logic from Db_Healer.py:
+        # New logic:
         # - If 2 or 3 words: use the entire words
         # - If more than 3 words: take first 3 letters from ALL words
         if 2 <= len(words) <= 3:
@@ -248,6 +248,7 @@ class ReferenceUpdater:
         logger.info("Parsing HTML content for tender references...")
         
         try:
+            import re
             soup = BeautifulSoup(html_content, 'html.parser')
             references_data = []
             
@@ -292,10 +293,13 @@ class ReferenceUpdater:
                         object_text = " ".join(object_text.split())
                     
                     # Buyer
-                    buyer_text = "N/A"
                     if idx < len(buyer_divs):
                         raw_buyer = buyer_divs[idx].get_text(strip=True)
-                        buyer_text = raw_buyer.replace("Acheteur public :", "").strip()
+                        # Robust cleanup of prefix using regex
+                        buyer_text = re.sub(r'(?i)^Acheteur\s+public\s*[:\s]*', '', raw_buyer).strip()
+                        # Fallback simple replace if regex doesn't match (unlikely but safe)
+                        if "Acheteur public" in buyer_text:
+                             buyer_text = buyer_text.replace("Acheteur public", "").replace(":", "").strip()
                         buyer_text = " ".join(buyer_text.split())
                     
                     # Deadline
@@ -315,7 +319,7 @@ class ReferenceUpdater:
                     
                     # ALWAYS create composite reference to match database format
                     # Database stores as: original_reference_buyer_initials
-                    buyer_initials = self.extract_buyer_initials(buyer_text)
+                    buyer_initials = self.generate_initials(buyer_text)
                     composite_reference = f"{original_reference}_{buyer_initials}"
                     
                     # Log first 3 examples for verification

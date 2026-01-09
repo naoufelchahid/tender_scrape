@@ -58,4 +58,18 @@ class IntegrityChecker:
                 logger.error(f"Integrity Check Failed: Chunk {i} content too short (<10 chars).")
                 return False
                 
+                
+        return True
+
+    @staticmethod
+    def check_products(products: List[Any]) -> bool:
+        """
+        Validates extracted products.
+        Criteria:
+        - List must not be empty.
+        """
+        if not products:
+            logger.warning("Integrity Check Warning: Product list is empty.")
+            return False
+            
         return True

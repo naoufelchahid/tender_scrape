@@ -77,7 +77,18 @@ class NovaExtractionService:
                         self.sqs_client.delete_message(message['receipt_handle'])
                         logger.info("✅ Message processed and deleted successfully")
                     else:
-                        logger.error("❌ Message processing failed, will retry")
+                        logger.error("❌ Message processing failed permanently.")
+                        # Send to DLQ
+                        if Config.OCR_DLQ_URL:
+                            logger.info(f"🚚 Moving message {message['message_id']} to DLQ")
+                            try:
+                                self.sqs_client.send_message(body, Config.OCR_DLQ_URL)
+                                self.sqs_client.delete_message(message['receipt_handle'])
+                                logger.info("✅ Message moved to DLQ and deleted from source queue")
+                            except Exception as dlq_err:
+                                logger.error(f"Failed to move message to DLQ: {dlq_err}")
+                        else:
+                            logger.warning("OCR_DLQ_URL not set - message will be retried by SQS (visibility timeout)")
                 
                 except Exception as e:
                     logger.error(f"Error processing message: {e}", exc_info=True)
@@ -289,23 +300,44 @@ class NovaExtractionService:
             else:
                 logger.warning(f"No chunks generated for {tender_ref}")
             
-            # 7. Send completion message to DB_FILLER_QUEUE
+            # 7. Send completion messages to separate queues
             processing_time = time.time() - start_time
-            completion_message = {
+            
+            # Message 1: Metadata -> DB_FILLER_QUEUE
+            metadata_message = {
                 'tender_ref': tender_ref,
                 'tender_id': tender_id,
                 'status': 'completed',
                 'metadata_path': metadata_key,
-                'chunks_path': f"chunks_tender/{tender_ref}/chunks.json" if chunks else None,
                 'files_processed': files_processed,
                 'files_skipped': files_skipped,
                 'processing_time': processing_time
             }
             
             self.sqs_client.send_message(
-                completion_message,
+                metadata_message,
                 Config.DB_FILLER_QUEUE_URL
             )
+            logger.info(f"Sent metadata notification to DB_FILLER_QUEUE for {tender_ref}")
+            
+            # Message 2: Chunks -> VECTOR_QUEUE (if chunks exist)
+            if chunks:
+                chunks_message = {
+                    'tender_ref': tender_ref,
+                    'tender_id': tender_id,
+                    'status': 'completed',
+                    'chunks_path': f"chunks_tender/{tender_ref}/chunks.json",
+                    'chunk_count': len(chunks),
+                    'processing_time': processing_time
+                }
+                
+                self.sqs_client.send_message(
+                    chunks_message,
+                    Config.VECTOR_QUEUE_URL
+                )
+                logger.info(f"Sent chunks notification to VECTOR_QUEUE for {tender_ref}")
+            else:
+                logger.warning("No chunks generated, skipping VECTOR_QUEUE notification")
             
             # Cleanup
             if temp_dir and os.path.exists(temp_dir):

@@ -23,7 +23,9 @@ class Config:
     
     # SQS Configuration
     OCR_QUEUE_URL: str = os.getenv('OCR_QUEUE_URL', '')
+    OCR_DLQ_URL: str = os.getenv('OCR_DLQ_URL', 'https://sqs.eu-west-3.amazonaws.com/034791378578/OCR_DLQ')
     DB_FILLER_QUEUE_URL: str = os.getenv('DB_FILLER_QUEUE_URL', '')
+    VECTOR_QUEUE_URL: str = os.getenv('VECTOR_QUEUE_URL', '')
     
     # OpenRouter Configuration
     OPENROUTER_API_KEY: str = os.getenv('OPENROUTER_API_KEY', '')
@@ -51,6 +53,7 @@ class Config:
         required = {
             'OCR_QUEUE_URL': cls.OCR_QUEUE_URL,
             'DB_FILLER_QUEUE_URL': cls.DB_FILLER_QUEUE_URL,
+            'VECTOR_QUEUE_URL': cls.VECTOR_QUEUE_URL,
             'OPENROUTER_API_KEY': cls.OPENROUTER_API_KEY,
             'S3_BUCKET_NAME': cls.S3_BUCKET_NAME,
         }
@@ -69,6 +72,9 @@ class Config:
         print(f"S3 Bucket: {cls.S3_BUCKET_NAME}")
         print(f"S3 Prefix: {cls.S3_SOURCE_PREFIX}")
         print(f"OCR Queue: {cls.OCR_QUEUE_URL[:50]}...")
+        print(f"OCR DLQ: {cls.OCR_DLQ_URL[:50]}...")
+        print(f"DB Filler Queue: {cls.DB_FILLER_QUEUE_URL[:50]}...")
+        print(f"Vector Queue: {cls.VECTOR_QUEUE_URL[:50]}...")
         print(f"Primary Model: {cls.PRIMARY_MODEL}")
         print(f"Fallback 1: {cls.FALLBACK_MODEL_1}")
         print(f"Fallback 2: {cls.FALLBACK_MODEL_2}")

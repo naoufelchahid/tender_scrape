@@ -1,0 +1,276 @@
+2026-01-09 10:21:10 - nova_extraction - INFO - ================================================================================
+2026-01-09 10:21:10 - nova_extraction - INFO - Nova Extraction Service Starting
+2026-01-09 10:21:10 - nova_extraction - INFO - ================================================================================
+==================================================
+Nova Extraction Container Configuration
+==================================================
+AWS Region: eu-west-3
+S3 Bucket: my-tender-documents-bucket
+S3 Prefix: tenders_doc_final/
+OCR Queue: https://sqs.eu-west-3.amazonaws.com/034791378578/O...
+Primary Model: google/gemini-2.0-flash-lite-001
+Fallback 1: google/gemini-2.0-flash-001
+Fallback 2: x-ai/grok-4.1-fast
+Max Workers: 3
+Chunk Size: 10 pages
+OpenRouter Key: ********************
+==================================================
+2026-01-09 10:21:11 - nova_extraction - INFO - Nova Extractor initialized with fallback chain: google/gemini-2.0-flash-lite-001 → google/gemini-2.0-flash-001 → x-ai/grok-4.1-fast
+2026-01-09 10:21:11 - nova_extraction - INFO - Nova Extraction Service initialized
+2026-01-09 10:21:11 - nova_extraction - INFO - Starting Nova Extraction service main loop
+2026-01-09 10:21:12 - nova_extraction - INFO - 📨 Processing message: 778c9260-cfe4-4ced-9726-7d7626d21331
+2026-01-09 10:21:12 - nova_extraction - INFO - Found 7 files in tenders_doc_final/49_2025_SDR_SOCDEVREG_ORSERSA/
+2026-01-09 10:21:12 - nova_extraction - INFO - Found 7 files in tenders_doc_final/49_2025_SDR_SOCDEVREG_ORSERSA/
+2026-01-09 10:21:12 - nova_extraction - INFO - Found 6 supported files for 49_2025_SDR_SOCDEVREG_ORSERSA (PDF, Word, Excel, Images)
+2026-01-09 10:21:13 - nova_extraction - INFO - ================================================================================
+2026-01-09 10:21:13 - nova_extraction - INFO - 🚀 STARTING PROCESSING: 49_2025_SDR_SOCDEVREG_ORSERSA
+2026-01-09 10:21:13 - nova_extraction - INFO - 📄 Files to process: 6
+2026-01-09 10:21:13 - nova_extraction - INFO - ================================================================================
+2026-01-09 10:21:13 - nova_extraction - INFO - 📝 Classified AO_49_2025_AVIS_ARABE_49-2025.docx: avis (process: True)
+2026-01-09 10:21:13 - nova_extraction - INFO - 🔄 Processing AO_49_2025_AVIS_ARABE_49-2025.docx (type: avis)
+2026-01-09 10:21:13 - nova_extraction - INFO - Extracting data from temp/49_2025_SDR_SOCDEVREG_ORSERSA/AO_49_2025_AVIS_ARABE_49-2025.docx (type: avis)
+2026-01-09 10:21:13 - nova_extraction - INFO - Processing .docx file: AO_49_2025_AVIS_ARABE_49-2025.docx
+2026-01-09 10:21:13 - nova_extraction - INFO - Extracted 982 characters from Word document
+2026-01-09 10:21:13 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:13 - nova_extraction - INFO - Processing text (982 chars) with google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:17 - nova_extraction - INFO - ✅ Success with google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:17 - nova_extraction - INFO - ✅ Completed AO_49_2025_AVIS_ARABE_49-2025.docx
+2026-01-09 10:21:17 - nova_extraction - INFO - 📝 Classified AO_49_2025_Avis_FR_-AO_49-2025.docx: avis (process: True)
+2026-01-09 10:21:17 - nova_extraction - INFO - 🔄 Processing AO_49_2025_Avis_FR_-AO_49-2025.docx (type: avis)
+2026-01-09 10:21:17 - nova_extraction - INFO - Extracting data from temp/49_2025_SDR_SOCDEVREG_ORSERSA/AO_49_2025_Avis_FR_-AO_49-2025.docx (type: avis)
+2026-01-09 10:21:17 - nova_extraction - INFO - Processing .docx file: AO_49_2025_Avis_FR_-AO_49-2025.docx
+2026-01-09 10:21:17 - nova_extraction - INFO - Extracted 1282 characters from Word document
+2026-01-09 10:21:17 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:17 - nova_extraction - INFO - Processing text (1282 chars) with google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:20 - nova_extraction - INFO - ✅ Success with google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:20 - nova_extraction - INFO - ✅ Completed AO_49_2025_Avis_FR_-AO_49-2025.docx
+2026-01-09 10:21:20 - nova_extraction - INFO - 📝 Classified AO_49_2025_CPS__manuel_des_procédures_docx_DEF_AO_49-2025.docx: cps (process: True)
+2026-01-09 10:21:20 - nova_extraction - INFO - 🔄 Processing AO_49_2025_CPS__manuel_des_procédures_docx_DEF_AO_49-2025.docx (type: cps)
+2026-01-09 10:21:20 - nova_extraction - INFO - Extracting data from temp/49_2025_SDR_SOCDEVREG_ORSERSA/AO_49_2025_CPS__manuel_des_procédures_docx_DEF_AO_49-2025.docx (type: cps)
+2026-01-09 10:21:20 - nova_extraction - INFO - Processing .docx file: AO_49_2025_CPS__manuel_des_procédures_docx_DEF_AO_49-2025.docx
+2026-01-09 10:21:20 - nova_extraction - INFO - Extracted 33693 characters from Word document
+2026-01-09 10:21:20 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:20 - nova_extraction - INFO - Processing text (33693 chars) with google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:24 - nova_extraction - INFO - ✅ Success with google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:24 - nova_extraction - INFO - ✅ Completed AO_49_2025_CPS__manuel_des_procédures_docx_DEF_AO_49-2025.docx
+2026-01-09 10:21:24 - nova_extraction - WARNING - Error extracting first page text: No /Root object! - Is this really a PDF?
+2026-01-09 10:21:24 - nova_extraction - WARNING - ⚠️  Could not classify AO_49_2025_Réglement_de_Consultation__manuel_des_procédures_DEF_AO_49-2025.docx, will process as 'unknown'
+2026-01-09 10:21:24 - nova_extraction - INFO - 🔄 Processing AO_49_2025_Réglement_de_Consultation__manuel_des_procédures_DEF_AO_49-2025.docx (type: unknown)
+2026-01-09 10:21:24 - nova_extraction - INFO - Extracting data from temp/49_2025_SDR_SOCDEVREG_ORSERSA/AO_49_2025_Réglement_de_Consultation__manuel_des_procédures_DEF_AO_49-2025.docx (type: unknown)
+2026-01-09 10:21:24 - nova_extraction - INFO - Processing .docx file: AO_49_2025_Réglement_de_Consultation__manuel_des_procédures_DEF_AO_49-2025.docx
+2026-01-09 10:21:24 - nova_extraction - INFO - Extracted 47107 characters from Word document
+2026-01-09 10:21:24 - nova_extraction - WARNING - Unknown document type: unknown, attempting metadata extraction
+2026-01-09 10:21:24 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:24 - nova_extraction - INFO - Processing text (47107 chars) with google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:27 - nova_extraction - INFO - ✅ Success with google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:27 - nova_extraction - INFO - ✅ Completed AO_49_2025_Réglement_de_Consultation__manuel_des_procédures_DEF_AO_49-2025.docx
+2026-01-09 10:21:27 - nova_extraction - INFO - 📝 Classified AO_49_2025_dernier_pg_CPS_49-2025.pdf: cps (process: True)
+2026-01-09 10:21:27 - nova_extraction - INFO - 🔄 Processing AO_49_2025_dernier_pg_CPS_49-2025.pdf (type: cps)
+2026-01-09 10:21:27 - nova_extraction - INFO - Extracting data from temp/49_2025_SDR_SOCDEVREG_ORSERSA/AO_49_2025_dernier_pg_CPS_49-2025.pdf (type: cps)
+2026-01-09 10:21:27 - nova_extraction - INFO - Processing .pdf file: AO_49_2025_dernier_pg_CPS_49-2025.pdf
+2026-01-09 10:21:27 - nova_extraction - INFO - Text layer detection: False (confidence: 0.00, avg chars/page: 0)
+2026-01-09 10:21:27 - nova_extraction - INFO - ❌ PDF has no text layer (confidence: 0.00) - converting to images
+2026-01-09 10:21:28 - nova_extraction - INFO - Converted 1 pages to images
+2026-01-09 10:21:28 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:28 - nova_extraction - INFO - Processing 1 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:34 - nova_extraction - INFO - ✅ Success with google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:34 - nova_extraction - INFO - ✅ Completed AO_49_2025_dernier_pg_CPS_49-2025.pdf
+2026-01-09 10:21:34 - nova_extraction - INFO - 📝 Classified AO_49_2025_dernier_pg_RC_49-2025.pdf: rc (process: True)
+2026-01-09 10:21:34 - nova_extraction - INFO - 🔄 Processing AO_49_2025_dernier_pg_RC_49-2025.pdf (type: rc)
+2026-01-09 10:21:34 - nova_extraction - INFO - Extracting data from temp/49_2025_SDR_SOCDEVREG_ORSERSA/AO_49_2025_dernier_pg_RC_49-2025.pdf (type: rc)
+2026-01-09 10:21:34 - nova_extraction - INFO - Processing .pdf file: AO_49_2025_dernier_pg_RC_49-2025.pdf
+2026-01-09 10:21:34 - nova_extraction - INFO - Text layer detection: False (confidence: 0.00, avg chars/page: 0)
+2026-01-09 10:21:34 - nova_extraction - INFO - ❌ PDF has no text layer (confidence: 0.00) - converting to images
+2026-01-09 10:21:35 - nova_extraction - INFO - Converted 1 pages to images
+2026-01-09 10:21:35 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:35 - nova_extraction - INFO - Processing 1 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:39 - nova_extraction - INFO - ✅ Success with google/gemini-2.0-flash-lite-001
+2026-01-09 10:21:39 - nova_extraction - INFO - ✅ Completed AO_49_2025_dernier_pg_RC_49-2025.pdf
+2026-01-09 10:21:39 - nova_extraction - INFO - 📊 Extraction Results for 49_2025_SDR_SOCDEVREG_ORSERSA:
+2026-01-09 10:21:39 - nova_extraction - INFO -    - Metadata fields: 8
+2026-01-09 10:21:39 - nova_extraction - INFO -    - Lots: 1
+2026-01-09 10:21:39 - nova_extraction - INFO -    - Products: 0
+2026-01-09 10:21:39 - nova_extraction - INFO - Performing integrity checks...
+2026-01-09 10:21:39 - nova_extraction - INFO - Creating document chunks...
+2026-01-09 10:21:39 - nova_extraction - INFO - Processing .docx file: AO_49_2025_AVIS_ARABE_49-2025.docx
+2026-01-09 10:21:40 - nova_extraction - INFO - Extracted 982 characters from Word document
+2026-01-09 10:21:40 - nova_extraction - INFO - Processing .docx file: AO_49_2025_Avis_FR_-AO_49-2025.docx
+2026-01-09 10:21:40 - nova_extraction - INFO - Extracted 1282 characters from Word document
+2026-01-09 10:21:40 - nova_extraction - INFO - Processing .docx file: AO_49_2025_CPS__manuel_des_procédures_docx_DEF_AO_49-2025.docx
+2026-01-09 10:21:40 - nova_extraction - INFO - Extracted 33693 characters from Word document
+2026-01-09 10:21:40 - nova_extraction - INFO - Processing .docx file: AO_49_2025_Réglement_de_Consultation__manuel_des_procédures_DEF_AO_49-2025.docx
+2026-01-09 10:21:40 - nova_extraction - INFO - Extracted 47107 characters from Word document
+2026-01-09 10:21:40 - nova_extraction - INFO - Processing .pdf file: AO_49_2025_dernier_pg_CPS_49-2025.pdf
+2026-01-09 10:21:40 - nova_extraction - INFO - Text layer detection: False (confidence: 0.00, avg chars/page: 0)
+2026-01-09 10:21:40 - nova_extraction - INFO - ❌ PDF has no text layer (confidence: 0.00) - converting to images
+2026-01-09 10:21:42 - nova_extraction - INFO - Converted 1 pages to images
+2026-01-09 10:21:42 - nova_extraction - WARNING - No text extracted from AO_49_2025_dernier_pg_CPS_49-2025.pdf, skipping for chunking
+2026-01-09 10:21:42 - nova_extraction - INFO - Processing .pdf file: AO_49_2025_dernier_pg_RC_49-2025.pdf
+2026-01-09 10:21:42 - nova_extraction - INFO - Text layer detection: False (confidence: 0.00, avg chars/page: 0)
+2026-01-09 10:21:42 - nova_extraction - INFO - ❌ PDF has no text layer (confidence: 0.00) - converting to images
+2026-01-09 10:21:44 - nova_extraction - INFO - Converted 1 pages to images
+2026-01-09 10:21:44 - nova_extraction - WARNING - No text extracted from AO_49_2025_dernier_pg_RC_49-2025.pdf, skipping for chunking
+2026-01-09 10:23:38 - nova_extraction - INFO - Generated 93 chunks
+2026-01-09 10:23:38 - nova_extraction - INFO - Backfilling products from chunks...
+/home/naoufel/projects/AO_scrape/nova_extraction_container/main.py:285: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  {'tender_ref': sanitize_for_s3_metadata(tender_ref), 'processed_date': datetime.utcnow().isoformat()}
+2026-01-09 10:23:38 - nova_extraction - INFO - Uploaded JSON to tenders_metadata/49_2025_SDR_SOCDEVREG_ORSERSA.json
+2026-01-09 10:23:39 - nova_extraction - INFO - Uploaded JSON to chunks_tender/49_2025_SDR_SOCDEVREG_ORSERSA/chunks.json
+2026-01-09 10:23:39 - nova_extraction - INFO - Message sent to queue: b060e8fe-3fae-480d-ab1a-1a25111c28ef
+2026-01-09 10:23:39 - nova_extraction - INFO - Sent metadata notification to DB_FILLER_QUEUE for 49_2025_SDR_SOCDEVREG_ORSERSA
+2026-01-09 10:23:39 - nova_extraction - INFO - Message sent to queue: 44a657dc-f75b-48d5-abe8-deccd0af27c5
+2026-01-09 10:23:39 - nova_extraction - INFO - Sent chunks notification to VECTOR_QUEUE for 49_2025_SDR_SOCDEVREG_ORSERSA
+2026-01-09 10:23:39 - nova_extraction - INFO - Cleaned up temp files for 49_2025_SDR_SOCDEVREG_ORSERSA
+2026-01-09 10:23:39 - nova_extraction - INFO - ================================================================================
+2026-01-09 10:23:39 - nova_extraction - INFO - ✅ COMPLETED PROCESSING: 49_2025_SDR_SOCDEVREG_ORSERSA
+2026-01-09 10:23:39 - nova_extraction - INFO - ⏱️  Processing time: 146.91s
+2026-01-09 10:23:39 - nova_extraction - INFO - 📄 Files processed: 6
+2026-01-09 10:23:39 - nova_extraction - INFO - ⏭️  Files skipped: 0
+2026-01-09 10:23:39 - nova_extraction - INFO - ================================================================================
+2026-01-09 10:23:39 - nova_extraction - INFO - ✅ Message processed and deleted successfully
+2026-01-09 10:23:39 - nova_extraction - INFO - 📨 Processing message: b75a3169-d312-429f-84f8-2397b65fb95f
+2026-01-09 10:23:39 - nova_extraction - INFO - Found 9 files in tenders_doc_final/27_MDA_2025_MAISONL_ARTISAN/
+2026-01-09 10:23:39 - nova_extraction - INFO - Found 9 files in tenders_doc_final/27_MDA_2025_MAISONL_ARTISAN/
+2026-01-09 10:23:39 - nova_extraction - INFO - Found 8 supported files for 27_MDA_2025_MAISONL_ARTISAN (PDF, Word, Excel, Images)
+2026-01-09 10:23:42 - nova_extraction - INFO - ================================================================================
+2026-01-09 10:23:42 - nova_extraction - INFO - 🚀 STARTING PROCESSING: 27_MDA_2025_MAISONL_ARTISAN
+2026-01-09 10:23:42 - nova_extraction - INFO - 📄 Files to process: 8
+2026-01-09 10:23:42 - nova_extraction - INFO - ================================================================================
+2026-01-09 10:23:42 - nova_extraction - INFO - 📝 Classified DC27MDA2025_AVIS_AR_AO_27_31122025173033.PDF: avis (process: True)
+2026-01-09 10:23:42 - nova_extraction - INFO - 🔄 Processing DC27MDA2025_AVIS_AR_AO_27_31122025173033.PDF (type: avis)
+2026-01-09 10:23:42 - nova_extraction - INFO - Extracting data from temp/27_MDA_2025_MAISONL_ARTISAN/DC27MDA2025_AVIS_AR_AO_27_31122025173033.PDF (type: avis)
+2026-01-09 10:23:42 - nova_extraction - INFO - Processing .pdf file: DC27MDA2025_AVIS_AR_AO_27_31122025173033.PDF
+2026-01-09 10:23:42 - nova_extraction - INFO - Text layer detection: False (confidence: 0.00, avg chars/page: 0)
+2026-01-09 10:23:42 - nova_extraction - INFO - ❌ PDF has no text layer (confidence: 0.00) - converting to images
+2026-01-09 10:23:44 - nova_extraction - INFO - Converted 1 pages to images
+2026-01-09 10:23:44 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:23:44 - nova_extraction - INFO - Processing 1 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:23:49 - nova_extraction - INFO - ✅ Success with google/gemini-2.0-flash-lite-001
+2026-01-09 10:23:49 - nova_extraction - INFO - ✅ Completed DC27MDA2025_AVIS_AR_AO_27_31122025173033.PDF
+2026-01-09 10:23:49 - nova_extraction - INFO - 📝 Classified DC27MDA2025_AVIS_AR_AO_27_31122025173033.pdf: avis (process: True)
+2026-01-09 10:23:49 - nova_extraction - INFO - 🔄 Processing DC27MDA2025_AVIS_AR_AO_27_31122025173033.pdf (type: avis)
+2026-01-09 10:23:49 - nova_extraction - INFO - Extracting data from temp/27_MDA_2025_MAISONL_ARTISAN/DC27MDA2025_AVIS_AR_AO_27_31122025173033.pdf (type: avis)
+2026-01-09 10:23:49 - nova_extraction - INFO - Processing .pdf file: DC27MDA2025_AVIS_AR_AO_27_31122025173033.pdf
+2026-01-09 10:23:49 - nova_extraction - INFO - Text layer detection: False (confidence: 0.00, avg chars/page: 0)
+2026-01-09 10:23:49 - nova_extraction - INFO - ❌ PDF has no text layer (confidence: 0.00) - converting to images
+2026-01-09 10:23:50 - nova_extraction - INFO - Converted 1 pages to images
+2026-01-09 10:23:50 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:23:50 - nova_extraction - INFO - Processing 1 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:23:55 - nova_extraction - INFO - ✅ Success with google/gemini-2.0-flash-lite-001
+2026-01-09 10:23:55 - nova_extraction - INFO - ✅ Completed DC27MDA2025_AVIS_AR_AO_27_31122025173033.pdf
+2026-01-09 10:23:55 - nova_extraction - INFO - 📝 Classified DC27MDA2025_AVIS_FR_AO_27_MDA_2025_31122025173050.PDF: avis (process: True)
+2026-01-09 10:23:55 - nova_extraction - INFO - 🔄 Processing DC27MDA2025_AVIS_FR_AO_27_MDA_2025_31122025173050.PDF (type: avis)
+2026-01-09 10:23:55 - nova_extraction - INFO - Extracting data from temp/27_MDA_2025_MAISONL_ARTISAN/DC27MDA2025_AVIS_FR_AO_27_MDA_2025_31122025173050.PDF (type: avis)
+2026-01-09 10:23:55 - nova_extraction - INFO - Processing .pdf file: DC27MDA2025_AVIS_FR_AO_27_MDA_2025_31122025173050.PDF
+2026-01-09 10:23:55 - nova_extraction - INFO - Text layer detection: False (confidence: 0.00, avg chars/page: 0)
+2026-01-09 10:23:55 - nova_extraction - INFO - ❌ PDF has no text layer (confidence: 0.00) - converting to images
+2026-01-09 10:23:56 - nova_extraction - INFO - Converted 1 pages to images
+2026-01-09 10:23:56 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:23:56 - nova_extraction - INFO - Processing 1 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:24:02 - nova_extraction - INFO - ✅ Success with google/gemini-2.0-flash-lite-001
+2026-01-09 10:24:02 - nova_extraction - INFO - ✅ Completed DC27MDA2025_AVIS_FR_AO_27_MDA_2025_31122025173050.PDF
+2026-01-09 10:24:02 - nova_extraction - INFO - 📝 Classified DC27MDA2025_AVIS_FR_AO_27_MDA_2025_31122025173050.pdf: avis (process: True)
+2026-01-09 10:24:02 - nova_extraction - INFO - 🔄 Processing DC27MDA2025_AVIS_FR_AO_27_MDA_2025_31122025173050.pdf (type: avis)
+2026-01-09 10:24:02 - nova_extraction - INFO - Extracting data from temp/27_MDA_2025_MAISONL_ARTISAN/DC27MDA2025_AVIS_FR_AO_27_MDA_2025_31122025173050.pdf (type: avis)
+2026-01-09 10:24:02 - nova_extraction - INFO - Processing .pdf file: DC27MDA2025_AVIS_FR_AO_27_MDA_2025_31122025173050.pdf
+2026-01-09 10:24:02 - nova_extraction - INFO - Text layer detection: False (confidence: 0.00, avg chars/page: 0)
+2026-01-09 10:24:02 - nova_extraction - INFO - ❌ PDF has no text layer (confidence: 0.00) - converting to images
+2026-01-09 10:24:03 - nova_extraction - INFO - Converted 1 pages to images
+2026-01-09 10:24:03 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:24:03 - nova_extraction - INFO - Processing 1 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:24:09 - nova_extraction - INFO - ✅ Success with google/gemini-2.0-flash-lite-001
+2026-01-09 10:24:09 - nova_extraction - INFO - ✅ Completed DC27MDA2025_AVIS_FR_AO_27_MDA_2025_31122025173050.pdf
+2026-01-09 10:24:09 - nova_extraction - INFO - 📝 Classified DC27MDA2025_CPS_AO_27_31122025172902.PDF: cps (process: True)
+2026-01-09 10:24:09 - nova_extraction - INFO - 🔄 Processing DC27MDA2025_CPS_AO_27_31122025172902.PDF (type: cps)
+2026-01-09 10:24:09 - nova_extraction - INFO - Extracting data from temp/27_MDA_2025_MAISONL_ARTISAN/DC27MDA2025_CPS_AO_27_31122025172902.PDF (type: cps)
+2026-01-09 10:24:09 - nova_extraction - INFO - Processing .pdf file: DC27MDA2025_CPS_AO_27_31122025172902.PDF
+2026-01-09 10:24:09 - nova_extraction - INFO - Text layer detection: False (confidence: 0.00, avg chars/page: 0)
+2026-01-09 10:24:09 - nova_extraction - INFO - ❌ PDF has no text layer (confidence: 0.00) - converting to images
+2026-01-09 10:24:45 - nova_extraction - INFO - Converted 27 pages to images
+2026-01-09 10:24:45 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:24:45 - nova_extraction - INFO - Processing 27 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:25:39 - nova_extraction - INFO - Processing 27 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:26:36 - nova_extraction - INFO - Processing 27 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:27:26 - nova_extraction - WARNING - ❌ Failed with google/gemini-2.0-flash-lite-001: 'NoneType' object is not subscriptable
+2026-01-09 10:27:26 - nova_extraction - WARNING - ⚠️  FALLBACK: google/gemini-2.0-flash-lite-001 → google/gemini-2.0-flash-001 | Reason: 'NoneType' object is not subscriptable
+2026-01-09 10:27:26 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-001
+2026-01-09 10:27:26 - nova_extraction - INFO - Processing 27 images with google/gemini-2.0-flash-001
+2026-01-09 10:28:58 - nova_extraction - INFO - Processing 27 images with google/gemini-2.0-flash-001
+2026-01-09 10:29:55 - nova_extraction - INFO - Processing 27 images with google/gemini-2.0-flash-001
+2026-01-09 10:30:46 - nova_extraction - WARNING - ❌ Failed with google/gemini-2.0-flash-001: 'NoneType' object is not subscriptable
+2026-01-09 10:30:46 - nova_extraction - WARNING - ⚠️  FALLBACK: google/gemini-2.0-flash-001 → x-ai/grok-4.1-fast | Reason: 'NoneType' object is not subscriptable
+2026-01-09 10:30:46 - nova_extraction - INFO - Attempting with model: x-ai/grok-4.1-fast
+2026-01-09 10:30:46 - nova_extraction - INFO - Processing 27 images with x-ai/grok-4.1-fast
+2026-01-09 10:32:35 - nova_extraction - INFO - Processing 27 images with x-ai/grok-4.1-fast
+2026-01-09 10:33:10 - nova_extraction - INFO - Processing 27 images with x-ai/grok-4.1-fast
+2026-01-09 10:34:18 - nova_extraction - WARNING - ❌ Failed with x-ai/grok-4.1-fast: 'NoneType' object is not subscriptable
+2026-01-09 10:34:18 - nova_extraction - ERROR - All models failed. Last error: 'NoneType' object is not subscriptable
+2026-01-09 10:34:18 - nova_extraction - WARNING - ⚠️  No data extracted from DC27MDA2025_CPS_AO_27_31122025172902.PDF
+2026-01-09 10:34:18 - nova_extraction - INFO - 📝 Classified DC27MDA2025_CPS_AO_27_31122025172902.pdf: cps (process: True)
+2026-01-09 10:34:18 - nova_extraction - INFO - 🔄 Processing DC27MDA2025_CPS_AO_27_31122025172902.pdf (type: cps)
+2026-01-09 10:34:18 - nova_extraction - INFO - Extracting data from temp/27_MDA_2025_MAISONL_ARTISAN/DC27MDA2025_CPS_AO_27_31122025172902.pdf (type: cps)
+2026-01-09 10:34:18 - nova_extraction - INFO - Processing .pdf file: DC27MDA2025_CPS_AO_27_31122025172902.pdf
+2026-01-09 10:34:18 - nova_extraction - INFO - Text layer detection: False (confidence: 0.00, avg chars/page: 0)
+2026-01-09 10:34:18 - nova_extraction - INFO - ❌ PDF has no text layer (confidence: 0.00) - converting to images
+2026-01-09 10:34:50 - nova_extraction - INFO - Converted 27 pages to images
+2026-01-09 10:34:50 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:34:50 - nova_extraction - INFO - Processing 27 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:35:45 - nova_extraction - INFO - Processing 27 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:36:39 - nova_extraction - INFO - Processing 27 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:37:36 - nova_extraction - WARNING - ❌ Failed with google/gemini-2.0-flash-lite-001: 'NoneType' object is not subscriptable
+2026-01-09 10:37:36 - nova_extraction - WARNING - ⚠️  FALLBACK: google/gemini-2.0-flash-lite-001 → google/gemini-2.0-flash-001 | Reason: 'NoneType' object is not subscriptable
+2026-01-09 10:37:36 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-001
+2026-01-09 10:37:36 - nova_extraction - INFO - Processing 27 images with google/gemini-2.0-flash-001
+2026-01-09 10:38:34 - nova_extraction - INFO - Processing 27 images with google/gemini-2.0-flash-001
+2026-01-09 10:39:29 - nova_extraction - INFO - Processing 27 images with google/gemini-2.0-flash-001
+2026-01-09 10:41:00 - nova_extraction - WARNING - ❌ Failed with google/gemini-2.0-flash-001: 'NoneType' object is not subscriptable
+2026-01-09 10:41:00 - nova_extraction - WARNING - ⚠️  FALLBACK: google/gemini-2.0-flash-001 → x-ai/grok-4.1-fast | Reason: 'NoneType' object is not subscriptable
+2026-01-09 10:41:00 - nova_extraction - INFO - Attempting with model: x-ai/grok-4.1-fast
+2026-01-09 10:41:00 - nova_extraction - INFO - Processing 27 images with x-ai/grok-4.1-fast
+2026-01-09 10:41:32 - nova_extraction - INFO - Processing 27 images with x-ai/grok-4.1-fast
+2026-01-09 10:42:49 - nova_extraction - INFO - Processing 27 images with x-ai/grok-4.1-fast
+2026-01-09 10:44:00 - nova_extraction - WARNING - ❌ Failed with x-ai/grok-4.1-fast: 'NoneType' object is not subscriptable
+2026-01-09 10:44:00 - nova_extraction - ERROR - All models failed. Last error: 'NoneType' object is not subscriptable
+2026-01-09 10:44:00 - nova_extraction - WARNING - ⚠️  No data extracted from DC27MDA2025_CPS_AO_27_31122025172902.pdf
+2026-01-09 10:44:00 - nova_extraction - INFO - 📝 Classified DC27MDA2025_RC_27_MDA_2025_31122025174524.PDF: rc (process: True)
+2026-01-09 10:44:00 - nova_extraction - INFO - 🔄 Processing DC27MDA2025_RC_27_MDA_2025_31122025174524.PDF (type: rc)
+2026-01-09 10:44:00 - nova_extraction - INFO - Extracting data from temp/27_MDA_2025_MAISONL_ARTISAN/DC27MDA2025_RC_27_MDA_2025_31122025174524.PDF (type: rc)
+2026-01-09 10:44:00 - nova_extraction - INFO - Processing .pdf file: DC27MDA2025_RC_27_MDA_2025_31122025174524.PDF
+2026-01-09 10:44:00 - nova_extraction - INFO - Text layer detection: False (confidence: 0.00, avg chars/page: 0)
+2026-01-09 10:44:00 - nova_extraction - INFO - ❌ PDF has no text layer (confidence: 0.00) - converting to images
+2026-01-09 10:44:28 - nova_extraction - INFO - Converted 20 pages to images
+2026-01-09 10:44:28 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:44:28 - nova_extraction - INFO - Processing 20 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:45:21 - nova_extraction - INFO - Processing 20 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:46:53 - nova_extraction - INFO - Processing 20 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:47:46 - nova_extraction - WARNING - ❌ Failed with google/gemini-2.0-flash-lite-001: 'NoneType' object is not subscriptable
+2026-01-09 10:47:46 - nova_extraction - WARNING - ⚠️  FALLBACK: google/gemini-2.0-flash-lite-001 → google/gemini-2.0-flash-001 | Reason: 'NoneType' object is not subscriptable
+2026-01-09 10:47:46 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-001
+2026-01-09 10:47:46 - nova_extraction - INFO - Processing 20 images with google/gemini-2.0-flash-001
+2026-01-09 10:48:38 - nova_extraction - INFO - Processing 20 images with google/gemini-2.0-flash-001
+2026-01-09 10:49:33 - nova_extraction - INFO - Processing 20 images with google/gemini-2.0-flash-001
+2026-01-09 10:50:22 - nova_extraction - WARNING - ❌ Failed with google/gemini-2.0-flash-001: 'NoneType' object is not subscriptable
+2026-01-09 10:50:22 - nova_extraction - WARNING - ⚠️  FALLBACK: google/gemini-2.0-flash-001 → x-ai/grok-4.1-fast | Reason: 'NoneType' object is not subscriptable
+2026-01-09 10:50:22 - nova_extraction - INFO - Attempting with model: x-ai/grok-4.1-fast
+2026-01-09 10:50:22 - nova_extraction - INFO - Processing 20 images with x-ai/grok-4.1-fast
+2026-01-09 10:50:53 - nova_extraction - INFO - Processing 20 images with x-ai/grok-4.1-fast
+2026-01-09 10:51:26 - nova_extraction - INFO - Processing 20 images with x-ai/grok-4.1-fast
+2026-01-09 10:51:54 - nova_extraction - WARNING - ❌ Failed with x-ai/grok-4.1-fast: 'NoneType' object is not subscriptable
+2026-01-09 10:51:54 - nova_extraction - ERROR - All models failed. Last error: 'NoneType' object is not subscriptable
+2026-01-09 10:51:54 - nova_extraction - WARNING - ⚠️  No data extracted from DC27MDA2025_RC_27_MDA_2025_31122025174524.PDF
+2026-01-09 10:51:54 - nova_extraction - INFO - 📝 Classified DC27MDA2025_RC_27_MDA_2025_31122025174524.pdf: rc (process: True)
+2026-01-09 10:51:54 - nova_extraction - INFO - 🔄 Processing DC27MDA2025_RC_27_MDA_2025_31122025174524.pdf (type: rc)
+2026-01-09 10:51:54 - nova_extraction - INFO - Extracting data from temp/27_MDA_2025_MAISONL_ARTISAN/DC27MDA2025_RC_27_MDA_2025_31122025174524.pdf (type: rc)
+2026-01-09 10:51:54 - nova_extraction - INFO - Processing .pdf file: DC27MDA2025_RC_27_MDA_2025_31122025174524.pdf
+2026-01-09 10:51:54 - nova_extraction - INFO - Text layer detection: False (confidence: 0.00, avg chars/page: 0)
+2026-01-09 10:51:54 - nova_extraction - INFO - ❌ PDF has no text layer (confidence: 0.00) - converting to images
+2026-01-09 10:52:21 - nova_extraction - INFO - Converted 20 pages to images
+2026-01-09 10:52:21 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-lite-001
+2026-01-09 10:52:22 - nova_extraction - INFO - Processing 20 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:53:22 - nova_extraction - INFO - Processing 20 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:54:52 - nova_extraction - INFO - Processing 20 images with google/gemini-2.0-flash-lite-001
+2026-01-09 10:55:42 - nova_extraction - WARNING - ❌ Failed with google/gemini-2.0-flash-lite-001: 'NoneType' object is not subscriptable
+2026-01-09 10:55:42 - nova_extraction - WARNING - ⚠️  FALLBACK: google/gemini-2.0-flash-lite-001 → google/gemini-2.0-flash-001 | Reason: 'NoneType' object is not subscriptable
+2026-01-09 10:55:42 - nova_extraction - INFO - Attempting with model: google/gemini-2.0-flash-001
+2026-01-09 10:55:42 - nova_extraction - INFO - Processing 20 images with google/gemini-2.0-flash-001
+2026-01-09 10:57:13 - nova_extraction - INFO - Processing 20 images with google/gemini-2.0-flash-001

@@ -93,7 +93,7 @@ def generate_initials(name):
         return "UNK"
     
     # Common words to ignore
-    ignore = ['LE', 'LA', 'LES', 'DE', 'DES', 'DU', 'ET', 'EN', 'AU', 'AUX', 'A']
+    ignore = ['LE', 'LA', 'LES', 'DE', 'DES', 'DU', 'ET', 'EN', 'AU', 'AUX', 'A', "L'"]
     
     # Clean name
     clean_name = name.upper().replace('-', ' ').replace('_', ' ').replace("'", " ")
@@ -476,6 +476,7 @@ class DatabaseUpdater:
             # ------------------------------------------------------------------
             
             from bs4 import BeautifulSoup
+            import re
             html_content = await page.content()
             soup = BeautifulSoup(html_content, 'html.parser')
             
@@ -516,7 +517,12 @@ class DatabaseUpdater:
                         break
                         
                     # Extract buyer name
-                    buyer_text = buyer_div.get_text(strip=True).replace("Acheteur public :", "").strip()
+                    raw_buyer = buyer_div.get_text(strip=True)
+                    # Robust cleanup of prefix using regex
+                    buyer_text = re.sub(r'(?i)^Acheteur\s+public\s*[:\s]*', '', raw_buyer).strip()
+                    # Fallback simple replace if regex doesn't match
+                    if "Acheteur public" in buyer_text:
+                         buyer_text = buyer_text.replace("Acheteur public", "").replace(":", "").strip()
                     buyer_text = " ".join(buyer_text.split())
                     
                     # Generate buyer initials

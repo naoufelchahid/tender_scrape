@@ -103,27 +103,66 @@ def sanitize_filename(filename: str) -> str:
     Keeps only alphanumeric, dot, hyphen, and underscore.
     Replaces: non-ASCII, spaces, quotes, parentheses, etc. with '_'.
     """
-    # Split filename into name and extension to preserve extension
-    if '.' in filename:
-        parts = filename.rsplit('.', 1)
-        name = parts[0]
-        ext = parts[1] if len(parts) > 1 else ''
-    else:
-        name = filename
-        ext = ''
+    # List of known extensions to protect
+    known_extensions = {
+        '.pdf', '.docx', '.doc', '.xlsx', '.xls', '.jpg', '.jpeg', '.png', '.zip', '.txt', '.xml', '.json'
+    }
+
+    # 1. Identify extension
+    name = filename
+    ext = ""
     
-    # Sanitize name only
+    # Try to match known extensions first (case-insensitive)
+    lower_name = filename.lower()
+    for known_ext in known_extensions:
+        if lower_name.endswith(known_ext):
+            ext_len = len(known_ext)
+            name = filename[:-ext_len]
+            ext = filename[-ext_len:] # Keep original case of extension? or known_ext?
+            # Let's keep original case but ensure it starts with dot
+            break
+    
+    # If no known extension found, try standard split IF there is a dot
+    if not ext and '.' in filename:
+        parts = filename.rsplit('.', 1)
+        if len(parts) > 1:
+            name = parts[0]
+            ext = '.' + parts[1]
+    
+    # 2. Sanitize name part
+    # Allow alphanumeric, hyphen, underscore
     valid_chars = "-_"
     sanitized_name = "".join([c if c.isalnum() or c in valid_chars else "_" for c in name])
     
-    # Sanitize extension (keep alphanumeric only)
-    sanitized_ext = "".join([c if c.isalnum() else "" for c in ext]) if ext else ""
-    
-    # Combine with dot if extension exists
-    if sanitized_ext:
-        return f"{sanitized_name}.{sanitized_ext}"
+    # 3. Sanitize extension part (remove special chars from it, but KEEP the dot)
+    if ext:
+        # Remove dot for sanitation, then add it back
+        ext_no_dot = ext[1:]
+        sanitized_ext_no_dot = "".join([c if c.isalnum() else "" for c in ext_no_dot])
+        if sanitized_ext_no_dot:
+            final_ext = '.' + sanitized_ext_no_dot
+        else:
+            final_ext = ''
     else:
-        return sanitized_name
+        final_ext = ''
+        
+    # 4. Final Combination
+    final_name = sanitized_name + final_ext
+    
+    # 5. Defensive check: Did we accidentally underscore the extension?
+    # e.g. "file_pdf" -> fallback to "file.pdf" if it matches known types
+    # This catches cases where logic might have failed or input was already malformed
+    lower_final = final_name.lower()
+    for known_ext in known_extensions:
+        # Check for _pdf, _docx etc at the end
+        underscored_ext = known_ext.replace('.', '_')
+        if lower_final.endswith(underscored_ext):
+            # Fix it!
+            base_len = len(underscored_ext)
+            final_name = final_name[:-base_len] + known_ext
+            break
+            
+    return final_name
 
 def process_zip_file_logic(s3_bucket: str, s3_key: str, task_id: Optional[str] = None) -> Dict[str, str]:
     """

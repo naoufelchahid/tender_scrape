@@ -86,8 +86,15 @@ class NovaExtractor:
         )
         
         if result and result.tender_info:
-            # Post-process lot references
+            # Post-process lots
             if result.lots:
+                # Ghost Lot 0 filtering: If we have real lots (lots with number != "0"), remove any lot "0"
+                real_lots = [l for l in result.lots if l.lot_number and l.lot_number != "0"]
+                if real_lots and len(result.lots) > len(real_lots):
+                    logger.info(f"Removing ghost 'Lot 0' because {len(real_lots)} real lots were found.")
+                    result.lots = real_lots
+                
+                # Update references
                 for lot in result.lots:
                     clean_num = lot.lot_number.lower().replace("lot", "").strip()
                     lot.lot_reference = f"{result.tender_info.tender_reference}_{clean_num}"
@@ -105,12 +112,34 @@ class NovaExtractor:
             text, images, prompt, ProductList
         )
         
-        if result and hasattr(result, '​products'):
-            # Wrap in ExtractionOutput
+        # Validation and Filtering
+        if result and hasattr(result, 'products'):
+            valid_products = []
+            if result.products:
+                for p in result.products:
+                    # Filter: Name "Unknown" AND Quantity 0
+                    is_unknown = p.designation and "unknown" in p.designation.lower()
+                    is_zero_qty = p.quantity is None or p.quantity == 0
+                    
+                    if is_unknown and is_zero_qty:
+                        continue
+                    valid_products.append(p)
+            
+            # Fallback: If no products found, create one generic product
+            if not valid_products:
+                logger.warning("No valid products found after filtering. Creating default product.")
+                default_prod = ProductItem(
+                    designation=f"Prestation pour appel d'offres",
+                    unit="Forfait",
+                    quantity=1.0,
+                    lot_number="0"
+                )
+                valid_products.append(default_prod)
+            
             return ExtractionOutput(
                 tender_info=TenderMetadata(),
                 lots=[],
-                products=result.products
+                products=valid_products
             )
         
         return ExtractionOutput(tender_info=TenderMetadata(), lots=[], products=[])
@@ -300,7 +329,9 @@ Extract the following information:
    - budget_lot: Estimated budget for this specific lot
 
 CRITICAL RULES:
+- **LANGUAGE**: Write ALL text values in FRENCH. Use Arabic only if the document is 100% Arabic.
 - DO NOT include: deadline, publication_date, buyer_initials, buyer_address, buyer_phone, buyer_email, buyer_contact, status
+- **LOTS**: If you find specific lots (Lot 1, Lot 2...), DO NOT create a "Lot 0". "Lot 0" is ONLY for tenders with NO distinct lots.
 - For single/no lot tenders: nbre_lots: 0, lot_number: "0", lot_reference: "{{tender_ref}}_0"
 - tender_reference MUST follow format: XX_YYYY_ACRONYM_ORGANIZATION
 - buyer field is MANDATORY
@@ -356,9 +387,12 @@ Return ONLY valid JSON in this structure:
 }}
 
 CRITICAL RULES:
-- Create ONE JSON object per table row
-- Do NOT calculate or estimate any values
-- If a value is missing, use null
-- Ignore headers, subtotals, and summary rows
+- **LANGUAGE**: Write ALL text values in FRENCH. Use Arabic only if the document is 100% Arabic.
+- **DESIGNATION**: Extract the FULL, EXACT text of the description. Do NOT summarize. Copy the whole paragraph if necessary.
+- **TABLE ROW**: Create ONE JSON object per meaningful table row.
+- **MANDATORY**: You MUST extract at least one product. If the document is a list of prices, extract them.
+- If a value is missing, use null.
+- Ignore headers, subtotals, and summary rows.
+- **Lot 0**: If the item belongs to the main tender (single lot), use lot_number="0".
 - Return ONLY JSON, no explanations
 """
