@@ -39,7 +39,7 @@ class NovaExtractionService:
         self.chunker = LLMChunker(
             Config.AWS_REGION,
             Config.PRIMARY_MODEL,
-            Config.OPENROUTER_API_KEY
+            Config.GROQ_API_KEY
         )
         logger.info("Nova Extraction Service initialized")
     

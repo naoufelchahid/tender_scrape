@@ -27,14 +27,14 @@ class Config:
     DB_FILLER_QUEUE_URL: str = os.getenv('DB_FILLER_QUEUE_URL', '')
     VECTOR_QUEUE_URL: str = os.getenv('VECTOR_QUEUE_URL', '')
     
-    # OpenRouter Configuration
-    OPENROUTER_API_KEY: str = os.getenv('OPENROUTER_API_KEY', '')
-    OPENROUTER_BASE_URL: str = os.getenv('OPENROUTER_BASE_URL', 'https://openrouter.ai/api/v1')
+    # Groq Configuration
+    GROQ_API_KEY: str = os.getenv('GROQ_API_KEY', '')
     
-    # Model Configuration
-    PRIMARY_MODEL: str = os.getenv('PRIMARY_MODEL', 'amazon/nova-lite')
-    FALLBACK_MODEL_1: str = os.getenv('FALLBACK_MODEL_1', 'mistralai/mistral-small-3.2-24b-instruct')
-    FALLBACK_MODEL_2: str = os.getenv('FALLBACK_MODEL_2', 'amazon/nova-2-lite')
+    # Model Configuration (Groq Vision Models)
+    # Groq only has 2 vision models, so we use Scout twice for 3-tier fallback
+    PRIMARY_MODEL: str = os.getenv('PRIMARY_MODEL', 'meta-llama/llama-4-scout-17b-16e-instruct')
+    FALLBACK_MODEL_1: str = os.getenv('FALLBACK_MODEL_1', 'meta-llama/llama-4-maverick-17b-128e-instruct')
+    FALLBACK_MODEL_2: str = os.getenv('FALLBACK_MODEL_2', 'meta-llama/llama-4-scout-17b-16e-instruct')
     
     # Processing Configuration
     MAX_WORKERS: int = int(os.getenv('MAX_WORKERS', '3'))
@@ -54,7 +54,7 @@ class Config:
             'OCR_QUEUE_URL': cls.OCR_QUEUE_URL,
             'DB_FILLER_QUEUE_URL': cls.DB_FILLER_QUEUE_URL,
             'VECTOR_QUEUE_URL': cls.VECTOR_QUEUE_URL,
-            'OPENROUTER_API_KEY': cls.OPENROUTER_API_KEY,
+            'GROQ_API_KEY': cls.GROQ_API_KEY,
             'S3_BUCKET_NAME': cls.S3_BUCKET_NAME,
         }
         
@@ -80,5 +80,5 @@ class Config:
         print(f"Fallback 2: {cls.FALLBACK_MODEL_2}")
         print(f"Max Workers: {cls.MAX_WORKERS}")
         print(f"Chunk Size: {cls.CHUNK_SIZE_PAGES} pages")
-        print(f"OpenRouter Key: {'*' * 20 if cls.OPENROUTER_API_KEY else 'NOT SET'}")
+        print(f"Groq API Key: {'*' * 20 if cls.GROQ_API_KEY else 'NOT SET'}")
         print("=" * 50)

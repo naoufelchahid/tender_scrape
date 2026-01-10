@@ -1,5 +1,5 @@
 """
-Nova Lite Multimodal Extractor using OpenRouter API.
+Nova Lite Multimodal Extractor using Groq API with LangChain.
 Provides structured data extraction from tender documents with fallback chain.
 """
 import json
@@ -7,7 +7,9 @@ import base64
 from io import BytesIO
 from typing import List, Dict, Any, Optional, Union
 from PIL import Image
-from openai import OpenAI
+from langchain_groq import ChatGroq
+from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.prompts import ChatPromptTemplate
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 
 from config import Config
@@ -17,16 +19,10 @@ from src.document_processor import DocumentProcessor
 
 
 class NovaExtractor:
-    """Multimodal extraction service using OpenRouter API."""
+    """Multimodal extraction service using Groq API with LangChain."""
     
     def __init__(self):
         """Initialize Nova extractor."""
-        self.client = OpenAI(
-            api_key=Config.OPENROUTER_API_KEY,
-            base_url=Config.OPENROUTER_BASE_URL
-        )
-        self.document_processor = DocumentProcessor()
-        
         # Model fallback chain
         self.models = [
             Config.PRIMARY_MODEL,
@@ -34,7 +30,18 @@ class NovaExtractor:
             Config.FALLBACK_MODEL_2
         ]
         
-        logger.info(f"Nova Extractor initialized with fallback chain: {' → '.join(self.models)}")
+        # Initialize LangChain Groq clients for each model
+        self.llm_clients = {}
+        for model in self.models:
+            self.llm_clients[model] = ChatGroq(
+                api_key=Config.GROQ_API_KEY,
+                model_name=model,
+                temperature=0.0
+            )
+        
+        self.document_processor = DocumentProcessor()
+        
+        logger.info(f"Nova Extractor initialized with Groq fallback chain: {' → '.join(self.models)}")
     
     def extract_tender_data(self, file_path: str, doc_type: str, tender_ref: str = None) -> Optional[ExtractionOutput]:
         """
@@ -178,7 +185,7 @@ class NovaExtractor:
     def _process_with_model(self, text: Optional[str], images: Optional[List[Image.Image]], 
                            prompt: str, output_class, model_id: str):
         """
-        Process document with specified model (with retries).
+        Process document with specified model using LangChain (with retries).
         
         Args:
             text: Extracted text (if available)
@@ -190,30 +197,49 @@ class NovaExtractor:
         Returns:
             Parsed output instance
         """
-        # Build messages
-        messages = []
+        # Get the LLM client for this model
+        llm = self.llm_clients[model_id]
+        
+        # Create JSON output parser
+        parser = JsonOutputParser(pydantic_object=output_class)
         
         if images:
             # Multimodal: send images
             logger.info(f"Processing {len(images)} images with {model_id}")
-            messages = self._build_multimodal_messages(prompt, images)
+            content = self._build_multimodal_content(prompt, images)
+            
+            # Build messages directly (avoid ChatPromptTemplate to prevent variable parsing)
+            messages = [
+                {"role": "system", "content": "You are an expert in Moroccan tender document analysis. Extract structured data accurately."},
+                {"role": "user", "content": content}
+            ]
+            
         else:
             # Text-based: send extracted text
             logger.info(f"Processing text ({len(text)} chars) with {model_id}")
-            messages = self._build_text_messages(prompt, text)
+            
+            # Limit text to avoid token overflow
+            max_chars = 100000  # ~25K tokens
+            text_truncated = text[:max_chars]
+            
+            full_prompt = f"{prompt}\n\nDocument Text:\n{text_truncated}"
+            
+            # Build messages directly
+            messages = [
+                {"role": "system", "content": "You are an expert in Moroccan tender document analysis. Extract structured data accurately."},
+                {"role": "user", "content": full_prompt}
+            ]
         
-        # Call OpenRouter API
-        response = self.client.chat.completions.create(
-            model=model_id,
-            messages=messages,
-            max_tokens=4000,
-            temperature=0.0
-        )
+        # Call LLM directly and parse output
+        response = llm.invoke(messages)
         
-        content = response.choices[0].message.content
+        # Parse the response content to dict
+        parsed_dict = parser.parse(response.content)
         
-        # Parse output
-        return self._parse_output(content, output_class)
+        # Convert dict to Pydantic object
+        result = output_class(**parsed_dict)
+        
+        return result
     
     def _image_to_base64(self, image: Image.Image, format: str = 'JPEG', quality: int = 95) -> str:
         """
@@ -238,10 +264,10 @@ class NovaExtractor:
         image.save(buffered, format=format, quality=quality)
         return base64.b64encode(buffered.getvalue()).decode('utf-8')
     
-    def _build_multimodal_messages(self, prompt: str, images: List[Image.Image]) -> List[Dict]:
-        """Build messages for multimodal input."""
-        # Limit images to avoid token limits
-        max_images = min(len(images), 20)  # Process max 20 pages at a time
+    def _build_multimodal_content(self, prompt: str, images: List[Image.Image]) -> List[Dict]:
+        """Build content for multimodal input (LangChain format)."""
+        # Groq limit: maximum 5 images per request
+        max_images = min(len(images), 5)
         
         content_parts = [{"type": "text", "text": prompt}]
         
@@ -254,49 +280,7 @@ class NovaExtractor:
                 }
             })
         
-        return [
-            {"role": "system", "content": "You are an expert in Moroccan tender document analysis. Extract structured data accurately."},
-            {"role": "user", "content": content_parts}
-        ]
-    
-    def _build_text_messages(self, prompt: str, text: str) -> List[Dict]:
-        """Build messages for text-based input."""
-        # Limit text to avoid token overflow
-        max_chars = 100000  # ~25K tokens
-        text_truncated = text[:max_chars]
-        
-        full_prompt = f"{prompt}\\n\\nDocument Text:\\n{text_truncated}"
-        
-        return [
-            {"role": "system", "content": "You are an expert in Moroccan tender document analysis. Extract structured data accurately."},
-            {"role": "user", "content": full_prompt}
-        ]
-    
-    def _parse_output(self, content: str, output_class):
-        """Parse LLM output to Pydantic model."""
-        try:
-            # Try direct JSON parsing
-            # Remove markdown code blocks if present
-            clean_content = content.replace("```json", "").replace("```", "").strip()
-            
-            # Extract JSON from content
-            start_idx = clean_content.find("{")
-            end_idx = clean_content.rfind("}")
-            
-            if start_idx != -1 and end_idx != -1:
-                json_str = clean_content[start_idx:end_idx+1]
-                data = json.loads(json_str)
-                
-                # Parse with Pydantic
-                return output_class(**data)
-            else:
-                logger.error("No JSON found in response")
-                return None
-                
-        except Exception as e:
-            logger.error(f"Error parsing output: {e}")
-            logger.debug(f"Content: {content[:500]}")
-            return None
+        return content_parts
     
     def _create_metadata_prompt(self, doc_type: str) -> str:
         """Create prompt for metadata extraction."""
@@ -313,7 +297,7 @@ LANGUAGE PRIORITY:
 Extract the following information:
 
 1. **Tender Info**:
-   - tender_reference: Format as XX_YYYY_ACRONYM_ORGANIZATION (e.g., "01_2026_DAMPS_MDT_DELM_DIRAPPMEDPROSAN")
+   - 
    - buyer: Full organization name - MANDATORY (e.g., "Ministère des Habous et des Affaires Islamiques")
    - location: Execution location - City/Region/Province (e.g., "Provinces d'Al Haouz et de Marrakech")
    - global_budget: Total estimated budget (look in CPS or RC documents)
@@ -324,7 +308,7 @@ Extract the following information:
 
 2. **Lots** (if multiple lots exist):
    - lot_number: Use "0" for single/no lot, otherwise "1", "2", etc.
-   - lot_reference: Combine tender_ref + lot_number (e.g., "MOD-HABOUS-2025-210_unique")
+   - lot_reference: Combine {{tender_ref}} + lot_number (e.g., "MOD-HABOUS-2025-210_unique")
    - title: Full description of the lot (can be multi-line)
    - budget_lot: Estimated budget for this specific lot
 
