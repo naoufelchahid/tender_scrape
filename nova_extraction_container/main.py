@@ -70,7 +70,7 @@ class NovaExtractionService:
                         continue
                     
                     # Process tender
-                    success = self._process_tender(tender_ref, tender_id)
+                    success = self._process_tender(tender_ref, tender_id, message['receipt_handle'])
                     
                     if success:
                         # Delete message from queue
@@ -118,10 +118,22 @@ class NovaExtractionService:
             return 0.0
 
 
-    def _process_tender(self, tender_ref: str, tender_id: str) -> bool:
-        """Process a single tender."""
+    def _process_tender(self, tender_ref: str, tender_id: str, receipt_handle: str = None) -> bool:
+        """Process a single tender.
+        
+        Args:
+            tender_ref: Tender reference
+            tender_id: Tender ID  
+            receipt_handle: SQS message receipt handle for DLQ routing
+            
+        Returns:
+            True if successful, False otherwise
+        """
         start_time = time.time()
         temp_dir = None
+        
+        # Store receipt_handle for potential DLQ routing
+        self._current_receipt_handle = receipt_handle
         
         try:
             
@@ -275,17 +287,50 @@ class NovaExtractionService:
                 if backfilled_count > 0:
                     logger.info(f"Successfully backfilled {backfilled_count} products from chunks")
 
-            # 6. Upload to S3 - NEW FOLDER STRUCTURE
+            # 6. Validate and Upload to S3 - NEW FOLDER STRUCTURE
+            # Validate metadata before upload
+            metadata_dict = aggregated.model_dump(mode='json')
+            
+            # Check if metadata is empty or invalid
+            if not metadata_dict or not isinstance(metadata_dict, dict):
+                logger.error(f"❌ Metadata validation failed for {tender_ref}: Empty or invalid metadata")
+                self._send_to_dlq(tender_ref, tender_id, "Empty or invalid metadata generated", self._current_receipt_handle)
+                return False
+            
+            # Check if tender_info has critical fields
+            tender_info = metadata_dict.get('tender_info', {})
+            if not tender_info or not any([tender_info.get('buyer'), tender_info.get('tender_reference')]):
+                logger.error(f"❌ Metadata validation failed for {tender_ref}: Missing critical tender info")
+                self._send_to_dlq(tender_ref, tender_id, "Missing critical tender information", self._current_receipt_handle)
+                return False
+            
             # Metadata goes to /tenders_metadata/{tender_ref}.json
             metadata_key = f"tenders_metadata/{tender_ref}.json"
             
             if not self.s3_client.upload_json(
-                aggregated.model_dump(mode='json'),
+                metadata_dict,
                 metadata_key,
                 {'tender_ref': sanitize_for_s3_metadata(tender_ref), 'processed_date': datetime.utcnow().isoformat()}
             ):
-                logger.error(f"Failed to upload metadata for {tender_ref}")
+                logger.error(f"❌ Failed to upload metadata for {tender_ref}")
+                self._send_to_dlq(tender_ref, tender_id, "S3 upload failed for metadata", self._current_receipt_handle)
                 return False
+            
+            # Validate chunks before upload
+            if chunks:
+                # Check if chunks list is actually populated with valid data
+                if not isinstance(chunks, list) or len(chunks) == 0:
+                    logger.warning(f"⚠️  Chunks validation failed for {tender_ref}: Empty chunks list")
+                    chunks = []  # Reset to empty to skip upload
+                else:
+                    # Verify chunks have required structure
+                    valid_chunks = [c for c in chunks if isinstance(c, dict) and c.get('content')]
+                    if len(valid_chunks) == 0:
+                        logger.warning(f"⚠️  Chunks validation failed for {tender_ref}: No valid chunks with content")
+                        chunks = []  # Reset to empty
+                    elif len(valid_chunks) < len(chunks):
+                        logger.warning(f"⚠️  Filtered {len(chunks) - len(valid_chunks)} invalid chunks for {tender_ref}")
+                        chunks = valid_chunks
             
             # Upload chunks to /chunks_tender/{tender_ref}/chunks.json
             if chunks:
@@ -295,10 +340,11 @@ class NovaExtractionService:
                     chunks_key,
                     {'tender_ref': sanitize_for_s3_metadata(tender_ref), 'chunk_count': str(len(chunks))}
                 ):
-                    logger.error(f"Failed to upload chunks for {tender_ref}")
-                    # Don't fail completely, metadata is more important
+                    logger.error(f"❌ Failed to upload chunks for {tender_ref}")
+                    # Don't fail completely for chunks, but log the error
+                    logger.warning(f"⚠️  Continuing without chunks for {tender_ref}")
             else:
-                logger.warning(f"No chunks generated for {tender_ref}")
+                logger.warning(f"⚠️  No valid chunks generated for {tender_ref}")
             
             # 7. Send completion messages to separate queues
             processing_time = time.time() - start_time
@@ -339,19 +385,66 @@ class NovaExtractionService:
             else:
                 logger.warning("No chunks generated, skipping VECTOR_QUEUE notification")
             
-            # Cleanup
+            # Cleanup temp directory
             if temp_dir and os.path.exists(temp_dir):
-                shutil.rmtree(temp_dir)
-                logger.info(f"Cleaned up temp files for {tender_ref}")
+                try:
+                    # Count files before cleanup for logging
+                    file_count = sum(len(files) for _, _, files in os.walk(temp_dir))
+                    shutil.rmtree(temp_dir)
+                    logger.info(f"✅ Cleaned up temp directory for {tender_ref} ({file_count} files removed)")
+                except Exception as cleanup_error:
+                    logger.error(f"❌ Failed to cleanup temp directory for {tender_ref}: {cleanup_error}")
             
             log_processing_complete(tender_ref, processing_time, files_processed, files_skipped)
             return True
         
         except Exception as e:
             log_processing_error(tender_ref, str(e))
+            # Cleanup on error
             if temp_dir and os.path.exists(temp_dir):
-                shutil.rmtree(temp_dir)
+                try:
+                    shutil.rmtree(temp_dir)
+                    logger.info(f"Cleaned up temp directory after error for {tender_ref}")
+                except Exception as cleanup_error:
+                    logger.error(f"Failed to cleanup temp directory after error: {cleanup_error}")
             return False
+    
+    def _send_to_dlq(self, tender_ref: str, tender_id: str, error_reason: str, receipt_handle: str = None):
+        """Send failed tender to DLQ for reprocessing.
+        
+        Args:
+            tender_ref: Tender reference
+            tender_id: Tender ID
+            error_reason: Reason for failure
+            receipt_handle: Original message receipt handle (to delete after DLQ send)
+        """
+        if not Config.OCR_DLQ_URL:
+            logger.warning("OCR_DLQ_URL not configured, cannot send to DLQ")
+            return
+        
+        try:
+            dlq_message = {
+                'tender_ref': tender_ref,
+                'tender_id': tender_id,
+                'error_reason': error_reason,
+                'failed_at': datetime.utcnow().isoformat(),
+                'retry_count': 0,
+                'original_queue': 'OCR_QUEUE'
+            }
+            
+            self.sqs_client.send_message(dlq_message, Config.OCR_DLQ_URL)
+            logger.info(f"✅ Sent {tender_ref} to DLQ: {error_reason}")
+            
+            # Delete original message if receipt handle provided
+            if receipt_handle:
+                try:
+                    self.sqs_client.delete_message(receipt_handle)
+                    logger.info(f"✅ Deleted original message for {tender_ref} from source queue")
+                except Exception as e:
+                    logger.warning(f"Could not delete original message: {e}")
+                    
+        except Exception as e:
+            logger.error(f"❌ Failed to send {tender_ref} to DLQ: {e}", exc_info=True)
     
     def _aggregate_extractions(self, extractions: List[ExtractionOutput], tender_ref: str) -> ExtractionOutput:
         """Aggregate multiple extraction outputs into one with deduplication."""

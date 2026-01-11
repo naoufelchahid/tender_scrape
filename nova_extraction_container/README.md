@@ -7,6 +7,7 @@ Unified container that replaces both OCR and Extraction containers, using Amazon
 - **Unified Processing**: Combines OCR and extraction in a single step
 - **Multimodal**: Uses Nova Lite for both text and image-based PDF processing
 - **Intelligent Classification**: Automatically filters unwanted documents (acte d'engagement, plans, etc.)
+- **Universal Prompts**: Single comprehensive prompt handles all document types (no type-specific branching)
 - **Three-Tier Fallback**: Nova Lite → Mistral Small 3.2 → Nova 2 Lite
 - **Text Layer Detection**: Automatically uses text extraction if PDF has text layer
 - **OpenRouter Only**: All model inference via OpenRouter (no Bedrock)
@@ -93,12 +94,15 @@ SQS (OCR_QUEUE) → Download PDFs → Classify → Process with Nova Lite → Up
 
 1. **Poll SQS**: Receive message with `tender_ref`
 2. **Download**: Get all PDFs from `s3://bucket/tenders_doc_final/{tender_ref}/`
-3. **Classify**: Determine document type and filter excluded types
+3. **Classify**: Determine document type and filter excluded types (for logging/filtering only)
 4. **Detect Text Layer**: Check if PDF has extractable text
 5. **Process**:
    - If text layer exists → Extract text and send to LLM
    - If scanned → Convert to images and send to multimodal model
-6. **Extract**: Use Nova Lite to extract structured data
+6. **Extract**: Use universal prompt with Nova Lite to extract structured data
+   - **Universal Prompt**: Single comprehensive prompt handles all document types
+   - LLM intelligently determines what to extract based on content
+   - Works correctly regardless of classification accuracy
 7. **Fallback**: If Nova fails, try Mistral Small, then Nova 2 Lite
 8. **Aggregate**: Combine results from all documents
 9. **Validate**: Run integrity checks
@@ -193,6 +197,7 @@ nova_extraction_container/
 ├── src/
 │   ├── __init__.py
 │   ├── models.py            # Pydantic models
+│   ├── prompts.py           # Universal prompts (NEW)
 │   ├── document_classifier.py  # Document classification
 │   ├── pdf_processor.py     # PDF text/image processing
 │   ├── nova_extractor.py    # Nova Lite extraction
@@ -203,6 +208,36 @@ nova_extraction_container/
 ├── requirements.txt
 └── README.md
 ```
+
+### Unified Prompt System
+
+The container uses a **universal prompt approach** for maximum robustness:
+
+**Key Benefits**:
+
+- ✅ **Robustness**: Works correctly even when document classification fails
+- ✅ **Reliability**: Handles `unknown` or misclassified documents gracefully
+- ✅ **Maintainability**: Single source of truth for extraction rules
+- ✅ **Flexibility**: LLM determines extraction strategy based on content
+
+**How it works**:
+
+1. Document is classified (for logging/filtering only)
+2. Universal prompt is sent to LLM regardless of type
+3. Prompt contains comprehensive instructions for ALL document types:
+   - Avis (tender notices)
+   - RC (administrative regulations)
+   - CPS/CCTP (technical specifications)
+   - BDP (pricing tables)
+   - Administrative documents
+   - Mixed/unknown documents
+4. LLM intelligently extracts relevant data based on content
+5. No type-specific branching = fewer failure points
+
+**Prompts Module** (`src/prompts.py`):
+
+- `get_extraction_prompt()` - Universal extraction for metadata, lots, products
+- `get_chunking_prompt(content)` - Universal chunking for document segmentation
 
 ## Troubleshooting
 

@@ -128,28 +128,60 @@ class DocumentProcessor:
     def _process_word(self, word_path: str) -> Tuple[Optional[str], None]:
         """Process Word document (.docx, .doc)."""
         try:
+            # Check if file exists
+            if not os.path.exists(word_path):
+                logger.error(f"Word file not found: {word_path}")
+                return None, None
+            
+            # Check file size (skip if too small or empty)
+            file_size = os.path.getsize(word_path)
+            if file_size < 100:  # Less than 100 bytes is likely corrupted
+                logger.warning(f"Word file too small ({file_size} bytes), likely corrupted: {word_path}")
+                return None, None
+            
             if word_path.endswith('.docx'):
-                doc = docx.Document(word_path)
-                text_parts = []
-                
-                for i, para in enumerate(doc.paragraphs):
-                    if para.text.strip():
-                        text_parts.append(self._fix_arabic_text(para.text))
-                
-                # Extract tables
-                for table_idx, table in enumerate(doc.tables, 1):
-                    table_text = self._extract_word_table(table, table_idx)
-                    if table_text:
-                        text_parts.append(table_text)
-                
-                full_text = "\n".join(text_parts)
-                logger.info(f"Extracted {len(full_text)} characters from Word document")
-                return full_text, None
+                try:
+                    doc = docx.Document(word_path)
+                    text_parts = []
+                    
+                    for i, para in enumerate(doc.paragraphs):
+                        if para.text.strip():
+                            text_parts.append(self._fix_arabic_text(para.text))
+                    
+                    # Extract tables
+                    for table_idx, table in enumerate(doc.tables, 1):
+                        table_text = self._extract_word_table(table, table_idx)
+                        if table_text:
+                            text_parts.append(table_text)
+                    
+                    full_text = "\n".join(text_parts)
+                    
+                    # Check if we extracted any text
+                    if not full_text.strip():
+                        logger.warning(f"No text extracted from Word document: {os.path.basename(word_path)}")
+                        return None, None
+                    
+                    logger.info(f"Extracted {len(full_text)} characters from Word document")
+                    return full_text, None
+                    
+                except Exception as docx_error:
+                    # Specific handling for corrupted .docx files
+                    error_msg = str(docx_error)
+                    if "Package not found" in error_msg or "BadZipFile" in error_msg:
+                        logger.warning(f"Corrupted or invalid .docx file: {os.path.basename(word_path)} - {error_msg}")
+                    else:
+                        logger.error(f"Error reading .docx file: {error_msg}")
+                    return None, None
             else:
-                # .doc files need conversion - fallback to image processing
-                logger.warning(".doc files require conversion - using image fallback")
-                # Convert doc to images using LibreOffice (if available)
-                return None, self._convert_doc_to_images(word_path)
+                # .doc files need conversion to .docx
+                logger.info(f"Converting .doc file to .docx: {os.path.basename(word_path)}")
+                docx_path = self._convert_doc_to_docx(word_path)
+                if docx_path:
+                    # Recursively process the converted .docx file
+                    return self._process_word(docx_path)
+                else:
+                    logger.warning(f"Failed to convert .doc file: {os.path.basename(word_path)}")
+                    return None, None
         except Exception as e:
             logger.error(f"Error processing Word document: {e}")
             return None, None
@@ -186,9 +218,15 @@ class DocumentProcessor:
                 logger.info(f"Extracted {len(full_text)} characters from Excel file")
                 return full_text, None
             else:
-                # .xls files need xlrd library or conversion
-                logger.warning(".xls files require xlrd library - feature not implemented")
-                return None, None
+                # .xls files need conversion to .xlsx
+                logger.info(f"Converting .xls file to .xlsx: {os.path.basename(excel_path)}")
+                xlsx_path = self._convert_xls_to_xlsx(excel_path)
+                if xlsx_path:
+                    # Recursively process the converted .xlsx file
+                    return self._process_excel(xlsx_path)
+                else:
+                    logger.warning(f"Failed to convert .xls file: {os.path.basename(excel_path)}")
+                    return None, None
         except Exception as e:
             logger.error(f"Error processing Excel file: {e}")
             return None, None
@@ -203,9 +241,124 @@ class DocumentProcessor:
             logger.error(f"Error loading image: {e}")
             return None, None
     
-    def _convert_doc_to_images(self, doc_path: str) -> Optional[List[Image.Image]]:
-        """Convert .doc file to images (requires LibreOffice)."""
-        # This would require LibreOffice installed in the container
-        # For now, return None to skip
-        logger.warning(".doc conversion not implemented")
-        return None
+    def _convert_doc_to_docx(self, doc_path: str) -> Optional[str]:
+        """Convert .doc file to .docx using LibreOffice.
+        
+        Args:
+            doc_path: Path to .doc file
+            
+        Returns:
+            Path to converted .docx file, or None if conversion failed
+        """
+        import subprocess
+        import tempfile
+        
+        try:
+            # Create temp directory for conversion
+            temp_dir = os.path.dirname(doc_path)
+            
+            # Run LibreOffice conversion
+            # --headless: run without GUI
+            # --convert-to docx: convert to .docx format
+            # --outdir: output directory
+            cmd = [
+                'libreoffice',
+                '--headless',
+                '--convert-to', 'docx',
+                '--outdir', temp_dir,
+                doc_path
+            ]
+            
+            logger.info(f"Running LibreOffice conversion: {' '.join(cmd)}")
+            
+            # Run conversion with timeout
+            result = subprocess.run(
+                cmd,
+                capture_output=True,
+                text=True,
+                timeout=30  # 30 second timeout
+            )
+            
+            if result.returncode == 0:
+                # Conversion successful - find the output file
+                base_name = os.path.splitext(os.path.basename(doc_path))[0]
+                docx_path = os.path.join(temp_dir, f"{base_name}.docx")
+                
+                if os.path.exists(docx_path):
+                    logger.info(f"✅ Successfully converted .doc to .docx: {os.path.basename(docx_path)}")
+                    return docx_path
+                else:
+                    logger.error(f"Conversion succeeded but output file not found: {docx_path}")
+                    return None
+            else:
+                logger.error(f"LibreOffice conversion failed: {result.stderr}")
+                return None
+                
+        except subprocess.TimeoutExpired:
+            logger.error(f"LibreOffice conversion timed out for {os.path.basename(doc_path)}")
+            return None
+        except FileNotFoundError:
+            logger.error("LibreOffice not found - cannot convert .doc files")
+            return None
+        except Exception as e:
+            logger.error(f"Error converting .doc file: {e}")
+            return None
+
+    def _convert_xls_to_xlsx(self, xls_path: str) -> Optional[str]:
+        """Convert .xls file to .xlsx using LibreOffice.
+        
+        Args:
+            xls_path: Path to .xls file
+            
+        Returns:
+            Path to converted .xlsx file, or None if conversion failed
+        """
+        import subprocess
+        
+        try:
+            # Create temp directory for conversion
+            temp_dir = os.path.dirname(xls_path)
+            
+            # Run LibreOffice conversion
+            cmd = [
+                'libreoffice',
+                '--headless',
+                '--convert-to', 'xlsx',
+                '--outdir', temp_dir,
+                xls_path
+            ]
+            
+            logger.info(f"Running LibreOffice conversion: {' '.join(cmd)}")
+            
+            # Run conversion with timeout
+            result = subprocess.run(
+                cmd,
+                capture_output=True,
+                text=True,
+                timeout=30  # 30 second timeout
+            )
+            
+            if result.returncode == 0:
+                # Conversion successful - find the output file
+                base_name = os.path.splitext(os.path.basename(xls_path))[0]
+                xlsx_path = os.path.join(temp_dir, f"{base_name}.xlsx")
+                
+                if os.path.exists(xlsx_path):
+                    logger.info(f"✅ Successfully converted .xls to .xlsx: {os.path.basename(xlsx_path)}")
+                    return xlsx_path
+                else:
+                    logger.error(f"Conversion succeeded but output file not found: {xlsx_path}")
+                    return None
+            else:
+                logger.error(f"LibreOffice conversion failed: {result.stderr}")
+                return None
+                
+        except subprocess.TimeoutExpired:
+            logger.error(f"LibreOffice conversion timed out for {os.path.basename(xls_path)}")
+            return None
+        except FileNotFoundError:
+            logger.error("LibreOffice not found - cannot convert .xls files")
+            return None
+        except Exception as e:
+            logger.error(f"Error converting .xls file: {e}")
+            return None
