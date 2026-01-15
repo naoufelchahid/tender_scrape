@@ -145,7 +145,7 @@ class OCRService:
         s3_key = f"{Config.MARKDOWN_PREFIX}/{tender_ref_safe}/{markdown_filename}"
         
         metadata = {
-            'tender_ref': tender_ref,
+            'tender_ref': tender_ref.encode('ascii', 'ignore').decode('ascii'),
             'processed_date': datetime.utcnow().isoformat(),
             'ocr_version': '1.0'
         }

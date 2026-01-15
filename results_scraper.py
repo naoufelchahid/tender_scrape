@@ -10,6 +10,7 @@ import boto3
 import zipfile
 import random
 import unicodedata
+import re
 from pathlib import Path
 from typing import List, Dict, Optional
 from datetime import datetime, timedelta
@@ -109,6 +110,24 @@ class ResultsScraper:
             aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
             aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')
         )
+        
+        # SQS Config for RESULTS_QUEUE
+        self.results_queue_url = os.getenv('RESULTS_QUEUE_URL')
+        self.sqs_client = None
+        
+        if self.results_queue_url:
+            self.sqs_client = boto3.client(
+                'sqs',
+                region_name=self.aws_region,
+                aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+                aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')
+            )
+            logger.info(f"SQS client initialized for RESULTS_QUEUE")
+        else:
+            logger.warning("RESULTS_QUEUE_URL not set, messages will not be sent to queue")
+        
+        # Track uploaded files per tender for queue message
+        self.uploaded_files = []
 
     def get_pending_tenders(self) -> List[Tender]:
         """
@@ -139,6 +158,7 @@ class ResultsScraper:
         """
         logger.info(f"Processing tender: {tender.reference}")
         
+        original_ref = None
         # Extract original reference from composite reference
         # Composite is like "11/2025_DPMS" -> Original "11/2025"
         # Assumption: The original reference is everything before the last underscore, 
@@ -243,7 +263,9 @@ class ResultsScraper:
                         break
                         
                     # 1. Verify it's the right tender (Composite Match)
-                    buyer_text = buyer_div.get_text(strip=True).replace("Acheteur public :", "").strip()
+                    buyer_text = buyer_div.get_text(strip=True)
+                    # Remove "Acheteur public :" prefix (might have space or not after colon)
+                    buyer_text = re.sub(r'^Acheteur public\s*:\s*', '', buyer_text, flags=re.IGNORECASE)
                     buyer_text = " ".join(buyer_text.split())
                     initials = generate_initials(buyer_text)
                     composite_ref = f"{original_ref}_{initials}"
@@ -452,6 +474,9 @@ class ResultsScraper:
             logger.info(f"Uploading {s3_key}")
             self.s3_client.upload_file(str(file_path), self.s3_bucket, s3_key)
             
+            # Track uploaded file for queue message
+            self.uploaded_files.append(s3_key)
+            
             # If it's a PDF, also copy to results_lambda_ocr/ for Lambda processing
             if file_path.suffix.lower() == '.pdf':
                 # Create the Lambda OCR key by replacing tender_results/ with results_lambda_ocr/
@@ -462,6 +487,46 @@ class ResultsScraper:
         except Exception as e:
             logger.error(f"S3 Upload failed: {e}")
 
+    def send_to_results_queue(self, tender: Tender):
+        """
+        Send message to RESULTS_QUEUE with tender info and uploaded file paths.
+        Message format matches OCR queue format for consistency.
+        """
+        if not self.sqs_client or not self.results_queue_url:
+            logger.info("SQS not configured, skipping queue message")
+            return False
+        
+        if not self.uploaded_files:
+            logger.warning(f"No files uploaded for {tender.reference}, skipping queue message")
+            return False
+        
+        try:
+            import json
+            
+            message_body = {
+                'tender_ref': tender.reference,
+                's3_paths': self.uploaded_files.copy(),  # Copy list of uploaded S3 keys
+                'bucket': self.s3_bucket,
+                'timestamp': datetime.now().isoformat()
+            }
+            
+            response = self.sqs_client.send_message(
+                QueueUrl=self.results_queue_url,
+                MessageBody=json.dumps(message_body)
+            )
+            
+            logger.info(f"✅ Sent message to RESULTS_QUEUE for {tender.reference} with {len(self.uploaded_files)} files")
+            logger.info(f"   Message ID: {response['MessageId']}")
+            
+            # Clear uploaded files list after sending message
+            self.uploaded_files = []
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"Failed to send SQS message for {tender.reference}: {e}")
+            return False
+    
     def update_tender_status(self, tender: Tender):
         # User requested to REMOVE DB update
         # Keeping method structure but disabling logic
@@ -530,9 +595,16 @@ class ResultsScraper:
             page = await context.new_page()
             
             for tender in tenders:
+                # Reset uploaded files list for this tender
+                self.uploaded_files = []
+                
                 file_path = await self.search_and_download(page, tender)
                 if file_path:
                     self.unzip_and_upload(file_path, tender)
+                    
+                    # Send message to RESULTS_QUEUE after processing files
+                    if self.uploaded_files:
+                        self.send_to_results_queue(tender)
                     
             await browser.close()
 

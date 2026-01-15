@@ -29,17 +29,13 @@ class TenderMetadata(BaseModel):
     global_budget: Optional[float] = Field(None, description="Total estimated budget for the tender")
     nbre_lots: Optional[int] = Field(None, description="Total number of lots")
     buyer: Optional[str] = Field(None, description="Name of the public purchaser/buyer")
-    buyer_initials: Optional[str] = Field(None, description="Initials of the buyer (e.g. OCP, ANP)")
     buyer_address: Optional[str] = Field(None, description="Address of the buyer")
     buyer_phone: Optional[str] = Field(None, description="Phone number of the buyer")
     buyer_email: Optional[str] = Field(None, description="Email of the buyer")
     buyer_contact: Optional[str] = Field(None, description="Contact person name")
     passation_mode: Optional[str] = Field(None, description="Mode of passation (e.g., AO Ouvert)")
-    location: Optional[str] = Field(None, description="Execution location (City/Region)")
-    passation_mode: Optional[str] = Field(None, description="Mode of passation (e.g., AO Ouvert)")
     type: Optional[str] = Field(None, description="Type/Domain of the tender (formerly category)")
     agrements: List[str] = Field(default_factory=list, description="List of required certifications (D-codes like 'D1', 'D2', etc.)")
-    status: Optional[str] = Field(None, description="Inferred status based on context")
 
 class ExtractionOutput(BaseModel):
     """Container for the full extraction result."""

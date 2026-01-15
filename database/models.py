@@ -223,6 +223,23 @@ class Result(Base):
     bider15_id = Column(Integer, ForeignKey('contractors.id'))
     bid15 = Column(Numeric(15, 2))
 
+    # Remarks for each bidder (1-15)
+    remarque1 = Column(Text)
+    remarque2 = Column(Text)
+    remarque3 = Column(Text)
+    remarque4 = Column(Text)
+    remarque5 = Column(Text)
+    remarque6 = Column(Text)
+    remarque7 = Column(Text)
+    remarque8 = Column(Text)
+    remarque9 = Column(Text)
+    remarque10 = Column(Text)
+    remarque11 = Column(Text)
+    remarque12 = Column(Text)
+    remarque13 = Column(Text)
+    remarque14 = Column(Text)
+    remarque15 = Column(Text)
+
     # Relationships
     winner = relationship("Contractor", foreign_keys=[winner_id], back_populates="won_results")
     

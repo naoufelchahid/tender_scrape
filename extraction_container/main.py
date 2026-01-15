@@ -10,6 +10,7 @@ from src.llm_chunker import LLMChunker
 from src.cleaning import DocumentCleaners
 from src.database import DatabaseManager
 from src.integrity import IntegrityChecker, IntegrityCheckError
+from src.metadata_aggregator import MetadataAggregator
 
 # Logging setup
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -48,8 +49,8 @@ def main():
     sqs = boto3.client('sqs', region_name=AWS_REGION)
     s3 = boto3.client('s3', region_name=AWS_REGION)
 
-    extractor = ExtractionService(AWS_REGION, BEDROCK_MODEL, OPENROUTER_API_KEY)
     chunker = LLMChunker(AWS_REGION, BEDROCK_MODEL, OPENROUTER_API_KEY)
+    aggregator = MetadataAggregator(AWS_REGION, BEDROCK_MODEL, OPENROUTER_API_KEY)
 
     logger.info(f"Starting Extraction Service polling {SQS_QUEUE_URL}...")
 
@@ -65,13 +66,13 @@ def main():
                 continue
 
             for msg in response['Messages']:
-                handle_message(msg, sqs, s3, extractor, chunker)
+                handle_message(msg, sqs, s3, chunker, aggregator)
 
         except Exception as e:
             logger.error(f"Polling error: {e}")
             time.sleep(5)
 
-def handle_message(msg, sqs, s3, extractor, chunker):
+def handle_message(msg, sqs, s3, chunker, aggregator):
     receipt_handle = msg['ReceiptHandle']
     try:
         body = json.loads(msg['Body'])
@@ -116,11 +117,40 @@ def handle_message(msg, sqs, s3, extractor, chunker):
                 markdown_parts.append(content)
             full_markdown = "\n\n---\n\n".join(markdown_parts)
 
-        # 2. Extract Metadata (Stateless)
-        extraction_output = extractor.process_tender(tender_id, tender_ref, full_markdown)
+        logger.info(f"Downloaded markdown: {len(full_markdown):,} characters")
+
+        # 2. Split Markdown into logical documents
+        cleaner = DocumentCleaners()
+        docs = cleaner.split_concatenated_file(full_markdown)
+        logger.info(f"Split into {len(docs)} documents: {[d.doc_type for d in docs]}")
         
-        # Save Metadata structure to S3
-        metadata_key = f"tenders_doc_final/{tender_ref}/extracted_metadata.json"
+        # 3. LLM-assisted chunking (FIRST - with enriched metadata)
+        # Pass empty lots=[] since we don't have metadata yet - will be inferred from chunks
+        chunks = chunker.chunk_all_documents(
+            docs=docs, 
+            tender_id=tender_id, 
+            tender_ref=tender_ref,
+            lots=[]  # No lots available yet - will be inferred from content
+        )
+        logger.info(f"Generated {len(chunks)} chunks from documents")
+        
+        # 4. Upload Chunks to S3 (BEFORE metadata)
+        chunk_key = f"chunks_tender/{tender_ref}/chunks.json"
+        s3.put_object(
+            Bucket=S3_BUCKET,
+            Key=chunk_key,
+            Body=json.dumps(chunks, ensure_ascii=False)
+        )
+        logger.info(f"Saved chunks to {chunk_key}")
+        
+        # 5. Aggregate Metadata from Chunks (NEW - chunk-first approach)
+        extraction_output = aggregator.aggregate_metadata(chunks, tender_ref, tender_id)
+        logger.info(f"Aggregated metadata: {len(extraction_output.lots)} lots, {len(extraction_output.products)} products")
+        
+        # 6. Save Metadata to S3 (AFTER chunks)
+        # Sanitize tender_ref to avoid creating nested folders from "/" characters
+        sanitized_ref = tender_ref.replace("/", "_")
+        metadata_key = f"tender_metadata/{sanitized_ref}.json"
         s3.put_object(
             Bucket=S3_BUCKET,
             Key=metadata_key,
@@ -128,28 +158,7 @@ def handle_message(msg, sqs, s3, extractor, chunker):
         )
         logger.info(f"Saved metadata to {metadata_key}")
 
-        # 3. Split Markdown into logical documents
-        cleaner = DocumentCleaners()
-        docs = cleaner.split_concatenated_file(full_markdown)
-        logger.info(f"Split into {len(docs)} documents: {[d.doc_type for d in docs]}")
-        
-        # 4. LLM-assisted chunking
-        # Pass tender_ref and extracted lots for ID generation mapping
-        chunks = chunker.chunk_all_documents(
-            docs=docs, 
-            tender_id=tender_id, 
-            tender_ref=tender_ref,
-            lots=extraction_output.lots if extraction_output else []
-        )
-        
-        # 5. Upload Chunks to S3
-        chunk_key = f"chunks_tender/{tender_ref}/chunks.json"
-        s3.put_object(
-            Bucket=S3_BUCKET,
-            Key=chunk_key,
-            Body=json.dumps(chunks, ensure_ascii=False)
-        )
-        # 5.5 Integrity Check
+        # 7. Integrity Check
         logger.info("Performing output integrity checks...")
         meta_valid = IntegrityChecker.check_metadata(extraction_output)
         chunks_valid = IntegrityChecker.check_chunks(chunks)
@@ -170,7 +179,7 @@ def handle_message(msg, sqs, s3, extractor, chunker):
             
         logger.info("Integrity Check PASSED.")
 
-        # 6. Notify DB Filler Queue
+        # 8. Notify DB Filler Queue
         # We need to construct the URL for db_filler if it's just a name
         queue_url = DB_FILLER_QUEUE_URL
         if not queue_url.startswith("https://"):
@@ -195,7 +204,7 @@ def handle_message(msg, sqs, s3, extractor, chunker):
             })
         )
 
-        # 7. Delete Message
+        # 9. Delete Message
         sqs.delete_message(QueueUrl=SQS_QUEUE_URL, ReceiptHandle=receipt_handle)
         logger.info(f"Successfully processed {tender_ref}")
 

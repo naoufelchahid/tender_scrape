@@ -1,8 +1,81 @@
 {
     "category": "travaux",
-    "scan_date": "2026-01-08T13:35:26.426256",
-    "total_website_references": 609,
+    "scan_date": "2026-01-11T14:44:42.766241",
+    "total_website_references": 598,
     "total_database_references": 1659,
-    "new_references_count": 0,
-    "new_references": []
+    "new_references_count": 6,
+    "new_references": [
+        {
+            "reference": "01/2026_COMRUROULFEN",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMRUROULFEN",
+            "category": "Travaux",
+            "launch_date": "10/01/2026",
+            "object": "Objet :construction du siège de la commune ouled fennane...construction du siège de la commune ouled fennane",
+            "buyer": "Commune rurale de OULAD FENNANE",
+            "deadline": "...",
+            "city": "KHOURIBGA...KHOURIBGA",
+            "scraped_at": "2026-01-11T14:44:28.488057"
+        },
+        {
+            "reference": "01/2026_COMMUNERURALETAKOUCHTE",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMMUNERURALETAKOUCHTE",
+            "category": "Travaux",
+            "launch_date": "10/01/2026",
+            "object": "Objet :Travaux d'alimentation douars : Adrar - Aguerd - Iguene Tama - Tanatamte - Taourirte Oufella en eau potable et Equipement Puits Talkhoukhte COMMUNE TAKOUCHT PROVINCE D'ESSAOUIRA...Travaux d'alimentation douars : Adrar - Aguerd - Iguene Tama - Tanatamte - Taourirte Oufella en eau potable et Equipement Puits Talkhoukhte COMMUNE TAKOUCHT PROVINCE D'ESSAOUIRA",
+            "buyer": "Commune rurale de TAKOUCHTE",
+            "deadline": "10/02/202614:00",
+            "city": "ESSAOUIRA...ESSAOUIRA",
+            "scraped_at": "2026-01-11T14:44:28.488382"
+        },
+        {
+            "reference": "01/2026_COMMUNERURALETIMEZGANA",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMMUNERURALETIMEZGANA",
+            "category": "Travaux",
+            "launch_date": "09/01/2026",
+            "object": "Objet :Travaux d’élargissement et de renforcement d’un tronçon de la route communale reliant la RR 509 et la RP 5312 sur 9 km de PK : 0+000 au PK : 9+000 à la commune de Timezgana Province de Taounate....Travaux d’élargissement et de renforcement d’un tronçon de la route communale reliant la RR 509 et la RP 5312 sur 9 km de PK : 0+000 au PK : 9+000 à la commune de Timezgana Province de Taounate.",
+            "buyer": "Commune rurale de TIMEZGANA",
+            "deadline": "...",
+            "city": "TAOUNATE...TAOUNATE",
+            "scraped_at": "2026-01-11T14:44:28.489310"
+        },
+        {
+            "reference": "01/2026_DIRPROJUSRAB",
+            "original_reference": "01/2026",
+            "buyer_initials": "DIRPROJUSRAB",
+            "category": "Travaux",
+            "launch_date": "08/01/2026",
+            "object": "Objet :TRAVAUX D’AMENAGEMENT DU PALAIS DE JUSTICE DE RABAT. En lot unique...TRAVAUX D’AMENAGEMENT DU PALAIS DE JUSTICE DE RABAT. En lot unique",
+            "buyer": "DIRECTION PROVINCIALE DE LA JUSTICE DE RABAT",
+            "deadline": "...",
+            "city": "Préfecture de Skhirate TemaraPréfecture de Salé Al Jadida...Préfecture de Skhirate Temara, Préfecture de Salé Al Jadida, Préfecture de Salé Medina, Province de Khemissat, Wilaya de Rabat",
+            "scraped_at": "2026-01-11T14:44:28.489619"
+        },
+        {
+            "reference": "01/2026_C.T.FREIJA",
+            "original_reference": "01/2026",
+            "buyer_initials": "C.T.FREIJA",
+            "category": "Travaux",
+            "launch_date": "08/01/2026",
+            "object": "Objet :TRAVAUX DE REALISATION D’UN FORAGE DE PUIT POUR ADDUCTION EN EAU POTABLE DES DOUARS REGGADA ET ZAOUIT SOUGRATE COMMUNE FREIJA....TRAVAUX DE REALISATION D’UN FORAGE DE PUIT POUR ADDUCTION EN EAU POTABLE DES DOUARS REGGADA ET ZAOUIT SOUGRATE COMMUNE FREIJA.",
+            "buyer": "C.T. FREIJA",
+            "deadline": "03/02/202611:00",
+            "city": "MAROCTAROUDANNT...MAROC, TAROUDANNT",
+            "scraped_at": "2026-01-11T14:44:28.492484"
+        },
+        {
+            "reference": "01/2026_COMMUNERURALEGALAZ",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMMUNERURALEGALAZ",
+            "category": "Travaux",
+            "launch_date": "08/01/2026",
+            "object": "Objet :TRAVAUX DE RÉALISATION DE LA CHARPENTE MÉTALLIQUE AU PARC DE LA COMMUNE GALAZ Hangar 1...TRAVAUX DE RÉALISATION DE LA CHARPENTE MÉTALLIQUE AU PARC DE LA COMMUNE GALAZ Hangar 1",
+            "buyer": "Commune rurale de GALAZ",
+            "deadline": "28/01/202610:00",
+            "city": "TAOUNATE...TAOUNATE",
+            "scraped_at": "2026-01-11T14:44:28.503634"
+        }
+    ]
 }

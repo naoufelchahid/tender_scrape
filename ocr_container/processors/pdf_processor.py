@@ -1,43 +1,34 @@
 """
 PDF OCR processor with layout preservation.
 Uses direct text extraction for PDFs with text layers.
-Uses Gemini Flash 1.5 OCR for scanned PDFs.
+Uses OpenRouter API with Llama 4 models for scanned PDFs.
+Stage: Extraction Container - OCR Processing
 """
 import os
 import base64
+import re
 from typing import List, Optional
 from pdf2image import convert_from_path
 from PIL import Image
 import io
-from openai import OpenAI
-import boto3
-import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from config import Config
 from logger import logger
-from prompts import create_ocr_messages
+from prompts import create_ocr_messages, TABLE_ENHANCEMENT_PROMPT_MAVERICK
 from language_detector import detect_language_from_pdf_page
 from text_layer_detector import has_text_layer
 from processors.text_extractor import extract_text
+from openrouter_client import OpenRouterClient
 
 
 class PDFProcessor:
-    """PDF OCR processor."""
+    """PDF OCR processor using OpenRouter API."""
     
     def __init__(self):
-        """Initialize PDF processor with API clients."""
-        # OpenRouter client
-        self.openrouter_client = OpenAI(
-            api_key=Config.OPENROUTER_API_KEY,
-            base_url=Config.OPENROUTER_BASE_URL
-        )
-        
-        # Bedrock client
-        self.bedrock_runtime = boto3.client(
-            'bedrock-runtime',
-            region_name=Config.AWS_REGION
-        )
+        """Initialize PDF processor with OpenRouter client."""
+        # OpenRouter client for Llama 4 models
+        self.openrouter_client = OpenRouterClient()
     
     def _image_to_base64(self, image: Image.Image) -> str:
         """
@@ -54,10 +45,10 @@ class PDFProcessor:
         return base64.b64encode(buffered.getvalue()).decode('utf-8')
     
     def _ocr_page_openrouter(self, image: Image.Image, page_num: int, 
-                             total_pages: int, document_type: str = "tender",
-                             is_arabic: bool = False) -> str:
+                       total_pages: int, document_type: str = "tender",
+                       is_arabic: bool = False) -> str:
         """
-        OCR single page using OpenRouter API.
+        OCR single page using OpenRouter API with Llama 4 models.
         
         Args:
             image: PIL Image of page
@@ -79,71 +70,80 @@ class PDFProcessor:
                 is_arabic=is_arabic
             )
             
-            response = self.openrouter_client.chat.completions.create(
-                model=Config.OPENROUTER_MODEL,
-                messages=messages,
+            # Extract system and user content
+            system_prompt = messages[0]["content"]
+            user_content = messages[1]["content"]
+            
+            # Extract text from user content
+            user_prompt = ""
+            for item in user_content:
+                if item["type"] == "text":
+                    user_prompt = item["text"]
+                    break
+            
+            # Use OpenRouter client for OCR
+            markdown_text = self.openrouter_client.ocr_image(
+                image_base64=image_base64,
+                system_prompt=system_prompt,
+                user_prompt=user_prompt,
                 max_tokens=4000,
                 temperature=0.1
             )
             
-            markdown_text = response.choices[0].message.content
+            logger.info(f"Page {page_num} OCR completed with OpenRouter")
             return markdown_text
         except Exception as e:
             logger.error(f"Error OCR page {page_num} with OpenRouter: {e}")
             return f"[ERROR: OCR failed for page {page_num}]"
     
-    def _ocr_page_bedrock(self, image: Image.Image, page_num: int,
-                          total_pages: int, document_type: str = "tender") -> str:
+    def _enhance_tables_with_openrouter(self, markdown_text: str) -> str:
         """
-        OCR single page using AWS Bedrock Nova Lite.
+        Enhance tables in markdown using Llama 4 models for better formatting.
         
         Args:
-            image: PIL Image of page
-            page_num: Page number
-            total_pages: Total number of pages
-            document_type: Type of document
+            markdown_text: Markdown text with tables
             
         Returns:
-            Markdown text
+            Enhanced markdown with improved tables
         """
-        try:
-            # Initialize Bedrock client (Nova models only available in us-east-1)
-            bedrock = boto3.client('bedrock-runtime', region_name='us-east-1')
-            
-            image_base64 = self._image_to_base64(image)
-            
-            # Create Bedrock request with image
-            messages = create_ocr_messages(
-                image_base64=image_base64,
-                document_type=document_type,
-                page_number=page_num,
-                total_pages=total_pages,
-                is_arabic=True
-            )
-            
-            # Nova Lite request format
-            request_body = {
-                "messages": messages,
-                "max_tokens": 4000,
-                "temperature": 0.1,
-                "top_p": 0.9
-            }
-            
-            response = bedrock.invoke_model(
-                modelId=Config.BEDROCK_MODEL_ID,
-                body=json.dumps(request_body)
-            )
-            
-            response_body = json.loads(response['body'].read())
-            markdown_text = response_body['content'][0]['text']
-            
+        if not Config.ENABLE_TABLE_ENHANCEMENT:
+            logger.info("Table enhancement disabled, skipping processing")
             return markdown_text
+        
+        try:
+            # Extract tables using regex (simple pipe-based table detection)
+            table_pattern = r'(\|[^\n]+\|\n(?:\|[-:| ]+\|\n)?(?:\|[^\n]+\|\n?)+)'
+            tables = re.findall(table_pattern, markdown_text)
+            
+            if not tables:
+                logger.info("No tables detected, skipping enhancement")
+                return markdown_text
+            
+            logger.info(f"Found {len(tables)} tables, enhancing with OpenRouter...")
+            
+            # Enhance each table
+            enhanced_text = markdown_text
+            for table in tables:
+                try:
+                    # Use OpenRouter client for enhancement
+                    enhanced_table = self.openrouter_client.enhance_text(
+                        text=table,
+                        enhancement_prompt=TABLE_ENHANCEMENT_PROMPT_MAVERICK,
+                        max_tokens=2000,
+                        temperature=0.1
+                    )
+                    
+                    # Replace original table with enhanced version
+                    enhanced_text = enhanced_text.replace(table, enhanced_table)
+                    logger.info("Table enhanced successfully")
+                except Exception as e:
+                    logger.warning(f"Failed to enhance table: {e}, keeping original")
+                    continue
+            
+            return enhanced_text
         except Exception as e:
-            logger.error(f"Error OCR page {page_num} with Bedrock: {e}")
-            # Fallback to OpenRouter
-            logger.info(f"Falling back to OpenRouter for page {page_num}")
-            return self._ocr_page_openrouter(image, page_num, total_pages, 
-                                            document_type, is_arabic=True)
+            logger.error(f"Error in table enhancement: {e}")
+            return markdown_text  # Return original on error
     
     def process(self, pdf_path: str, document_type: str = "tender") -> str:
         """
@@ -174,7 +174,7 @@ class PDFProcessor:
             else:
                 # PDF is scanned - use OCR
                 logger.info(f"❌ No text layer detected (confidence: {confidence:.2f})")
-                logger.info(f"Using {Config.OPENROUTER_MODEL} OCR for scanned PDF")
+                logger.info(f"Using OpenRouter API with {Config.PRIMARY_MODEL} for scanned PDF")
                 return self._ocr_scanned_pdf(pdf_path, document_type)
                 
         except Exception as e:
@@ -183,7 +183,8 @@ class PDFProcessor:
     
     def _ocr_scanned_pdf(self, pdf_path: str, document_type: str) -> str:
         """
-        OCR a scanned PDF using parallel processing.
+        OCR a scanned PDF using parallel processing with OpenRouter.
+        Optionally enhances tables.
         
         Args:
             pdf_path: Path to PDF file
@@ -237,6 +238,11 @@ class PDFProcessor:
             
             # Combine all pages
             final_markdown = "\n---\n\n".join(markdown_pages)
+            
+            # Enhance tables if enabled
+            if Config.ENABLE_TABLE_ENHANCEMENT:
+                logger.info("Enhancing tables with OpenRouter...")
+                final_markdown = self._enhance_tables_with_openrouter(final_markdown)
             
             logger.info(f"Successfully OCR'd PDF with {total_pages} pages")
             return final_markdown

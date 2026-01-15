@@ -79,7 +79,7 @@ class LLMChunker:
                 }
             )
         else:
-            logger.info(f"Using AWS Bedrock with model: {model_id}")
+            logger.info(f"Using OPEN_ROUTER with model: {model_id}")
             self.bedrock = boto3.client('bedrock-runtime', region_name=region_name)
         
         # Standard text splitter for fallback/other documents
@@ -146,37 +146,82 @@ class LLMChunker:
         return any(pattern in fname_lower for pattern in exclude_patterns)
     
     def _llm_chunk_document(self, doc: LogicalDocument, tender_id: int, tender_ref: str, lot_map: Dict[str, str], default_lot_ref: str) -> List[Dict[str, Any]]:
-        """Use LLM to intelligently chunk the document. Handles large files by segmentation."""
-        MAX_SEGMENT_CHARS = 40000 
-        OVERLAP_CHARS = 1000
+        """
+        Use LLM to intelligently chunk the document. Leverages 1M token context windows.
+        
+        Strategy:
+        - Documents < 3M chars: Single batch (full context)
+        - Documents >= 3M chars: Split into 2 batches
+        """
+        MAX_SINGLE_BATCH_CHARS = 3000000  # ~750K tokens (4:1 char:token ratio)
         
         content = doc.content
+        content_length = len(content)
         segments = []
         
-        # 1. Split content if too large
-        if len(content) > MAX_SEGMENT_CHARS:
-            start = 0
-            while start < len(content):
-                end = min(start + MAX_SEGMENT_CHARS, len(content))
-                if end < len(content):
-                    last_newline = content.rfind('\n', end - 2000, end)
-                    if last_newline != -1:
-                        end = last_newline + 1
-                
-                segments.append(content[start:end])
-                
-                if end >= len(content):
-                    break
-                start = end - OVERLAP_CHARS
-        else:
+        # 1. Determine batching strategy based on document size
+        if content_length <= MAX_SINGLE_BATCH_CHARS:
+            # Single batch - send full document as context
             segments = [content]
+            logger.info(f"LLM Chunking: Processing {doc.original_filename} as single batch ({content_length:,} chars)")
+        else:
+            # Large document - split into 2 batches with overlap
+            logger.info(f"LLM Chunking: Document {doc.original_filename} is large ({content_length:,} chars), splitting into 2 batches")
+            
+            # Calculate split point at approximately 50% with smart boundary detection
+            split_point = content_length // 2
+            overlap_chars = 5000  # Larger overlap for continuity
+            
+            # Find a good split boundary (prefer paragraph/section breaks)
+            search_window = 10000
+            best_split = split_point
+            
+            # Look for natural boundaries: double newline, article markers, page breaks
+            search_start = max(0, split_point - search_window)
+            search_end = min(content_length, split_point + search_window)
+            search_region = content[search_start:search_end]
+            
+            # Priority 1: Look for article/section markers
+            article_patterns = [r'\n\s*ARTICLE\s+\d+', r'\n\s*Article\s+\d+', r'\n\s*CHAPITRE\s+\d+']
+            for pattern in article_patterns:
+                matches = list(re.finditer(pattern, search_region, re.IGNORECASE))
+                if matches:
+                    # Find match closest to midpoint
+                    midpoint_offset = split_point - search_start
+                    closest_match = min(matches, key=lambda m: abs(m.start() - midpoint_offset))
+                    best_split = search_start + closest_match.start()
+                    logger.info(f"Found article boundary for split at position {best_split:,}")
+                    break
+            else:
+                # Priority 2: Look for paragraph breaks (double newlines)
+                paragraph_breaks = [m.start() for m in re.finditer(r'\n\s*\n', search_region)]
+                if paragraph_breaks:
+                    midpoint_offset = split_point - search_start
+                    closest_break = min(paragraph_breaks, key=lambda pos: abs(pos - midpoint_offset))
+                    best_split = search_start + closest_break
+                    logger.info(f"Found paragraph boundary for split at position {best_split:,}")
+                else:
+                    # Priority 3: Find any newline
+                    newline_pos = content.rfind('\n', split_point - search_window, split_point + search_window)
+                    if newline_pos != -1:
+                        best_split = newline_pos + 1
+            
+            # Create two batches with overlap
+            batch1 = content[:best_split + overlap_chars]
+            batch2 = content[max(0, best_split - overlap_chars):]
+            
+            segments = [batch1, batch2]
+            logger.info(f"Batch 1: {len(batch1):,} chars | Batch 2: {len(batch2):,} chars")
             
         all_chunks = []
-        type_counters = {} # Key: (lot_ref, type) -> int
+        type_counters = {}  # Key: (lot_ref, type) -> int
         
-        # 2. Process each segment
+        # 2. Process each batch
         for i, segment in enumerate(segments):
-            logger.info(f"LLM Chunking: Processing segment {i+1}/{len(segments)} for {doc.original_filename} ({len(segment)} chars)")
+            batch_num = i + 1
+            total_batches = len(segments)
+            
+            logger.info(f"LLM Chunking: Processing batch {batch_num}/{total_batches} for {doc.original_filename} ({len(segment):,} chars)")
             
             prompt = self._get_prompt_for_type(doc.doc_type, segment)
             
@@ -187,21 +232,21 @@ class LLMChunker:
                     response = self._invoke_nova(prompt)
                 
                 if not response or len(response) < 10:
-                    logger.warning(f"Empty/Tiny response for segment {i+1} of {doc.original_filename}")
+                    logger.warning(f"Empty/Tiny response for batch {batch_num} of {doc.original_filename}")
                     continue
                     
                 seg_chunks, type_counters = self._parse_chunk_markers(
                     response, doc, tender_id, lot_map, default_lot_ref, type_counters
                 )
                 all_chunks.extend(seg_chunks)
-                logger.info(f"Segment {i+1}: Parsed {len(seg_chunks)} chunks.")
+                logger.info(f"Batch {batch_num}: Parsed {len(seg_chunks)} chunks.")
                 
             except Exception as e:
-                logger.error(f"LLM chunking failed for segment {i+1} of {doc.original_filename}: {e}")
+                logger.error(f"LLM chunking failed for batch {batch_num} of {doc.original_filename}: {e}", exc_info=True)
         
         # 3. Fallback
         if not all_chunks:
-            logger.warning(f"No chunks parsed from any segment for {doc.original_filename}, falling back to standard")
+            logger.warning(f"No chunks parsed from any batch for {doc.original_filename}, falling back to standard chunking")
             return self._standard_chunk_document(doc, tender_id, default_lot_ref)
             
         return all_chunks
@@ -221,11 +266,12 @@ class LLMChunker:
         Returns:
             Model response text
         """
-        # Limit prompt size if needed (e.g. 128k context is usually enough)
-        # Qwen-2.5-32b has 128k context, no aggressive truncation needed usually
-        # But let's keep it safe
-        max_input_chars = 100000 
+        # With 1M token context window, we can handle ~3M chars (conservative 3:1 ratio)
+        # The actual model context is larger, but we leave room for response
+        max_input_chars = 3000000
+        
         if len(prompt) > max_input_chars:
+            logger.warning(f"Prompt length {len(prompt):,} exceeds max {max_input_chars:,}, truncating")
             prompt = prompt[:max_input_chars] + "\n\n[Document truncated due to length...]"
         
         completion = self.openai_client.chat.completions.create(
@@ -354,14 +400,13 @@ NOW PROCESS THIS DOCUMENT:
 TASK: Identify logical sections (Articles, Chapters) AND embedded pricing tables (Bordereau des Prix).
 
 CLASSIFICATION TYPES:
-- 'products_specs': Technical specifications specific to materials/products.
-- 'general_technical_specs': General execution standards/norms.
+- 'specification': Technical specifications specific to materials/products.
 - 'products': If a pricing table (BDP) is found embedded here.
 
 CRITICAL RULES FOR TEXT SECTIONS:
 1. Each ARTICLE = ONE separate chunk (e.g., Article 1, Article 2...).
 2. STRICT PROHIBITION: NEVER merge multiple articles into a single chunk. Even short articles must be separate.
-3. Marker format: <!-- CHUNK:type:ARTICLE_NUMBER type="TYPE" -->
+3. Marker format: <!-- CHUNK:specification:ARTICLE_NUMBER type="specification" -->
 4. Keep the article header exactly as is with its content.
 5. If an article has sub-points, keep them logically within that article's chunk.
 
@@ -373,7 +418,7 @@ CRITICAL RULES FOR PRICING TABLES (BDP) - IF PRESENT:
 OUTPUT FORMATS:
 
 For Articles:
-<!-- CHUNK:products_specs:Art_5 type="products_specs" -->
+<!-- CHUNK:specification:Art_5 type="specification" -->
 [article content]
 <!-- /CHUNK -->
 
@@ -392,16 +437,16 @@ NOW PROCESS THIS DOCUMENT:
 
 TASK: Identify administrative sections, eligibility criteria, and Articles.
 
-CLASSIFICATION TYPE: 'administrativ_specs'
+CLASSIFICATION TYPE: 'administrative'
 
 CRITICAL RULES:
 1. Each ARTICLE or discrete SECTION = ONE separate chunk.
 2. STRICT PROHIBITION: NEVER merge multiple articles into a single chunk.
-3. Marker format: <!-- CHUNK:administrativ_specs:SECTION_NAME type="administrativ_specs" -->
-4. Example: <!-- CHUNK:administrativ_specs:Article_1_Objet type="administrativ_specs" -->
+3. Marker format: <!-- CHUNK:administrative:SECTION_NAME type="administrative" -->
+4. Example: <!-- CHUNK:administrative:Article_1_Objet type="administrative" -->
 
 OUTPUT FORMAT:
-<!-- CHUNK:administrativ_specs:Article_1 type="administrativ_specs" -->
+<!-- CHUNK:administrative:Article_1 type="administrative" -->
 [content of Article 1]
 <!-- /CHUNK -->
 
@@ -416,7 +461,7 @@ NOW PROCESS THIS DOCUMENT:
 TASK: Extract key information and create a single summary chunk.
 
 OUTPUT FORMAT:
-<!-- CHUNK:general_technical_specs:summary type="general_technical_specs" -->
+<!-- CHUNK:avis:summary type="avis" -->
 [complete tender notice summary]
 <!-- /CHUNK -->
 

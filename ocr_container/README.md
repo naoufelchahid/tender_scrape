@@ -1,6 +1,6 @@
 # OCR Docker Container
 
-Docker container for OCR processing of tender documents. Converts PDF, DOCX, XLSX, and image files to structured Markdown using OpenRouter API and AWS Bedrock Nova Lite.
+Docker container for OCR processing of tender documents. Converts PDF, DOCX, XLSX, and image files to structured Markdown using OpenRouter API with Llama 4 models.
 
 ## Features
 
@@ -28,10 +28,12 @@ cp .env.example .env
 ```
 
 Required variables:
+
 - `AWS_REGION`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
 - `S3_BUCKET_NAME`
 - `OCR_QUEUE_URL`, `EXTRACTION_QUEUE_URL`
 - `OPENROUTER_API_KEY`
+- `OPENROUTER_APP_NAME` (optional)
 
 ### 2. Build Docker Image
 
@@ -42,11 +44,13 @@ docker build -t ocr-service .
 ### 3. Run Container
 
 **Using Docker Compose (recommended for local testing):**
+
 ```bash
 docker-compose up
 ```
 
 **Using Docker directly:**
+
 ```bash
 docker run --env-file .env ocr-service
 ```
@@ -54,25 +58,33 @@ docker run --env-file .env ocr-service
 ## File Processors
 
 ### PDF Processor
+
 - Converts PDF pages to images (300 DPI)
-- Detects Arabic from first page
-- Routes to OpenRouter (default) or Bedrock Nova Lite (Arabic)
+- Detects if PDF has extractable text layer
+- If text layer exists: Direct extraction (fast, no API calls)
+- If scanned: Routes to OpenRouter with Llama 4 models
+- Parallel processing for speed (10 workers)
 - Preserves layout and tables
+- Optional table enhancement
 
 ### DOCX Processor
+
 - Extracts text with python-docx
 - Converts tables to markdown
 - Preserves headings and structure
 
 ### XLSX Processor
+
 - Processes all sheets with pandas
 - Converts to markdown tables
 - Preserves numeric formatting
 
 ### Image Processor
+
 - Detects language from image
-- Routes to appropriate API
+- Routes to OpenRouter API
 - Extracts all visible text
+- Supports Arabic, French, English
 
 ## Batch Processing
 
@@ -92,6 +104,7 @@ python batch_processor.py
 ## SQS Message Format
 
 ### Input (OCR_QUEUE)
+
 ```json
 {
   "tender_ref": "REF123",
@@ -103,6 +116,7 @@ python batch_processor.py
 ```
 
 ### Output (EXTRACTION_QUEUE)
+
 ```json
 {
   "tender_ref": "REF123",
@@ -115,6 +129,7 @@ python batch_processor.py
 ## Logging
 
 Structured JSON logs for CloudWatch:
+
 ```json
 {
   "timestamp": "2025-12-31T12:00:00Z",
@@ -160,11 +175,13 @@ print(markdown)
 ## Production Deployment
 
 1. Build and tag image:
+
    ```bash
    docker build -t ocr-service:v1.0 .
    ```
 
 2. Push to ECR:
+
    ```bash
    docker tag ocr-service:v1.0 <account>.dkr.ecr.us-east-1.amazonaws.com/ocr-service:v1.0
    docker push <account>.dkr.ecr.us-east-1.amazonaws.com/ocr-service:v1.0
@@ -175,13 +192,17 @@ print(markdown)
 ## Troubleshooting
 
 **Issue**: Container can't find credentials
+
 - **Solution**: Ensure AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are set
 
 **Issue**: Poppler not found error
+
 - **Solution**: Rebuild image (poppler-utils installed in Dockerfile)
 
 **Issue**: Arabic text not detected
+
 - **Solution**: Check Tesseract Arabic language pack installed (tesseract-ocr-ara)
 
 **Issue**: Messages not being deleted
+
 - **Solution**: Check processing is successful and visibility timeout is adequate

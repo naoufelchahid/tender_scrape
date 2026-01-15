@@ -20,11 +20,11 @@ class Config:
     
     # OpenRouter API Configuration
     OPENROUTER_API_KEY: str = os.getenv('OPENROUTER_API_KEY', '')
-    OPENROUTER_MODEL: str = os.getenv('OPENROUTER_MODEL', 'nvidia/llama-3.1-nemotron-70b-instruct')
-    OPENROUTER_BASE_URL: str = 'https://openrouter.ai/api/v1'
-    
-    # AWS Bedrock Configuration
-    BEDROCK_MODEL_ID: str = os.getenv('BEDROCK_MODEL_ID', 'us.amazon.nova-lite-v1:0')
+    OPENROUTER_APP_NAME: str = os.getenv('OPENROUTER_APP_NAME', 'OCR-Service')
+    PRIMARY_MODEL: str = os.getenv('PRIMARY_MODEL', 'meta-llama/llama-4-maverick')
+    FALLBACK_MODEL_1: str = os.getenv('FALLBACK_MODEL_1', 'meta-llama/llama-guard-4-12b')
+    FALLBACK_MODEL_2: str = os.getenv('FALLBACK_MODEL_2', 'meta-llama/llama-4-scout')
+    ENABLE_TABLE_ENHANCEMENT: bool = os.getenv('ENABLE_TABLE_ENHANCEMENT', 'true').lower() == 'true'
     
     # Processing Configuration
     MAX_RETRIES: int = int(os.getenv('MAX_RETRIES', '3'))
@@ -72,8 +72,11 @@ class Config:
         print(f"  OCR_QUEUE_URL: {cls.OCR_QUEUE_URL[:50]}...")
         print(f"  EXTRACTION_QUEUE_URL: {cls.EXTRACTION_QUEUE_URL[:50]}...")
         print(f"  OPENROUTER_API_KEY: {'*' * 10 if cls.OPENROUTER_API_KEY else 'NOT SET'}")
-        print(f"  OPENROUTER_MODEL: {cls.OPENROUTER_MODEL}")
-        print(f"  BEDROCK_MODEL_ID: {cls.BEDROCK_MODEL_ID}")
+        print(f"  OPENROUTER_APP_NAME: {cls.OPENROUTER_APP_NAME}")
+        print(f"  PRIMARY_MODEL: {cls.PRIMARY_MODEL}")
+        print(f"  FALLBACK_MODEL_1: {cls.FALLBACK_MODEL_1}")
+        print(f"  FALLBACK_MODEL_2: {cls.FALLBACK_MODEL_2}")
+        print(f"  ENABLE_TABLE_ENHANCEMENT: {cls.ENABLE_TABLE_ENHANCEMENT}")
         print(f"  MAX_RETRIES: {cls.MAX_RETRIES}")
         print(f"  VISIBILITY_TIMEOUT: {cls.VISIBILITY_TIMEOUT}s")
         print(f"  BATCH_SIZE: {cls.BATCH_SIZE}")

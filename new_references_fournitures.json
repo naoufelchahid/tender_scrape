@@ -1,33 +1,21 @@
 {
     "category": "fournitures",
-    "scan_date": "2026-01-08T13:36:20.882554",
-    "total_website_references": 349,
-    "total_database_references": 1480,
-    "new_references_count": 2,
+    "scan_date": "2026-01-11T14:45:13.762221",
+    "total_website_references": 334,
+    "total_database_references": 1510,
+    "new_references_count": 1,
     "new_references": [
         {
-            "reference": "01/2026_COMMUNEURBAINEKHENIFRA",
+            "reference": "01/2026_ETACOOINTRHANOR",
             "original_reference": "01/2026",
-            "buyer_initials": "COMMUNEURBAINEKHENIFRA",
+            "buyer_initials": "ETACOOINTRHANOR",
             "category": "Fournitures",
-            "launch_date": "08/01/2026",
-            "object": "Objet :Achat de matériel d'entretien d'éclairage public...Achat de matériel d'entretien d'éclairage public",
-            "buyer": "Commune urbaine de KHENIFRA",
-            "deadline": "11/02/202610:00",
-            "city": "KHENIFRA...KHENIFRA",
-            "scraped_at": "2026-01-08T13:36:20.547184"
-        },
-        {
-            "reference": "01/2026_COMURBAINHAR",
-            "original_reference": "01/2026",
-            "buyer_initials": "COMURBAINHAR",
-            "category": "Fournitures",
-            "launch_date": "07/01/2026",
-            "object": "Objet :ACHAT DES BACS A DECHETS EN PLASTIQUE A LA COMMUNE AIN HARROUDA...ACHAT DES BACS A DECHETS EN PLASTIQUE A LA COMMUNE AIN HARROUDA",
-            "buyer": "Commune urbaine de AIN HARROUDA",
+            "launch_date": "09/01/2026",
+            "object": "Objet :acquisition d'une tractopelle...acquisition d'une tractopelle",
+            "buyer": "ETABLISSEMENT DE COOPERATION INTERCOMMUNALE RHAMNA NORD",
             "deadline": "...",
-            "city": "MOHAMMADIA...MOHAMMADIA",
-            "scraped_at": "2026-01-08T13:36:20.572812"
+            "city": "REHAMNA...REHAMNA",
+            "scraped_at": "2026-01-11T14:45:13.667296"
         }
     ]
 }

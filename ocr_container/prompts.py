@@ -26,7 +26,7 @@ CRITICAL REQUIREMENTS:
    - Do NOT skip any text, numbers, or symbols
    - Include headers, footers, page numbers, watermarks
    - Transcribe all visible content even if partially obscured
-   - Preserve all special characters: €, %, °, etc.
+   - Preserve all special characters: €, %, deg, etc.
 
 4. FORMATTING:
    - Use **bold** for emphasized text
@@ -69,6 +69,8 @@ Original table:
 
 Return ONLY the corrected markdown table, nothing else."""
 
+TABLE_ENHANCEMENT_PROMPT_MAVERICK = TABLE_ENHANCEMENT_PROMPT
+
 ARABIC_DOCUMENT_PROMPT = """This is an Arabic tender document that may be scanned or handwritten.
 Please:
 1. Transcribe all Arabic text accurately (right-to-left)
@@ -85,7 +87,7 @@ Special requirements:
 2. Maintain exact numeric values (quantities, unit prices, total prices)
 3. Keep column headers clear and aligned
 4. Include item numbers/references
-5. Preserve units of measurement (m², kg, unité, etc.)
+5. Preserve units of measurement (m2, kg, unité, etc.)
 6. Format currency values consistently
 
 This is critical procurement data - 100% accuracy required."""
