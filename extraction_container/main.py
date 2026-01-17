@@ -5,7 +5,7 @@ import logging
 import boto3
 from botocore.exceptions import ClientError
 
-from src.extraction import ExtractionService
+
 from src.llm_chunker import LLMChunker
 from src.cleaning import DocumentCleaners
 from src.database import DatabaseManager

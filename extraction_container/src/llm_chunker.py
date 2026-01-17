@@ -1,7 +1,7 @@
 """
 LLM-Assisted Intelligent Document Chunking Service.
 
-Uses Amazon Nova Micro via Bedrock to analyze documents and create
+Uses OpenRouter API via OpenRouterClientWrapper to analyze documents and create
 semantically meaningful chunks with proper metadata.
 """
 
@@ -11,18 +11,13 @@ import logging
 import os
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass
-import boto3
-from botocore.exceptions import ClientError
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-
-# Optional import for OpenAI/OpenRouter
-try:
-    from openai import OpenAI
-except ImportError:
-    OpenAI = None
+from pydantic import BaseModel
 
 from src.cleaning import DocumentCleaners, LogicalDocument
+from src.openrouter_wrapper import OpenRouterClientWrapper
+from src.models import ChunkingOutput, ChunkItem
 
 logger = logging.getLogger(__name__)
 
@@ -47,40 +42,21 @@ class Chunk:
 
 
 class LLMChunker:
-    """LLM-assisted intelligent document chunking using Amazon Bedrock or OpenRouter."""
+    """LLM-assisted intelligent document chunking using OpenRouterClientWrapper."""
     
     def __init__(self, region_name: str, model_id: str, openrouter_api_key: Optional[str] = None):
         """Initialize the LLM chunker.
         
         Args:
-            region_name: AWS region for Bedrock
-            model_id: Model ID (Bedrock or OpenRouter)
-            openrouter_api_key: API Key for OpenRouter (if using OpenRouter)
+            region_name: AWS region (maintained for compatibility)
+            model_id: Model ID (OpenRouter)
+            openrouter_api_key: API Key for OpenRouter
         """
         self.region_name = region_name
         self.model_id = model_id
         
-        # Check if using OpenRouter
-        self.use_openrouter = "qwen" in model_id.lower() or "deepseek" in model_id.lower() or "openrouter" in model_id.lower() or openrouter_api_key
-        
-        if self.use_openrouter:
-            if not OpenAI:
-                raise ImportError("OpenAI library required for OpenRouter. Install with `pip install openai`")
-            if not openrouter_api_key:
-                logger.warning("OpenRouter usage detected but no API key provided. Falling back to Bedrock or likely failure.")
-            
-            logger.info(f"Using OpenRouter with model: {model_id}")
-            self.openai_client = OpenAI(
-                base_url="https://openrouter.ai/api/v1",
-                api_key=openrouter_api_key or os.environ.get("OPENROUTER_API_KEY"),
-                default_headers={
-                    "HTTP-Referer": "https://localhost:3000",
-                    "X-Title": "Tender Extraction Service"
-                }
-            )
-        else:
-            logger.info(f"Using OPEN_ROUTER with model: {model_id}")
-            self.bedrock = boto3.client('bedrock-runtime', region_name=region_name)
+        # Initialize centralized OpenRouter Wrapper
+        self.llm = OpenRouterClientWrapper(api_key=openrouter_api_key)
         
         # Standard text splitter for fallback/other documents
         self.text_splitter = RecursiveCharacterTextSplitter(
@@ -115,442 +91,305 @@ class LLMChunker:
         # Fallback default
         default_lot_ref = f"{tender_ref}_0"
         
+        # Filter out excluded documents
+        valid_docs = []
         for doc in docs:
-            doc_type = doc.doc_type
+            if self._should_skip_document(doc):
+                logger.info(f"Skipping excluded document: {doc.original_filename} (Type: {doc.doc_type})")
+                continue
+            valid_docs.append(doc)
+        
+        if not valid_docs:
+            logger.warning("No valid documents to chunk")
+            return []
+        
+        logger.info(f"Processing {len(valid_docs)} documents individually")
+        
+        for i, doc in enumerate(valid_docs):
+            logger.info(f"[{i+1}/{len(valid_docs)}] Processing doc: {doc.original_filename} (Type: {doc.doc_type})")
             
-            # Skip excluded document types
-            if doc_type in SKIP_TYPES or self._is_excluded_document(doc.original_filename):
-                logger.info(f"Skipping excluded document: {doc.original_filename}")
+            # Logic: We send almost all reasonable documents to LLM for smarter extraction
+            # unless we specifically want to save cost on 'other' or very small files.
+            # But the requirement is to fix "incomplete extraction", so we maximize LLM usage.
+            
+            try:
+                # Basic size check or type check could go here if needed
+                if len(doc.content.strip()) < 50:
+                    continue
+
+                doc_chunks = self._chunk_single_document(doc, tender_id, tender_ref, lot_map, default_lot_ref)
+                all_chunks.extend(doc_chunks)
+            except Exception as e:
+                logger.error(f"Failed to chunk document {doc.original_filename}: {e}", exc_info=True)
+                # Fallback to standard chunking for this doc
+                fallback_chunks = self._standard_chunk_document(doc, tender_id, default_lot_ref)
+                all_chunks.extend(fallback_chunks)
+        
+        logger.info(f"Total chunks generated from all documents: {len(all_chunks)}")
+        return all_chunks
+
+    def _chunk_single_document(
+        self, 
+        doc: LogicalDocument, 
+        tender_id: int, 
+        tender_ref: str, 
+        lot_map: Dict[str, str], 
+        default_lot_ref: str
+    ) -> List[Dict[str, Any]]:
+        """Process a single document with LLM."""
+        
+        # Quick size check: if document is huge (> 300k chars), 
+        # we warn. Llama-4 supports 128k context (~500k chars), so we are safe-ish.
+        if len(doc.content) > 400000:
+             logger.warning(f"Document {doc.original_filename} is very large ({len(doc.content)} chars). LLM might struggle.")
+
+        prompt = self._get_single_doc_prompt(doc, tender_ref)
+        
+        # Execute LLM call
+        response = self.llm.chat_completion(
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.0,
+            json_mode=True
+        )
+        
+        if not response or len(response) < 10:
+            logger.warning(f"Empty/Tiny LLM response for {doc.original_filename}, falling back")
+            return self._standard_chunk_document(doc, tender_id, default_lot_ref)
+            
+        # Parse JSON
+        try:
+            response_data = json.loads(response)
+            parsed_output = ChunkingOutput(**response_data)
+            logger.info(f"  -> Parsed {len(parsed_output.chunks)} chunks")
+        except Exception as parse_err:
+            logger.error(f"Parsing failed for {doc.original_filename}: {parse_err}")
+            # Try to recover partial json? For now, fallback.
+            return self._standard_chunk_document(doc, tender_id, default_lot_ref)
+        
+        # Convert to Clean Chunks
+        chunks = self._convert_to_chunk_dicts(
+            parsed_output.chunks, 
+            tender_id, 
+            tender_ref, 
+            lot_map, 
+            default_lot_ref
+        )
+        
+        return chunks
+    
+    def _convert_to_chunk_dicts(
+        self, 
+        chunk_items: List[ChunkItem],
+        tender_id: int,
+        tender_ref: str,
+        lot_map: Dict[str, str],
+        default_lot_ref: str
+    ) -> List[Dict[str, Any]]:
+        """Convert Pydantic ChunkItem objects to chunk dictionaries with proper IDs."""
+        chunks = []
+        type_counters: Dict[str, int] = {}
+        
+        for item in chunk_items:
+            # Skip empty or trivial chunks
+            if not item.content or len(item.content.strip()) < 10:
                 continue
             
-            # Choose chunking strategy
-            if doc_type in LLM_CHUNK_TYPES:
-                logger.info(f"LLM chunking for {doc.original_filename} (type: {doc_type}) using {'OpenRouter' if self.use_openrouter else 'Bedrock'}")
-                chunks = self._llm_chunk_document(doc, tender_id, tender_ref, lot_map, default_lot_ref)
-            else:
-                logger.info(f"Standard chunking for {doc.original_filename} (type: {doc_type})")
-                chunks = self._standard_chunk_document(doc, tender_id, default_lot_ref)
+            # Resolve lot number (normalize to "1", "2", "0")
+            raw_lot = str(item.metadata.lot) if item.metadata.lot else "0"
+            clean_lot_num = raw_lot.lower().replace("lot", "").strip()
             
-            all_chunks.extend(chunks)
+            # Ensure we have a valid lot number string (e.g. "1")
+            # If empty or invalid, default to "0"
+            if not clean_lot_num or clean_lot_num == "none":
+                clean_lot_num = "0"
+
+            # Determine lot_reference (used for grouping in aggregator)
+            # logic: if map has it, use it. else construct {tender_ref}_{num}
+            if clean_lot_num in lot_map:
+                lot_ref = lot_map[clean_lot_num]
+            else:
+                lot_ref = f"{tender_ref}_{clean_lot_num}"
+
+            # ------------------------------------------------------------------
+            # ID GENERATION (User Requirement)
+            # Structure: {tender_ref}_0(lot number)_type_1 increment
+            # Example: TENDER1_01_specification_1
+            # ------------------------------------------------------------------
+            chunk_type = item.metadata.type
+            
+            # Format lot number with leading zero if needed (simple heuristic: 0 -> 00, 1 -> 01)
+            # User example was "0 (lot number)". We will format as 2 digits if numeric.
+            try:
+                lot_int = int(clean_lot_num)
+                formatted_lot = f"{lot_int:02d}" # 0 -> 00, 1 -> 01, 10 -> 10
+            except ValueError:
+                # If "all" or non-numeric, just use it safely
+                formatted_lot = f"0{clean_lot_num}"
+            
+            # Increment counter
+            # Key difference: we count based on Type + Lot to ensure uniqueness per content stream
+            counter_key = f"{formatted_lot}_{chunk_type}"
+            if counter_key not in type_counters:
+                type_counters[counter_key] = 1
+            idx = type_counters[counter_key]
+            type_counters[counter_key] += 1
+            
+            # Final ID
+            chunk_id = f"{tender_ref}_{formatted_lot}_{chunk_type}_{idx}"
+            
+            # Build metadata dictionary
+            # "merge the two fild article_id and lot" -> The ID now carries this uniqueness.
+            # We still keep key metadata for downstream aggregation.
+            metadata = {
+                "type": chunk_type,
+                "lot_reference": lot_ref,
+                "lot_number": clean_lot_num
+            }
+            
+            # Add optional product-specific fields
+            if item.metadata.designation:
+                metadata["designation"] = item.metadata.designation
+            if item.metadata.quantity is not None:
+                metadata["quantity"] = item.metadata.quantity
+            if item.metadata.unit:
+                metadata["unit"] = item.metadata.unit
+            
+            # Add optional specification fields
+            if item.metadata.article_id:
+                metadata["article_id"] = item.metadata.article_id
+            
+            chunks.append({
+                "id": chunk_id,
+                "content": item.content.strip(),
+                "metadata": metadata
+            })
         
-        logger.info(f"Generated {len(all_chunks)} total chunks for tender {tender_id}")
-        return all_chunks
+        return chunks
     
-    def _is_excluded_document(self, filename: str) -> bool:
-        """Check if document should be excluded based on filename."""
-        fname_lower = filename.lower()
+    def _should_skip_document(self, doc: LogicalDocument) -> bool:
+        """
+        Check if document should be excluded from processing.
+        Excluded if:
+        1. It's in SKIP_TYPES (engagement, declaration, etc)
+        2. Filename contains exclusion patterns
+        3. It's an Arabic Avis (Avis type + >40% Arabic content)
+        """
+        # 1. Check Type
+        if doc.doc_type in SKIP_TYPES:
+            return True
+            
+        # 2. Check Filename Patterns
+        fname_lower = doc.original_filename.lower()
         exclude_patterns = [
             'acte', 'engagement', 'declaration', 'honneur',
             'attestation', 'caution', 'cautionnement'
         ]
-        return any(pattern in fname_lower for pattern in exclude_patterns)
-    
-    def _llm_chunk_document(self, doc: LogicalDocument, tender_id: int, tender_ref: str, lot_map: Dict[str, str], default_lot_ref: str) -> List[Dict[str, Any]]:
-        """
-        Use LLM to intelligently chunk the document. Leverages 1M token context windows.
-        
-        Strategy:
-        - Documents < 3M chars: Single batch (full context)
-        - Documents >= 3M chars: Split into 2 batches
-        """
-        MAX_SINGLE_BATCH_CHARS = 3000000  # ~750K tokens (4:1 char:token ratio)
-        
-        content = doc.content
-        content_length = len(content)
-        segments = []
-        
-        # 1. Determine batching strategy based on document size
-        if content_length <= MAX_SINGLE_BATCH_CHARS:
-            # Single batch - send full document as context
-            segments = [content]
-            logger.info(f"LLM Chunking: Processing {doc.original_filename} as single batch ({content_length:,} chars)")
-        else:
-            # Large document - split into 2 batches with overlap
-            logger.info(f"LLM Chunking: Document {doc.original_filename} is large ({content_length:,} chars), splitting into 2 batches")
+        if any(pattern in fname_lower for pattern in exclude_patterns):
+            return True
             
-            # Calculate split point at approximately 50% with smart boundary detection
-            split_point = content_length // 2
-            overlap_chars = 5000  # Larger overlap for continuity
+        # 3. Check for Arabic Avis
+        # Logic: If type is 'avis' and content is predominantly Arabic -> Skip
+        if doc.doc_type == 'avis':
+            # Count arabic characters in first 1000 chars to be fast
+            sample = doc.content[:1000]
+            # Arabic unicode block: 0600-06FF
+            arabic_chars = len(re.findall(r'[\u0600-\u06FF]', sample))
+            total_chars = len(sample.strip())
             
-            # Find a good split boundary (prefer paragraph/section breaks)
-            search_window = 10000
-            best_split = split_point
-            
-            # Look for natural boundaries: double newline, article markers, page breaks
-            search_start = max(0, split_point - search_window)
-            search_end = min(content_length, split_point + search_window)
-            search_region = content[search_start:search_end]
-            
-            # Priority 1: Look for article/section markers
-            article_patterns = [r'\n\s*ARTICLE\s+\d+', r'\n\s*Article\s+\d+', r'\n\s*CHAPITRE\s+\d+']
-            for pattern in article_patterns:
-                matches = list(re.finditer(pattern, search_region, re.IGNORECASE))
-                if matches:
-                    # Find match closest to midpoint
-                    midpoint_offset = split_point - search_start
-                    closest_match = min(matches, key=lambda m: abs(m.start() - midpoint_offset))
-                    best_split = search_start + closest_match.start()
-                    logger.info(f"Found article boundary for split at position {best_split:,}")
-                    break
-            else:
-                # Priority 2: Look for paragraph breaks (double newlines)
-                paragraph_breaks = [m.start() for m in re.finditer(r'\n\s*\n', search_region)]
-                if paragraph_breaks:
-                    midpoint_offset = split_point - search_start
-                    closest_break = min(paragraph_breaks, key=lambda pos: abs(pos - midpoint_offset))
-                    best_split = search_start + closest_break
-                    logger.info(f"Found paragraph boundary for split at position {best_split:,}")
-                else:
-                    # Priority 3: Find any newline
-                    newline_pos = content.rfind('\n', split_point - search_window, split_point + search_window)
-                    if newline_pos != -1:
-                        best_split = newline_pos + 1
-            
-            # Create two batches with overlap
-            batch1 = content[:best_split + overlap_chars]
-            batch2 = content[max(0, best_split - overlap_chars):]
-            
-            segments = [batch1, batch2]
-            logger.info(f"Batch 1: {len(batch1):,} chars | Batch 2: {len(batch2):,} chars")
-            
-        all_chunks = []
-        type_counters = {}  # Key: (lot_ref, type) -> int
-        
-        # 2. Process each batch
-        for i, segment in enumerate(segments):
-            batch_num = i + 1
-            total_batches = len(segments)
-            
-            logger.info(f"LLM Chunking: Processing batch {batch_num}/{total_batches} for {doc.original_filename} ({len(segment):,} chars)")
-            
-            prompt = self._get_prompt_for_type(doc.doc_type, segment)
-            
-            try:
-                if self.use_openrouter:
-                    response = self._invoke_openrouter(prompt)
-                else:
-                    response = self._invoke_nova(prompt)
-                
-                if not response or len(response) < 10:
-                    logger.warning(f"Empty/Tiny response for batch {batch_num} of {doc.original_filename}")
-                    continue
+            if total_chars > 0:
+                ratio = arabic_chars / total_chars
+                if ratio > 0.4: # If > 40% Arabic text
+                    logger.info(f"Skipping Arabic Avis detected: {doc.original_filename} (Ratio: {ratio:.2f})")
+                    return True
                     
-                seg_chunks, type_counters = self._parse_chunk_markers(
-                    response, doc, tender_id, lot_map, default_lot_ref, type_counters
-                )
-                all_chunks.extend(seg_chunks)
-                logger.info(f"Batch {batch_num}: Parsed {len(seg_chunks)} chunks.")
-                
-            except Exception as e:
-                logger.error(f"LLM chunking failed for batch {batch_num} of {doc.original_filename}: {e}", exc_info=True)
-        
-        # 3. Fallback
-        if not all_chunks:
-            logger.warning(f"No chunks parsed from any batch for {doc.original_filename}, falling back to standard chunking")
-            return self._standard_chunk_document(doc, tender_id, default_lot_ref)
-            
-        return all_chunks
-
-    @retry(
-        retry=retry_if_exception_type(Exception), # Catch generic exceptions for simple retry
-        stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=2, min=2, max=30),
-        reraise=True
-    )
-    def _invoke_openrouter(self, prompt: str) -> str:
-        """Invoke OpenRouter API.
-        
-        Args:
-            prompt: The prompt to send to the model
-            
-        Returns:
-            Model response text
-        """
-        # With 1M token context window, we can handle ~3M chars (conservative 3:1 ratio)
-        # The actual model context is larger, but we leave room for response
-        max_input_chars = 3000000
-        
-        if len(prompt) > max_input_chars:
-            logger.warning(f"Prompt length {len(prompt):,} exceeds max {max_input_chars:,}, truncating")
-            prompt = prompt[:max_input_chars] + "\n\n[Document truncated due to length...]"
-        
-        completion = self.openai_client.chat.completions.create(
-            model=self.model_id,
-            messages=[
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ],
-            temperature=0.0,
-            extra_body={
-                "models": [
-                    "meta-llama/llama-3.1-8b-instruct",
-                    "mistralai/mistral-small-3.2-24b-instruct"
-                ]
-            }
-        )
-        
-        return completion.choices[0].message.content
-
-    @retry(
-        retry=retry_if_exception_type(ClientError),
-        stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=2, min=2, max=30),
-        reraise=True
-    )
-    def _invoke_nova(self, prompt: str) -> str:
-        """Invoke Amazon Nova model.
-        
-        Args:
-            prompt: The prompt to send to the model
-            
-        Returns:
-            Model response text
-        """
-        # Limit prompt size to stay within context window
-        max_input_chars = 24000  # ~6000 tokens, leave room for response
-        if len(prompt) > max_input_chars:
-            prompt = prompt[:max_input_chars] + "\n\n[Document truncated due to length...]"
-        
-        # Nova uses the Converse API format
-        body = json.dumps({
-            "messages": [
-                {
-                    "role": "user",
-                    "content": [{"text": prompt}]
-                }
-            ],
-            "inferenceConfig": {
-                "maxTokens": 4000,
-                "temperature": 0.0,
-                "topP": 0.9
-            }
-        })
-        
-        response = self.bedrock.invoke_model(
-            modelId=self.model_id,
-            contentType='application/json',
-            accept='application/json',
-            body=body
-        )
-        
-        response_body = json.loads(response['body'].read())
-        
-        # Nova response format
-        if 'output' in response_body and 'message' in response_body['output']:
-            content = response_body['output']['message'].get('content', [])
-            if content and 'text' in content[0]:
-                return content[0]['text']
-        
-        logger.error(f"Unexpected Nova response format: {response_body.keys()}")
-        return ""
+        return False
     
-    def _get_prompt_for_type(self, doc_type: str, content: str) -> str:
-        """Get the specialized prompt for a document type.
-        
-        Args:
-            doc_type: Type of document (product, specification, administrative, avis)
-            content: Document content to analyze
-            
-        Returns:
-            Complete prompt string
-        """
-        prompts = {
-            'product': self._get_bdp_prompt(content),
-            'specification': self._get_cps_prompt(content),
-            'administrative': self._get_rc_prompt(content),
-            'avis': self._get_avis_prompt(content)
-        }
-        
-        return prompts.get(doc_type, self._get_generic_prompt(content))
-    
-    def _get_bdp_prompt(self, content: str) -> str:
-        """Prompt for BDP (Bill of Quantities / Bordereau des Prix) documents."""
-        return f"""You are a document analyzer for Moroccan tender BDP (Bill of Quantities / Bordereau des Prix) documents.
+    def _get_single_doc_prompt(self, doc: LogicalDocument, tender_ref: str) -> str:
+        """Create a prompt for chunking a SINGLE document using NOVA-inspired logic."""
+        return f"""You are an expert document analyst specializing in Moroccan public tender documents.
 
-TASK: Identify each INDIVIDUAL product/item row in the pricing table and mark chunk boundaries.
+TENDER REFERENCE: {tender_ref}
+DOCUMENT NAME: {doc.original_filename}
+DOCUMENT TYPE: {doc.doc_type.upper()}
 
-CRITICAL RULES:
-1. STRICT separation: One chunk = ONE product item. NEVER merge multiple unrelated items into a single chunk.
-2. If the table lists Item 1, Item 2, Item 3 -> You must create 3 separate chunks.
-3. Preserve multi-line descriptions: If a single item's description spans multiple lines, keep it all in that item's chunk.
-4. Include: item number, designation, quantity, unit, and all technical specifications.
-5. Skip header rows, page totals, and subtotals.
-6. MANDATORY: Identify the Lot Number this item belongs to. If implicit, look at previous pages or headers.
+Your task is to properly segment this document into semantic chunks using the rules below.
 
-OUTPUT FORMAT - Insert these markers around each product. Add 'lot' attribute if known:
-<!-- CHUNK:products:item_NUMBER lot="LOT_NUMBER" designation="..." quantity="..." unit="..." -->
-[complete product row content]
-<!-- /CHUNK -->
+---
 
-EXAMPLE:
-<!-- CHUNK:products:item_1 lot="1" designation="Ordinateur Portable" quantity="5" unit="U" -->
-| 1 | Ordinateur Portable | i7, 16GB RAM | 5 | U |
-<!-- /CHUNK -->
+## DOCUMENT CONTENT
 
-NOW PROCESS THIS DOCUMENT:
+{doc.content}
 
-{content}"""
+---
 
-    def _get_cps_prompt(self, content: str) -> str:
-        """Prompt for CPS (Cahier des Prescriptions Spéciales) documents."""
-        return f"""You are a document analyzer for Moroccan tender CPS (Cahier des Prescriptions Spéciales) documents.
+## SEGMENTATION STRATEGIES BY CONTENT TYPE
 
-TASK: Identify logical sections (Articles, Chapters) AND embedded pricing tables (Bordereau des Prix).
+### STRATEGY 1: PRICING TABLES (BDP, Décompte, Bordereau)
+**DETECTION**: Tables with Designation, Quantity, Unit, Price.
+**RULES**:
+1. **ONE ITEM = ONE CHUNK**: Create a separate chunk for EVERY atomic product/service row.
+2. **DO NOT MERGE** multiple distinct items into one chunk.
+3. **DO NOT SPLIT** a single item's multi-line description.
+4. **PRESERVE EXACT TEXT**: Keep technical specs, dimensions, norms.
+5. **METADATA**:
+   - `type`: "products"
+   - `designation`: The full product description.
+   - `quantity`: Number (e.g. 100).
+   - `unit`: Unit (e.g. m2, U).
+   - `lot`: The lot number this product belongs to (look for section headers like "LOT 1"). Use "0" if single-lot.
+6. ** DO NOT DUPLICATE PRODUCTS .
+### STRATEGY 2: TECHNICAL SPECIFICATIONS (CPS, CCTP, Technical Specs)
+**DETECTION**: Articles describing technical requirements, methodology, or specific materials.
+**RULES**:
+1. **Article-Level Chunking**: Each "ARTICLE" is ONE chunk.
+2. **NEVER MERGE** distinct articles (e.g. Art. 1 and Art. 2 must be separate).
+3. **METADATA**:
+   - `type`: "specification" (or "products_specs" if describing specific equipment specs)
+   - `article_id`: The article number/title (e.g. "Article 5").
+   - `lot`: "0" usually, unless specifications are specific to a "Lot 1" section.
 
-CLASSIFICATION TYPES:
-- 'specification': Technical specifications specific to materials/products.
-- 'products': If a pricing table (BDP) is found embedded here.
+### STRATEGY 3: ADMINISTRATIVE DOCUMENTS (RC, CCAP, Regulations)
+**DETECTION**: Clauses about guarantees, eligibility, judgment criteria.
+**RULES**:
+1. One Article/Clause = One Chunk.
+2. **METADATA**:
+   - `type`: "administrative"
+   - `article_id`: Article title.
 
-CRITICAL RULES FOR TEXT SECTIONS:
-1. Each ARTICLE = ONE separate chunk (e.g., Article 1, Article 2...).
-2. STRICT PROHIBITION: NEVER merge multiple articles into a single chunk. Even short articles must be separate.
-3. Marker format: <!-- CHUNK:specification:ARTICLE_NUMBER type="specification" -->
-4. Keep the article header exactly as is with its content.
-5. If an article has sub-points, keep them logically within that article's chunk.
+### STRATEGY 4: TENDER NOTICES (Avis)
+**RULES**:
+1. Keep the entire notice as ONE comprehensive chunk.
+2. `type`: "avis"
 
-CRITICAL RULES FOR PRICING TABLES (BDP) - IF PRESENT:
-1. If you encounter a list of products/prices, switch to PRODUCT mode via 'products' type.
-2. STRICT SEPARATION: One product row = ONE chunk. NEVER merge rows.
-3. Marker format: <!-- CHUNK:products:item_NUMBER lot="LOT_NUMBER" -->
+### GENERAL RULES
+- **Language**: Prefer French.
+- **Empty Chunks**: Do not return chunks with empty content.
 
-OUTPUT FORMATS:
+---
 
-For Articles:
-<!-- CHUNK:specification:Art_5 type="specification" -->
-[article content]
-<!-- /CHUNK -->
+## OUTPUT FORMAT (STRICT JSON)
 
-For Products (if table found):
-<!-- CHUNK:products:item_1 lot="4" -->
-| 1 | Laptop HP | i5, 8GB | 5 | U |
-<!-- /CHUNK -->
+Return a single JSON object with a "chunks" array.
 
-NOW PROCESS THIS DOCUMENT:
-
-{content}"""
-
-    def _get_rc_prompt(self, content: str) -> str:
-        """Prompt for RC (Règlement de Consultation) documents."""
-        return f"""You are a document analyzer for Moroccan tender RC (Règlement de Consultation) documents.
-
-TASK: Identify administrative sections, eligibility criteria, and Articles.
-
-CLASSIFICATION TYPE: 'administrative'
-
-CRITICAL RULES:
-1. Each ARTICLE or discrete SECTION = ONE separate chunk.
-2. STRICT PROHIBITION: NEVER merge multiple articles into a single chunk.
-3. Marker format: <!-- CHUNK:administrative:SECTION_NAME type="administrative" -->
-4. Example: <!-- CHUNK:administrative:Article_1_Objet type="administrative" -->
-
-OUTPUT FORMAT:
-<!-- CHUNK:administrative:Article_1 type="administrative" -->
-[content of Article 1]
-<!-- /CHUNK -->
-
-NOW PROCESS THIS DOCUMENT:
-
-{content}"""
-
-    def _get_avis_prompt(self, content: str) -> str:
-        """Prompt for Avis (Tender Notice) documents."""
-        return f"""You are a document analyzer for Moroccan tender Avis (Tender Notice) documents.
-
-TASK: Extract key information and create a single summary chunk.
-
-OUTPUT FORMAT:
-<!-- CHUNK:avis:summary type="avis" -->
-[complete tender notice summary]
-<!-- /CHUNK -->
-
-NOW PROCESS THIS DOCUMENT:
-
-{content}"""
-
-    def _get_generic_prompt(self, content: str) -> str:
-        """Generic prompt for unknown document types."""
-        return f"""Analyze this document and identify distinct logical sections.
-
-CRITICAL:
-1. Split distinct chapters or sections into separate chunks.
-2. Marker format: <!-- CHUNK:section:SECTION_ID type="general" -->
-
-OUTPUT FORMAT:
-<!-- CHUNK:section:Introduction type="general" -->
-[section content]
-<!-- /CHUNK -->
-
-DOCUMENT:
-
-{content}"""
-
-    def _parse_chunk_markers(self, response: str, doc: LogicalDocument, tender_id: int, 
-                             lot_map: Dict[str, str], default_lot_ref: str, 
-                             type_counters: Dict) -> tuple[List[Dict[str, Any]], Dict]:
-        """Parse chunk markers and generate IDs: {lot_ref}_{type}_{increment}"""
-        chunks = []
-        
-        # Matches: <!-- CHUNK:type:id attributes --> content <!-- /CHUNK -->
-        pattern = r'<!-- CHUNK:(\w+):(\w+)(.*?) -->\s*(.*?)\s*<!-- /CHUNK -->'
-        matches = re.findall(pattern, response, re.DOTALL | re.IGNORECASE)
-        
-        for i, (chunk_type, chunk_id, attributes_str, content) in enumerate(matches):
-            content = content.strip()
-            if not content or len(content) < 10: 
-                continue
-            
-            # Parse attributes
-            metadata = {
-                "type": chunk_type, # Should be one of the 4 strict types match user req
-                "tender_id": tender_id,
-                "source_doc": doc.original_filename
-            }
-            
-            # Extract attributes like lot="1", designation="...", etc.
-            attr_pattern = r'(\w+)=["\']([^"\']+)["\']'
-            attrs = re.findall(attr_pattern, attributes_str)
-            for key, val in attrs:
-                metadata[key] = val
-            
-            # Resolve Lot Reference
-            # 1. Try metadata['lot'] (from LLM)
-            lot_num_raw = metadata.get("lot")
-            lot_ref = default_lot_ref # Default if not found
-            
-            if lot_num_raw:
-                # Clean num "1"
-                c_num = str(lot_num_raw).lower().replace("lot","").strip()
-                if c_num in lot_map:
-                    lot_ref = lot_map[c_num]
-                else:
-                    # Fallback if LLM found a lot number not in extraction map?
-                    # Maybe construct it dynamically or fallback to default
-                    # We will construct it dynamically using tender_ref of default
-                    base_tender_ref = default_lot_ref.rsplit('_', 1)[0]
-                    lot_ref = f"{base_tender_ref}_{c_num}"
-            
-            metadata['lot_reference'] = lot_ref
-            
-            # Generate ID: lot_ref_type_increment
-            # Key for counter: (lot_ref, chunk_type)
-            k = (lot_ref, chunk_type)
-            if k not in type_counters:
-                type_counters[k] = 1
-            idx = type_counters[k]
-            type_counters[k] += 1
-            
-            # ID Construction
-            generated_id = f"{lot_ref}_{chunk_type}_{idx}"
-            
-            chunks.append({
-                "id": generated_id,
-                "content": content,
-                "metadata": metadata
-            })
-        
-        return chunks, type_counters
+```json
+{{
+  "chunks": [
+    {{
+      "content": "Full text content of the chunk...",
+      "metadata": {{
+        "type": "avis|specification|administrative|products",
+        "lot": "1",          // "0" if single lot or not specified
+        "designation": "...",  // Optional, for products
+        "quantity": 100.0,     // Optional, for products
+        "unit": "m2"           // Optional, for products
+      }}
+    }},
+    ...
+  ]
+}}
+Return ONLY valid JSON matching the schema. 
+CRITICAL: Ensure the JSON string is properly closed and escaped.
+"""
     
     def _extract_lot_from_content(self, content: str) -> str:
         """Extract lot identifier from chunk content."""

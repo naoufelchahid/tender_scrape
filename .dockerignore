@@ -1,0 +1,10 @@
+**/venv
+**/.git
+**/__pycache__
+**/*.pyc
+downloads
+download_results
+results_ocr_container
+healer_downloads
+.pytest_cache
+*.log

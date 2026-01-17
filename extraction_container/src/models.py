@@ -42,3 +42,29 @@ class ExtractionOutput(BaseModel):
     tender_info: TenderMetadata
     lots: List[LotMetadata] = Field(default_factory=list)
     products: List[ProductItem] = Field(default_factory=list)
+
+# ============================================================================
+# Chunking Output Models (for LLM-based chunking with JSON output)
+# ============================================================================
+
+class ChunkMetadata(BaseModel):
+    """Metadata for a single chunk."""
+    type: str = Field(..., description="Chunk type: avis, specification, administrative, or products")
+    lot: Optional[str] = Field(None, description="Lot number if applicable (e.g., '1', '2')")
+    
+    # Product-specific fields (only for type='products')
+    designation: Optional[str] = Field(None, description="Product designation (for products only)")
+    quantity: Optional[str | float | int] = Field(None, description="Quantity (for products only)")
+    unit: Optional[str] = Field(None, description="Unit of measurement (for products only)")
+    
+    # Specification/Administrative fields
+    article_id: Optional[str] = Field(None, description="Article identifier (e.g., 'Art_1', 'Art_2')")
+
+class ChunkItem(BaseModel):
+    """A single chunk with content and metadata."""
+    content: str = Field(..., description="The actual text content of the chunk")
+    metadata: ChunkMetadata = Field(..., description="Metadata describing this chunk")
+
+class ChunkingOutput(BaseModel):
+    """Complete output from LLM chunking operation."""
+    chunks: List[ChunkItem] = Field(default_factory=list, description="List of all chunks")
