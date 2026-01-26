@@ -1,0 +1,11 @@
+logs/
+temp/
+*.pyc
+__pycache__/
+.env
+.pytest_cache/
+.vscode/
+.idea/
+*.log
+*.md~
+.DS_Store

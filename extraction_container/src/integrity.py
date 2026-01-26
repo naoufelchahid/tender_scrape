@@ -1,7 +1,7 @@
 import logging
 import json
 from typing import List, Dict, Any, Optional
-from src.models import ExtractionOutput
+
 
 logger = logging.getLogger(__name__)
 
@@ -12,25 +12,7 @@ class IntegrityCheckError(Exception):
 class IntegrityChecker:
     """Checks data validity before downstream processing."""
 
-    @staticmethod
-    def check_metadata(metadata: ExtractionOutput) -> bool:
-        """
-        Validates extracted metadata.
-        Criteria:
-        - Buyer name must be present.
-        - Tender reference must be present.
-        """
-        info = metadata.tender_info
-        
-        if not info.buyer or not info.buyer.strip():
-            logger.error("Integrity Check Failed: Missing mandatory 'buyer' field.")
-            return False
-            
-        if not info.tender_reference or not info.tender_reference.strip():
-            logger.error("Integrity Check Failed: Missing mandatory 'tender_reference' field.")
-            return False
-            
-        return True
+
 
     @staticmethod
     def check_chunks(chunks: List[Dict[str, Any]]) -> bool:

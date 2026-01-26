@@ -10,7 +10,6 @@ from logger import logger
 PROCESSOR_MAP = {
     '.pdf': 'pdf_processor',
     '.docx': 'docx_processor',
-    # '.doc': 'docx_processor',  # Legacy .doc not supported by python-docx
     '.xlsx': 'xlsx_processor',
     '.xls': 'xlsx_processor',
     '.jpeg': 'image_processor',

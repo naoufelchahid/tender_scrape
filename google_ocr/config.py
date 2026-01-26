@@ -1,0 +1,82 @@
+"""
+Configuration management for OCR container.
+Loads and validates environment variables.
+"""
+import os
+import sys
+from typing import Optional
+
+
+class Config:
+    """Configuration class for OCR container."""
+    
+    # AWS Configuration
+    AWS_REGION: str = os.getenv('AWS_REGION', 'us-east-1')
+    S3_BUCKET_NAME: str = os.getenv('S3_BUCKET_NAME', '')
+    
+    # SQS Queue URLs
+    OCR_QUEUE_URL: str = os.getenv('OCR_QUEUE_URL', '')
+    EXTRACTION_QUEUE_URL: str = os.getenv('EXTRACTION_QUEUE_URL', '')
+    
+    # Google Cloud Configuration
+    GOOGLE_APPLICATION_CREDENTIALS: str = os.getenv('GOOGLE_APPLICATION_CREDENTIALS', '/app/service_account.json')
+    
+    # Processing Configuration
+    MAX_RETRIES: int = int(os.getenv('MAX_RETRIES', '3'))
+    VISIBILITY_TIMEOUT: int = int(os.getenv('VISIBILITY_TIMEOUT', '900'))
+    BATCH_SIZE: int = int(os.getenv('BATCH_SIZE', '10'))
+    MAX_WORKERS: int = int(os.getenv('MAX_WORKERS', '10'))  # Concurrency for OCR
+    POLL_WAIT_TIME: int = 20  # Long polling wait time in seconds
+    
+    # S3 Path Prefixes
+    FINAL_DOC_PREFIX: str = 'tenders_doc_final'
+    MARKDOWN_PREFIX: str = 'markdown_tender'
+    
+    # Supported file extensions
+    SUPPORTED_EXTENSIONS: tuple = ('.pdf', '.docx', '.doc', '.xlsx', '.xls', '.jpeg', '.jpg', '.png')
+    
+    @classmethod
+    def validate(cls) -> bool:
+        """
+        Validate that all required configuration values are set.
+        
+        Returns:
+            bool: True if configuration is valid, False otherwise.
+        """
+        required_vars = {
+            'S3_BUCKET_NAME': cls.S3_BUCKET_NAME,
+            'OCR_QUEUE_URL': cls.OCR_QUEUE_URL,
+            'EXTRACTION_QUEUE_URL': cls.EXTRACTION_QUEUE_URL,
+        }
+        
+        missing_vars = [var for var, value in required_vars.items() if not value]
+        
+        if missing_vars:
+            print(f"ERROR: Missing required environment variables: {', '.join(missing_vars)}")
+            return False
+            
+        # Check for Google Credentials if running in a context that requires them
+        if not os.path.exists(cls.GOOGLE_APPLICATION_CREDENTIALS) and not os.getenv('GOOGLE_APPLICATION_CREDENTIALS'):
+             print(f"WARNING: GOOGLE_APPLICATION_CREDENTIALS not found at {cls.GOOGLE_APPLICATION_CREDENTIALS}")
+        
+        return True
+    
+    @classmethod
+    def print_config(cls) -> None:
+        """Print current configuration (hiding sensitive values)."""
+        print("OCR Container Configuration:")
+        print(f"  AWS_REGION: {cls.AWS_REGION}")
+        print(f"  S3_BUCKET_NAME: {cls.S3_BUCKET_NAME}")
+        print(f"  OCR_QUEUE_URL: {cls.OCR_QUEUE_URL[:50]}...")
+        print(f"  EXTRACTION_QUEUE_URL: {cls.EXTRACTION_QUEUE_URL[:50]}...")
+        print(f"  GOOGLE_APPLICATION_CREDENTIALS: {cls.GOOGLE_APPLICATION_CREDENTIALS}")
+        print(f"  MAX_RETRIES: {cls.MAX_RETRIES}")
+        print(f"  VISIBILITY_TIMEOUT: {cls.VISIBILITY_TIMEOUT}s")
+        print(f"  BATCH_SIZE: {cls.BATCH_SIZE}")
+
+
+# Validate configuration on import
+if not Config.validate():
+    print("Configuration validation failed. Please check your environment variables.")
+    if os.getenv('SKIP_CONFIG_VALIDATION') != 'true':
+        sys.exit(1)

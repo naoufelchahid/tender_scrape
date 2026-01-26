@@ -17,7 +17,7 @@ class SQSClient:
         """Initialize SQS client."""
         self.client = boto3.client('sqs', region_name=Config.AWS_REGION)
         self.ocr_queue_url = Config.OCR_QUEUE_URL
-        self.extraction_queue_url = Config.EXTRACTION_QUEUE_URL
+        self.classification_queue_url = Config.CLASSIFICATION_QUEUE_URL
     
     def receive_message(self, queue_url: Optional[str] = None) -> Optional[Dict[str, Any]]:
         """
@@ -106,13 +106,13 @@ class SQSClient:
         
         Args:
             message_body: Message body dict
-            queue_url: Queue URL (default: EXTRACTION_QUEUE_URL)
+            queue_url: Queue URL (default: CLASSIFICATION_QUEUE_URL)
             
         Returns:
             True if successful, False otherwise
         """
         if queue_url is None:
-            queue_url = self.extraction_queue_url
+            queue_url = self.classification_queue_url
         
         try:
             logger.info(f"Sending message to queue: {queue_url[:50]}...")
