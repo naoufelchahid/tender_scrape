@@ -12,11 +12,11 @@ All code and workflows MUST adhere to this strict pipeline. NO "glue scripts" or
 
 1. **scraping_tenders**: Source collection.
 2. **unziping lambda**: Archive handling.
-
-3. **Extraction container**: Structured data extraction.
-4. **Lambda database Filler
-5. **vectorisation**: Embedding generation.
-6. ** synchronize data base and graph knowledge bae
+3. **classification container: classify docments in markdown by type
+4. **Extraction container**: Structured data extraction from documents types
+5. **Lambda database Filler
+6. **vectorisation**: Embedding generation.
+7. ** synchronize data base and graph knowledge bae
 
 ## 2. Graph Knowledge Base Schema
 
@@ -50,6 +50,8 @@ The Graph Knowledge Base MUST follow this exact node and edge structure.
 ## 3. Agent Operational Protocols (MANDATORY)
 
 These rules are binding for all agents working on this project.
+
+**CRITICAL** Use relevant skill for each prompt
 
 ### 3.1 Workspace Hygiene & Testing
 

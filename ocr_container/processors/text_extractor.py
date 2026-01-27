@@ -153,9 +153,10 @@ class TextExtractor:
             df = pd.DataFrame(cleaned_table[1:], columns=cleaned_table[0])
             
             # Convert to markdown
-            markdown = f"\n**Table {table_num}**\n\n"
+            markdown = f"\n**Table {table_num}**\n"
+            markdown += "<table_start>\n"
             markdown += df.to_markdown(index=False)
-            markdown += "\n"
+            markdown += "\n<table_end>\n"
             
             return markdown
             

@@ -17,13 +17,14 @@ class XLSXProcessor:
         """Initialize XLSX processor."""
         pass
     
-    def _dataframe_to_markdown(self, df: pd.DataFrame, sheet_name: str) -> str:
+    def _dataframe_to_markdown(self, df: pd.DataFrame, sheet_name: str, table_num: int) -> str:
         """
         Convert pandas DataFrame to markdown table.
         
         Args:
             df: pandas DataFrame
             sheet_name: Name of the sheet
+            table_num: Table number
             
         Returns:
             Markdown table string
@@ -39,6 +40,7 @@ class XLSXProcessor:
         
         # Create markdown header
         markdown_parts = [f"## {sheet_name}\n"]
+        markdown_parts.append(f"**Table {table_num}**\n<table_start>")
         
         # Create table header
         headers = df.columns.tolist()
@@ -53,6 +55,8 @@ class XLSXProcessor:
             row_values = [str(val) for val in row.values]
             row_line = "| " + " | ".join(row_values) + " |"
             markdown_parts.append(row_line)
+            
+        markdown_parts.append("<table_end>")
         
         return "\n".join(markdown_parts)
     
@@ -77,7 +81,7 @@ class XLSXProcessor:
             
             markdown_parts = []
             
-            for sheet_name in sheet_names:
+            for i, sheet_name in enumerate(sheet_names, 1):
                 logger.info(f"Processing sheet: {sheet_name}")
                 
                 try:
@@ -85,7 +89,7 @@ class XLSXProcessor:
                     df = pd.read_excel(xlsx_path, sheet_name=sheet_name)
                     
                     # Convert to markdown
-                    sheet_markdown = self._dataframe_to_markdown(df, sheet_name)
+                    sheet_markdown = self._dataframe_to_markdown(df, sheet_name, i)
                     markdown_parts.append(sheet_markdown)
                 except Exception as e:
                     logger.warning(f"Error processing sheet {sheet_name}: {e}")

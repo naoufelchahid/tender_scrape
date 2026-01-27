@@ -19,12 +19,13 @@ class DocumentCleaners:
     def split_concatenated_file(text: str) -> List[LogicalDocument]:
         """
         Splits a concatenated OCR markdown file into logical components.
-        Expected format:
-        # File: filename1.docx
-        ... content ...
-        ---
-        # File: filename2.pdf
-        ...
+        
+        Logic:
+        1. Split by '# File:' markers.
+        2. Extract '> Document Type: ...' header.
+        3. Search for '<!-- BDP_START --> ... <!-- BDP_END -->' blocks.
+           - If found, extract them as separate 'product' documents.
+           - Keep the surrounding text as documents of the original type.
         """
         docs = []
         # Regex to find file boundaries. 
@@ -35,8 +36,8 @@ class DocumentCleaners:
         
         if not matches:
             # Assume single file if no headers found
-            single_doc_type = DocumentCleaners.classify_document("unknown", text)
-            return [LogicalDocument(original_filename="unknown", content=text, doc_type=single_doc_type)]
+            single_doc_type, clean_text = DocumentCleaners._extract_doc_type(text)
+            return DocumentCleaners._process_bdp_blocks("unknown", clean_text, single_doc_type)
             
         for i, match in enumerate(matches):
             filename = match.group(1).strip()
@@ -54,200 +55,91 @@ class DocumentCleaners:
             content = re.sub(r'^---\s*', '', content)
             content = re.sub(r'\s*---$', '', content)
             
-            # Extract doc_type from classification header (injected by classification container)
-            # Format: > Document Type: <type>
-            doc_type = "unknown"
-            type_match = re.search(r'^\s*>\s*Document\s+Type:\s*(\w+)', content, re.IGNORECASE | re.MULTILINE)
-            if type_match:
-                doc_type = type_match.group(1).strip()
-                logger.debug(f"Extracted doc_type '{doc_type}' from classification header")
+            # Extract doc_type from header
+            doc_type, content = DocumentCleaners._extract_doc_type(content)
             
-            docs.append(LogicalDocument(
-                original_filename=filename,
-                content=content,
-                doc_type=doc_type
-            ))
+            # Process BDP blocks within this file
+            file_docs = DocumentCleaners._process_bdp_blocks(filename, content, doc_type)
+            docs.extend(file_docs)
             
         return docs
 
     @staticmethod
-    def classify_document(filename: str, content: str = "") -> str:
-        """Classifies document based ONLY on content analysis, ignoring filename signals."""
-        if not content:
-            return 'other'
-
-        # Sample for header analysis (first 3000 chars) vs full context
-        header_sample = content[:3000].lower()
-        content_sample = content[:50000].lower()
-        doc_length = len(content)
+    def _extract_doc_type(content: str) -> tuple[str, str]:
+        """
+        Extracts Document Type from header and returns (doc_type, cleaned_content).
+        Header format: > Document Type: <type>
+        """
+        doc_type = "unknown"
+        # Match header line
+        type_match = re.search(r'^\s*>\s*Document\s+Type:\s*(\w+)', content, re.IGNORECASE | re.MULTILINE)
         
-        # helper for arabic tatweel
-        def clean_ar(text): 
-            return re.sub(r'[\u0640]', '', text)
-
-        clean_header = clean_ar(header_sample)
-        clean_content = clean_ar(content_sample)
-
-        # --- AVIS FILENAME PRIORITY (User Request) ---
-        if "avis" in filename.lower():
-             return "avis"
-
-        # --- STRONG RC/CPS SIGNALS IN HEADER (Override Declaration/Engagement) ---
-        header_rc_signals = [
-            r"règlement\s+de\s+la\s+consultation",
-            r"règlement\s+de\s+consultation",
-            r"نظام\s+الاستشارة",
-            r"cahier\s+des\s+prescriptions",
-            r"clauses\s+administratives",
-            r"cahier\s+des\s+charges",
-            r"دفتر\s+التحملات"
-        ]
-        has_big_doc_header = any(re.search(p, clean_header) for p in header_rc_signals)
-
-        # --- DECLARATION / ENGAGEMENT (Restricted) ---
-        # Heuristic: These docs are usually short (< 25000 chars)
-        # AND they shouldn't have a big doc header unless it's a specific form attached
-        if doc_length < 25000 and not has_big_doc_header:
+        if type_match:
+            doc_type = type_match.group(1).strip().lower()
+            # We don't necessarily need to remove the header, but it's cleaner to keep it 
+            # as part of content so LLM sees it, OR remove it. 
+            # The prompt includes DOC TYPE: meta field, so removing it from content is fine/cleaner.
+            # But let's leave it in the content for now to ensure no data loss, 
+            # unless it interferes. It's just a Markdown blockquote.
             
-            # Engagement Check
-            engagement_patterns = [
-                r"acte\s+d['’]engagement",
-                r"عقد\s*ـ*\s*ا?لتزام",
-                r"engagement\s+du\s+concurrent",
-                r"montant\s+total\s+de\s+l['’]offre", # Engagement has price
-                r"l['’]offre\s+s['’]élève\s+à"
-            ]
-            if any(re.search(p, clean_header) for p in engagement_patterns):
-                 # Ensure it's not just a mention
-                 if clean_content.count("article") < 15:
-                    return 'engagement'
+        return doc_type, content
 
-            # Declaration Check
-            declaration_patterns = [
-                r"déclaration\s+sur\s+l['’]honneur",
-                r"تصريح\s*ـ*\s*بالشرف",
-                r"je\s+soussigné",
-                r"nous\s+soussignés",
-                r"أنا\s+الموقع\s+أسفله"
-            ]
-            if any(re.search(p, clean_header) for p in declaration_patterns):
-                # Differentiate from Engagement (Verification)
-                if "déclare" in clean_header or "certifie" in clean_header or "أصرح" in clean_header:
-                     return 'declaration'
-                if "m'engage" in clean_header and ("prix" in clean_header or "offre" in clean_header):
-                    return 'engagement'
-                return 'declaration'
-
-        # --- ADMINISTRATIVE (RC) ---
-        rc_patterns = [
-            r"objet\s+du\s+règlement",
-            r"règlement\s+de\s+la\s+consultation",
-            r"règlement\s+de\s+consultation",
-            r"نظام\s+الاستشارة",
-            r"conditions\s+requises\s+des\s+concurrents",
-            r"contenu\s+du\s+dossier\s+des\s+concurrents",
-            r"critères\s+d['’]évaluation\s+des\s+offres",
-            r"cautionnement\s+provisoire\s+.*article"
-        ]
-        is_rc = any(re.search(p, clean_content) for p in rc_patterns)
-
-        # --- SPECIFICATION (CPS) ---
-        cps_patterns = [
-            r"cahier\s+des\s+prescriptions",
-            r"cahier\s+des\s+charges",
-            r"دفتر\s+التحملات",
-            r"consistance\s+du\s+projet",
-            r"clauses\s+générales",
-            r"clauses\s+techniques",
-            r"description\s+technique\s+des\s+prix",
-            r"mode\s+de\s+passation\s+du\s+marché",
-            r"programme\s+physique",
-            r"nantissement",
-            r"délai\s+d['’]exécution",
-            r"cctp", 
-            r"c\.c\.t\.p"
-        ]
-        is_cps = any(re.search(p, clean_content) for p in cps_patterns)
-
-        # Disambiguation
-        if is_rc and is_cps:
-            if re.search(r"règlement\s+de\s+(la\s+)?consultation", clean_header) or re.search(r"نظام\s+الاستشارة", clean_header):
-                return 'administrative'
-            if re.search(r"cahier\s+des\s+prescriptions", clean_header) or re.search(r"دفتر\s+التحملات", clean_header):
-                 return 'specification'
-            # Weighted check: RC usually has more occurrences of "concurrent"
-            if clean_content.count("concurrent") > clean_content.count("entrepreneur") + clean_content.count("attributaire"):
-                return 'administrative'
-            return 'specification'
+    @staticmethod
+    def _process_bdp_blocks(filename: str, content: str, original_doc_type: str) -> List[LogicalDocument]:
+        """
+        Scans content for BDP tags and splits into multiple documents if found.
+        """
+        # Regex for BDP blocks
+        # Flags: Dot matches newline
+        bdp_pattern = r'<!-- BDP_START -->(.*?)<!-- BDP_END -->'
+        
+        parts = list(re.finditer(bdp_pattern, content, re.DOTALL))
+        
+        if not parts:
+            # No BDP blocks, return single document
+            return [LogicalDocument(
+                original_filename=filename,
+                content=content,
+                doc_type=original_doc_type
+            )]
             
-        if is_rc:
-            return 'administrative'
-        if is_cps:
-            return 'specification'
-
-        # --- AVIS (Tender Notice) ---
-        # User Request: Use filename signals "avis", "fr", "ar" to help disambiguate
-        fname_lower = filename.lower()
-        is_avis_filename = "avis" in fname_lower
+        # If BDP blocks found, split
+        results = []
+        last_idx = 0
         
-        avis_patterns = [
-            r"avis\s+d['’]appel\s+d['’]offres",
-            r"avis\s+de\s+publicit[ée]",
-            r"avis\s+d['’]achat",
-            r"إعلان\s*ـ*\s*عن\s+طلب\s+عروض",
-            r"إعلان\s*ـ*\s*عن\s+مزايدة",
-            r"il\s+sera\s+procédé",
-            r"www\.marchespublics\.gov\.ma"
-        ]
-        
-        is_avis_content = any(re.search(p, clean_content) for p in avis_patterns)
-
-        if is_avis_filename or is_avis_content:
-            # Disambiguate from Administrative:
-            # RC often contains the text of the Avis. 
-            # If filename says 'avis', trust it.
-            if is_avis_filename:
-                return 'avis'
+        for match in parts:
+            start_bdp, end_bdp = match.span()
+            
+            # Text before BDP
+            pre_text = content[last_idx:start_bdp].strip()
+            if pre_text:
+                results.append(LogicalDocument(
+                    original_filename=filename,
+                    content=pre_text,
+                    doc_type=original_doc_type
+                ))
+            
+            # The BDP content itself
+            bdp_content = match.group(1).strip()
+            if bdp_content:
+                results.append(LogicalDocument(
+                    original_filename=f"{filename} (Attached BDP)",
+                    content=bdp_content,
+                    doc_type="product" # FORCE type product for these blocks
+                ))
                 
-            # If content-only detection:
-            # Avis are usually short. If very long, might be RC quoting Avis.
-            if doc_length < 25000:
-                if "règlement" in clean_header and "avis" not in clean_header:
-                     # It says Regulation in header -> Administrative
-                     pass 
-                else:
-                    return 'avis'
-            else:
-                 # Long document with Avis keywords. 
-                 # If header explicitly looks like an Avis (not RC), it's an Avis.
-                 if re.search(r"avis\s+d['’](appel|achat)", clean_header) and "règlement" not in clean_header:
-                     return 'avis'
-
-        # --- PRODUCT (BDP) ---
-        bdp_indicators = [
-            r"bordereau\s+des\s+prix",
-            r"détail\s+estimatif",
-            r"جدول\s+الأثمان",
-            r"البيان\s+التقديري",
-            r"désignation\s+des\s+prestations",
-            r"prix\s+unitaire",
-            r"désignation",
-            r"total\s+ttc",
-            r"total\s+h\.?t",
-            r"\(chiffres\)",
-            r"arrété\s+le\s+présent",
-            r"arrêté\s+le\s+présent",
-            r"montant\s+ht",
-            r"prix\s+total",
-            r"quantité",
-            r"unité",
-            r"u\.?m" 
-        ]
-        matches = sum(1 for p in bdp_indicators if re.search(p, clean_content))
-        if matches >= 2:
-            return 'product'
-
-        return 'other'
+            last_idx = end_bdp
+            
+        # Text after last BDP
+        post_text = content[last_idx:].strip()
+        if post_text:
+            results.append(LogicalDocument(
+                original_filename=filename,
+                content=post_text,
+                doc_type=original_doc_type
+            ))
+            
+        return results
 
     @staticmethod
     def normalize_headers(text: str) -> str:
@@ -257,3 +149,4 @@ class DocumentCleaners:
         # Arabic Chapter
         text = re.sub(r'^#\s*الباب', r'## CHAPITRE', text, flags=re.MULTILINE)
         return text
+

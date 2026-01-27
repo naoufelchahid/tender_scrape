@@ -63,6 +63,7 @@ class DOCXProcessor:
             Markdown-formatted text
         """
         markdown_parts = []
+        table_count = 0
         
         for element in doc.element.body:
             # Handle paragraphs
@@ -97,7 +98,8 @@ class DOCXProcessor:
                 table = Table(element, doc)
                 table_markdown = self._table_to_markdown(table)
                 if table_markdown:
-                    markdown_parts.append(f"\n{table_markdown}\n")
+                    table_count += 1
+                    markdown_parts.append(f"\n**Table {table_count}**\n<table_start>\n{table_markdown}\n<table_end>\n")
         
         return "\n".join(markdown_parts)
     

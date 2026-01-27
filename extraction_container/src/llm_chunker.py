@@ -10,6 +10,7 @@ import json
 import json_repair
 import logging
 import os
+import asyncio
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
@@ -19,12 +20,19 @@ from pydantic import BaseModel
 from src.cleaning import DocumentCleaners, LogicalDocument
 from src.openrouter_wrapper import OpenRouterClientWrapper
 from src.models import ChunkingOutput, ChunkItem
+from src.prompts import (
+    BASE_CONTEXT, AVIS_INSTRUCTION, AVIS_PROMPT,
+    FORM_INSTRUCTION, FORM_PROMPT,
+    ADMIN_SPEC_INSTRUCTION, ADMIN_SPEC_PROMPT,
+    PRODUCT_INSTRUCTION, PRODUCT_EXAMPLE, PRODUCT_PROMPT,
+    FALLBACK_PROMPT
+)
 
 logger = logging.getLogger(__name__)
 
 
 # Document types that use LLM-assisted chunking
-LLM_CHUNK_TYPES = {'product', 'specification', 'administrative', 'avis', 'engagement', 'declaration'}
+LLM_CHUNK_TYPES = {'product', 'specification', 'administrative', 'avis', 'form'}
 
 # Standard chunking settings for 'other' documents
 STANDARD_CHUNK_SIZE = 500  # tokens (approx chars/4)
@@ -45,7 +53,7 @@ PROMPT_MAX_CHARS_DECLARATION = 50_000
 PROMPT_MAX_CHARS_OTHER = 50_000
 
 # Integrity Check Thresholds
-INTEGRITY_MIN_RETENTION = 70.0   # % minimum content retention
+INTEGRITY_MIN_RETENTION = 80.0   # % minimum content retention
 INTEGRITY_MAX_RETENTION = 120.0  # % maximum content retention
 
 @dataclass
@@ -89,8 +97,8 @@ class LLMChunker:
             separators=["\n\n", "\n", ". ", " "]
         )
     
-    def chunk_all_documents(self, docs: List[LogicalDocument], tender_id: int, tender_ref: str) -> List[Dict[str, Any]]:
-        """Process all documents and generate chunks.
+    async def chunk_all_documents(self, docs: List[LogicalDocument], tender_id: int, tender_ref: str) -> List[Dict[str, Any]]:
+        """Process all documents and generate chunks asynchronously.
         
         Args:
             docs: List of LogicalDocument objects
@@ -118,102 +126,166 @@ class LLMChunker:
             logger.warning("No valid documents to chunk")
             return []
         
-        # Check if we have any product documents (BDP)
-        has_bdp = any(d.doc_type == 'product' for d in valid_docs)
-        if not has_bdp:
-            logger.info("No separate BDP found. Enabling product extraction from CPS.")
-        
-        logger.info(f"Processing {len(valid_docs)} documents individually")
-        
-        for i, doc in enumerate(valid_docs):
-            logger.info(f"[{i+1}/{len(valid_docs)}] Processing doc: {doc.original_filename} (Type: {doc.doc_type})")
-            
-            # Logic: We send almost all reasonable documents to LLM for smarter extraction
-            # unless we specifically want to save cost on 'other' or very small files.
-            # But the requirement is to fix "incomplete extraction", so we maximize LLM usage.
-            
-            try:
-                # Basic size check or type check could go here if needed
-                if len(doc.content.strip()) < 50:
-                    continue
 
-                doc_chunks = self._chunk_single_document(doc, tender_id, tender_ref, default_lot_ref, has_bdp=has_bdp)
-                
-                # Integrity Check
-                self._validate_content_integrity(doc, doc_chunks)
-                
-                all_chunks.extend(doc_chunks)
-            except Exception as e:
-                logger.error(f"Failed to chunk document {doc.original_filename}: {e}", exc_info=True)
-                # Fallback to standard chunking for this doc
-                fallback_chunks = self._standard_chunk_document(doc, tender_id, default_lot_ref)
-                all_chunks.extend(fallback_chunks)
+        
+        logger.info(f"Processing {len(valid_docs)} documents with concurrency...")
+        
+        # Semaphore to limit concurrent LLM requests
+        semaphore = asyncio.Semaphore(5)
+
+        async def process_doc(doc, index):
+            async with semaphore:
+                logger.info(f"[{index+1}/{len(valid_docs)}] Processing doc: {doc.original_filename} (Type: {doc.doc_type})")
+                try:
+                    # Basic size check
+                    if len(doc.content.strip()) < 50:
+                        return []
+
+                    doc_chunks = await self._chunk_single_document(doc, tender_id, tender_ref, default_lot_ref)
+                    
+                    # Integrity Check
+                    self._validate_content_integrity(doc, doc_chunks)
+                    
+                    return doc_chunks
+                except Exception as e:
+                    logger.error(f"Failed to chunk document {doc.original_filename}: {e}", exc_info=True)
+                    # Fallback to standard chunking
+                    return self._standard_chunk_document(doc, tender_id, default_lot_ref)
+
+        tasks = [process_doc(doc, i) for i, doc in enumerate(valid_docs)]
+        results = await asyncio.gather(*tasks)
+        
+        for res in results:
+            all_chunks.extend(res)
         
         logger.info(f"Total chunks generated from all documents: {len(all_chunks)}")
         return all_chunks
 
-    def _chunk_single_document(
+    async def _chunk_single_document(
         self, 
         doc: LogicalDocument, 
         tender_id: int, 
         tender_ref: str, 
-        default_lot_ref: str,
-        has_bdp: bool = True
+        default_lot_ref: str
     ) -> List[Dict[str, Any]]:
-        """Process a single document with LLM. Handles pagination for large docs."""
+        """Process a single document with LLM. Handles pagination for Admin/Spec."""
         
-        # Check for large document pagination
-        if len(doc.content) > LARGE_DOC_THRESHOLD:
-            logger.info(f"Large document detected ({len(doc.content)} chars). Using pagination strategy.")
-            return self._chunk_paginated_document(doc, tender_id, tender_ref, default_lot_ref, has_bdp)
+        # Pagination Logic for Admin/Spec
+        if doc.doc_type in ['administrative', 'specification']:
+            # Use '## Page' splitting logic
+            return await self._chunk_paginated_pages(doc, tender_id, tender_ref, default_lot_ref)
+            
+        # Standard Single-Shot for others (Avis, Form, Product)
+        # Note: Product might be large, but user said "keep all what between balises as one chunk".
+        # If it's too huge, LLM might truncate. Ideally we trust BDP extractor provided manageable blocks.
+        if len(doc.content) > LARGE_DOC_THRESHOLD and doc.doc_type not in ['product', 'avis', 'form']:
+             logger.info(f"Fallback pagination for large {doc.doc_type}")
+             # Only fallback if not one of the mandated 'single chunk' types
+             return await self._chunk_paginated_document(doc, tender_id, tender_ref, default_lot_ref)
 
-        prompt = self._get_single_doc_prompt(doc, tender_ref, has_bdp)
+        prompt = self._get_single_doc_prompt(doc, tender_ref)
         
-        # Execute LLM call
-        response = self.llm.chat_completion(
+        response = await self.llm.chat_completion_async(
             messages=[{"role": "user", "content": prompt}],
             temperature=0.0,
             json_mode=True
         )
         
         if not response or len(response) < 10:
-            logger.warning(f"Empty/Tiny LLM response for {doc.original_filename}, falling back")
-            return self._standard_chunk_document(doc, tender_id, default_lot_ref)
-            
-        # Parse JSON
+             logger.warning(f"Empty/Tiny LLM response for {doc.original_filename}, falling back")
+             return self._standard_chunk_document(doc, tender_id, default_lot_ref)
+
         try:
             response_data = json_repair.loads(response)
-            
-            # Auto-fix: If LLM returned a list directly instead of {"chunks": [...]}
             if isinstance(response_data, list):
-                logger.info("LLM returned a list directly, wrapping in 'chunks' object.")
                 response_data = {"chunks": response_data}
-                
+            
             parsed_output = ChunkingOutput(**response_data)
-            logger.info(f"  -> Parsed {len(parsed_output.chunks)} chunks")
-        except Exception as parse_err:
-            logger.error(f"Parsing failed for {doc.original_filename}: {parse_err}")
+            return self._convert_to_chunk_dicts(parsed_output.chunks, tender_id, tender_ref, default_lot_ref)
+        except Exception as e:
+            logger.error(f"Failed to parse LLM output for {doc.original_filename}: {e}")
             return self._standard_chunk_document(doc, tender_id, default_lot_ref)
-        
-        # Convert to Clean Chunks
-        chunks = self._convert_to_chunk_dicts(
-            parsed_output.chunks, 
-            tender_id, 
-            tender_ref, 
-            default_lot_ref
-        )
-        
-        return chunks
 
-    def _chunk_paginated_document(
+
+    async def _chunk_paginated_pages(
         self,
         doc: LogicalDocument,
         tender_id: int,
         tender_ref: str,
-        default_lot_ref: str,
-        has_bdp: bool = True
+        default_lot_ref: str
     ) -> List[Dict[str, Any]]:
-        """Chunk a specific large document by splitting it into pages/segments."""
+        """
+        Split document by '## Page' markers and process in groups of 3 pages asynchronously.
+        """
+        # Split by ## Page (case insensitive)
+        page_pattern = r'(?i)(##\s*Page\s*\d+)'
+        parts = re.split(page_pattern, doc.content)
+        
+        pages = []
+        if parts[0].strip():
+            pages.append(parts[0])
+            
+        i = 1
+        while i < len(parts):
+            header = parts[i] if i < len(parts) else ""
+            content = parts[i+1] if i+1 < len(parts) else ""
+            pages.append(header + content)
+            i += 2
+            
+        if not pages:
+            logger.info(f"No '## Page' headers found in {doc.original_filename}, falling back to character pagination.")
+            return await self._chunk_paginated_document(doc, tender_id, tender_ref, default_lot_ref)
+            
+        # Group by 3
+        page_groups = [pages[i:i+3] for i in range(0, len(pages), 3)]
+        
+        logger.info(f"Paginating {doc.original_filename} into {len(page_groups)} groups (3 pages each). Total Pages: {len(pages)}")
+        
+        all_chunks = []
+
+        async def process_group(idx, group):
+            group_content = "\n".join(group)
+            
+            group_doc = LogicalDocument(
+                original_filename=f"{doc.original_filename} (Pages {idx*3+1}-{idx*3+len(group)})",
+                content=group_content,
+                doc_type=doc.doc_type
+            )
+            
+            prompt = self._get_single_doc_prompt(group_doc, tender_ref)
+            
+            try:
+                response = await self.llm.chat_completion_async(
+                    messages=[{"role": "user", "content": prompt}],
+                    temperature=0.0,
+                    json_mode=True
+                )
+                
+                if response:
+                    data = json_repair.loads(response)
+                    if isinstance(data, list): data = {"chunks": data}
+                    parsed = ChunkingOutput(**data)
+                    return self._convert_to_chunk_dicts(parsed.chunks, tender_id, tender_ref, default_lot_ref)
+            except Exception as e:
+                 logger.error(f"Error chunking page group {idx} for {doc.original_filename}: {e}")
+            return []
+
+        tasks = [process_group(idx, group) for idx, group in enumerate(page_groups)]
+        results = await asyncio.gather(*tasks)
+        
+        for chks in results:
+            all_chunks.extend(chks)
+        
+        return all_chunks
+
+    async def _chunk_paginated_document(
+        self,
+        doc: LogicalDocument,
+        tender_id: int,
+        tender_ref: str,
+        default_lot_ref: str
+    ) -> List[Dict[str, Any]]:
+        """Chunk a specific large document by splitting it into pages/segments asynchronously."""
         
         # Split content into macro-segments (pages)
         segments = self.pagination_splitter.split_text(doc.content)
@@ -222,26 +294,21 @@ class LLMChunker:
         
         all_chunk_items: List[ChunkItem] = []
         
-        for idx, segment_content in enumerate(segments):
+        async def process_segment(idx, segment_content):
             logger.info(f"  -> Processing Segment {idx+1}/{total_segments}")
             
-            # Create a temporary 'view' of the doc for this segment
-            # We preserve metadata but swap content
             segment_doc = LogicalDocument(
                 original_filename=doc.original_filename,
                 doc_type=doc.doc_type,
                 content=segment_content,
-                page_start=idx * 20 + 1, # Rough estimation if needed, or 0
+                page_start=idx * 20 + 1, 
                 page_end=(idx + 1) * 20
             )
             
-            # Use standard prompt generator but potentially we could inject "Part X/Y" info if the prompt builder supported it.
-            # For now, the standard prompt handles "content" well even if partial.
-            # We'll just run it as a normal LLM call on this segment.
-            prompt = self._get_single_doc_prompt(segment_doc, tender_ref, has_bdp)
+            prompt = self._get_single_doc_prompt(segment_doc, tender_ref)
             
             try:
-                response = self.llm.chat_completion(
+                response = await self.llm.chat_completion_async(
                     messages=[{"role": "user", "content": prompt}],
                     temperature=0.0,
                     json_mode=True
@@ -249,19 +316,21 @@ class LLMChunker:
                 
                 if response and len(response) > 10:
                      response_data = json_repair.loads(response)
-                     
-                     # Auto-fix for list responses
                      if isinstance(response_data, list):
                          response_data = {"chunks": response_data}
-                         
                      parsed = ChunkingOutput(**response_data)
-                     all_chunk_items.extend(parsed.chunks)
-                     logger.info(f"     Extracted {len(parsed.chunks)} items from segment {idx+1}")
+                     return parsed.chunks
                 else:
                     logger.warning(f"     Empty response for segment {idx+1}")
-
             except Exception as e:
                 logger.error(f"     Failed segment {idx+1}: {e}")
+            return []
+
+        tasks = [process_segment(i, seg) for i, seg in enumerate(segments)]
+        results = await asyncio.gather(*tasks)
+        
+        for chks in results:
+            all_chunk_items.extend(chks)
         
         # Convert all pooled items to chunks
         if not all_chunk_items:
@@ -287,7 +356,7 @@ class LLMChunker:
                 continue
             
             # Resolve lot number (normalize to "1", "2", "0")
-            raw_lot = str(item.metadata.lot) if item.metadata.lot else "0"
+            raw_lot = str(item.metadata.lot_number) if item.metadata.lot_number else "0"
             clean_lot_num = raw_lot.lower().replace("lot", "").strip()
             
             # Ensure we have a valid lot number string (e.g. "1")
@@ -295,28 +364,22 @@ class LLMChunker:
             if not clean_lot_num or clean_lot_num == "none":
                 clean_lot_num = "0"
 
-            # Determine lot_reference (used for grouping in aggregator)
-            # Default to {tender_ref}_{num} since we don't have metadata yet
-            lot_ref = f"{tender_ref}_{clean_lot_num}"
+
 
             # ------------------------------------------------------------------
-            # ID GENERATION (User Requirement)
+            # ID GENERATION
             # Structure: {tender_ref}_0(lot number)_type_1 increment
-            # Example: TENDER1_01_specification_1
             # ------------------------------------------------------------------
             chunk_type = item.metadata.type
             
-            # Format lot number with leading zero if needed (simple heuristic: 0 -> 00, 1 -> 01)
-            # User example was "0 (lot number)". We will format as 2 digits if numeric.
+            # Format lot number (0 -> 00, 1 -> 01)
             try:
                 lot_int = int(clean_lot_num)
-                formatted_lot = f"{lot_int:02d}" # 0 -> 00, 1 -> 01, 10 -> 10
+                formatted_lot = f"{lot_int:02d}" 
             except ValueError:
-                # If "all" or non-numeric, just use it safely
                 formatted_lot = f"0{clean_lot_num}"
             
             # Increment counter
-            # Key difference: we count based on Type + Lot to ensure uniqueness per content stream
             counter_key = f"{formatted_lot}_{chunk_type}"
             if counter_key not in type_counters:
                 type_counters[counter_key] = 1
@@ -327,43 +390,17 @@ class LLMChunker:
             chunk_id = f"{tender_ref}_{formatted_lot}_{chunk_type}_{idx}"
             
             # Build metadata dictionary
-            # "merge the two fild article_id and lot" -> The ID now carries this uniqueness.
-            # We still keep key metadata for downstream aggregation.
             metadata = {
-                "type": chunk_type,
-                "lot_reference": lot_ref,
-                "lot_number": clean_lot_num
+                "type": chunk_type
             }
             
+            # Dump all Pydantic fields to dict
+            raw_meta = item.metadata.model_dump(exclude_none=True)
             
-            # Add optional product-specific fields
-            if item.metadata.designation:
-                metadata["designation"] = item.metadata.designation
-            if item.metadata.quantity is not None:
-                metadata["quantity"] = item.metadata.quantity
-            if item.metadata.unit:
-                metadata["unit"] = item.metadata.unit
-            if item.metadata.estimated_price is not None:
-                 metadata["estimated_price"] = item.metadata.estimated_price
-            
-            # Common/Other fields
-            if item.metadata.title:
-                metadata["title"] = item.metadata.title
-            if item.metadata.article_id:
-                metadata["article_id"] = item.metadata.article_id
-            
-            # Specific types
-            if item.metadata.spec_type:
-                metadata["spec_type"] = item.metadata.spec_type
-            if item.metadata.clause_type:
-                metadata["clause_type"] = item.metadata.clause_type
-            
-            # Avis fields
-            if item.metadata.budget is not None: metadata["budget"] = item.metadata.budget
-            if item.metadata.location: metadata["location"] = item.metadata.location
-            if item.metadata.deadline: metadata["deadline"] = item.metadata.deadline
-            if item.metadata.caution is not None: metadata["caution"] = item.metadata.caution
-            if item.metadata.lot_structure: metadata["lot_structure"] = item.metadata.lot_structure
+            # Merge raw fields (preserving our calculated ones)
+            for k, v in raw_meta.items():
+                if k not in metadata:
+                    metadata[k] = v
             
             chunks.append({
                 "id": chunk_id,
@@ -372,7 +409,10 @@ class LLMChunker:
             })
         
         return chunks
-    
+
+    # Updated LLM Chunk Types per user request
+    LLM_CHUNK_TYPES = {'product', 'specification', 'administrative', 'avis', 'form'}
+
     def _should_skip_document(self, doc: LogicalDocument) -> bool:
         """
         Check if document should be excluded from processing.
@@ -394,267 +434,65 @@ class LLMChunker:
                     return True
                     
         return False
-    
-    def _get_single_doc_prompt(self, doc: LogicalDocument, tender_ref: str, has_bdp: bool = True) -> str:
+
+    def _get_single_doc_prompt(self, doc: LogicalDocument, tender_ref: str) -> str:
         """Create a tailored prompt based on document type."""
         
-        base_context = f"""You are a STRICT TEXT SEGMENTATION ENGINE. You are NOT a summarizer.
-TENDER REF: {tender_ref}
-DOC TYPE: {doc.doc_type.upper()}
-FILENAME: {doc.original_filename}
-
-CRITICAL RULES:
-1. **NO LOSS**: The "content" field in your output JSON must contain the EXACT, VERBATIM text from the source.
-2. **NO SUMMARIZATION**: Do not summarize, paraphrase, or truncate the text.
-3. **NO OMISSIONS**: Do not use placeholders like "[...]" or "Rest of text...".
-4. **INTEGRITY**: The sum of all "content" fields in your output must equal the length of the input text (minus protocol/header overhead).
-"""
+        base_context = BASE_CONTEXT.format(
+            tender_ref=tender_ref,
+            doc_type=doc.doc_type.upper(),
+            filename=doc.original_filename
+        )
         
-        # 1. AVIS (Tender Notice)
+        # 1. AVIS
         if doc.doc_type == 'avis':
-            return base_context + f"""
-CONTENT:
-{doc.content[:PROMPT_MAX_CHARS_AVIS]}
+            return AVIS_PROMPT.format(
+                base_context=base_context,
+                content=doc.content[:PROMPT_MAX_CHARS_AVIS],
+                instruction=AVIS_INSTRUCTION
+            )
 
-TASK:
-Return the document as ONE single chunk. Content must be STRICTLY IDENTICAL to input.
-Extract metadata fields from the text. if there is other tenders informations in the document, ignore them, extract only the informations of the tender we are processing. 
+        # 2. FORM
+        elif doc.doc_type == 'form':
+            instruction = FORM_INSTRUCTION.format(
+                tender_ref=tender_ref
+            )
+            return FORM_PROMPT.format(
+                base_context=base_context,
+                content=doc.content[:PROMPT_MAX_CHARS_ENGAGEMENT],
+                instruction=instruction,
+                tender_ref=tender_ref
+            )
 
-METADATA TO EXTRACT:
-- `budget`: Total budget (number), extract budget of tender we are processing if there is other tenders informations in the document, ignore them, extract only the budget of the tender we are processing. 
-- `location`: Execution location.
-- `deadline`: Submission deadline.
-- `caution`: Caution amount (number).
-- `lot_structure`: return list of lot number and titles if there is no lot structure in the document return "Single lot".
+        # 3. ADMINISTRATIVE / SPECIFICATION
+        elif doc.doc_type in ['administrative', 'specification']:
+            instruction = ADMIN_SPEC_INSTRUCTION.format(
+                doc_type=doc.doc_type
+            )
+            return ADMIN_SPEC_PROMPT.format(
+                base_context=base_context,
+                content=doc.content[:PROMPT_MAX_CHARS_ADMIN],
+                instruction=instruction,
+                doc_type=doc.doc_type
+            )
 
-OUTPUT JSON:
-{{
-  "chunks": [
-    {{
-      "content": "FULL VERBATIM CONTENT HERE...",
-      "metadata": {{
-        "type": "avis",
-        "budget": 120000.00,
-        "location": "Rabat",
-        "deadline": "2024-01-01",
-        "caution": 5000.00,
-        "lot_structure": "Single lot"
-      }}
-    }}
-  ]
-}}
-"""
-
-
-        # 2. ADMINISTRATIVE (RC, Reglement)
-        elif doc.doc_type == 'administrative':
-            return base_context + f"""
-CONTENT:
-{doc.content[:PROMPT_MAX_CHARS_ADMIN]}
-
-TASK:
-Segment the text by ARTICLE or MAJOR SECTION.
-Each chunk's content must be the EXACT RAW TEXT of that section.
-**CRITICAL**: IF YOU FIND A PRICING TABLE OR LIST OF PRODUCTS/PRICES (Bordereau/Détail Estimatif) embedded in this document, EXTRACT EACH ROW as a separate 'products' chunk.
-
-METADATA TO EXTRACT:
-For CLAUSES/ARTICLES:
-- `title`: Header/Title of the section. should be in french.
-- `clause_type`: [general_clause, bidding_modalities, bid_eval_critera, contractor_eval_criterea, attribution_criterea].
-- `lot`: "{tender_ref}_0" (or specific lot if stated).
-
-For PRODUCTS (if found):
-- `type`: "products"
-- `designation`: Full item designation as mentioned in the table.
-- `quantity`: Number.
-- `unit`: Unit.
-- `estimated_price`: Price.
-- `lot`: "{tender_ref}_0" (or specific lot if stated).
-
-OUTPUT JSON:
-{{
-  "chunks": [
-    {{
-      "content": "RAW TEXT OF ARTICLE 1...",
-      "metadata": {{
-        "type": "administrative",
-        "title": "Objet du règlement",
-        "clause_type": "general_clause",
-        "lot": "{tender_ref}_0"
-      }}
-    }},
-    {{
-      "content": "Line item text...",
-      "metadata": {{
-        "type": "products",
-        "designation": "Concrete C25/30",
-        "quantity": 100,
-        "unit": "m3",
-        "estimated_price": 500.00,
-        "lot": "{tender_ref}_1"
-      }}
-    }}
-  ]
-}}
-"""
-
-
-        # 3. SPECIFICATIONS (CPS, CCTP)
-        elif doc.doc_type == 'specification':
-            # AGGRESSIVE PRODUCT SEARCH: Always look for products even if has_bdp was True (to catch missed ones)
-            task_instruction = """TASK:
-Segment by CLAUSE, ARTICLE, or TECHNICAL SECTION.
-Content must be VERBATIM. Do not summarize technical details. RETURN the raw text of the section.
-**AGGRESSIVELY SEARCH FOR PRICING TABLES/BILLS OF QUANTITIES (Bordereau/Détail Estimatif).**
-If found, extract EACH ROW as a 'products' chunk. Do not miss any items.
-"""
-            metadata_instruction = """METADATA TO EXTRACT:
-For SPECIFICATIONS:
-- `type`: "specification"
-- `title`: Title , should be in french and be small generated description of the section don't include "Article 1" or "Clause 1" and generique terms.
-- `spec_type`: [product_spec, contractor_requirement, general_spec, administratif_spec, legal_normal].
-
-For PRICING/PRODUCTS (BDP Items):
-- `type`: "products"
-- `designation`: Full item designation as mentioned in the table.
-- `quantity`: Number.
-- `unit`: Unit.
-- `estimated_price`: Price.
-- `lot`: Lot number (if specified, else "{tender_ref}_0").
-"""
-            example_json = """{{
-  "chunks": [
-    {{
-      "content": "RAW TEXT OF ARTICLE 1...",
-      "metadata": {{ "type": "specification", "title": "Généralités", "spec_type": "general_spec", "lot": "{tender_ref}_0" }}
-    }},
-    {{
-      "content": "Item description row...",
-      "metadata": {{ "type": "products", "designation": "Mur en brique", "quantity": 150, "unit": "m2", "estimated_price": 45.0, "lot": "{tender_ref}_1" }}
-    }}
-  ]
-}}"""
-
-            return base_context + f"""
-CONTENT:
-{doc.content[:PROMPT_MAX_CHARS_SPEC]}
-
-{task_instruction}
-
-{metadata_instruction}
-
-OUTPUT JSON:
-{example_json}
-"""
-
-        # 4. PRODUCTS (BDP, Bordereau)
+        # 4. PRODUCT
         elif doc.doc_type == 'product':
-            # NOTE: Products are the EXCEPTION to the "Verbatim" rule because they are tabular data.
-            # We specifically want to parse them into metadata.
-            return f"""You are a DATA EXTRACTION ENGINE.
-TENDER REF: {tender_ref}
-DOC TYPE: {doc.doc_type.upper()}
+            return PRODUCT_PROMPT.format(
+                base_context=base_context,
+                content=doc.content[:PROMPT_MAX_CHARS_PRODUCT],
+                instruction=PRODUCT_INSTRUCTION,
+                example=PRODUCT_EXAMPLE
+            )
 
-TASK:
-Extract structured data from the PRICING TABLE. 
-Create **ONE CHUNK PER LINE ITEM**.
-
-METADATA TO EXTRACT:
-- `designation`: Full item designation.
-- `quantity`: Quantity (number).
-- `unit`: Unit (e.g., m2, U).
-- `estimated_price`: Unit price (if available).
-- `lot`: Lot number.
-
-OUTPUT JSON:
-{{
-  "chunks": [
-    {{
-      "content": "Full text of the line item...",
-      "metadata": {{
-        "type": "products",
-        "designation": "Mur en béton armé...",
-        "quantity": 500.0,
-        "unit": "m3",
-        "estimated_price": 1200.0,
-        "lot": "1"
-      }}
-    }}
-  ]
-}}
-CONTENT:
-{doc.content[:PROMPT_MAX_CHARS_PRODUCT]}
-"""
-
-        # 5. ENGAGEMENT (Acte d'engagement)
-        elif doc.doc_type == 'engagement':
-            return base_context + f"""
-CONTENT:
-{doc.content[:PROMPT_MAX_CHARS_ENGAGEMENT]}
-
-TASK:
-Return as ONE single chunk. Content must be IDENTICAL to input.
-
-
-OUTPUT JSON:
-{{
-  "chunks": [
-    {{
-      "content": "FULL VERBATIM CONTENT...",
-      "metadata": {{
-        "type": "engagement"   
-      }}
-    }}
-  ]
-}}
-"""
-
-        # 6. DECLARATION (Sur l'honneur)
-        elif doc.doc_type == 'declaration':
-            return base_context + f"""
-CONTENT:
-{doc.content[:PROMPT_MAX_CHARS_DECLARATION]}
-
-TASK:
-Return as ONE single chunk. Content must be IDENTICAL to input.
-
-
-
-OUTPUT JSON:
-{{
-  "chunks": [
-    {{
-      "content": "FULL VERBATIM CONTENT...",
-      "metadata": {{
-        "type": "declaration",
-      }}
-    }}
-  ]
-}}
-"""
-
-        # DEFAULT / FALLBACK
+        # Fallback
         else:
-             return base_context + f"""
-CONTENT:
-{doc.content[:PROMPT_MAX_CHARS_OTHER]}
+             return FALLBACK_PROMPT.format(
+                 base_context=base_context,
+                 content=doc.content[:PROMPT_MAX_CHARS_OTHER]
+             )
 
-TASK:
-Segment into logical sections. Content must be VERBATIM.
 
-OUTPUT JSON:
-{{
-  "chunks": [
-    {{
-      "content": "RAW TEXT...",
-      "metadata": {{
-        "type": "other",
-        "title": "Section title"
-      }}
-    }}
-  ]
-}}
-"""
     
     def _standard_chunk_document(self, doc: LogicalDocument, tender_id: int, default_lot_ref: str) -> List[Dict[str, Any]]:
         """Apply standard text splitting for non-LLM documents.
@@ -686,8 +524,7 @@ OUTPUT JSON:
                 "content": chunk_text.strip(),
                 "metadata": {
                     "type": c_type,
-                    "source_doc": doc.original_filename,
-                    "lot_reference": default_lot_ref
+                    "source_doc": doc.original_filename
                 }
             })
         

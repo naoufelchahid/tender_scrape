@@ -3,6 +3,7 @@ import json
 import time
 import logging
 import boto3
+import asyncio
 from botocore.exceptions import ClientError
 
 
@@ -118,11 +119,11 @@ def handle_message(msg, sqs, s3, chunker):
         
         # 3. LLM-assisted chunking (FIRST - with enriched metadata)
         # Pass empty lots=[] since we don't have metadata yet - will be inferred from chunks
-        chunks = chunker.chunk_all_documents(
+        chunks = asyncio.run(chunker.chunk_all_documents(
             docs=docs, 
             tender_id=tender_id, 
             tender_ref=tender_ref
-        )
+        ))
         logger.info(f"Generated {len(chunks)} chunks from documents")
         
         # 4. Upload Chunks to S3 (BEFORE metadata)

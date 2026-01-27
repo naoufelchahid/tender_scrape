@@ -1,141 +1,1965 @@
 {
     "category": "travaux",
-    "scan_date": "2026-01-18T03:04:02.528592",
-    "total_website_references": 614,
-    "total_database_references": 1669,
-    "new_references_count": 60,
+    "scan_date": "2026-01-26T12:33:39.886575",
+    "total_website_references": 673,
+    "total_database_references": 1795,
+    "new_references_count": 216,
     "new_references": [
         {
-            "reference": "1/2026_SOCDÉVTURSOUMASSDRSA",
-            "original_reference": "1/2026",
-            "buyer_initials": "SOCDÉVTURSOUMASSDRSA",
+            "reference": "01/2026_COMMUNERURALEBITIT",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMMUNERURALEBITIT",
             "category": "Travaux",
-            "launch_date": "17/01/2026",
-            "object": "Objet :Travaux d’aménagement de la Corniche de Taghazout-2éme tranche : construction de la halle aux poissons et magasins des pêcheurs...Travaux d’aménagement de la Corniche de Taghazout-2éme tranche : construction de la halle aux poissons et magasins des pêcheurs",
-            "buyer": "Société de Développement Turistique Souss Massa SDR SA",
-            "deadline": "24/02/202610:30",
-            "city": "AGADIR IDA OU TANANE...AGADIR IDA OU TANANE",
-            "scraped_at": "2026-01-18T03:03:42.969178"
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX D’AMENAGEMENT DU SIEGE DE LA COMMUNE DE BITIT -EN LOT UNIQUE-...TRAVAUX D’AMENAGEMENT DU SIEGE DE LA COMMUNE DE BITIT -EN LOT UNIQUE-",
+            "buyer": "Commune rurale de BITIT",
+            "deadline": "26/02/202610:00",
+            "city": "EL-HAJEB...EL-HAJEB",
+            "scraped_at": "2026-01-26T12:33:19.248078"
         },
         {
-            "reference": "01/2026_COMMUNETERRITORIALTIZOUNINE",
-            "original_reference": "01/2026",
-            "buyer_initials": "COMMUNETERRITORIALTIZOUNINE",
+            "reference": "1/2026_COMMUNEBRADIA",
+            "original_reference": "1/2026",
+            "buyer_initials": "COMMUNEBRADIA",
             "category": "Travaux",
-            "launch_date": "15/01/2026",
-            "object": "Objet :TRAVAUX DE CONSTRUCTION DE LA ROUTE RELIANT LA RN17 ET DOUAR AIN EGURAMEN A LA COMMUNE DE TIZOUNINE, PROVINCE DE TATA....TRAVAUX DE CONSTRUCTION DE LA ROUTE RELIANT LA RN17 ET DOUAR AIN EGURAMEN A LA COMMUNE DE TIZOUNINE, PROVINCE DE TATA.",
-            "buyer": "Commune territorial Tizounine",
+            "launch_date": "23/01/2026",
+            "object": "Objet :travaux d’assainissement touimia a la commune territorial bradia province fquih ben salah...travaux d’assainissement touimia a la commune territorial bradia province fquih ben salah",
+            "buyer": "Commune de Bradia",
+            "deadline": "25/02/202611:00",
+            "city": "FQUIH BEN SALAH...FQUIH BEN SALAH",
+            "scraped_at": "2026-01-26T12:33:19.248345"
+        },
+        {
+            "reference": "02/2026_COMRURJEMELOUE",
+            "original_reference": "02/2026",
+            "buyer_initials": "COMRURJEMELOUE",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX D'AMENAGEMENT DES TRONçONS DE PISTE : ISLAN - TALANFROUKH - IKHODJA A LA C.T EL OUED...TRAVAUX D'AMENAGEMENT DES TRONçONS DE PISTE : ISLAN - TALANFROUKH - IKHODJA A LA C.T EL OUED",
+            "buyer": "Commune rurale de JEMAA EL OUED",
+            "deadline": "24/02/202611:00",
+            "city": "TETOUAN...TETOUAN",
+            "scraped_at": "2026-01-26T12:33:19.249134"
+        },
+        {
+            "reference": "02/C.M.CH/DM/2026_DIRECTIONMOSQUÉES",
+            "original_reference": "02/C.M.CH/DM/2026",
+            "buyer_initials": "DIRECTIONMOSQUÉES",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :travaux de renforcement, de réhabilitation et de reconstruction des parties démolies de deux (02) mosquées et leurs dépendances affectées par le séisme d’Al Haouz à Chichaoua, en lot unique....travaux de renforcement, de réhabilitation et de reconstruction des parties démolies de deux (02) mosquées et leurs dépendances affectées par le séisme d’Al Haouz à Chichaoua, en lot unique.",
+            "buyer": "Direction des Mosquées",
+            "deadline": "...",
+            "city": "CHICHAOUA...CHICHAOUA",
+            "scraped_at": "2026-01-26T12:33:19.249449"
+        },
+        {
+            "reference": "01/2026_COMRURJEMELOUE",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMRURJEMELOUE",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX D'AMENAGEMENT DES TRONçONS DE PISTE : IHLAL-IKHCHAFEN-ZAOUIA A LA C.T EL OUED...TRAVAUX D'AMENAGEMENT DES TRONçONS DE PISTE : IHLAL-IKHCHAFEN-ZAOUIA A LA C.T EL OUED",
+            "buyer": "Commune rurale de JEMAA EL OUED",
+            "deadline": "...",
+            "city": "TETOUAN...TETOUAN",
+            "scraped_at": "2026-01-26T12:33:19.250260"
+        },
+        {
+            "reference": "01/2026_COMMUNERURALEIHADDADENE",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMMUNERURALEIHADDADENE",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTIONS DE VOIRIES : 1-RUE N° 48 I (AZZOHOR) reliant Ihaddadene centre au BV N°12 I 2-RUE N° 97 I reliant douar akhandouk au douar aarid 3-RUE N° 10 I reliant la rue n° 6 I au rond-point de la voie de...TRAVAUX DE CONSTRUCTIONS DE VOIRIES : 1-RUE N° 48 I (AZZOHOR) reliant Ihaddadene centre au BV N°12 I 2-RUE N° 97 I reliant douar akhandouk au douar aarid 3-RUE N° 10 I reliant la rue n° 6 I au rond-point de la voie de contournement.",
+            "buyer": "Commune rurale de IHADDADENE",
+            "deadline": "23/02/202610:00",
+            "city": "NADOR...NADOR",
+            "scraped_at": "2026-01-26T12:33:19.250308"
+        },
+        {
+            "reference": "1/2026_COMMUNEURBAINEBOUJDOUR",
+            "original_reference": "1/2026",
+            "buyer_initials": "COMMUNEURBAINEBOUJDOUR",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :Travaux du Projet Intégré de Mise à Niveau urbaine des quartiers de la Commune de Boujdour – Province de Boujdour...Travaux du Projet Intégré de Mise à Niveau urbaine des quartiers de la Commune de Boujdour – Province de Boujdour",
+            "buyer": "Commune urbaine de BOUJDOUR",
+            "deadline": "23/02/202610:00",
+            "city": "BOUJDOUR...BOUJDOUR",
+            "scraped_at": "2026-01-26T12:33:19.250394"
+        },
+        {
+            "reference": "01/2026_COURCOMPTES",
+            "original_reference": "01/2026",
+            "buyer_initials": "COURCOMPTES",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :Les travaux d’entretien et de réparation du bâtiment abritant le siège de la Cour des comptes à Rabat...Les travaux d’entretien et de réparation du bâtiment abritant le siège de la Cour des comptes à Rabat",
+            "buyer": "COUR DES COMPTES",
+            "deadline": "20/02/202610:00",
+            "city": "RABAT...RABAT",
+            "scraped_at": "2026-01-26T12:33:19.250481"
+        },
+        {
+            "reference": "01/2026_COMTERAITOUA",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMTERAITOUA",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :Construction d'un mur de clôture et d’un vestiaire pour terrain de Sport au Douar LKHENG, à la commune d'AIT OUABELLI, province de TATA...Construction d'un mur de clôture et d’un vestiaire pour terrain de Sport au Douar LKHENG, à la commune d'AIT OUABELLI, province de TATA",
+            "buyer": "Commune territorial AIT OUABELLI",
             "deadline": "...",
             "city": "TATA...TATA",
-            "scraped_at": "2026-01-18T03:03:42.978771"
+            "scraped_at": "2026-01-26T12:33:19.250929"
         },
         {
-            "reference": "01/2026_COMMUNEBNICHEGDALE",
-            "original_reference": "01/2026",
-            "buyer_initials": "COMMUNEBNICHEGDALE",
+            "reference": "05/2026/SOREC_SOCROYENCCHE",
+            "original_reference": "05/2026/SOREC",
+            "buyer_initials": "SOCROYENCCHE",
             "category": "Travaux",
-            "launch_date": "16/01/2026",
-            "object": "Objet :TRAVAUX DE CREUSEMENT ET D’EQUIPEMENT D’UN FORAGE AU SIEGE DE LA COMMUNE BNI CHEGDALE, PROVINCE DE FQUIH BEN SALAH...TRAVAUX DE CREUSEMENT ET D’EQUIPEMENT D’UN FORAGE AU SIEGE DE LA COMMUNE BNI CHEGDALE, PROVINCE DE FQUIH BEN SALAH",
-            "buyer": "Commune de Bni Chegdale",
+            "launch_date": "23/01/2026",
+            "object": "Objet :Travaux de génie civil pour le déplacement d'un poste transformateur à l’hippodrome d'El Jadida en lot unique....Travaux de génie civil pour le déplacement d'un poste transformateur à l’hippodrome d'El Jadida en lot unique.",
+            "buyer": "SOCIETE ROYALE D'ENCOURAGEMENT DU CHEVAL",
+            "deadline": "19/02/202610:00",
+            "city": "EL JADIDA...EL JADIDA",
+            "scraped_at": "2026-01-26T12:33:19.251272"
+        },
+        {
+            "reference": "1/2026/Menara_ARRONDISSEMENTMENARA",
+            "original_reference": "1/2026/Menara",
+            "buyer_initials": "ARRONDISSEMENTMENARA",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :Travaux d’aménagement d’un jardin public, ronds point situant aux différentes annexes de l’Arrondissement Menara...Travaux d’aménagement d’un jardin public, ronds point situant aux différentes annexes de l’Arrondissement Menara",
+            "buyer": "Arrondissement MENARA",
+            "deadline": "...",
+            "city": "Préfecture de Marrakech Menara...Préfecture de Marrakech Menara",
+            "scraped_at": "2026-01-26T12:33:19.251315"
+        },
+        {
+            "reference": "03/DRDT/AO/FSSH/2026_DELREGAFFISLREGDRATAF",
+            "original_reference": "03/DRDT/AO/FSSH/2026",
+            "buyer_initials": "DELREGAFFISLREGDRATAF",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX DE RECONSTRUCTION DE SIX (06) MOSQUEES AUX COMMUNES KHZAMA ET SIROUA RELEVANT DE LA PROVINCE D’OUARZAZATE...TRAVAUX DE RECONSTRUCTION DE SIX (06) MOSQUEES AUX COMMUNES KHZAMA ET SIROUA RELEVANT DE LA PROVINCE D’OUARZAZATE",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES REGION DRAA TAFILALT",
+            "deadline": "19/02/202610:00",
+            "city": "OUARZAZATE...OUARZAZATE",
+            "scraped_at": "2026-01-26T12:33:19.251358"
+        },
+        {
+            "reference": "08/2026/KTRA_ALOMRRABSALKEN",
+            "original_reference": "08/2026/KTRA",
+            "buyer_initials": "ALOMRRABSALKEN",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX D’AMENAGEMENT URBAIN VOIRIE, ASSAINISSEMENT, ET ECLAIRAGE PUBLIC DU BOULVARD EL MASSIRA QUARTIER MKHALIF-AIN SBAA A KENITRA...TRAVAUX D’AMENAGEMENT URBAIN VOIRIE, ASSAINISSEMENT, ET ECLAIRAGE PUBLIC DU BOULVARD EL MASSIRA QUARTIER MKHALIF-AIN SBAA A KENITRA",
+            "buyer": "AL OMRANE RABAT SALE KENITRA",
+            "deadline": "...",
+            "city": "KENITRA...KENITRA",
+            "scraped_at": "2026-01-26T12:33:19.251420"
+        },
+        {
+            "reference": "2/DPJ/2026E/T_SOCREGMULCASSETSA",
+            "original_reference": "2/DPJ/2026E/T",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :Travaux de renouvellement du réseau moyen tension aérien de la Direction Provinciale d’El Jadida...Travaux de renouvellement du réseau moyen tension aérien de la Direction Provinciale d’El Jadida",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "deadline": "19/02/202610:00",
+            "city": "MAROCEL JADIDA...MAROC, EL JADIDA",
+            "scraped_at": "2026-01-26T12:33:19.251469"
+        },
+        {
+            "reference": "AO/26/2026_SOCALOMRFESMEK",
+            "original_reference": "AO/26/2026",
+            "buyer_initials": "SOCALOMRFESMEK",
+            "category": "Travaux",
+            "launch_date": "26/01/2026",
+            "object": "Objet :MISE A NIVEAU URBAINE DE LA VILLE DE TAZA TR2 TRAVAUX D’ECLAIRAGE PUBLIC DE L’AVENUE HASSAN II ET SA CONNEXION AVEC L’AVENUE HASSAN BAHTAT A LA COMMUNE DE TAZA PROVINCE DE TAZA...MISE A NIVEAU URBAINE DE LA VILLE DE TAZA TR2 TRAVAUX D’ECLAIRAGE PUBLIC DE L’AVENUE HASSAN II ET SA CONNEXION AVEC L’AVENUE HASSAN BAHTAT A LA COMMUNE DE TAZA PROVINCE DE TAZA",
+            "buyer": "SOCIETE AL OMRANE FES MEKNES",
+            "deadline": "...",
+            "city": "TAZA...TAZA",
+            "scraped_at": "2026-01-26T12:33:19.251520"
+        },
+        {
+            "reference": "02/2026_DIRPROL’ENATESS",
+            "original_reference": "02/2026",
+            "buyer_initials": "DIRPROL’ENATESS",
+            "category": "Travaux",
+            "launch_date": "26/01/2026",
+            "object": "Objet :Lot 01 : Travaux de construction de deux (02) espaces préscolaires au sein des établissements de l’enseignement primaire dans la commune : LAMOUARID (l’unité scolaire agouidir du secteur scolaire birzaa et l'unité...Lot 01 : Travaux de construction de deux (02) espaces préscolaires au sein des établissements de l’enseignement primaire dans la commune : LAMOUARID (l’unité scolaire agouidir du secteur scolaire birzaa et l'unité scolaire adachra du secteur scolaire moussa bnou nossair ), RELEVANT DE LA DIRECTION PROVINCIALE D'ESSAOUIRA, AREF-MS. Lot 02 : Travaux de construction de deux (02) espaces préscolaires au sein des établissements de l’enseignement primaire dans la commune : LAMOUARID (Ecole centrale et l'unité scolaire tiaazat du secteur scolaire moussa bnou nossair), RELEVANT DE LA DIRECTION PROVINCIALE D'ESSAOUIRA, AREF-MS. Lot 03 : Travaux de construction de deux (02) espaces préscolaires au sein des établissements de l’enseignement primaire dans les communes : IDAOUGUELOUL ET MUNICIPALITE TAMANAR RELEVANT DE LA DIRECTION PROVINCIALE D'ESSAOUIRA, AREF-MS. Lot 04 : Travaux de construction de trois (03) espaces préscolaires au sein des établissements de l’enseignement primaire dans la commune : SMIMOU RELEVANT DE LA DIRECTION PROVINCIALE D’ESSAOUIRA, AREF-MS.",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE ESSAOUIRA",
+            "deadline": "19/02/202610:00",
+            "city": "ESSAOUIRA...ESSAOUIRA",
+            "scraped_at": "2026-01-26T12:33:19.251586"
+        },
+        {
+            "reference": "1/DPJ/2026E/T_SOCREGMULCASSETSA",
+            "original_reference": "1/DPJ/2026E/T",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :Réalisation des branchements BT dans le périmètre de la SRM-CS Direction Provinciale d’El Jadida...Réalisation des branchements BT dans le périmètre de la SRM-CS Direction Provinciale d’El Jadida",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "deadline": "...",
+            "city": "MAROCEL JADIDA...MAROC, EL JADIDA",
+            "scraped_at": "2026-01-26T12:33:19.251843"
+        },
+        {
+            "reference": "05/2026admin_COMRURB.AHMIMO",
+            "original_reference": "05/2026admin",
+            "buyer_initials": "COMRURB.AHMIMO",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVEAUX DE FORAGE ET EQUIPEMENT DES PUITS AUX DOUARS OUTIL ET AMAZAR A LA COMMUNE BNI AHMED IMOUGZEN...TRAVEAUX DE FORAGE ET EQUIPEMENT DES PUITS AUX DOUARS OUTIL ET AMAZAR A LA COMMUNE BNI AHMED IMOUGZEN",
+            "buyer": "Commune rurale de B. AHMED IMOGZAN",
+            "deadline": "18/02/202613:30",
+            "city": "AL HOCEIMA...AL HOCEIMA",
+            "scraped_at": "2026-01-26T12:33:19.251885"
+        },
+        {
+            "reference": "04/2026admin_COMRURB.AHMIMO",
+            "original_reference": "04/2026admin",
+            "buyer_initials": "COMRURB.AHMIMO",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVEAUX D’AMENAGEMENT DE DEUX PISTES, LA PISTE RELIANT LA ROUTE NATIONAL N° 8 A DOUAR ADAR SUR 2400 ML. – ET LA PISTE RELIANT LA ROUTE NATIONAL N° 8 A DOUAR IMYAYEN SUR 700 A LA COMMUNE DE BNI AHMED IMOUGZEN....TRAVEAUX D’AMENAGEMENT DE DEUX PISTES, LA PISTE RELIANT LA ROUTE NATIONAL N° 8 A DOUAR ADAR SUR 2400 ML. – ET LA PISTE RELIANT LA ROUTE NATIONAL N° 8 A DOUAR IMYAYEN SUR 700 A LA COMMUNE DE BNI AHMED IMOUGZEN.",
+            "buyer": "Commune rurale de B. AHMED IMOGZAN",
+            "deadline": "...",
+            "city": "AL HOCEIMA...AL HOCEIMA",
+            "scraped_at": "2026-01-26T12:33:19.251934"
+        },
+        {
+            "reference": "01/2026._COMMUNERURALEZAITOUNE",
+            "original_reference": "01/2026.",
+            "buyer_initials": "COMMUNERURALEZAITOUNE",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX D'AMENAGEMENT DES VOIRIES AUX DOURS DE LA COMMUNE ZAITOUNE: Dar El Khannouss, Echerrouden, Ghabt Skaf, Ahrik, Kitane, Lalla Aicha, Tob, Tob Safliya, Tob SidiFrij....TRAVAUX D'AMENAGEMENT DES VOIRIES AUX DOURS DE LA COMMUNE ZAITOUNE: Dar El Khannouss, Echerrouden, Ghabt Skaf, Ahrik, Kitane, Lalla Aicha, Tob, Tob Safliya, Tob SidiFrij.",
+            "buyer": "Commune rurale de ZAITOUNE",
+            "deadline": "18/02/202611:00",
+            "city": "TETOUAN...TETOUAN",
+            "scraped_at": "2026-01-26T12:33:19.251975"
+        },
+        {
+            "reference": "A017/RRA/2026_RABATREGIONAMENAGEMENT",
+            "original_reference": "A017/RRA/2026",
+            "buyer_initials": "RABATREGIONAMENAGEMENT",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION D’UNE EXTENSION DE L’ÉCOLE PRIMAIRE « IBN ALBAYTAR » À SKHIRAT...TRAVAUX DE CONSTRUCTION D’UNE EXTENSION DE L’ÉCOLE PRIMAIRE « IBN ALBAYTAR » À SKHIRAT",
+            "buyer": "RABAT REGION AMENAGEMENT",
+            "deadline": "...",
+            "city": "SKHIRATE-TEMARA...SKHIRATE-TEMARA",
+            "scraped_at": "2026-01-26T12:33:19.252016"
+        },
+        {
+            "reference": "08/TTH/TE/2026_ALOMRTANTETALHOC",
+            "original_reference": "08/TTH/TE/2026",
+            "buyer_initials": "ALOMRTANTETALHOC",
+            "category": "Travaux",
+            "launch_date": "22/01/2026",
+            "object": "Objet :PROJET DE CONSTRUCTION DE TROIS IMMEUBLES EN R+5 DE L’OPERATION « ACHOUROUK » AU LOTISSEMENT TAMOUDA 2, A TETOUAN...PROJET DE CONSTRUCTION DE TROIS IMMEUBLES EN R+5 DE L’OPERATION « ACHOUROUK » AU LOTISSEMENT TAMOUDA 2, A TETOUAN",
+            "buyer": "AL OMRANE TANGER TETOUAN AL HOCEIMA",
+            "deadline": "18/02/202610:00",
+            "city": "TETOUAN...TETOUAN",
+            "scraped_at": "2026-01-26T12:33:19.252058"
+        },
+        {
+            "reference": "01/2026/admin12620049_COMMUNEURBAINECHICHAOUA",
+            "original_reference": "01/2026/admin12620049",
+            "buyer_initials": "COMMUNEURBAINECHICHAOUA",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION D’UN TERRAIN DE SPORT DE PROXIMITE EN GAZON SYNTHETIQUE A HAY EL AMAL A LA VILLE DE CHICHAOUA...TRAVAUX DE CONSTRUCTION D’UN TERRAIN DE SPORT DE PROXIMITE EN GAZON SYNTHETIQUE A HAY EL AMAL A LA VILLE DE CHICHAOUA",
+            "buyer": "Commune urbaine de CHICHAOUA",
+            "deadline": "...",
+            "city": "CHICHAOUA...CHICHAOUA",
+            "scraped_at": "2026-01-26T12:33:19.252102"
+        },
+        {
+            "reference": "02/2026/admin12620049_COMMUNEURBAINECHICHAOUA",
+            "original_reference": "02/2026/admin12620049",
+            "buyer_initials": "COMMUNEURBAINECHICHAOUA",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION D’UN TERRAIN DE SPORT DE PROXIMITE EN REVETEMENT ACRYLIQUE A HAY ESS-SRAGHNA A LA VILLE DE CHICHAOUA...TRAVAUX DE CONSTRUCTION D’UN TERRAIN DE SPORT DE PROXIMITE EN REVETEMENT ACRYLIQUE A HAY ESS-SRAGHNA A LA VILLE DE CHICHAOUA",
+            "buyer": "Commune urbaine de CHICHAOUA",
+            "deadline": "18/02/202610:00",
+            "city": "CHICHAOUA...CHICHAOUA",
+            "scraped_at": "2026-01-26T12:33:19.252143"
+        },
+        {
+            "reference": "01/BP/2026_PROVINCETATA",
+            "original_reference": "01/BP/2026",
+            "buyer_initials": "PROVINCETATA",
+            "category": "Travaux",
+            "launch_date": "22/01/2026",
+            "object": "Objet :Travaux de Renforcement du Système d’AEP au douar Igdi, commune Tizounine à la province de Tata...Travaux de Renforcement du Système d’AEP au douar Igdi, commune Tizounine à la province de Tata",
+            "buyer": "Province de TATA",
+            "deadline": "...",
+            "city": "TATA...TATA",
+            "scraped_at": "2026-01-26T12:33:19.252186"
+        },
+        {
+            "reference": "02/2026/DRANEFLSH_DIRREGAGENATEAUFORLAASAKELHAM",
+            "original_reference": "02/2026/DRANEFLSH",
+            "buyer_initials": "DIRREGAGENATEAUFORLAASAKELHAM",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :L’exécution des travaux de régénération des formations autochtones sur une superficie totale de 800 ha dans le territoire de la DRANEF de Laâyoune Sakia El Hamra, répartis-en 7 lots...L’exécution des travaux de régénération des formations autochtones sur une superficie totale de 800 ha dans le territoire de la DRANEF de Laâyoune Sakia El Hamra, répartis-en 7 lots",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS LAAYOUNE SAKIA EL HAMRA",
+            "deadline": "18/02/202610:00",
+            "city": "LAAYOUNEBOUJDOUR...LAAYOUNE, BOUJDOUR, ES-SEMARA",
+            "scraped_at": "2026-01-26T12:33:19.252231"
+        },
+        {
+            "reference": "03/2026admin_COMRURB.AHMIMO",
+            "original_reference": "03/2026admin",
+            "buyer_initials": "COMRURB.AHMIMO",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION D’UN TERRAIN DE SPORT DE PROXIMITE EN GAZON SYNTHETIQUE AU DOUAR IMOUGZEN....TRAVAUX DE CONSTRUCTION D’UN TERRAIN DE SPORT DE PROXIMITE EN GAZON SYNTHETIQUE AU DOUAR IMOUGZEN.",
+            "buyer": "Commune rurale de B. AHMED IMOGZAN",
+            "deadline": "...",
+            "city": "AL HOCEIMA...AL HOCEIMA",
+            "scraped_at": "2026-01-26T12:33:19.252272"
+        },
+        {
+            "reference": "02/2026_COMMUNERURALEIJERMAOUAS",
+            "original_reference": "02/2026",
+            "buyer_initials": "COMMUNERURALEIJERMAOUAS",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX D'INSTALLATION DE POTEAUX ET CÂBLAGES POUR ÉLECTRIFICATION 1ÈRE /2ÈME CATÉGORIE AU DOUARS BOUMASSOUD ;BENI MEHSSEN ET TADDART TAZOUGAGHTE...TRAVAUX D'INSTALLATION DE POTEAUX ET CÂBLAGES POUR ÉLECTRIFICATION 1ÈRE /2ÈME CATÉGORIE AU DOUARS BOUMASSOUD ;BENI MEHSSEN ET TADDART TAZOUGAGHTE",
+            "buyer": "Commune rurale de IJERMAOUAS",
+            "deadline": "18/02/202610:00",
+            "city": "DRIOUCH...DRIOUCH",
+            "scraped_at": "2026-01-26T12:33:19.252312"
+        },
+        {
+            "reference": "A016/RRA/2026_RABATREGIONAMENAGEMENT",
+            "original_reference": "A016/RRA/2026",
+            "buyer_initials": "RABATREGIONAMENAGEMENT",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION D’UNE EXTENSION DU LYCEE MERS EL KHEIR A MERS EL KHEIR ET DU COLLEGE ABIDAR GHIFARI A YACOUB EL MANSOUR...TRAVAUX DE CONSTRUCTION D’UNE EXTENSION DU LYCEE MERS EL KHEIR A MERS EL KHEIR ET DU COLLEGE ABIDAR GHIFARI A YACOUB EL MANSOUR",
+            "buyer": "RABAT REGION AMENAGEMENT",
+            "deadline": "...",
+            "city": "RABAT...RABAT",
+            "scraped_at": "2026-01-26T12:33:19.252354"
+        },
+        {
+            "reference": "03/2026/CUAO_COMURBAITOUR",
+            "original_reference": "03/2026/CUAO",
+            "buyer_initials": "COMURBAITOUR",
+            "category": "Travaux",
+            "launch_date": "22/01/2026",
+            "object": "Objet :•Travaux de renforcement des voies du quartier ancien « Ezzaitoune » Tranche I. •Travaux de mise à niveau du quartier « Almassira » à travers le revêtement des ruelles et de renforcement des voies. à la Commune Ait...•Travaux de renforcement des voies du quartier ancien « Ezzaitoune » Tranche I. •Travaux de mise à niveau du quartier « Almassira » à travers le revêtement des ruelles et de renforcement des voies. à la Commune Ait Ourir, relevant de la Province Al Haouz.",
+            "buyer": "Commune urbaine de AIT OURIR",
+            "deadline": "18/02/202610:00",
+            "city": "AL HAOUZ...AL HAOUZ",
+            "scraped_at": "2026-01-26T12:33:19.252399"
+        },
+        {
+            "reference": "07/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "07/2026/ORMVAL",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :REALISATION DES TRAVAUX DES RESEAUX DE PISTES ET OUVRAGES ANNEXES AU NIVEAU DES SECTEURS IRRIGUES D3 ET D4 DE LA PLAINE RIVE DROITE DU PERIMETRE DU LOUKKOS...REALISATION DES TRAVAUX DES RESEAUX DE PISTES ET OUVRAGES ANNEXES AU NIVEAU DES SECTEURS IRRIGUES D3 ET D4 DE LA PLAINE RIVE DROITE DU PERIMETRE DU LOUKKOS",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "deadline": "...",
+            "city": "LARACHE...LARACHE",
+            "scraped_at": "2026-01-26T12:33:19.252441"
+        },
+        {
+            "reference": "02/INV/2026_CHAGESDELPRONOU",
+            "original_reference": "02/INV/2026",
+            "buyer_initials": "CHAGESDELPRONOU",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DE SIX SALLES DE PRESCOLAIRE A L’ECOLE PRIMAIRE IBN BATOUTA A LA COMMUNE TERRITORIALE DAR BOUAZZA RELEVANT DE LA DIRECTION PROVINCIALE NOUACEUR AU TITRE DE L'EXERCICE 2026...TRAVAUX DE CONSTRUCTION DE SIX SALLES DE PRESCOLAIRE A L’ECOLE PRIMAIRE IBN BATOUTA A LA COMMUNE TERRITORIALE DAR BOUAZZA RELEVANT DE LA DIRECTION PROVINCIALE NOUACEUR AU TITRE DE L'EXERCICE 2026",
+            "buyer": "CHARGE DE LA GESTION DE LA DELEGATION A LA PROVINCE NOUASSER",
+            "deadline": "18/02/202610:00",
+            "city": "NOUACEUR...NOUACEUR",
+            "scraped_at": "2026-01-26T12:33:19.252486"
+        },
+        {
+            "reference": "09/KS/2026_DIRPROL’ENATKELESSRA",
+            "original_reference": "09/KS/2026",
+            "buyer_initials": "DIRPROL’ENATKELESSRA",
+            "category": "Travaux",
+            "launch_date": "25/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DE L’ECOLE PRIMAIRE ACHAHID AHMED TOUGUI A LA COMMUNE EL KELAA DES SRAGHNA, PROVINCE EL KELAA DES SRAGHNA....TRAVAUX DE CONSTRUCTION DE L’ECOLE PRIMAIRE ACHAHID AHMED TOUGUI A LA COMMUNE EL KELAA DES SRAGHNA, PROVINCE EL KELAA DES SRAGHNA.",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE KELAA ES-SRAGHNA",
+            "deadline": "...",
+            "city": "Province de Kelaa des Sraghnas...Province de Kelaa des Sraghnas",
+            "scraped_at": "2026-01-26T12:33:19.252534"
+        },
+        {
+            "reference": "02/2026/CAS_COMMUNEASRIR",
+            "original_reference": "02/2026/CAS",
+            "buyer_initials": "COMMUNEASRIR",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE MISE A NIVEAU URBAINE DES QUARTIERS SOUS EQUIPES DE LA COMMUNE TERRITORIALE D’ASRIR-PROVINCE DE GUELMIM...TRAVAUX DE MISE A NIVEAU URBAINE DES QUARTIERS SOUS EQUIPES DE LA COMMUNE TERRITORIALE D’ASRIR-PROVINCE DE GUELMIM",
+            "buyer": "Commune d' ASRIR",
+            "deadline": "18/02/202610:00",
+            "city": "GUELMIM...GUELMIM",
+            "scraped_at": "2026-01-26T12:33:19.252575"
+        },
+        {
+            "reference": "06/2026/DPAT_DIRPROAGRTAO",
+            "original_reference": "06/2026/DPAT",
+            "buyer_initials": "DIRPROAGRTAO",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX DE PLANTATION DE 600 HA DE L’OLIVIER AU NIVEAU DE LA COMMUNE TERRITORIALE DE SIDI ALI BELKACEM RELEVANT DE LA PROVINCE DE TAOURIRT DANS LE CADRE DU PROJET D’AGRICULTURE SOLIDAIRE DE DIVERSIFICATION DES SYSTEMES DE...TRAVAUX DE PLANTATION DE 600 HA DE L’OLIVIER AU NIVEAU DE LA COMMUNE TERRITORIALE DE SIDI ALI BELKACEM RELEVANT DE LA PROVINCE DE TAOURIRT DANS LE CADRE DU PROJET D’AGRICULTURE SOLIDAIRE DE DIVERSIFICATION DES SYSTEMES DE PRODUCTION ET PROMOTION DE L’EMPLOI AU NIVEAU DE LA ZONE D’ACTION DE LA DPA DE TAOURIRT.",
+            "buyer": "Direction Provinciale de l'Agriculture de Taourirt",
+            "deadline": "...",
+            "city": "TAOURIRT...TAOURIRT",
+            "scraped_at": "2026-01-26T12:33:19.252627"
+        },
+        {
+            "reference": "02/2026/CBM_COMMUNEBENIMELLAL",
+            "original_reference": "02/2026/CBM",
+            "buyer_initials": "COMMUNEBENIMELLAL",
+            "category": "Travaux",
+            "launch_date": "22/01/2026",
+            "object": "Objet :TRAVAUX D’ENTRETIEN COURANT DES VOIES A LA VILLE DE BENI MELLAL...TRAVAUX D’ENTRETIEN COURANT DES VOIES A LA VILLE DE BENI MELLAL",
+            "buyer": "COMMUNE BENI MELLAL",
+            "deadline": "18/02/202610:00",
+            "city": "BENI MELLAL...BENI MELLAL",
+            "scraped_at": "2026-01-26T12:33:19.252666"
+        },
+        {
+            "reference": "05/BG/2026_GOUVERNEURPROVINCETINGHIR",
+            "original_reference": "05/BG/2026",
+            "buyer_initials": "GOUVERNEURPROVINCETINGHIR",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX D’INSTALLATION ET MISE EN SERVICE D’UNE CENTRALE SOLAIRE PHOTOVOLTAÏQUE AU SIEGE DE LA PROVINCE DE TINGHIR...TRAVAUX D’INSTALLATION ET MISE EN SERVICE D’UNE CENTRALE SOLAIRE PHOTOVOLTAÏQUE AU SIEGE DE LA PROVINCE DE TINGHIR",
+            "buyer": "Gouverneur de la Province de Tinghir",
+            "deadline": "...",
+            "city": "Préfecture de Tinghir...Préfecture de Tinghir",
+            "scraped_at": "2026-01-26T12:33:19.252709"
+        },
+        {
+            "reference": "KE01/2026_DIRPROEQUTRALOGKEN",
+            "original_reference": "KE01/2026",
+            "buyer_initials": "DIRPROEQUTRALOGKEN",
+            "category": "Travaux",
+            "launch_date": "22/01/2026",
+            "object": "Objet :Travaux de renforcement de la RP 4201 du PK43+000 (Ex PK30+000) au PK58+000 (Ex PK15+000) dans La Province de Kenitra...Travaux de renforcement de la RP 4201 du PK43+000 (Ex PK30+000) au PK58+000 (Ex PK15+000) dans La Province de Kenitra",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'EQUIPEMENT, DU TRANSPORT ET DE LA LOGISTIQUE DE KENITRA",
+            "deadline": "18/02/202610:00",
+            "city": "KENITRA...KENITRA",
+            "scraped_at": "2026-01-26T12:33:19.252759"
+        },
+        {
+            "reference": "01/CPBM/2026_CONPROBENMEL",
+            "original_reference": "01/CPBM/2026",
+            "buyer_initials": "CONPROBENMEL",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DE SIX (06) TERRAINS DE PROXIMITE AUX COMMUNES : -SEMGUET – KASBAT TADLA – NAOUR – BOUTFERDA – ZAOUIT CHEIKH – AIT OUM EL BAKHT - PROVINCE DE BENI MELLAL...TRAVAUX DE CONSTRUCTION DE SIX (06) TERRAINS DE PROXIMITE AUX COMMUNES : -SEMGUET – KASBAT TADLA – NAOUR – BOUTFERDA – ZAOUIT CHEIKH – AIT OUM EL BAKHT - PROVINCE DE BENI MELLAL",
+            "buyer": "CONSEIL PROVINCIAL DE BENI MELLAL",
+            "deadline": "...",
+            "city": "BENI MELLAL...BENI MELLAL",
+            "scraped_at": "2026-01-26T12:33:19.252807"
+        },
+        {
+            "reference": "47/2026/APDN_AGEPOUPRODEVECOSOCPREPRONORROY",
+            "original_reference": "47/2026/APDN",
+            "buyer_initials": "AGEPOUPRODEVECOSOCPREPRONORROY",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE REMPLACEMENT DE 05 CLASSES SCOLAIRES DANS LA COMMUNE DE BNI FTAH– PROVINCE DE TAZA « EN LOT UNIQUE »...TRAVAUX DE REMPLACEMENT DE 05 CLASSES SCOLAIRES DANS LA COMMUNE DE BNI FTAH– PROVINCE DE TAZA « EN LOT UNIQUE »",
+            "buyer": "AGENCE POUR LA PROMOTION ET LE DEVELOPPEMENT ECONOMIQUE ET SOCIAL DES PREFECTURES ET PROVINCES DU NORD DU ROYAUME",
+            "deadline": "18/02/202609:00",
+            "city": "Province d'Al HoceimaProvince de Tanounate...Province d'Al Hoceima, Province de Tanounate, Province de Taza, Wilaya de Tetouan, Wilaya de Tanger Assilah, Province de Larache, Préfecture de Fahs Bni Makada, Province de Chefchaouen , Province Ouezzane",
+            "scraped_at": "2026-01-26T12:33:19.252853"
+        },
+        {
+            "reference": "01/INV/2026_CHAGESDELPRONOU",
+            "original_reference": "01/INV/2026",
+            "buyer_initials": "CHAGESDELPRONOU",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DE SIX SALLES DE PRESCOLAIRE A L’ECOLE PRIMAIRE IBN EL HAYTAM A LA COMMUNE TERRITORIALE DAR BOUAZZA RELEVANT DE LA DIRECTION PROVINCIALE NOUACEUR AU TITRE DE L'EXERCICE 2026...TRAVAUX DE CONSTRUCTION DE SIX SALLES DE PRESCOLAIRE A L’ECOLE PRIMAIRE IBN EL HAYTAM A LA COMMUNE TERRITORIALE DAR BOUAZZA RELEVANT DE LA DIRECTION PROVINCIALE NOUACEUR AU TITRE DE L'EXERCICE 2026",
+            "buyer": "CHARGE DE LA GESTION DE LA DELEGATION A LA PROVINCE NOUASSER",
+            "deadline": "...",
+            "city": "NOUACEUR...NOUACEUR",
+            "scraped_at": "2026-01-26T12:33:19.252899"
+        },
+        {
+            "reference": "A015/RRA/2026_RABATREGIONAMENAGEMENT",
+            "original_reference": "A015/RRA/2026",
+            "buyer_initials": "RABATREGIONAMENAGEMENT",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DE LA MAISON DE JEUNE LAMRISSA SALE...TRAVAUX DE CONSTRUCTION DE LA MAISON DE JEUNE LAMRISSA SALE",
+            "buyer": "RABAT REGION AMENAGEMENT",
+            "deadline": "18/02/202609:00",
+            "city": "SALE...SALE",
+            "scraped_at": "2026-01-26T12:33:19.252936"
+        },
+        {
+            "reference": "30/DAILEX2526_SOCNATCOMSEM",
+            "original_reference": "30/DAILEX2526",
+            "buyer_initials": "SOCNATCOMSEM",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :l’exécution des travaux de reprise d’une partie du génie civil d’un pont bascule existant au centre régional de la SONACOS à FKIH BEN SALEH...l’exécution des travaux de reprise d’une partie du génie civil d’un pont bascule existant au centre régional de la SONACOS à FKIH BEN SALEH",
+            "buyer": "SOCIETE NATIONALE DE COMMERCIALISATION DES SEMENCES",
             "deadline": "...",
             "city": "FQUIH BEN SALAH...FQUIH BEN SALAH",
-            "scraped_at": "2026-01-18T03:03:42.982983"
+            "scraped_at": "2026-01-26T12:33:19.252980"
         },
         {
-            "reference": "01/2026_ETACOOINTCHAALGHA",
-            "original_reference": "01/2026",
-            "buyer_initials": "ETACOOINTCHAALGHA",
+            "reference": "08/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "08/2026/ORMVAL",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
             "category": "Travaux",
-            "launch_date": "14/01/2026",
-            "object": "Objet :FOURNITURE ET POSE DE POTEAUX D’ARRET DE BUS DANS LE PERIMETRE DE L’EXPLOITATION DE LA DÉLÉGATION DE SERVICE PUBLIC DE TRANSPORT EN COMMUN PAR AUTOBUS DE L’ETABLISSEMENT DE COOPERATION INTERCOMMUNALE « ACHAMAL AL GHARBI...FOURNITURE ET POSE DE POTEAUX D’ARRET DE BUS DANS LE PERIMETRE DE L’EXPLOITATION DE LA DÉLÉGATION DE SERVICE PUBLIC DE TRANSPORT EN COMMUN PAR AUTOBUS DE L’ETABLISSEMENT DE COOPERATION INTERCOMMUNALE « ACHAMAL AL GHARBI ».",
-            "buyer": "ETABLISSEMENT DE COOPERATAION INTERCOMMUNALE CHAMAL AL GHARBI",
-            "deadline": "...",
-            "city": "MDIQ-FNIDEQTETOUAN...MDIQ-FNIDEQ, TETOUAN",
-            "scraped_at": "2026-01-18T03:03:42.993719"
+            "launch_date": "23/01/2026",
+            "object": "Objet :Travaux de construction des routes par revêtement superficiel au niveau des secteurs irrigués E1 et BC relevant du périmètre du Loukkos...Travaux de construction des routes par revêtement superficiel au niveau des secteurs irrigués E1 et BC relevant du périmètre du Loukkos",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "deadline": "17/02/202614:30",
+            "city": "LARACHE...LARACHE",
+            "scraped_at": "2026-01-26T12:33:19.253021"
         },
         {
-            "reference": "02/2026_SOCALOMRDRATAF",
+            "reference": "07/2026/KTRA_ALOMRRABSALKEN",
+            "original_reference": "07/2026/KTRA",
+            "buyer_initials": "ALOMRRABSALKEN",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX D'ACHEVEMENT DES AMENAGEMENTS DES ABORDS ET DES ESPACES VERTS DES OPERATIONS AL WAFAE 4-1, AL WAFAE 4-2, AL AMAL 1 ET AL AMAL 2 A KENITRA...TRAVAUX D'ACHEVEMENT DES AMENAGEMENTS DES ABORDS ET DES ESPACES VERTS DES OPERATIONS AL WAFAE 4-1, AL WAFAE 4-2, AL AMAL 1 ET AL AMAL 2 A KENITRA",
+            "buyer": "AL OMRANE RABAT SALE KENITRA",
+            "deadline": "...",
+            "city": "KENITRA...KENITRA",
+            "scraped_at": "2026-01-26T12:33:19.253063"
+        },
+        {
+            "reference": "009/2026/SRMCS_SOCREGMULCASSETSA",
+            "original_reference": "009/2026/SRMCS",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :Travaux de raccordement et de renforcement du réseau HTA pour le compte de la SRM-CS...Travaux de raccordement et de renforcement du réseau HTA pour le compte de la SRM-CS",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "deadline": "17/02/202614:30",
+            "city": "CASABLANCAMOHAMMADIA...CASABLANCA, MOHAMMADIA",
+            "scraped_at": "2026-01-26T12:33:19.253104"
+        },
+        {
+            "reference": "45/2026/APDN_AGEPOUPRODEVECOSOCPREPRONORROY",
+            "original_reference": "45/2026/APDN",
+            "buyer_initials": "AGEPOUPRODEVECOSOCPREPRONORROY",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DE 09 CLASSES PRESCOLAIRES DANS LA COMMUNE DE BOADEL-AIN MEDIOUNA ET TIMZGANA– PROVINCE DE TAOUNATE « LOT UNIQUE »...TRAVAUX DE CONSTRUCTION DE 09 CLASSES PRESCOLAIRES DANS LA COMMUNE DE BOADEL-AIN MEDIOUNA ET TIMZGANA– PROVINCE DE TAOUNATE « LOT UNIQUE »",
+            "buyer": "AGENCE POUR LA PROMOTION ET LE DEVELOPPEMENT ECONOMIQUE ET SOCIAL DES PREFECTURES ET PROVINCES DU NORD DU ROYAUME",
+            "deadline": "...",
+            "city": "Province d'Al HoceimaProvince de Tanounate...Province d'Al Hoceima, Province de Tanounate, Province de Taza, Wilaya de Tetouan, Wilaya de Tanger Assilah, Province de Larache, Préfecture de Fahs Bni Makada, Province de Chefchaouen , Province Ouezzane",
+            "scraped_at": "2026-01-26T12:33:19.253151"
+        },
+        {
+            "reference": "02/2026_COMMUNETAGHJIJT",
             "original_reference": "02/2026",
-            "buyer_initials": "SOCALOMRDRATAF",
+            "buyer_initials": "COMMUNETAGHJIJT",
             "category": "Travaux",
-            "launch_date": "16/01/2026",
-            "object": "Objet :TRAVAUX DE CONSTRUCTION TCE DE DAR AL OUMOUMA SIS A LA COMMUNE DE BOUDNIB PROVINCE D’ERRACHIDIA...TRAVAUX DE CONSTRUCTION TCE DE DAR AL OUMOUMA SIS A LA COMMUNE DE BOUDNIB PROVINCE D’ERRACHIDIA",
-            "buyer": "Société AL Omrane Draa-Tafilalet",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TRAVAUX DE MISE A NIVEAU URBAINEDES QUARTIERS SOUS EQUIPES DE LA COM MUNE TERRITORIALE TAGHJIJT PROVINCE GUELMIM...TRAVAUX DE MISE A NIVEAU URBAINEDES QUARTIERS SOUS EQUIPES DE LA COM MUNE TERRITORIALE TAGHJIJT PROVINCE GUELMIM",
+            "buyer": "Commune TAGHJIJT",
+            "deadline": "17/02/202613:00",
+            "city": "GUELMIM...GUELMIM",
+            "scraped_at": "2026-01-26T12:33:19.253192"
+        },
+        {
+            "reference": "07/TTH/HO/2026_ALOMRTANTETALHOC",
+            "original_reference": "07/TTH/HO/2026",
+            "buyer_initials": "ALOMRTANTETALHOC",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX DE RESEAU TELEPHONIQUE DU LOTISSEMENT BLED TALAROIK TR 3 (LOT : CABLAGE), A LA COMMUNE D’ISSAGUEN PROVINCE AL HOCEIMA...TRAVAUX DE RESEAU TELEPHONIQUE DU LOTISSEMENT BLED TALAROIK TR 3 (LOT : CABLAGE), A LA COMMUNE D’ISSAGUEN PROVINCE AL HOCEIMA",
+            "buyer": "AL OMRANE TANGER TETOUAN AL HOCEIMA",
+            "deadline": "17/02/202612:00",
+            "city": "AL HOCEIMA...AL HOCEIMA",
+            "scraped_at": "2026-01-26T12:33:19.253274"
+        },
+        {
+            "reference": "02/2026/CUAO_COMURBAITOUR",
+            "original_reference": "02/2026/CUAO",
+            "buyer_initials": "COMURBAITOUR",
+            "category": "Travaux",
+            "launch_date": "22/01/2026",
+            "object": "Objet :•Travaux de revêtement et de renforcement des voies du quartier administratif (Lotissement « Tafoukt », Lotissement « Ait Ourir » et Lotissement « Alhaouz »). •Travaux d’aménagement de la voie nommé (SOUK...•Travaux de revêtement et de renforcement des voies du quartier administratif (Lotissement « Tafoukt », Lotissement « Ait Ourir » et Lotissement « Alhaouz »). •Travaux d’aménagement de la voie nommé (SOUK ENESSA). à la Commune Ait Ourir, relevant de la Province Al Haouz.",
+            "buyer": "Commune urbaine de AIT OURIR",
             "deadline": "...",
-            "city": "ERRACHIDIA...ERRACHIDIA",
-            "scraped_at": "2026-01-18T03:03:42.998687"
+            "city": "AL HAOUZ...AL HAOUZ",
+            "scraped_at": "2026-01-26T12:33:19.253321"
         },
         {
-            "reference": "03/2026_SOCALOMRDRATAF",
-            "original_reference": "03/2026",
-            "buyer_initials": "SOCALOMRDRATAF",
+            "reference": "01/WRLSH/BG/2026_WALREGLAASAKELHAMGOUPROLAA",
+            "original_reference": "01/WRLSH/BG/2026",
+            "buyer_initials": "WALREGLAASAKELHAMGOUPROLAA",
             "category": "Travaux",
-            "launch_date": "16/01/2026",
-            "object": "Objet :TRAVAUX DE CONSTRUCTION TCE DE DAR AL OUMOUMA SIS A LA COMMUNE D’AMELLAGOU PROVINCE D’ERRACHIDIA...TRAVAUX DE CONSTRUCTION TCE DE DAR AL OUMOUMA SIS A LA COMMUNE D’AMELLAGOU PROVINCE D’ERRACHIDIA",
-            "buyer": "Société AL Omrane Draa-Tafilalet",
-            "deadline": "10/02/202613:00",
-            "city": "ERRACHIDIA...ERRACHIDIA",
-            "scraped_at": "2026-01-18T03:03:42.998910"
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX DE REVÊTEMENT DE SOL EN RÉSINE ÉPOXY AU NIVEAU DES ENTREPÔTS DE LA PLATEFORME RÉGIONALE DE RÉSERVES DE PREMIÈRE NÉCESSITE A LA PROVINCE DE LAÂYOUNE - RÉGION DE LAÂYOUNE SAKIA EL HAMRA...TRAVAUX DE REVÊTEMENT DE SOL EN RÉSINE ÉPOXY AU NIVEAU DES ENTREPÔTS DE LA PLATEFORME RÉGIONALE DE RÉSERVES DE PREMIÈRE NÉCESSITE A LA PROVINCE DE LAÂYOUNE - RÉGION DE LAÂYOUNE SAKIA EL HAMRA",
+            "buyer": "WALI DE LA REGION LAAYOUNE SAKIA EL HAMRA ET GOUVERNEUR DE LA PROVINCE DE LAAYOUNE",
+            "deadline": "17/02/202612:00",
+            "city": "Wialya de Laayoune...Wialya de Laayoune",
+            "scraped_at": "2026-01-26T12:33:19.253370"
         },
         {
-            "reference": "01/2026_COMURBAITBAH",
+            "reference": "AO07/2026/DPA/IFRANE.._DIRPROAGRIFR",
+            "original_reference": "AO07/2026/DPA/IFRANE..",
+            "buyer_initials": "DIRPROAGRIFR",
+            "category": "Travaux",
+            "launch_date": "22/01/2026",
+            "object": "Objet :REALISATION DES TRAVAUX D’AMENAGEMENT HYDRO-AGRICOLE PAR LA CONSTRUCTION DES SEGUIAS AU NIVEAU DES PERIMETRES DE PETITE ET MOYENNE HYDRAULIQUE DANS LA ZONE D’ACTION DE LA DPA D’IFRANE, DANS LE CADRE DU PROGRAMME DE...REALISATION DES TRAVAUX D’AMENAGEMENT HYDRO-AGRICOLE PAR LA CONSTRUCTION DES SEGUIAS AU NIVEAU DES PERIMETRES DE PETITE ET MOYENNE HYDRAULIQUE DANS LA ZONE D’ACTION DE LA DPA D’IFRANE, DANS LE CADRE DU PROGRAMME DE REVITALISATION DES TERRITOIRES RURAUX MAROCAINS PAR L’EMPLOI ET L’ENTREPRENARIAT DANS LE SECTEUR AGRICOLE ET PARA-AGRICOLE, PROJET DE L’AGRICULTURE SOLIDAIRE D’OUED IFRANE, PROVINCE D’IFRANE, CINQ LOTS : ▪ LOT 1 : REALISATION DES TRAVAUX D'AMENAGEMENT HYDRO-AGRICOLE PAR LA CONSTRUCTION DE LA SEGUIA TIMZOGHTEAU AU NIVEAU DU PERIMETRE DE PETITE ET MOYENNE HYDRAULIQUE DE SENOUAL, DANS LE CADRE DU PROGRAMME DE REVITALISATION DES TERRITOIRES RURAUX MAROCAINS PAR L’EMPLOI ET L’ENTREPRENARIAT DANS LE SECTEUR AGRICOLE ET PARA-AGRICOLE, PROJET DE L’AGRICULTURE SOLIDAIRE D’OUED IFRANE, PROVINCE D’IFRANE. ▪ LOT 2 : REALISATION DES TRAVAUX D'AMENAGEMENT HYDRO-AGRICOLE PAR LA CONSTRUCTION DE LA SEGUIA LAHNAK N'TE RCHID AU NIVEAU DU PERIMETRE DE PETITE ET MOYENNE HYDRAULIQUE DE SENOUAL, DANS LE CADRE DU PROGRAMME DE REVITALISATION DES TERRITOIRES RURAUX MAROCAINS PAR L’EMPLOI ET L’ENTREPRENARIAT DANS LE SECTEUR AGRICOLE ET PARA-AGRICOLE, PROJET DE L’AGRICULTURE SOLIDAIRE D’OUED IFRANE, PROVINCE D’IFRANE. ▪ LOT 3 : REALISATION DES TRAVAUX D'AMENAGEMENT HYDRO-AGRICOLE PAR LA CONSTRUCTION DE LA SEGUIA AGHBALOU NIT RAHOU TIZOUGUAGHIN AU NIVEAU DU PERIMETRE DE PETITE ET MOYENNE HYDRAULIQUE DE SENOUAL, DANS LE CADRE DU PROGRAMME DE REVITALISATION DES TERRITOIRES RURAUX MAROCAINS PAR L’EMPLOI ET L’ENTREPRENARIAT DANS LE SECTEUR AGRICOLE ET PARA-AGRICOLE, PROJET DE L’AGRICULTURE SOLIDAIRE D’OUED IFRANE, PROVINCE D’IFRANE. ▪ LOT 4 : REALISATION DES TRAVAUX D'AMENAGEMENT HYDRO-AGRICOLE PAR LA CONSTRUCTION DES SEGUIAS BERRAHOU NIVEAU DU PERIMETRE DE PETITE ET MOYENNE HYDRAULIQUE DE SENOUAL, DANS LE CADRE DU PROGRAMME DE REVITALISATION DES TERRITOIRES RURAUX MAROCAINS PAR L’EMPLOI ET L’ENTREPRENARIAT DANS LE SECTEUR AGRICOLE ET PARA-AGRICOLE, PROJET DE L’AGRICULTURE SOLIDAIRE D’OUED IFRANE, PROVINCE D’IFRANE. ▪ LOT 5 : REALISATION DES TRAVAUX D'AMENAGEMENT HYDRO-AGRICOLE PAR LA CONSTRUCTION DE LA SEGUIA AGDAL ZAD AU NIVEAU DU PERIMETRE DE PETITE ET MOYENNE HYDRAULIQUE DE SENOUAL, DANS LE CADRE DU PROGRAMME DE REVITALISATION DES TERRITOIRES RURAUX MAROCAINS PAR L’EMPLOI ET L’ENTREPRENARIAT DANS LE SECTEUR AGRICOLE ET PARA-AGRICOLE, PROJET DE L’AGRICULTURE SOLIDAIRE D’OUED IFRANE, PROVINCE D’IFRANE.",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE IFRANE",
+            "deadline": "...",
+            "city": "IFRANE...IFRANE",
+            "scraped_at": "2026-01-26T12:33:19.253448"
+        },
+        {
+            "reference": "01/2026_COMMUNERURALELAGHNADRA",
             "original_reference": "01/2026",
-            "buyer_initials": "COMURBAITBAH",
+            "buyer_initials": "COMMUNERURALELAGHNADRA",
             "category": "Travaux",
-            "launch_date": "07/01/2026",
-            "object": "Objet :TRAVAUX DE CONSTRUCTION D'UN CENTRE SOCIO-SPORTIF DE PROXIMITE A LA COMMUNE AIT BAHA PROVINCE CHTOUKA AIT BAHA...TRAVAUX DE CONSTRUCTION D'UN CENTRE SOCIO-SPORTIF DE PROXIMITE A LA COMMUNE AIT BAHA PROVINCE CHTOUKA AIT BAHA",
-            "buyer": "Commune urbaine de AIT BAHA",
-            "deadline": "10/02/202610:30",
-            "city": "CHTOUKA-AIT BAHA...CHTOUKA-AIT BAHA",
-            "scraped_at": "2026-01-18T03:03:43.008238"
+            "launch_date": "19/01/2026",
+            "object": "Objet :REFECTION ET RENFORCEMENT DES PISTES DES DOUARS SUIVANTS : LAMNAKRA HADDADA-SHAMATE , OULED BEN CHAOUI , LAATAMNA , MNAKRA SMAMRA A LA COMMUNE LAGHNADRA...REFECTION ET RENFORCEMENT DES PISTES DES DOUARS SUIVANTS : LAMNAKRA HADDADA-SHAMATE , OULED BEN CHAOUI , LAATAMNA , MNAKRA SMAMRA A LA COMMUNE LAGHNADRA",
+            "buyer": "Commune rurale de LAGHNADRA",
+            "deadline": "...",
+            "city": "SIDI BENNOUR...SIDI BENNOUR",
+            "scraped_at": "2026-01-26T12:33:19.253679"
         },
         {
-            "reference": "01/2026_SOCALOMRMARSAF",
-            "original_reference": "01/2026",
-            "buyer_initials": "SOCALOMRMARSAF",
+            "reference": "04/INV/2026_DIRPROL’ENATMAR",
+            "original_reference": "04/INV/2026",
+            "buyer_initials": "DIRPROL’ENATMAR",
             "category": "Travaux",
-            "launch_date": "14/01/2026",
-            "object": "Objet :LA MISE EN PLACE DES KIOSQUES ET TOILETTES MODULAIRES A L’ANCIENNE MEDINA D’ESSAOUIRA DANS LE CADRE PROGRAMME COMPLEMENTAIRE DE REHABILITATION ET DE MISE EN VALEUR DE L’ANCIENNE MEDINA D’ESSAOUIRA 2019 – 2023....LA MISE EN PLACE DES KIOSQUES ET TOILETTES MODULAIRES A L’ANCIENNE MEDINA D’ESSAOUIRA DANS LE CADRE PROGRAMME COMPLEMENTAIRE DE REHABILITATION ET DE MISE EN VALEUR DE L’ANCIENNE MEDINA D’ESSAOUIRA 2019 – 2023.",
-            "buyer": "SOCIETE AL OMRANE MARRAKECH - SAFI",
-            "deadline": "10/02/202610:30",
-            "city": "ESSAOUIRA...ESSAOUIRA",
-            "scraped_at": "2026-01-18T03:03:43.008858"
+            "launch_date": "20/01/2026",
+            "object": "Objet :Travaux de construction des établissements scolaires de l’enseignement secondaire relevant de la direction provinciale de Marrakech en trois lots séparés : • Lot N°01: Travaux de construction du Lycée qualifiant OULAD...Travaux de construction des établissements scolaires de l’enseignement secondaire relevant de la direction provinciale de Marrakech en trois lots séparés : • Lot N°01: Travaux de construction du Lycée qualifiant OULAD HASSOUN (C.T OULAD HASSOUN) à MARRAKECH. • Lot N°02: Travaux de construction du lycée collégial ALYASSEMINE (C.T MENARA) à MARRAKECH. • Lot N°03: Travaux de construction du lycée qualifiant ALWIDANE (C.T ALWIDANE) à MARRAKECH.",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MARRAKECH",
+            "deadline": "17/02/202612:00",
+            "city": "MARRAKECH...MARRAKECH",
+            "scraped_at": "2026-01-26T12:33:19.253730"
         },
         {
-            "reference": "01/2026_COMRURSIDBOU",
-            "original_reference": "01/2026",
-            "buyer_initials": "COMRURSIDBOU",
+            "reference": "16/2026/SAO_SOCALOREGL’O",
+            "original_reference": "16/2026/SAO",
+            "buyer_initials": "SOCALOREGL’O",
             "category": "Travaux",
-            "launch_date": "07/01/2026",
-            "object": "Objet :RÉALISATION DES FORAGES DE RECONNAISSANCE A DOUAR HOUZMER ET DOUAR OULED ALI BEN YAHYA A LA COMMUNE DE SIDI BOULANOUAR– PRÉFECTURE OUJDA ANGAD...RÉALISATION DES FORAGES DE RECONNAISSANCE A DOUAR HOUZMER ET DOUAR OULED ALI BEN YAHYA A LA COMMUNE DE SIDI BOULANOUAR– PRÉFECTURE OUJDA ANGAD",
-            "buyer": "Commune rurale de SIDI BOULENOIR",
-            "deadline": "10/02/202610:00",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX D’ALIMENTATION HORS SITE D’ECLAIRAGE PUBLIC DE LA ROUTE NATIONALE N° 16 SECTION TAOUIMA - ARKMANE - LOT ECLAIRAGE PUBLIC -PROVINCE DE NADOR-....TRAVAUX D’ALIMENTATION HORS SITE D’ECLAIRAGE PUBLIC DE LA ROUTE NATIONALE N° 16 SECTION TAOUIMA - ARKMANE - LOT ECLAIRAGE PUBLIC -PROVINCE DE NADOR-.",
+            "buyer": "SOCIETE ALOMRANE REGION DE L’ORIENTAL",
+            "deadline": "...",
+            "city": "NADOR...NADOR",
+            "scraped_at": "2026-01-26T12:33:19.253784"
+        },
+        {
+            "reference": "44/2026/APDN_AGEPOUPRODEVECOSOCPREPRONORROY",
+            "original_reference": "44/2026/APDN",
+            "buyer_initials": "AGEPOUPRODEVECOSOCPREPRONORROY",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DE 08 CLASSES PRESCOLAIRES DANS LA COMMUNES DE TAFRANT ET KISSANE – PROVINCE DE TAOUNATE « LOT UNIQUE »...TRAVAUX DE CONSTRUCTION DE 08 CLASSES PRESCOLAIRES DANS LA COMMUNES DE TAFRANT ET KISSANE – PROVINCE DE TAOUNATE « LOT UNIQUE »",
+            "buyer": "AGENCE POUR LA PROMOTION ET LE DEVELOPPEMENT ECONOMIQUE ET SOCIAL DES PREFECTURES ET PROVINCES DU NORD DU ROYAUME",
+            "deadline": "17/02/202612:00",
+            "city": "Province d'Al HoceimaProvince de Tanounate...Province d'Al Hoceima, Province de Tanounate, Province de Taza, Wilaya de Tetouan, Wilaya de Tanger Assilah, Province de Larache, Préfecture de Fahs Bni Makada, Province de Chefchaouen , Province Ouezzane",
+            "scraped_at": "2026-01-26T12:33:19.253829"
+        },
+        {
+            "reference": "02/OLT/2026_SOCDEVOUJLITAHSA",
+            "original_reference": "02/OLT/2026",
+            "buyer_initials": "SOCDEVOUJLITAHSA",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DE LA ROUTE NON CLASSEE LAMAARDA SUR 5 KM ENVIRON AU NIVEAU DE LA COMMUNE BSARA - PREFECTURE D’OUJDA-ANGAD...TRAVAUX DE CONSTRUCTION DE LA ROUTE NON CLASSEE LAMAARDA SUR 5 KM ENVIRON AU NIVEAU DE LA COMMUNE BSARA - PREFECTURE D’OUJDA-ANGAD",
+            "buyer": "SOCIETE DE DEVELOPPEMENT OUJDA LI TAHYIAA. SA",
+            "deadline": "...",
             "city": "OUJDA-ANGAD...OUJDA-ANGAD",
-            "scraped_at": "2026-01-18T03:03:43.017448"
+            "scraped_at": "2026-01-26T12:33:19.253874"
         },
         {
-            "reference": "01/2026_C.T.IGLI",
-            "original_reference": "01/2026",
-            "buyer_initials": "C.T.IGLI",
+            "reference": "06/2026/S2A_SOCDÉVLOCAGASOUMASAMÉSA",
+            "original_reference": "06/2026/S2A",
+            "buyer_initials": "SOCDÉVLOCAGASOUMASAMÉSA",
             "category": "Travaux",
-            "launch_date": "12/01/2026",
-            "object": "Objet :CONSTRUCTION D’UN MUR DE CLOTURE D’UN TERRAIN DE FOOTBALL AU DOUAR SIDI AHMED COMMUNE IGLI, PROVINCE DE TAROUDANT...CONSTRUCTION D’UN MUR DE CLOTURE D’UN TERRAIN DE FOOTBALL AU DOUAR SIDI AHMED COMMUNE IGLI, PROVINCE DE TAROUDANT",
-            "buyer": "C.T. de IGLI",
-            "deadline": "10/02/202609:00",
-            "city": "Province de Taroudant...Province de Taroudant",
-            "scraped_at": "2026-01-18T03:03:43.019355"
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX D’ECLAIRAGE PUBLIC DES ENTREES ET AXES PRINCIPAUX DE LA VILLE DE TIZNIT EN TROIS LOTS SEPARES CUMULABLES LOT N°1 : AVENUE MOULAY EL HASSAN BEN YOUSSEF LOT N°2 : ENTREES DE LA VILLE VIA GUELMIM ET VIA SIDI IFNI LOT...TRAVAUX D’ECLAIRAGE PUBLIC DES ENTREES ET AXES PRINCIPAUX DE LA VILLE DE TIZNIT EN TROIS LOTS SEPARES CUMULABLES LOT N°1 : AVENUE MOULAY EL HASSAN BEN YOUSSEF LOT N°2 : ENTREES DE LA VILLE VIA GUELMIM ET VIA SIDI IFNI LOT N°3 : AVENUE HASSAN II ET ENTREE DE LA VILLE VIA AGADIR",
+            "buyer": "Société de Développement Local Agadir Souss Massa Aménagement SA",
+            "deadline": "17/02/202612:00",
+            "city": "MAROCTIZNIT...MAROC, TIZNIT",
+            "scraped_at": "2026-01-26T12:33:19.253924"
         },
         {
-            "reference": "TE/02/2026_DIRPROEQUTET",
-            "original_reference": "TE/02/2026",
-            "buyer_initials": "DIRPROEQUTET",
+            "reference": "04/CAI/2026_COMRURAITIKK",
+            "original_reference": "04/CAI/2026",
+            "buyer_initials": "COMRURAITIKK",
             "category": "Travaux",
-            "launch_date": "12/01/2026",
-            "object": "Objet :TRAVAUX DE REPARATION DE DEUX OUVRAGES D’ART SITUE AU PR2 DE LA RP4700 (EX PK0+000 DE LA RN13) SUR OUED TARAKHAL - PREFECTURE M’DIQ FNIDEQ-....TRAVAUX DE REPARATION DE DEUX OUVRAGES D’ART SITUE AU PR2 DE LA RP4700 (EX PK0+000 DE LA RN13) SUR OUED TARAKHAL - PREFECTURE M’DIQ FNIDEQ-.",
-            "buyer": "DIRECTEUR PROVINCIAL D'EQUIPEMENT TETOUAN",
+            "launch_date": "22/01/2026",
+            "object": "Objet :Travaux d'Alimentation en Eau Potable des Douars relevant de la Commune Ait Ikkou - Province khemisset-...Travaux d'Alimentation en Eau Potable des Douars relevant de la Commune Ait Ikkou - Province khemisset-",
+            "buyer": "Commune rurale de AIT IKKOU",
+            "deadline": "17/02/202611:00",
+            "city": "KHEMISSET...KHEMISSET",
+            "scraped_at": "2026-01-26T12:33:19.254004"
+        },
+        {
+            "reference": "02/2026/C.S_COMURBESSEM",
+            "original_reference": "02/2026/C.S",
+            "buyer_initials": "COMURBESSEM",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TRAVAUX DE RENOUVELLEMENT DU RÉSEAU D’ÉCLAIRAGE PUBLIC DE LA VILLE D’ES-SEMARA -PROVINCE D’ES-SEMARA....TRAVAUX DE RENOUVELLEMENT DU RÉSEAU D’ÉCLAIRAGE PUBLIC DE LA VILLE D’ES-SEMARA -PROVINCE D’ES-SEMARA.",
+            "buyer": "Commune urbaine de ES-SEMARA",
             "deadline": "...",
+            "city": "ES-SEMARA...ES-SEMARA",
+            "scraped_at": "2026-01-26T12:33:19.254046"
+        },
+        {
+            "reference": "03/CAI/2026_COMRURAITIKK",
+            "original_reference": "03/CAI/2026",
+            "buyer_initials": "COMRURAITIKK",
+            "category": "Travaux",
+            "launch_date": "22/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DES OUVRAGES D’ART AU SEIN DES DOUARS RELEVANT DE LA COMMUNE AIT IKKOU – PROVINCE DE KHEMISSET...TRAVAUX DE CONSTRUCTION DES OUVRAGES D’ART AU SEIN DES DOUARS RELEVANT DE LA COMMUNE AIT IKKOU – PROVINCE DE KHEMISSET",
+            "buyer": "Commune rurale de AIT IKKOU",
+            "deadline": "17/02/202611:00",
+            "city": "KHEMISSET...KHEMISSET",
+            "scraped_at": "2026-01-26T12:33:19.254084"
+        },
+        {
+            "reference": "05/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "05/2026/ORMVAL",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :REALISATION DES TRAVAUX DES RESEAUX DE PISTES ET OUVRAGES ANNEXES AU NIVEAU DU SECTEUR IRRIGUE D2 DE LA PLAINE RIVE DROITE DU PERIMETRE DU LOUKKOS...REALISATION DES TRAVAUX DES RESEAUX DE PISTES ET OUVRAGES ANNEXES AU NIVEAU DU SECTEUR IRRIGUE D2 DE LA PLAINE RIVE DROITE DU PERIMETRE DU LOUKKOS",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "deadline": "...",
+            "city": "LARACHE...LARACHE",
+            "scraped_at": "2026-01-26T12:33:19.254126"
+        },
+        {
+            "reference": "40/2026_AGEREGEXEPROREGBENMELKHE",
+            "original_reference": "40/2026",
+            "buyer_initials": "AGEREGEXEPROREGBENMELKHE",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX D'ELARGISSEMENT ET RENFORCEMENT DE LA RNC RELIANT MOUDJ ET LA RR 306 - PROVINCE DE BENI MELLAL -LOT UNIQUE -...TRAVAUX D'ELARGISSEMENT ET RENFORCEMENT DE LA RNC RELIANT MOUDJ ET LA RR 306 - PROVINCE DE BENI MELLAL -LOT UNIQUE -",
+            "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION BENI MELLAL- KHENIFRA",
+            "deadline": "17/02/202611:00",
+            "city": "BENI MELLAL...BENI MELLAL",
+            "scraped_at": "2026-01-26T12:33:19.254165"
+        },
+        {
+            "reference": "A014/RRA/2026_RABATREGIONAMENAGEMENT",
+            "original_reference": "A014/RRA/2026",
+            "buyer_initials": "RABATREGIONAMENAGEMENT",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION D’UN COMPLEXE CULTUREL A SKHIRAT...TRAVAUX DE CONSTRUCTION D’UN COMPLEXE CULTUREL A SKHIRAT",
+            "buyer": "RABAT REGION AMENAGEMENT",
+            "deadline": "...",
+            "city": "SKHIRATE-TEMARA...SKHIRATE-TEMARA",
+            "scraped_at": "2026-01-26T12:33:19.254204"
+        },
+        {
+            "reference": "01/2026/siroua_COMMUNERURALESIROUA",
+            "original_reference": "01/2026/siroua",
+            "buyer_initials": "COMMUNERURALESIROUA",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TRAVAUX DE PROTECTION CONTRE LES INONDATIONS DU DOUAR TIZOUAD ET TAZOULT A LA COMMUNE DE SIROUA PROVINCE D’OUARZAZATE....TRAVAUX DE PROTECTION CONTRE LES INONDATIONS DU DOUAR TIZOUAD ET TAZOULT A LA COMMUNE DE SIROUA PROVINCE D’OUARZAZATE.",
+            "buyer": "Commune rurale de SIROUA",
+            "deadline": "17/02/202611:00",
+            "city": "Province d'OuarzazateMAROC...Province d'Ouarzazate, MAROC",
+            "scraped_at": "2026-01-26T12:33:19.254243"
+        },
+        {
+            "reference": "05/2026/DPA/52_DIRPROAGRFIGBOU",
+            "original_reference": "05/2026/DPA/52",
+            "buyer_initials": "DIRPROAGRFIGBOU",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :LOT 1 : TRAVAUX DE CONSTRUCTION DE DEUX (02) ABRIS EN CHARPENTE METALLIQUE POUR BETAIL DANS LA CT DE TENDRARA, PROVINCE DE FIGUIG ET LOT 2 : TRAVAUX DE CONSTRUCTION DE TROIS (03) ABRIS EN CHARPENTE METALLIQUE POUR BETAIL DANS LA...LOT 1 : TRAVAUX DE CONSTRUCTION DE DEUX (02) ABRIS EN CHARPENTE METALLIQUE POUR BETAIL DANS LA CT DE TENDRARA, PROVINCE DE FIGUIG ET LOT 2 : TRAVAUX DE CONSTRUCTION DE TROIS (03) ABRIS EN CHARPENTE METALLIQUE POUR BETAIL DANS LA CT DE MAATARKA, PROVINCE DE FIGUIG.",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE FIGUIG BOUARFA",
+            "deadline": "17/02/202611:00",
+            "city": "FIGUIG...FIGUIG",
+            "scraped_at": "2026-01-26T12:33:19.254324"
+        },
+        {
+            "reference": "02/2026/BP_PROVINCEESSAOUIRA",
+            "original_reference": "02/2026/BP",
+            "buyer_initials": "PROVINCEESSAOUIRA",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :CONSTRUCTION DE LA ROUTE NON CLASSEE RELIANT LA ROUTE CLASSEE RP 2201 ET DOUAR AZROU SUR UNE LONGUEUR DE 2 KM - 1ʳᵉ TRANCHE 1,080 KM - COMMUNE SIDI AHMED ESSAYEH, PROVINCE D’ESSAOUIRA....CONSTRUCTION DE LA ROUTE NON CLASSEE RELIANT LA ROUTE CLASSEE RP 2201 ET DOUAR AZROU SUR UNE LONGUEUR DE 2 KM - 1ʳᵉ TRANCHE 1,080 KM - COMMUNE SIDI AHMED ESSAYEH, PROVINCE D’ESSAOUIRA.",
+            "buyer": "Province de ESSAOUIRA",
+            "deadline": "...",
+            "city": "ESSAOUIRA...ESSAOUIRA",
+            "scraped_at": "2026-01-26T12:33:19.254454"
+        },
+        {
+            "reference": "01/2026/DRIT_CHADIRREGIMPPRETANASSMDIFNIPROTETFAHANJLARALHOCCHEOUE",
+            "original_reference": "01/2026/DRIT",
+            "buyer_initials": "CHADIRREGIMPPRETANASSMDIFNIPROTETFAHANJLARALHOCCHEOUE",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :L'étude architecturale et le suivi des travaux d'aménagement du siège de la Direction Régionale des Impôts de Tanger...L'étude architecturale et le suivi des travaux d'aménagement du siège de la Direction Régionale des Impôts de Tanger",
+            "buyer": "CHARGE DE LA DIRECTION REGIONALE DES IMPOTS DES PREFECTURES DE TANGER-ASSILAH ET DE MDIQ-FNIDEQ ET DES PROVINCES DE TETOUAN, FAHS-ANJRA, LARACHE, AL HOCEIMA, CHEFCHAOUEN ET OUEZZANE",
+            "deadline": "17/02/202611:00",
+            "city": "MAROCTANGER-ASSILAH...MAROC, TANGER-ASSILAH",
+            "scraped_at": "2026-01-26T12:33:19.254504"
+        },
+        {
+            "reference": "AO/17/2026_SOCALOMRFESMEK",
+            "original_reference": "AO/17/2026",
+            "buyer_initials": "SOCALOMRFESMEK",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TRAVAUX DE VOIRIE, D’ASSAINISSEMENT ET D’ALIMENTATION EN EAU POTABLE DU LOTISSEMENT BLED BENSLIMANE COMMUNE DE FES PREFECTURE DE FES...TRAVAUX DE VOIRIE, D’ASSAINISSEMENT ET D’ALIMENTATION EN EAU POTABLE DU LOTISSEMENT BLED BENSLIMANE COMMUNE DE FES PREFECTURE DE FES",
+            "buyer": "SOCIETE AL OMRANE FES MEKNES",
+            "deadline": "...",
+            "city": "FES...FES",
+            "scraped_at": "2026-01-26T12:33:19.254548"
+        },
+        {
+            "reference": "52/DRC/CD/2025_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "52/DRC/CD/2025",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :RECONSTRUCTION DU MUR DE CLOISON SIS A LA CITEE DES CADRES...RECONSTRUCTION DU MUR DE CLOISON SIS A LA CITEE DES CADRES",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "deadline": "17/02/202611:00",
+            "city": "RABAT...RABAT",
+            "scraped_at": "2026-01-26T12:33:19.254622"
+        },
+        {
+            "reference": "05/CEH/DM/FSH/2026_DIRECTIONMOSQUÉES",
+            "original_reference": "05/CEH/DM/FSH/2026",
+            "buyer_initials": "DIRECTIONMOSQUÉES",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE RECONSTRUCTION TOTALE DE CINQ (05) MOSQUEES ET LEURS DEPENDANCES A EL HAOUZ AFFECTEES PAR LE SEISME D’EL HAOUZ EN LOT UNIQUE...TRAVAUX DE RECONSTRUCTION TOTALE DE CINQ (05) MOSQUEES ET LEURS DEPENDANCES A EL HAOUZ AFFECTEES PAR LE SEISME D’EL HAOUZ EN LOT UNIQUE",
+            "buyer": "Direction des Mosquées",
+            "deadline": "...",
+            "city": "AL HAOUZ...AL HAOUZ",
+            "scraped_at": "2026-01-26T12:33:19.254663"
+        },
+        {
+            "reference": "01/2026_COMMUNEURBAINEGOULMIMA",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMMUNEURBAINEGOULMIMA",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :Travaux D'aménagement De Boulevard Hassan II à La Ville De Goulmima (l’entrée de la ville)....Travaux D'aménagement De Boulevard Hassan II à La Ville De Goulmima (l’entrée de la ville).",
+            "buyer": "Commune urbaine de GOULMIMA",
+            "deadline": "17/02/202611:00",
+            "city": "ERRACHIDIA...ERRACHIDIA",
+            "scraped_at": "2026-01-26T12:33:19.254700"
+        },
+        {
+            "reference": "A013/RRA/2026_RABATREGIONAMENAGEMENT",
+            "original_reference": "A013/RRA/2026",
+            "buyer_initials": "RABATREGIONAMENAGEMENT",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION ET D’INSTALLATION D’UNE STATION D’EPURATION DES REJETS DES TANNERIES A LA COMMUNE DE BOUKNADEL....TRAVAUX DE CONSTRUCTION ET D’INSTALLATION D’UNE STATION D’EPURATION DES REJETS DES TANNERIES A LA COMMUNE DE BOUKNADEL.",
+            "buyer": "RABAT REGION AMENAGEMENT",
+            "deadline": "...",
+            "city": "SALE...SALE",
+            "scraped_at": "2026-01-26T12:33:19.254738"
+        },
+        {
+            "reference": "35/2026/APDN_AGEPOUPRODEVECOSOCPREPRONORROY",
+            "original_reference": "35/2026/APDN",
+            "buyer_initials": "AGEPOUPRODEVECOSOCPREPRONORROY",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :Travaux d’aménagement des pistes reliant : - Douar Aghladen et route non classée à la commune Mokrissat - vers Douar Laanina à la commune Kalaat Boqoora - dispensaire Kalaat Beni Routene et route non classée a la...Travaux d’aménagement des pistes reliant : - Douar Aghladen et route non classée à la commune Mokrissat - vers Douar Laanina à la commune Kalaat Boqoora - dispensaire Kalaat Beni Routene et route non classée a la commune Ain Bieda Province d’Ouezzane",
+            "buyer": "AGENCE POUR LA PROMOTION ET LE DEVELOPPEMENT ECONOMIQUE ET SOCIAL DES PREFECTURES ET PROVINCES DU NORD DU ROYAUME",
+            "deadline": "17/02/202611:00",
+            "city": "OUEZZANE...OUEZZANE",
+            "scraped_at": "2026-01-26T12:33:19.254829"
+        },
+        {
+            "reference": "01/2026/CUAO_COMURBAITOUR",
+            "original_reference": "01/2026/CUAO",
+            "buyer_initials": "COMURBAITOUR",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :•Travaux d’aménagement de l’avenue Hassan II (Tranche I et Tranche III). •Travaux d’aménagement de la voie reliant la piscine municipale et douar Ait Ourir Lakdim en passant par quartier riad. •Travaux...•Travaux d’aménagement de l’avenue Hassan II (Tranche I et Tranche III). •Travaux d’aménagement de la voie reliant la piscine municipale et douar Ait Ourir Lakdim en passant par quartier riad. •Travaux d’aménagement du giratoire central devant le siège de la commune Ait Ourir. à la Commune Ait Ourir, relevant de la Province Al Haouz.",
+            "buyer": "Commune urbaine de AIT OURIR",
+            "deadline": "...",
+            "city": "AL HAOUZ...AL HAOUZ",
+            "scraped_at": "2026-01-26T12:33:19.254909"
+        },
+        {
+            "reference": "01/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "01/2026/ORMVAL",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :REALISATION DES TRAVAUX DES RESEAUX DE PISTES ET OUVRAGES ANNEXES AU NIVEAU Du SECTEUR IRRIGUE D1 DE LA PLAINE RIVE DROITE DU PERIMETRE DU LOUKKOS...REALISATION DES TRAVAUX DES RESEAUX DE PISTES ET OUVRAGES ANNEXES AU NIVEAU Du SECTEUR IRRIGUE D1 DE LA PLAINE RIVE DROITE DU PERIMETRE DU LOUKKOS",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "deadline": "17/02/202610:30",
+            "city": "LARACHE...LARACHE",
+            "scraped_at": "2026-01-26T12:33:19.254946"
+        },
+        {
+            "reference": "10001780/1R_SOCREGMULORIS.A",
+            "original_reference": "10001780/1R",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :Electrification 2°/1° catégorie des quartiers périurbains de la commune de ZAIO (Province NADOR)...Electrification 2°/1° catégorie des quartiers périurbains de la commune de ZAIO (Province NADOR)",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "deadline": "...",
+            "city": "NADOR...NADOR",
+            "scraped_at": "2026-01-26T12:33:19.254987"
+        },
+        {
+            "reference": "29/2026/ORSM_OFFREGMISVALAGRSOUMAS",
+            "original_reference": "29/2026/ORSM",
+            "buyer_initials": "OFFREGMISVALAGRSOUMAS",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :Travaux de curage et désherbage du canal principal de Massa géré par l’ORMVA/SM, Province de Chtouka Ait Baha....Travaux de curage et désherbage du canal principal de Massa géré par l’ORMVA/SM, Province de Chtouka Ait Baha.",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE SOUSS MASSA",
+            "deadline": "17/02/202610:30",
+            "city": "CHTOUKA-AIT BAHA...CHTOUKA-AIT BAHA",
+            "scraped_at": "2026-01-26T12:33:19.255025"
+        },
+        {
+            "reference": "01/2026/BP_PROVINCETAZA",
+            "original_reference": "01/2026/BP",
+            "buyer_initials": "PROVINCETAZA",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :travaux d'aménagement de la voie n° 743 à partir de la voie n° 133 vers Hay al Montazah – commune Taza - province de Taza....travaux d'aménagement de la voie n° 743 à partir de la voie n° 133 vers Hay al Montazah – commune Taza - province de Taza.",
+            "buyer": "Province de TAZA",
+            "deadline": "...",
+            "city": "TAZA...TAZA",
+            "scraped_at": "2026-01-26T12:33:19.255064"
+        },
+        {
+            "reference": "01/2026/BP_PROVINCEESSAOUIRA",
+            "original_reference": "01/2026/BP",
+            "buyer_initials": "PROVINCEESSAOUIRA",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :CONSTRUCTION DE LA ROUTE RELIANT L'ECOLE PRIMAIRE EL KHAOUARIZEMI AU DOUAR ID OUHLI SUR UNE LONGUEUR DE 1,253 KM - COMMUNE IMGRAD, PROVINCE D’ESSAOUIRA....CONSTRUCTION DE LA ROUTE RELIANT L'ECOLE PRIMAIRE EL KHAOUARIZEMI AU DOUAR ID OUHLI SUR UNE LONGUEUR DE 1,253 KM - COMMUNE IMGRAD, PROVINCE D’ESSAOUIRA.",
+            "buyer": "Province de ESSAOUIRA",
+            "deadline": "17/02/202610:15",
+            "city": "ESSAOUIRA...ESSAOUIRA",
+            "scraped_at": "2026-01-26T12:33:19.255109"
+        },
+        {
+            "reference": "10004286_SOCREGMULORIS.A",
+            "original_reference": "10004286",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :Réhabilitation du réseau de distribution d’eau potable aux centres relevant du Cercle Aklim -Province de Berkane -...Réhabilitation du réseau de distribution d’eau potable aux centres relevant du Cercle Aklim -Province de Berkane -",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "deadline": "17/02/202610:00",
+            "city": "BERKANE...BERKANE",
+            "scraped_at": "2026-01-26T12:33:19.255189"
+        },
+        {
+            "reference": "AO/18/2026_SOCALOMRFESMEK",
+            "original_reference": "AO/18/2026",
+            "buyer_initials": "SOCALOMRFESMEK",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TRAVAUX D’AMENAGEMENT ET DE REFECTION DES IMMEUBLE RAS EL MA SIS : AU POLE URBAIN RAS EL MA PROVINCE DE MOULAY YACOUB...TRAVAUX D’AMENAGEMENT ET DE REFECTION DES IMMEUBLE RAS EL MA SIS : AU POLE URBAIN RAS EL MA PROVINCE DE MOULAY YACOUB",
+            "buyer": "SOCIETE AL OMRANE FES MEKNES",
+            "deadline": "...",
+            "city": "MOULAY-YACOUB...MOULAY-YACOUB",
+            "scraped_at": "2026-01-26T12:33:19.255354"
+        },
+        {
+            "reference": "01/2026/DAR/TATA_GOUVERNEURPROVINCETATA",
+            "original_reference": "01/2026/DAR/TATA",
+            "buyer_initials": "GOUVERNEURPROVINCETATA",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :Travaux d’équipement d’un puits en énergie solaire au profit de la coopérative « TOUSSA » au douar « TIGUESSLT » à la commune d’Adis, province de Tata....Travaux d’équipement d’un puits en énergie solaire au profit de la coopérative « TOUSSA » au douar « TIGUESSLT » à la commune d’Adis, province de Tata.",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE TATA",
+            "deadline": "17/02/202610:00",
+            "city": "TATA...TATA",
+            "scraped_at": "2026-01-26T12:33:19.255396"
+        },
+        {
+            "reference": "AOO01/SMIT/2026_SOCMARINGTOU",
+            "original_reference": "AOO01/SMIT/2026",
+            "buyer_initials": "SOCMARINGTOU",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :AOO 01/SMIT/2026 : SUIVI, COORDINATION ET RECEPTION DES TRAVAUX DE SIGNALETIQUE TOURISTIQUE DANS L’ARRIERE-PAYS DE LA REGION FES MEKNES...AOO 01/SMIT/2026 : SUIVI, COORDINATION ET RECEPTION DES TRAVAUX DE SIGNALETIQUE TOURISTIQUE DANS L’ARRIERE-PAYS DE LA REGION FES MEKNES",
+            "buyer": "SOCIETE MAROCAINE D'INGENIERIE TOURISTIQUE",
+            "deadline": "...",
+            "city": "FESMEKNES...FES, MEKNES, EL-HAJEB, IFRANE, MOULAY-YACOUB, SEFROU, BOULEMANE, TAOUNATE, TAZA",
+            "scraped_at": "2026-01-26T12:33:19.255439"
+        },
+        {
+            "reference": "01/ST/2026_COMRURRASELOUE",
+            "original_reference": "01/ST/2026",
+            "buyer_initials": "COMRURRASELOUE",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX D’EXTENSION DU RESEAU ELECTRIQUE BT AUX DOUARS DE LA COMMUNE RAS EL OUED, PROVINCE DE TAOUNATE. « LOT UNIQUE »...TRAVAUX D’EXTENSION DU RESEAU ELECTRIQUE BT AUX DOUARS DE LA COMMUNE RAS EL OUED, PROVINCE DE TAOUNATE. « LOT UNIQUE »",
+            "buyer": "Commune rurale de RAS EL OUED",
+            "deadline": "17/02/202610:00",
+            "city": "TAOUNATE...TAOUNATE",
+            "scraped_at": "2026-01-26T12:33:19.255480"
+        },
+        {
+            "reference": "04.R1/2026/SRMFM_SOCREGMULFESMEKS.A",
+            "original_reference": "04.R1/2026/SRMFM",
+            "buyer_initials": "SOCREGMULFESMEKS.A",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :Travaux de réalisation des extensions et des branchements du réseau d’assainissement dans la ville de Fès....Travaux de réalisation des extensions et des branchements du réseau d’assainissement dans la ville de Fès.",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES FES - MEKNES S.A",
+            "deadline": "...",
+            "city": "FES...FES",
+            "scraped_at": "2026-01-26T12:33:19.255522"
+        },
+        {
+            "reference": "01/2026/BC/CTN_COMRURTAMNOU",
+            "original_reference": "01/2026/BC/CTN",
+            "buyer_initials": "COMRURTAMNOU",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :Electrification BT des foyers à la commune de Tamda Noumercid...Electrification BT des foyers à la commune de Tamda Noumercid",
+            "buyer": "Commune rurale de TAMDA NOUMERCID",
+            "deadline": "17/02/202610:00",
+            "city": "AZILAL...AZILAL",
+            "scraped_at": "2026-01-26T12:33:19.255560"
+        },
+        {
+            "reference": "01/2026/ANEP_AGENATEQUPUB",
+            "original_reference": "01/2026/ANEP",
+            "buyer_initials": "AGENATEQUPUB",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX D’INSTALLATION D’UN SYSTEME DE CONTROLE D’ACCES ET DE GESTION DE TEMPS DE PRESENCE AU SIEGE DE L’AGENCE NATIONALE DES EQUIPEMENTS PUBLICS...TRAVAUX D’INSTALLATION D’UN SYSTEME DE CONTROLE D’ACCES ET DE GESTION DE TEMPS DE PRESENCE AU SIEGE DE L’AGENCE NATIONALE DES EQUIPEMENTS PUBLICS",
+            "buyer": "AGENCE NATIONALE DES EQUIPEMENTS PUBLICS",
+            "deadline": "...",
+            "city": "RABAT...RABAT",
+            "scraped_at": "2026-01-26T12:33:19.255604"
+        },
+        {
+            "reference": "34/2026/apdn_AGEPOUPRODEVECOSOCPREPRONORROY",
+            "original_reference": "34/2026/apdn",
+            "buyer_initials": "AGEPOUPRODEVECOSOCPREPRONORROY",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :Travaux d’aménagement des pistes reliant RP 4104 et Douar Ain Bouateya à la commune Lamjaara et piste reliant Douar Menouala et la route non classée à la commune Sidi Boussber - province d’Ouezzane...Travaux d’aménagement des pistes reliant RP 4104 et Douar Ain Bouateya à la commune Lamjaara et piste reliant Douar Menouala et la route non classée à la commune Sidi Boussber - province d’Ouezzane",
+            "buyer": "AGENCE POUR LA PROMOTION ET LE DEVELOPPEMENT ECONOMIQUE ET SOCIAL DES PREFECTURES ET PROVINCES DU NORD DU ROYAUME",
+            "deadline": "17/02/202610:00",
+            "city": "OUEZZANE...OUEZZANE",
+            "scraped_at": "2026-01-26T12:33:19.255653"
+        },
+        {
+            "reference": "03/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "03/2026/ORMVAL",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DES ROUTES PAR REVETEMENT SUPERFICIEL AU NIVEAU DU SECTEUR IRRIGUE R’MEL RELEVANT DU PERIMETRE DU LOUKKOS...TRAVAUX DE CONSTRUCTION DES ROUTES PAR REVETEMENT SUPERFICIEL AU NIVEAU DU SECTEUR IRRIGUE R’MEL RELEVANT DU PERIMETRE DU LOUKKOS",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "deadline": "...",
+            "city": "LARACHE...LARACHE",
+            "scraped_at": "2026-01-26T12:33:19.255696"
+        },
+        {
+            "reference": "05/DRSM/FSSH/2026_DELREGAFFISLREGSOUMAS",
+            "original_reference": "05/DRSM/FSSH/2026",
+            "buyer_initials": "DELREGAFFISLREGSOUMAS",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX DE RÉFECTION ET DE RENFORCEMENT DU 1ER GROUPE DES MOSQUÉES ENDOMMAGÉES PAR LE SÉISME D’ALHOUZ DANS LA PROVINCE DE TAROUDANT : MOSQUÉE AL FATH COMMUNE OULAD BERHIL, MOSQUÉE WAHLIBA ET MOSQUÉE AGADIR AL JADID...TRAVAUX DE RÉFECTION ET DE RENFORCEMENT DU 1ER GROUPE DES MOSQUÉES ENDOMMAGÉES PAR LE SÉISME D’ALHOUZ DANS LA PROVINCE DE TAROUDANT : MOSQUÉE AL FATH COMMUNE OULAD BERHIL, MOSQUÉE WAHLIBA ET MOSQUÉE AGADIR AL JADID COMMUNE ARAZANE, MOSQUÉE LAAZIB AL QABLANI COMMUNE AHL RMEL, MOSQUÉE OUZALA COMMUNE IGLI, EN LOT UNIQUE.",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES DE LA REGION SOUS-MASSA",
+            "deadline": "17/02/202610:00",
+            "city": "TAROUDANNT...TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.255743"
+        },
+        {
+            "reference": "10004188_SOCREGMULORIS.A",
+            "original_reference": "10004188",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :Réhabilitation du réseau de distribution d’eau potable aux centres relevant du Cercle Ahfir -Province de Berkane-...Réhabilitation du réseau de distribution d’eau potable aux centres relevant du Cercle Ahfir -Province de Berkane-",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "deadline": "...",
+            "city": "BERKANE...BERKANE",
+            "scraped_at": "2026-01-26T12:33:19.255793"
+        },
+        {
+            "reference": "27/2026/ORSM_OFFREGMISVALAGRSOUMAS",
+            "original_reference": "27/2026/ORSM",
+            "buyer_initials": "OFFREGMISVALAGRSOUMAS",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :Travaux de plantation de 500 ha du cactus au niveau de la zone d’action de l’Office Régional de Mise en Valeur Agricole de Souss Massa en 3 lots. - Lot n°1: travaux de plantation de 280 ha du cactus aux cercles d’oulad...Travaux de plantation de 500 ha du cactus au niveau de la zone d’action de l’Office Régional de Mise en Valeur Agricole de Souss Massa en 3 lots. - Lot n°1: travaux de plantation de 280 ha du cactus aux cercles d’oulad berhyl, taroudant , Oulad Teima et Sidi moussa al hameri Province de TAROUDANT ; - Lot n°2: travaux de plantation de 150 ha du cactus au cercle de Taliouine, Province de TAROUDANT; - Lot n°3 : travaux de plantation de 70 ha du cactus à la Province de AGADIR IDA OUTANANE.",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE SOUSS MASSA",
+            "deadline": "17/02/202610:00",
+            "city": "AGADIR IDA OU TANANETAROUDANNT...AGADIR IDA OU TANANE, TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.255845"
+        },
+        {
+            "reference": "10004065_SOCREGMULORIS.A",
+            "original_reference": "10004065",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :Réhabilitation du réseau d'assainissement liquide aux centres relevant de la direction provinciale de Berkane en trois (3) Lots : Lot N°1 : Agence de service de Berkane Lot N°2 : Agence de service Sidi Slimane Cheraa Lot N°3...Réhabilitation du réseau d'assainissement liquide aux centres relevant de la direction provinciale de Berkane en trois (3) Lots : Lot N°1 : Agence de service de Berkane Lot N°2 : Agence de service Sidi Slimane Cheraa Lot N°3 : Agence de service Ahfir-Aghbal",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "deadline": "17/02/202610:00",
+            "city": "BERKANE...BERKANE",
+            "scraped_at": "2026-01-26T12:33:19.255931"
+        },
+        {
+            "reference": "10003891_SOCREGMULORIS.A",
+            "original_reference": "10003891",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :Travaux de réhabilitation du réseau d’eau potable au niveau des communes relevant de la Province de Nador Lot N° 1 : Commune AL AROUI Lot N° 2 : Commune BNI NSAR...Travaux de réhabilitation du réseau d’eau potable au niveau des communes relevant de la Province de Nador Lot N° 1 : Commune AL AROUI Lot N° 2 : Commune BNI NSAR",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "deadline": "...",
+            "city": "NADOR...NADOR",
+            "scraped_at": "2026-01-26T12:33:19.255977"
+        },
+        {
+            "reference": "25T068/PLGV_OFFNATCHEFER",
+            "original_reference": "25T068/PLGV",
+            "buyer_initials": "OFFNATCHEFER",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :Travaux d’extension des postes électriques ONEE (poste CTM, Sidi Maarouf, Ouled Haddou, SNEP) pour le raccordement électrique des nouvelles sous-stations ONCF (Casa Sud, Sidi Maarouf, Zenata Et Ain Sebaa)....Travaux d’extension des postes électriques ONEE (poste CTM, Sidi Maarouf, Ouled Haddou, SNEP) pour le raccordement électrique des nouvelles sous-stations ONCF (Casa Sud, Sidi Maarouf, Zenata Et Ain Sebaa).",
+            "buyer": "OFFICE NATIONAL DES CHEMINS DE FER",
+            "deadline": "...",
+            "city": "CASABLANCA...CASABLANCA",
+            "scraped_at": "2026-01-26T12:33:19.256063"
+        },
+        {
+            "reference": "26T003/PLGV_OFFNATCHEFER",
+            "original_reference": "26T003/PLGV",
+            "buyer_initials": "OFFNATCHEFER",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :Travaux de mise en conformité des lignes électriques THT relevant de la Direction Transport Centre de l’ONEE impactées par le projet de ligne à grande vitesse Kénitra Marrakech - Lot 1 : du PK 288 au PK 307 - Lot 2 : du PK...Travaux de mise en conformité des lignes électriques THT relevant de la Direction Transport Centre de l’ONEE impactées par le projet de ligne à grande vitesse Kénitra Marrakech - Lot 1 : du PK 288 au PK 307 - Lot 2 : du PK 313 au PK 484",
+            "buyer": "OFFICE NATIONAL DES CHEMINS DE FER",
+            "deadline": "17/02/202610:00",
+            "city": "RABATKENITRA...RABAT, KENITRA, CASABLANCA, MARRAKECH",
+            "scraped_at": "2026-01-26T12:33:19.256107"
+        },
+        {
+            "reference": "AOO/PM/2026/4277_MAD",
+            "original_reference": "AOO/PM/2026/4277",
+            "buyer_initials": "MAD",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :PROJET : CONSTRUCTION D’UN RESTAURANT AU SEIN DE L’HOTEL MERIDIEN NFIS MARRAKECH LOT N°12 : FOURNITURE DES ECLAIRAGES DECORATIFS ET TECHNIQUES...PROJET : CONSTRUCTION D’UN RESTAURANT AU SEIN DE L’HOTEL MERIDIEN NFIS MARRAKECH LOT N°12 : FOURNITURE DES ECLAIRAGES DECORATIFS ET TECHNIQUES",
+            "buyer": "MADAEF",
+            "deadline": "...",
+            "city": "MARRAKECH...MARRAKECH",
+            "scraped_at": "2026-01-26T12:33:19.256149"
+        },
+        {
+            "reference": "58/2025_COMMUNEURBAINETIZNIT",
+            "original_reference": "58/2025",
+            "buyer_initials": "COMMUNEURBAINETIZNIT",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TRAVAUX D’ASSAINISSEMENT LIQUIDE DE LA VILLE DE TIZNIT : STATION DE POMPAGE ET CONDUITE DE REFOULEMENT....TRAVAUX D’ASSAINISSEMENT LIQUIDE DE LA VILLE DE TIZNIT : STATION DE POMPAGE ET CONDUITE DE REFOULEMENT.",
+            "buyer": "Commune urbaine de TIZNIT",
+            "deadline": "17/02/202610:00",
+            "city": "TIZNIT...TIZNIT",
+            "scraped_at": "2026-01-26T12:33:19.256280"
+        },
+        {
+            "reference": "07/2025_COMRURAITISH",
+            "original_reference": "07/2025",
+            "buyer_initials": "COMRURAITISH",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TRAVAUX D’ASSAINISSEMENT LIQUIDE DU QUARTIER SAADA ET DOUAR AIT ZAKIATE A LA COMMUNE AIT ISHAQ PROVINCE KHENIFRA....TRAVAUX D’ASSAINISSEMENT LIQUIDE DU QUARTIER SAADA ET DOUAR AIT ZAKIATE A LA COMMUNE AIT ISHAQ PROVINCE KHENIFRA.",
+            "buyer": "Commune rurale de AIT ISHAQ",
+            "deadline": "...",
+            "city": "KHENIFRA...KHENIFRA",
+            "scraped_at": "2026-01-26T12:33:19.256322"
+        },
+        {
+            "reference": "1/2026AZA_DIRPROEQUTRALOGASSZAG",
+            "original_reference": "1/2026AZA",
+            "buyer_initials": "DIRPROEQUTRALOGASSZAG",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :Travaux d’élargissement, de renforcement et d’amélioration du niveau de service de la RP1308 du PK100+000 au PK118+422 sur 18,422 km dans la Province d’Assa-Zag....Travaux d’élargissement, de renforcement et d’amélioration du niveau de service de la RP1308 du PK100+000 au PK118+422 sur 18,422 km dans la Province d’Assa-Zag.",
+            "buyer": "LE DIRECTEUR PROVINCIAL DE L'EQUIPEMENT ET DU TRANSPORT ET DE LA LOGISTIQUE D'ASSA-ZAG",
+            "deadline": "17/02/202610:00",
+            "city": "ASSA-ZAG...ASSA-ZAG",
+            "scraped_at": "2026-01-26T12:33:19.256367"
+        },
+        {
+            "reference": "02/INV/2026_DIRPROL’ENATAINSBAHAYMOH",
+            "original_reference": "02/INV/2026",
+            "buyer_initials": "DIRPROL’ENATAINSBAHAYMOH",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX D’AMENAGEMENT DU LYCEE COLLEGIALE PIONNIERE IBNO SINA DEPENDANT DE LA DIRECTION PROVINCIALE AIN SEBAA HAY MOHAMMADI ET RELEVANT DE L’AREF DE CASABLANCA – SETTAT....TRAVAUX D’AMENAGEMENT DU LYCEE COLLEGIALE PIONNIERE IBNO SINA DEPENDANT DE LA DIRECTION PROVINCIALE AIN SEBAA HAY MOHAMMADI ET RELEVANT DE L’AREF DE CASABLANCA – SETTAT.",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE AIN SBAA HAY MOHAMMADI",
+            "deadline": "...",
+            "city": "CASABLANCA...CASABLANCA",
+            "scraped_at": "2026-01-26T12:33:19.256590"
+        },
+        {
+            "reference": "05/AREPFM/2026_AGEREGEXEPROREGFESMEK",
+            "original_reference": "05/AREPFM/2026",
+            "buyer_initials": "AGEREGEXEPROREGFESMEK",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DES PISTES A LA PREFECTURE DE MEKNES, REGION FES-MEKNES –EN LOT UNIQUE– : - LA PISTE RELIANT LA RN13 ET DOUAR BOUASSEL, SIDI AYAD, POINT COM ET LA RP7006 A LA COMMUNE OUALILI. - LA PISTE RELIANT LA...TRAVAUX DE CONSTRUCTION DES PISTES A LA PREFECTURE DE MEKNES, REGION FES-MEKNES –EN LOT UNIQUE– : - LA PISTE RELIANT LA RN13 ET DOUAR BOUASSEL, SIDI AYAD, POINT COM ET LA RP7006 A LA COMMUNE OUALILI. - LA PISTE RELIANT LA RN27 ET DOUARS CHOUAKER LMENASSRA A LA COMMUNE AIN KARMA OUED ROMMANE. - LA PISTE AU DOUAR OURZIGHA DE LA RP7036 VERS ELJAAOUANI A LA COMMUNE DKHISSA. - LA PISTE RELIANT DOUAR OURZIGHA DE LA RP7036 A LAWLAW A LA COMMUNE DKHISSA. - LA PISTE RELIANT LA RN6 ET DOUAR MASTOURA A TRAVERS DOUAR HARCHA A LA COMMUNE M’HAYA. - LA PISTE RELIANT LA RP7008 ET DOUAR AIT HSSAIN A LA COMMUNE SIDI ABDELLAH EL KHAYAT. - LA PISTE RELIANT L'ECOLE DU DOUAR OULED ZIANE ET L'ECOLE CHRICHIRA A LA COMMUNE OUED J'DIDA.",
+            "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION FES-MEKNES",
+            "deadline": "17/02/202610:00",
+            "city": "MEKNES...MEKNES",
+            "scraped_at": "2026-01-26T12:33:19.256643"
+        },
+        {
+            "reference": "01/RVV/2026_SOCDEVLOCRABVILVER",
+            "original_reference": "01/RVV/2026",
+            "buyer_initials": "SOCDEVLOCRABVILVER",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX D’AMENAGEMENT DES ESPACES VERTS DANS LA REGION DE RABAT-SALÉ-KENITRA, TRANCHE 1...TRAVAUX D’AMENAGEMENT DES ESPACES VERTS DANS LA REGION DE RABAT-SALÉ-KENITRA, TRANCHE 1",
+            "buyer": "SOCIETE DE DEVELOPPEMENT LOCAL RABAT VILLE VERTE",
+            "deadline": "...",
+            "city": "RABATSALE...RABAT, SALE, SKHIRATE-TEMARA, KENITRA, KHEMISSET, SIDI KACEM, SIDI SLIMANE",
+            "scraped_at": "2026-01-26T12:33:19.256686"
+        },
+        {
+            "reference": "3/2026/AREF/FM_ACAREGEDUFORFESMEK",
+            "original_reference": "3/2026/AREF/FM",
+            "buyer_initials": "ACAREGEDUFORFESMEK",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DU LYCEE COLLEGIAL AL MAJD A LA CR OULED TAYEB RELEVANT DE LA DIRECTION PROVINCIALE DE FES...TRAVAUX DE CONSTRUCTION DU LYCEE COLLEGIAL AL MAJD A LA CR OULED TAYEB RELEVANT DE LA DIRECTION PROVINCIALE DE FES",
+            "buyer": "ACADEMIE REGIONALE D'EDUCATION ET DE FORMATION FES-MEKNES",
+            "deadline": "...",
+            "city": "FES...FES",
+            "scraped_at": "2026-01-26T12:33:19.256868"
+        },
+        {
+            "reference": "2/2026/AREF/FM_ACAREGEDUFORFESMEK",
+            "original_reference": "2/2026/AREF/FM",
+            "buyer_initials": "ACAREGEDUFORFESMEK",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION D’UN INTERNAT A L’ECOLE COMMUNAUTAIRE FATIMA FIHRYA A LA COMMUNE RURALE INJILE RELEVANT DE LA DIRECTION PROVINCIALE DE BOULEMANE...TRAVAUX DE CONSTRUCTION D’UN INTERNAT A L’ECOLE COMMUNAUTAIRE FATIMA FIHRYA A LA COMMUNE RURALE INJILE RELEVANT DE LA DIRECTION PROVINCIALE DE BOULEMANE",
+            "buyer": "ACADEMIE REGIONALE D'EDUCATION ET DE FORMATION FES-MEKNES",
+            "deadline": "17/02/202609:00",
+            "city": "BOULEMANE...BOULEMANE",
+            "scraped_at": "2026-01-26T12:33:19.256911"
+        },
+        {
+            "reference": "AO01/2026_CHESEREQUTRALOGSIDIFN",
+            "original_reference": "AO01/2026",
+            "buyer_initials": "CHESEREQUTRALOGSIDIFN",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DE LA RN21 DU PK 5+400 AU PK 11+220 DANS LA PROVINCE DE SIDI IFNI...TRAVAUX DE CONSTRUCTION DE LA RN21 DU PK 5+400 AU PK 11+220 DANS LA PROVINCE DE SIDI IFNI",
+            "buyer": "CHEF DE SERVICE DE L'EQUIPEMENT, DU TRANSPORT ET DE LA LOGISTIQUE DE SIDI IFNI",
+            "deadline": "...",
+            "city": "SIDI IFNI...SIDI IFNI",
+            "scraped_at": "2026-01-26T12:33:19.257037"
+        },
+        {
+            "reference": "01/INV/2026_DIRPROL’ENATAINSBAHAYMOH",
+            "original_reference": "01/INV/2026",
+            "buyer_initials": "DIRPROL’ENATAINSBAHAYMOH",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX D’AMENAGEMENT DU LYCEE COLLEGIALE PIONNIERE IBNO ROCHD DEPENDANT DE LA DIRECTION PROVINCIALE AIN SEBAA HAY MOHAMMADI ET RELEVANT DE L’AREF DE CASABLANCA – SETTAT....TRAVAUX D’AMENAGEMENT DU LYCEE COLLEGIALE PIONNIERE IBNO ROCHD DEPENDANT DE LA DIRECTION PROVINCIALE AIN SEBAA HAY MOHAMMADI ET RELEVANT DE L’AREF DE CASABLANCA – SETTAT.",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE AIN SBAA HAY MOHAMMADI",
+            "deadline": "17/02/202609:00",
+            "city": "CASABLANCA...CASABLANCA",
+            "scraped_at": "2026-01-26T12:33:19.257169"
+        },
+        {
+            "reference": "06/2026/FRA_SDRFESREGAME",
+            "original_reference": "06/2026/FRA",
+            "buyer_initials": "SDRFESREGAME",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :Aménagement de la voie d'accès au projet de la plateforme logistique, Commune d’Ain Chkef, Wilaya de la Région Fès Meknès –....Aménagement de la voie d'accès au projet de la plateforme logistique, Commune d’Ain Chkef, Wilaya de la Région Fès Meknès –.",
+            "buyer": "SDR - FES REGION AMENAGEMENT",
+            "deadline": "...",
+            "city": "FES...FES",
+            "scraped_at": "2026-01-26T12:33:19.257216"
+        },
+        {
+            "reference": "1/2026/AREF/FM_ACAREGEDUFORFESMEK",
+            "original_reference": "1/2026/AREF/FM",
+            "buyer_initials": "ACAREGEDUFORFESMEK",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION D’UN INTERNAT AU LYCEE QUALIFIANT BADR A LA CR EL MERS RELEVANT DE LA DIRECTION PROVINCIALE DE BOULEMANE...TRAVAUX DE CONSTRUCTION D’UN INTERNAT AU LYCEE QUALIFIANT BADR A LA CR EL MERS RELEVANT DE LA DIRECTION PROVINCIALE DE BOULEMANE",
+            "buyer": "ACADEMIE REGIONALE D'EDUCATION ET DE FORMATION FES-MEKNES",
+            "deadline": "17/02/202609:00",
+            "city": "BOULEMANE...BOULEMANE",
+            "scraped_at": "2026-01-26T12:33:19.257258"
+        },
+        {
+            "reference": "06/2026/KTRA_ALOMRRABSALKEN",
+            "original_reference": "06/2026/KTRA",
+            "buyer_initials": "ALOMRRABSALKEN",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX D’AMENAGEMENT DES ABORDS ET DES ESPACES VERTS DE L’OPERATION LAYMOUNE A KENITRA...TRAVAUX D’AMENAGEMENT DES ABORDS ET DES ESPACES VERTS DE L’OPERATION LAYMOUNE A KENITRA",
+            "buyer": "AL OMRANE RABAT SALE KENITRA",
+            "deadline": "...",
+            "city": "KENITRA...KENITRA",
+            "scraped_at": "2026-01-26T12:33:19.257299"
+        },
+        {
+            "reference": "AOO/PM/2026/4276_MAD",
+            "original_reference": "AOO/PM/2026/4276",
+            "buyer_initials": "MAD",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :PROJET : TRAVAUX D’AMELIORATION DU SYSTEME DE CONTRÔLE D’ACCES DES HEBERGEMENTS DE L’HOTEL BELIVE SAIDIA...PROJET : TRAVAUX D’AMELIORATION DU SYSTEME DE CONTRÔLE D’ACCES DES HEBERGEMENTS DE L’HOTEL BELIVE SAIDIA",
+            "buyer": "MADAEF",
+            "deadline": "16/02/202613:00",
+            "city": "OUJDA-ANGAD...OUJDA-ANGAD",
+            "scraped_at": "2026-01-26T12:33:19.257337"
+        },
+        {
+            "reference": "10/INF/2026/SMZ_DIRINFSPOAGENATEQUPUB",
+            "original_reference": "10/INF/2026/SMZ",
+            "buyer_initials": "DIRINFSPOAGENATEQUPUB",
+            "category": "Travaux",
+            "launch_date": "22/01/2026",
+            "object": "Objet :Travaux d’équipement des gradins de la salle multisports de Zemamra en sièges....Travaux d’équipement des gradins de la salle multisports de Zemamra en sièges.",
+            "buyer": "DIRECTION DES INFRASTRUCTURES SPORTIVES DE L'AGENCE NATIONALE DES EQUIPEMENTS PUBLICS",
+            "deadline": "...",
+            "city": "SIDI BENNOUR...SIDI BENNOUR",
+            "scraped_at": "2026-01-26T12:33:19.257382"
+        },
+        {
+            "reference": "23/2026/ORSM_OFFREGMISVALAGRSOUMAS",
+            "original_reference": "23/2026/ORSM",
+            "buyer_initials": "OFFREGMISVALAGRSOUMAS",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :Travaux d’aménagement de Petite et Moyenne Hydraulique des périmètres relevant des Communes Territoriales Tiqqi et Tadrart dans la préfecture d’Agadir Ida Outanane....Travaux d’aménagement de Petite et Moyenne Hydraulique des périmètres relevant des Communes Territoriales Tiqqi et Tadrart dans la préfecture d’Agadir Ida Outanane.",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE SOUSS MASSA",
+            "deadline": "16/02/202612:00",
+            "city": "AGADIR IDA OU TANANE...AGADIR IDA OU TANANE",
+            "scraped_at": "2026-01-26T12:33:19.257427"
+        },
+        {
+            "reference": "TMSA_AOO_20_25_AGESPETANMEDTANMEDPORAUT",
+            "original_reference": "TMSA_AOO_20_25",
+            "buyer_initials": "AGESPETANMEDTANMEDPORAUT",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :Etude et Réalisation des travaux de séparations grillagées au niveau des entrepôts à la zone franche logistique du Port Tanger Med...Etude et Réalisation des travaux de séparations grillagées au niveau des entrepôts à la zone franche logistique du Port Tanger Med",
+            "buyer": "AGENCE SPECIALE TANGER MEDITERRANEE / TANGER MED PORT AUTHORITY",
+            "deadline": "16/02/202612:00",
+            "city": "TANGER-ASSILAH...TANGER-ASSILAH",
+            "scraped_at": "2026-01-26T12:33:19.257513"
+        },
+        {
+            "reference": "TMSA_AOO_19_25_AGESPETANMEDTANMEDPORAUT",
+            "original_reference": "TMSA_AOO_19_25",
+            "buyer_initials": "AGESPETANMEDTANMEDPORAUT",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TMSA_AOO_19_25 - la rénovation du revêtement sol et faux plafonds du siège TMSA...TMSA_AOO_19_25 - la rénovation du revêtement sol et faux plafonds du siège TMSA",
+            "buyer": "AGENCE SPECIALE TANGER MEDITERRANEE / TANGER MED PORT AUTHORITY",
+            "deadline": "...",
+            "city": "TANGER-ASSILAH...TANGER-ASSILAH",
+            "scraped_at": "2026-01-26T12:33:19.257556"
+        },
+        {
+            "reference": "16/2026/ADHA_AGEDEVHAUATL",
+            "original_reference": "16/2026/ADHA",
+            "buyer_initials": "AGEDEVHAUATL",
+            "category": "Travaux",
+            "launch_date": "26/01/2026",
+            "object": "Objet :TRAVAUX DE MISE À NIVEAU DES CENTRES DE SOINS DE SANTÉ PRIMAIRES – PROVINCE D’AZILAL : CSR2 TIDILI...TRAVAUX DE MISE À NIVEAU DES CENTRES DE SOINS DE SANTÉ PRIMAIRES – PROVINCE D’AZILAL : CSR2 TIDILI",
+            "buyer": "AGENCE DE DEVELOPPEMENT DU HAUT ATLAS",
+            "deadline": "...",
+            "city": "AZILAL...AZILAL",
+            "scraped_at": "2026-01-26T12:33:19.257963"
+        },
+        {
+            "reference": "02/2026/ND/TDRHTABTTARP3007_S.DNOUDEVS.A",
+            "original_reference": "02/2026/ND/TDRHTABTTARP3007",
+            "buyer_initials": "S.DNOUDEVS.A",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TRAVAUX DE DEPLACEMENT DES RESEAUX HTA-BT LIE A L’AMENAGEMENT DE LA RP3007 A BOUSKOURA...TRAVAUX DE DEPLACEMENT DES RESEAUX HTA-BT LIE A L’AMENAGEMENT DE LA RP3007 A BOUSKOURA",
+            "buyer": "S.D.L NOUACEUR DEVELOPPEMENT S.A",
+            "deadline": "16/02/202611:00",
+            "city": "NOUACEUR...NOUACEUR",
+            "scraped_at": "2026-01-26T12:33:19.258386"
+        },
+        {
+            "reference": "64/2026/SRMFM_SOCREGMULFESMEKS.A",
+            "original_reference": "64/2026/SRMFM",
+            "buyer_initials": "SOCREGMULFESMEKS.A",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :Entretien et intervention sur réseaux HTA et BT de la province de Séfrou relevant de la société régionale multiservices Fès-Mèknes...Entretien et intervention sur réseaux HTA et BT de la province de Séfrou relevant de la société régionale multiservices Fès-Mèknes",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES FES - MEKNES S.A",
+            "deadline": "16/02/202610:00",
+            "city": "SEFROU...SEFROU",
+            "scraped_at": "2026-01-26T12:33:19.259352"
+        },
+        {
+            "reference": "MODHABOUS/2026/08T_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/08T",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE TAZOULTE DONT LE CODE...TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE TAZOULTE DONT LE CODE N°541007722 SITUEE A LA COMMUNE TAOUALTE .",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "...",
+            "city": "TAROUDANNT...TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.259396"
+        },
+        {
+            "reference": "MODHABOUS/2026/09T_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/09T",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE TALIOUINE CHELH DONT...TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE TALIOUINE CHELH DONT LE CODE N°541008401 SITUEE A LA COMMUNE ASSAKI.",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "16/02/202610:00",
+            "city": "TAROUDANNT...TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.259436"
+        },
+        {
+            "reference": "MODHABOUS/2026/10T_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/10T",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE AZRBZAN DONT LE CODE...TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE AZRBZAN DONT LE CODE N°541007898 SITUEE A LA COMMUNE ASKAOUNE. • RECONSTRUCTION TOTALE DE LA MOSQUEE TAGHRIT DONT LE CODE N°541007885 SITUEE A LA COMMUNE ASKAOUNE.",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "...",
+            "city": "TAROUDANNT...TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.259477"
+        },
+        {
+            "reference": "MODHABOUS/2026/11T_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/11T",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE TMAZALN DONT LE CODE...TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE TMAZALN DONT LE CODE N°541009519 SITUEE A LA COMMUNE TAKOUKA. • RECONSTRUCTION TOTALE DE LA MOSQUEE KAMA DONT LE CODE N°541007939 SITUEE A LA COMMUNE TAKOUKA. • RECONSTRUCTION TOTALE DE LA MOSQUEE AMKERNIS DONT LE CODE N° 541007931 SITUEE A LA COMMUNE TAKOUKA. • RECONSTRUCTION TOTALE DE LA MOSQUEE TARGOUT DONT LE CODE N° 541007943 SITUEE A LA COMMUNE TAKOUKA.",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "16/02/202610:00",
+            "city": "TAROUDANNT...TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.259519"
+        },
+        {
+            "reference": "MODHABOUS/2026/14T_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/14T",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE TAMSSOULT DONT LE...TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE TAMSSOULT DONT LE CODE N°541007530SITUEE A LA COMMUNE IGUIDI . • RECONSTRUCTION TOTALE DE LA MOSQUEE TAMAJOUT DONT LE CODE N°541007570SITUEE A LA COMMUNE IGUIDI .",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "...",
+            "city": "TAROUDANNT...TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.259560"
+        },
+        {
+            "reference": "MODHABOUS/2026/15T_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/15T",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE TADDART DONT LE CODE...TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE TADDART DONT LE CODE N°541009020 SITUEE A LA COMMUNE TAFRAOUTEN .",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "16/02/202610:00",
+            "city": "TAROUDANNT...TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.259597"
+        },
+        {
+            "reference": "MODHABOUS/2026/16T_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/16T",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE AIT DAOUD DONT LE...TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE AIT DAOUD DONT LE CODE N°541007489 SITUEE A LA COMMUNE IDA OUGAILAL",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "...",
+            "city": "TAROUDANNT...TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.259637"
+        },
+        {
+            "reference": "MODHABOUS/2026/17T_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/17T",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE TAZGLIMT DONT LE...TRAVAUX DE REHABILITATION DES LIEUX D’EXERCICE DE CULTE MUSULMAN RELEVANT DES PROVINCES SINISTREES PAR LE SEISME D’AL HAOUZ RELEVANT DE LA PROVINCE DE TAROUDANT : • RECONSTRUCTION TOTALE DE LA MOSQUEE TAZGLIMT DONT LE CODE N°541008962 SITUEE A LA COMMUNE TAMALOUKT",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "16/02/202610:00",
+            "city": "TAROUDANNT...TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.259673"
+        },
+        {
+            "reference": "15/2026/ADHA_AGEDEVHAUATL",
+            "original_reference": "15/2026/ADHA",
+            "buyer_initials": "AGEDEVHAUATL",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE RECONSTRUCTION DES ÉTABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE DE CHICHAOUA EN 02 LOTS :...TRAVAUX DE RECONSTRUCTION DES ÉTABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE DE CHICHAOUA EN 02 LOTS :",
+            "buyer": "AGENCE DE DEVELOPPEMENT DU HAUT ATLAS",
+            "deadline": "...",
+            "city": "CHICHAOUA...CHICHAOUA",
+            "scraped_at": "2026-01-26T12:33:19.259711"
+        },
+        {
+            "reference": "AOO/PM/2026/4259_MAD",
+            "original_reference": "AOO/PM/2026/4259",
+            "buyer_initials": "MAD",
+            "category": "Travaux",
+            "launch_date": "26/01/2026",
+            "object": "Objet :REMISE EN ETAT DE L’ECLAIRAGE DE L’HOTEL BANYAN TREE TAMUDA BAY...REMISE EN ETAT DE L’ECLAIRAGE DE L’HOTEL BANYAN TREE TAMUDA BAY",
+            "buyer": "MADAEF",
+            "deadline": "16/02/202610:00",
             "city": "MDIQ-FNIDEQ...MDIQ-FNIDEQ",
-            "scraped_at": "2026-01-18T03:03:43.024494"
+            "scraped_at": "2026-01-26T12:33:19.259753"
+        },
+        {
+            "reference": "14/2026/ADHA_AGEDEVHAUATL",
+            "original_reference": "14/2026/ADHA",
+            "buyer_initials": "AGEDEVHAUATL",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DES ÉTABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE DE CHICHAOUA EN 03 LOTS...TRAVAUX DE CONSTRUCTION DES ÉTABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE DE CHICHAOUA EN 03 LOTS",
+            "buyer": "AGENCE DE DEVELOPPEMENT DU HAUT ATLAS",
+            "deadline": "13/02/202611:30",
+            "city": "CHICHAOUA...CHICHAOUA",
+            "scraped_at": "2026-01-26T12:33:19.260086"
+        },
+        {
+            "reference": "10/BOR/2025_COMURBELBOR",
+            "original_reference": "10/BOR/2025",
+            "buyer_initials": "COMURBELBOR",
+            "category": "Travaux",
+            "launch_date": "18/01/2026",
+            "object": "Objet :TRAVAUX DE RENFORCEMENT ET REFECTION DES CHAUSSES DEGRADEES DE LA COMMUNE D’EL BOROUJ PROVINCE SETTAT....TRAVAUX DE RENFORCEMENT ET REFECTION DES CHAUSSES DEGRADEES DE LA COMMUNE D’EL BOROUJ PROVINCE SETTAT.",
+            "buyer": "Commune urbaine de EL BOROUJ",
+            "deadline": "...",
+            "city": "SETTAT...SETTAT",
+            "scraped_at": "2026-01-26T12:33:19.260307"
+        },
+        {
+            "reference": "01/2026_COMMUNERURALEMSEMRIR",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMMUNERURALEMSEMRIR",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TRAVAUX D’AMENAGEMENT DE TROIS TERRAINS DE PROXIMITE A LA COMMUNE DE MSEMRIR PROVINCE TINGHIR...TRAVAUX D’AMENAGEMENT DE TROIS TERRAINS DE PROXIMITE A LA COMMUNE DE MSEMRIR PROVINCE TINGHIR",
+            "buyer": "Commune rurale de MSEMRIR",
+            "deadline": "...",
+            "city": "TINGHIR...TINGHIR",
+            "scraped_at": "2026-01-26T12:33:19.260479"
+        },
+        {
+            "reference": "01/2026_DELPROHAUCOMANCRESMEMARMLIBOUJ",
+            "original_reference": "01/2026",
+            "buyer_initials": "DELPROHAUCOMANCRESMEMARMLIBOUJ",
+            "category": "Travaux",
+            "launch_date": "26/01/2026",
+            "object": "Objet :TRAVAUX D’EXTENSION DE L’ESPACE DE LA MEMOIRE HISTORIQUE DE LA RESISTANCE ET DE LA LIBERATION DE GUERCIF, PROVINCE DE GUERCIF...TRAVAUX D’EXTENSION DE L’ESPACE DE LA MEMOIRE HISTORIQUE DE LA RESISTANCE ET DE LA LIBERATION DE GUERCIF, PROVINCE DE GUERCIF",
+            "buyer": "DELEGATION PROVINCIALE AU HAUT COMMISSARIAT AUX ANCIENS RESISTANTS ET MEMBRES ARMEE DE LIBERATION OUJDA",
+            "deadline": "13/02/202610:00",
+            "city": "GUERCIF...GUERCIF",
+            "scraped_at": "2026-01-26T12:33:19.260525"
+        },
+        {
+            "reference": "MODHABOUS/2026/08_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/08",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :RECONSTRUCTION TOTALE DE LA MOSQUEE TINDRI DONT LE CODE N°161030646 SITUEE A LA COMMUNE IMINDOUNIT...RECONSTRUCTION TOTALE DE LA MOSQUEE TINDRI DONT LE CODE N°161030646 SITUEE A LA COMMUNE IMINDOUNIT",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "13/02/202610:00",
+            "city": "CHICHAOUA...CHICHAOUA",
+            "scraped_at": "2026-01-26T12:33:19.261173"
+        },
+        {
+            "reference": "MODHABOUS/2026/09_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/09",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :RECONSTRUCTION TOTALE DE LA MOSQUEE AZAL DONT LE CODE N°41028322 SITUEE A LA COMMUNE TLATE NYAACOUB...RECONSTRUCTION TOTALE DE LA MOSQUEE AZAL DONT LE CODE N°41028322 SITUEE A LA COMMUNE TLATE NYAACOUB",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "...",
+            "city": "AL HAOUZ...AL HAOUZ",
+            "scraped_at": "2026-01-26T12:33:19.261209"
+        },
+        {
+            "reference": "MODHABOUS/2026/10_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/10",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :RECONSTRUCTION TOTALE DE LA MOSQUEE AFNRMERWA DONT LE CODE N°41028520 SITUEE A LA COMMUNE TAGHDOUINE...RECONSTRUCTION TOTALE DE LA MOSQUEE AFNRMERWA DONT LE CODE N°41028520 SITUEE A LA COMMUNE TAGHDOUINE",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "12/02/202614:00",
+            "city": "AL HAOUZ...AL HAOUZ",
+            "scraped_at": "2026-01-26T12:33:19.261244"
+        },
+        {
+            "reference": "MODHABOUS/2026/11_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/11",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :RECONSTRUCTION TOTALE DE LA MOSQUEE TAMELLILT DONT LE CODE N°41027310 SITUEE A LA COMMUNE ABADOU...RECONSTRUCTION TOTALE DE LA MOSQUEE TAMELLILT DONT LE CODE N°41027310 SITUEE A LA COMMUNE ABADOU",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "...",
+            "city": "AL HAOUZ...AL HAOUZ",
+            "scraped_at": "2026-01-26T12:33:19.261281"
+        },
+        {
+            "reference": "MODHABOUS/2026/12_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/12",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :RECONSTRUCTION TOTALE DE LA MOSQUEE AMEZDAOU DONT LE CODE N°41027586 SITUEE A LA COMMUNE AMEZMIZ...RECONSTRUCTION TOTALE DE LA MOSQUEE AMEZDAOU DONT LE CODE N°41027586 SITUEE A LA COMMUNE AMEZMIZ",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "12/02/202614:00",
+            "city": "AL HAOUZ...AL HAOUZ",
+            "scraped_at": "2026-01-26T12:33:19.261315"
+        },
+        {
+            "reference": "MODHABOUS/2026/13_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/13",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :RECONSTRUCTION TOTALE DE LA MOSQUEE BOULEHBAK DONT LE CODE N°41027453 SITUEE A LA COMMUNE IGHIL. RECONSTRUCTION TOTALE DE LA MOSQUEE TIGUERTE DONT LE CODE N° 41027461 SITUEE A LA COMMUNE IGHIL. RECONSTRUCTION TOTALE DE LA...RECONSTRUCTION TOTALE DE LA MOSQUEE BOULEHBAK DONT LE CODE N°41027453 SITUEE A LA COMMUNE IGHIL. RECONSTRUCTION TOTALE DE LA MOSQUEE TIGUERTE DONT LE CODE N° 41027461 SITUEE A LA COMMUNE IGHIL. RECONSTRUCTION TOTALE DE LA MOSQUEE TADAFLT DONT LE CODE N° 41027445 SITUEE A LA COMMUNE IGHIL.",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "...",
+            "city": "AL HAOUZ...AL HAOUZ",
+            "scraped_at": "2026-01-26T12:33:19.261357"
+        },
+        {
+            "reference": "MODHABOUS/2026/14_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/14",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :RECONSTRUCTION TOTALE DE LA MOSQUEE ANOUS DONT LE CODE N°41027444 SITUEE A LA COMMUNE IGHIL. RECONSTRUCTION TOTALE DE LA MOSQUEE TIMSLAH DONT LE CODE N° 41027460 SITUEE A LA COMMUNE IGHIL RECONSTRUCTION TOTALE DE LA MOSQUEE...RECONSTRUCTION TOTALE DE LA MOSQUEE ANOUS DONT LE CODE N°41027444 SITUEE A LA COMMUNE IGHIL. RECONSTRUCTION TOTALE DE LA MOSQUEE TIMSLAH DONT LE CODE N° 41027460 SITUEE A LA COMMUNE IGHIL RECONSTRUCTION TOTALE DE LA MOSQUEE AGADIR ROUFSSANE DONT LE CODE N° 41027447 SITUEE A LA COMMUNE IGHIL",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "12/02/202613:00",
+            "city": "AL HAOUZ...AL HAOUZ",
+            "scraped_at": "2026-01-26T12:33:19.261395"
+        },
+        {
+            "reference": "MODHABOUS/2026/15_CGIMANAGEMENT",
+            "original_reference": "MODHABOUS/2026/15",
+            "buyer_initials": "CGIMANAGEMENT",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :RECONSTRUCTION TOTALE DE LA MOSQUEE TAQERDAMT SITUEE A LA COMMUNE IGHIL. RECONSTRUCTION TOTALE DE LA MOSQUEE TANFGUIKHT DONT LE CODE N° 41028454 SITUEE A LA COMMUNE IGHIL RECONSTRUCTION TOTALE DE LA MOSQUEE TAMESSOULT DONT...RECONSTRUCTION TOTALE DE LA MOSQUEE TAQERDAMT SITUEE A LA COMMUNE IGHIL. RECONSTRUCTION TOTALE DE LA MOSQUEE TANFGUIKHT DONT LE CODE N° 41028454 SITUEE A LA COMMUNE IGHIL RECONSTRUCTION TOTALE DE LA MOSQUEE TAMESSOULT DONT LE CODE N° 41027452 SITUEE A LA COMMUNE IGHIL",
+            "buyer": "CGI MANAGEMENT",
+            "deadline": "...",
+            "city": "AL HAOUZ...AL HAOUZ",
+            "scraped_at": "2026-01-26T12:33:19.261435"
+        },
+        {
+            "reference": "13/2026/ADHA_AGEDEVHAUATL",
+            "original_reference": "13/2026/ADHA",
+            "buyer_initials": "AGEDEVHAUATL",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX DE REHABILITATION DES ETABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE DE CHICHAOUA EN 3 LOTS...TRAVAUX DE REHABILITATION DES ETABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE DE CHICHAOUA EN 3 LOTS",
+            "buyer": "AGENCE DE DEVELOPPEMENT DU HAUT ATLAS",
+            "deadline": "12/02/202613:00",
+            "city": "CHICHAOUA...CHICHAOUA",
+            "scraped_at": "2026-01-26T12:33:19.261469"
+        },
+        {
+            "reference": "12/2026/ADHA_AGEDEVHAUATL",
+            "original_reference": "12/2026/ADHA",
+            "buyer_initials": "AGEDEVHAUATL",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX DE RECONSTRUCTION DES ÉTABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE DE TAROUDANT :...TRAVAUX DE RECONSTRUCTION DES ÉTABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE DE TAROUDANT :",
+            "buyer": "AGENCE DE DEVELOPPEMENT DU HAUT ATLAS",
+            "deadline": "12/02/202611:00",
+            "city": "TAROUDANNT...TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.261832"
+        },
+        {
+            "reference": "42/2026/APDN_AGEPOUPRODEVECOSOCPREPRONORROY",
+            "original_reference": "42/2026/APDN",
+            "buyer_initials": "AGEPOUPRODEVECOSOCPREPRONORROY",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE REMPLACEMENT DE 03 CLASSES SCOLAIRES DANS LA COMMUNE DE GZENAYA EL JANOUBIA-BNI FTAH ET RBAA LFOUKI– PROVINCE DE TAZA « EN LOT UNIQUE »...TRAVAUX DE REMPLACEMENT DE 03 CLASSES SCOLAIRES DANS LA COMMUNE DE GZENAYA EL JANOUBIA-BNI FTAH ET RBAA LFOUKI– PROVINCE DE TAZA « EN LOT UNIQUE »",
+            "buyer": "AGENCE POUR LA PROMOTION ET LE DEVELOPPEMENT ECONOMIQUE ET SOCIAL DES PREFECTURES ET PROVINCES DU NORD DU ROYAUME",
+            "deadline": "12/02/202611:00",
+            "city": "Province d'Al HoceimaProvince de Tanounate...Province d'Al Hoceima, Province de Tanounate, Province de Taza, Wilaya de Tetouan, Wilaya de Tanger Assilah, Province de Larache, Préfecture de Fahs Bni Makada, Province de Chefchaouen , Province Ouezzane",
+            "scraped_at": "2026-01-26T12:33:19.261953"
+        },
+        {
+            "reference": "AO01/2026_DIRPROEQUTRALOGEAURAB",
+            "original_reference": "AO01/2026",
+            "buyer_initials": "DIRPROEQUTRALOGEAURAB",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX D’EXECUTION DES CANALISATIONS HYDRAULIQUES SANS TRANCHEE EN FONÇAGE HORIZONTAL AU PK 23+750 DE LA RN25 - PREFECTURE DE SKHIRAT-TEMARA...TRAVAUX D’EXECUTION DES CANALISATIONS HYDRAULIQUES SANS TRANCHEE EN FONÇAGE HORIZONTAL AU PK 23+750 DE LA RN25 - PREFECTURE DE SKHIRAT-TEMARA",
+            "buyer": "DIRECTION PROVINCIALE DE L'EQUIPEMENT DU TRANSPORT DE LA LOGISTIQUE ET DE L'EAU DE RABAT",
+            "deadline": "...",
+            "city": "SKHIRATE-TEMARA...SKHIRATE-TEMARA",
+            "scraped_at": "2026-01-26T12:33:19.262552"
+        },
+        {
+            "reference": "28/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "28/MEK/2026",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX DE BRANCHEMENT D’EAU ET DE L’ELECTRICITE DES ETABLISSEMENTS SCOLAIRES RELEVANT DE LA DIRECTION PROVINCIALE DE MEKNES PREFECTURE DE MEKNES...TRAVAUX DE BRANCHEMENT D’EAU ET DE L’ELECTRICITE DES ETABLISSEMENTS SCOLAIRES RELEVANT DE LA DIRECTION PROVINCIALE DE MEKNES PREFECTURE DE MEKNES",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "deadline": "...",
+            "city": "MEKNES...MEKNES",
+            "scraped_at": "2026-01-26T12:33:19.262635"
+        },
+        {
+            "reference": "27/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "27/MEK/2026",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX D’AMENAGEMENT ET DE REHABILITATION DES CLOTURES AU LYCEE QUALIFIANT MOULAY ISMAIL A LA COMMUNE DE MEKNES ET ECOLE IZROUFEN A LA COMMUNE SIDI SLIMANE MOUL KIFFAN ET UN BLOC SANITAIRE A L’ECOLE ANNASSI 2 A LA COMMUNE...TRAVAUX D’AMENAGEMENT ET DE REHABILITATION DES CLOTURES AU LYCEE QUALIFIANT MOULAY ISMAIL A LA COMMUNE DE MEKNES ET ECOLE IZROUFEN A LA COMMUNE SIDI SLIMANE MOUL KIFFAN ET UN BLOC SANITAIRE A L’ECOLE ANNASSI 2 A LA COMMUNE DE MEKNES PREFECTURE DE MEKNES",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "deadline": "12/02/202611:00",
+            "city": "MEKNES...MEKNES",
+            "scraped_at": "2026-01-26T12:33:19.262680"
+        },
+        {
+            "reference": "01/2026_COMMUNERISLANE",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMMUNERISLANE",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :travaux d'entretien courant des voies aux douars Tijouine, Irzaine , Harakat, Kennine et Beni Oual....travaux d'entretien courant des voies aux douars Tijouine, Irzaine , Harakat, Kennine et Beni Oual.",
+            "buyer": "COMMUNE DE RISLANE",
+            "deadline": "12/02/202610:00",
+            "city": "BERKANE...BERKANE",
+            "scraped_at": "2026-01-26T12:33:19.263342"
+        },
+        {
+            "reference": "10/2026/DPAT_DIRPROAGRTAO",
+            "original_reference": "10/2026/DPAT",
+            "buyer_initials": "DIRPROAGRTAO",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :TRAVAUX D’EQUIPEMENT EN GENIE CIVIL D’UN POINT D’EAU (RESERVOIRS) A LA COMMUNE MECHRAA HAMMADI, PROVINCE DE TAOURIRT. DANS LE CADRE DU PROJET D’AGRICULTURE SOLIDAIRE DE DIVERSIFICATION DES SYSTEMES DE PRODUCTION ET...TRAVAUX D’EQUIPEMENT EN GENIE CIVIL D’UN POINT D’EAU (RESERVOIRS) A LA COMMUNE MECHRAA HAMMADI, PROVINCE DE TAOURIRT. DANS LE CADRE DU PROJET D’AGRICULTURE SOLIDAIRE DE DIVERSIFICATION DES SYSTEMES DE PRODUCTION ET PROMOTION DE L’EMPLOI AU NIVEAU DE LA ZONE D’ACTION DE LA DPA DE TAOURIRT.",
+            "buyer": "Direction Provinciale de l'Agriculture de Taourirt",
+            "deadline": "12/02/202610:00",
+            "city": "TAOURIRT...TAOURIRT",
+            "scraped_at": "2026-01-26T12:33:19.263722"
+        },
+        {
+            "reference": "10/2026/ADHA_AGEDEVHAUATL",
+            "original_reference": "10/2026/ADHA",
+            "buyer_initials": "AGEDEVHAUATL",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DES ÉTABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE DE CHICHAOUA EN 03 LOTS :...TRAVAUX DE CONSTRUCTION DES ÉTABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE DE CHICHAOUA EN 03 LOTS :",
+            "buyer": "AGENCE DE DEVELOPPEMENT DU HAUT ATLAS",
+            "deadline": "...",
+            "city": "CHICHAOUA...CHICHAOUA",
+            "scraped_at": "2026-01-26T12:33:19.263770"
+        },
+        {
+            "reference": "26/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "26/MEK/2026",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DES BLOCS SANITAIRES AUX ECOLES: MOHAMED ZAFZAF A LA COMMUNE DE MEKNES ET DHAR NSOUR A LA COMMUNE NZALAT BNI AMMMAR - PREFECTURE DE MEKNES...TRAVAUX DE CONSTRUCTION DES BLOCS SANITAIRES AUX ECOLES: MOHAMED ZAFZAF A LA COMMUNE DE MEKNES ET DHAR NSOUR A LA COMMUNE NZALAT BNI AMMMAR - PREFECTURE DE MEKNES",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "deadline": "12/02/202610:00",
+            "city": "MEKNES...MEKNES",
+            "scraped_at": "2026-01-26T12:33:19.263816"
+        },
+        {
+            "reference": "01/CAI/2026_COMRURAITIKK",
+            "original_reference": "01/CAI/2026",
+            "buyer_initials": "COMRURAITIKK",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TRAVAUX D’EQUIPEMENT DES PUITS A LA COMMUNE AIT IKKOU...TRAVAUX D’EQUIPEMENT DES PUITS A LA COMMUNE AIT IKKOU",
+            "buyer": "Commune rurale de AIT IKKOU",
+            "deadline": "12/02/202610:00",
+            "city": "KHEMISSET...KHEMISSET",
+            "scraped_at": "2026-01-26T12:33:19.264198"
+        },
+        {
+            "reference": "01/2026/AM_C.TAITMAKC.TAITMAKC.TAITMAKC.TAITMAKC.TAITMAK",
+            "original_reference": "01/2026/AM",
+            "buyer_initials": "C.TAITMAKC.TAITMAKC.TAITMAKC.TAITMAKC.TAITMAK",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX D’AMENAGEMENT ET DALLAGE DES PISTE AUX DOUARS TAOURIRT, AMGDOUL, TARGA LJDID, BITLJANE ET MOURGH DE LA COMMUNE TERRITORIALE AIT MAKHLOUF PROVINCE DE TAROUDANNT...TRAVAUX D’AMENAGEMENT ET DALLAGE DES PISTE AUX DOUARS TAOURIRT, AMGDOUL, TARGA LJDID, BITLJANE ET MOURGH DE LA COMMUNE TERRITORIALE AIT MAKHLOUF PROVINCE DE TAROUDANNT",
+            "buyer": "C.T AIT MAKHLOUF C.T AIT MAKHLOUF C.T AIT MAKHLOUF C.T AIT MAKHLOUF C.T AIT MAKHLOUF",
+            "deadline": "12/02/202610:00",
+            "city": "TAROUDANNT...TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.264298"
+        },
+        {
+            "reference": "AOS/03/2026_AGEREGEXEPROREGBENMELKHE",
+            "original_reference": "AOS/03/2026",
+            "buyer_initials": "AGEREGEXEPROREGBENMELKHE",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX D'EQUIPEMENT DU FORAGE AU DOUAR NCHIT PAR UNE ELECTROPOMPE A LA COMMUNE OULED YAICH, PROVINCE BENI MELLAL-LOT UNIQUE-...TRAVAUX D'EQUIPEMENT DU FORAGE AU DOUAR NCHIT PAR UNE ELECTROPOMPE A LA COMMUNE OULED YAICH, PROVINCE BENI MELLAL-LOT UNIQUE-",
+            "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION BENI MELLAL- KHENIFRA",
+            "deadline": "...",
+            "city": "BENI MELLAL...BENI MELLAL",
+            "scraped_at": "2026-01-26T12:33:19.264345"
+        },
+        {
+            "reference": "01/2026_COMMUNETAOULOUKOULT",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMMUNETAOULOUKOULT",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :Fourniture et remplacement luminaire existant par luminaire LED 150 W- marque INGELEC ou équivalent Y compris crosse....Fourniture et remplacement luminaire existant par luminaire LED 150 W- marque INGELEC ou équivalent Y compris crosse.",
+            "buyer": "Commune TAOULOUKOULT",
+            "deadline": "...",
+            "city": "CHICHAOUA...CHICHAOUA",
+            "scraped_at": "2026-01-26T12:33:19.264635"
+        },
+        {
+            "reference": "AOS.01/CEA/2026_CASEVEANDANI",
+            "original_reference": "AOS.01/CEA/2026",
+            "buyer_initials": "CASEVEANDANI",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :TRAVAUX DE REHABILITATION DU TERRAIN DE FOOTBALL HABIB ZEMRANI...TRAVAUX DE REHABILITATION DU TERRAIN DE FOOTBALL HABIB ZEMRANI",
+            "buyer": "CASABLANCA EVENTS AND ANIMATIONS",
+            "deadline": "12/02/202610:00",
+            "city": "CASABLANCA...CASABLANCA",
+            "scraped_at": "2026-01-26T12:33:19.264672"
+        },
+        {
+            "reference": "01/2026/ctor_COMMUNEOUMRABIA",
+            "original_reference": "01/2026/ctor",
+            "buyer_initials": "COMMUNEOUMRABIA",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :CONSTRUCTION D'OUVRAGE D'ART A BOUIZANE (TICHOUTE-TAZOGARETE) COMMUNE TERRITORIALE OUM RABIA PROVINCE KHENIFRA....CONSTRUCTION D'OUVRAGE D'ART A BOUIZANE (TICHOUTE-TAZOGARETE) COMMUNE TERRITORIALE OUM RABIA PROVINCE KHENIFRA.",
+            "buyer": "Commune de OUM RABIA",
+            "deadline": "...",
+            "city": "KHENIFRA...KHENIFRA",
+            "scraped_at": "2026-01-26T12:33:19.264713"
+        },
+        {
+            "reference": "01/2026/CT_COMMUNERURALETAZARINE",
+            "original_reference": "01/2026/CT",
+            "buyer_initials": "COMMUNERURALETAZARINE",
+            "category": "Travaux",
+            "launch_date": "23/01/2026",
+            "object": "Objet :RACCORDEMENT ELECTRIQUE DES STATIONS DE POMPAGE POUR LE RENFORCEMENT DE L’ALIMENTATION EN EAU POTABLE DE LA COMMUNE DE TAZARINE (PROVINCE DE TAZA)...RACCORDEMENT ELECTRIQUE DES STATIONS DE POMPAGE POUR LE RENFORCEMENT DE L’ALIMENTATION EN EAU POTABLE DE LA COMMUNE DE TAZARINE (PROVINCE DE TAZA)",
+            "buyer": "Commune rurale de TAZARINE",
+            "deadline": "12/02/202610:00",
+            "city": "TAZA...TAZA",
+            "scraped_at": "2026-01-26T12:33:19.264760"
+        },
+        {
+            "reference": "01/CAR/2026_COMURBAINERR",
+            "original_reference": "01/CAR/2026",
+            "buyer_initials": "COMURBAINERR",
+            "category": "Travaux",
+            "launch_date": "24/01/2026",
+            "object": "Objet :Construction d’un terrain de volet bal au centre de la CT Ain Reggada....Construction d’un terrain de volet bal au centre de la CT Ain Reggada.",
+            "buyer": "Commune urbaine de AIN ERREGGADA",
+            "deadline": "...",
+            "city": "BERKANE...BERKANE",
+            "scraped_at": "2026-01-26T12:33:19.265896"
+        },
+        {
+            "reference": "9/2026/ADHA_AGEDEVHAUATL",
+            "original_reference": "9/2026/ADHA",
+            "buyer_initials": "AGEDEVHAUATL",
+            "category": "Travaux",
+            "launch_date": "22/01/2026",
+            "object": "Objet :TRAVAUX DE RECONSTRUCTION DES ÉTABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE DE TAROUDANT :...TRAVAUX DE RECONSTRUCTION DES ÉTABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE DE TAROUDANT :",
+            "buyer": "AGENCE DE DEVELOPPEMENT DU HAUT ATLAS",
+            "deadline": "11/02/202611:00",
+            "city": "TAROUDANNT...TAROUDANNT",
+            "scraped_at": "2026-01-26T12:33:19.265940"
+        },
+        {
+            "reference": "01/bp/2026_PROVINCEGUELMIM",
+            "original_reference": "01/bp/2026",
+            "buyer_initials": "PROVINCEGUELMIM",
+            "category": "Travaux",
+            "launch_date": "25/01/2026",
+            "object": "Objet :TRAVAUX D’AMENAGEMENT DES PLACES PUBLIQUE A LA CT BOUIZAKARNE PROVINCE DE GUELMIM...TRAVAUX D’AMENAGEMENT DES PLACES PUBLIQUE A LA CT BOUIZAKARNE PROVINCE DE GUELMIM",
+            "buyer": "Province de GUELMIM",
+            "deadline": "...",
+            "city": "GUELMIM...GUELMIM",
+            "scraped_at": "2026-01-26T12:33:19.266068"
+        },
+        {
+            "reference": "AO15/2026/DPA/IFRANE_DIRPROAGRIFR",
+            "original_reference": "AO15/2026/DPA/IFRANE",
+            "buyer_initials": "DIRPROAGRIFR",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX DE REGENERATION DU SOL PAR EPANDAGE DE 200 TONNES D'ENGRAIS SUR UNE SUPERFICIE DE 1 000 HA EPARPILLEE, AU NIVEAU DES PARCOURS DES COMMUNES TERRITORIALES DE BENSMIM , TIMAHDIT ET SIDI EL MAKHFI, PROVINCE D’IFRANE....TRAVAUX DE REGENERATION DU SOL PAR EPANDAGE DE 200 TONNES D'ENGRAIS SUR UNE SUPERFICIE DE 1 000 HA EPARPILLEE, AU NIVEAU DES PARCOURS DES COMMUNES TERRITORIALES DE BENSMIM , TIMAHDIT ET SIDI EL MAKHFI, PROVINCE D’IFRANE.",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE IFRANE",
+            "deadline": "11/02/202611:00",
+            "city": "IFRANE...IFRANE",
+            "scraped_at": "2026-01-26T12:33:19.266198"
+        },
+        {
+            "reference": "02/BC/2026_COMMUNEELARGOUB",
+            "original_reference": "02/BC/2026",
+            "buyer_initials": "COMMUNEELARGOUB",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :travaux de construction d’un local des visiteurs sis à khetout el bar....travaux de construction d’un local des visiteurs sis à khetout el bar.",
+            "buyer": "COMMUNE EL ARGOUB",
+            "deadline": "...",
+            "city": "OUED ED DAHAB...OUED ED DAHAB",
+            "scraped_at": "2026-01-26T12:33:19.266504"
         },
         {
             "reference": "AO/03/2026_SOCALOMRFESMEK",
@@ -145,9 +1969,9 @@
             "launch_date": "12/01/2026",
             "object": "Objet :TRAVAUX DE CONSTRUCTION DE LOGEMENTS «AL IRFANE 2 TR B » DANS LE CADRE DU NOUVEAU PROGRAMME D’AIDE AUX LOGEMENTS SIS AU LOTISSEMENT « RIAD SAISS » LA COMMUNE DE OULED TAYEB PREFECTURE DE FES...TRAVAUX DE CONSTRUCTION DE LOGEMENTS «AL IRFANE 2 TR B » DANS LE CADRE DU NOUVEAU PROGRAMME D’AIDE AUX LOGEMENTS SIS AU LOTISSEMENT « RIAD SAISS » LA COMMUNE DE OULED TAYEB PREFECTURE DE FES",
             "buyer": "SOCIETE AL OMRANE FES MEKNES",
-            "deadline": "09/02/202611:00",
+            "deadline": "11/02/202610:30",
             "city": "FES...FES",
-            "scraped_at": "2026-01-18T03:03:43.024718"
+            "scraped_at": "2026-01-26T12:33:19.266836"
         },
         {
             "reference": "1/CHN/2026_COMRURHJAENH",
@@ -159,7 +1983,7 @@
             "buyer": "Commune rurale de HJAR ENHAL",
             "deadline": "...",
             "city": "TANGER-ASSILAH...TANGER-ASSILAH",
-            "scraped_at": "2026-01-18T03:03:43.024945"
+            "scraped_at": "2026-01-26T12:33:19.266878"
         },
         {
             "reference": "1/FSTT/2026_FACSCITECTAN",
@@ -169,9 +1993,9 @@
             "launch_date": "16/01/2026",
             "object": "Objet :Travaux d'Aménagement des Blocs Sanitaires à la Faculté des Sciences et Techniques à Tanger (Lot Unique)...Travaux d'Aménagement des Blocs Sanitaires à la Faculté des Sciences et Techniques à Tanger (Lot Unique)",
             "buyer": "FACULTE DES SCIENCES ET TECHNIQUES TANGER",
-            "deadline": "09/02/202610:00",
+            "deadline": "11/02/202610:30",
             "city": "MAROCTANGER-ASSILAH...MAROC, TANGER-ASSILAH",
-            "scraped_at": "2026-01-18T03:03:43.025196"
+            "scraped_at": "2026-01-26T12:33:19.266918"
         },
         {
             "reference": "02/CEH/DM/FSH/2026_DIRECTIONMOSQUÉES",
@@ -183,7 +2007,31 @@
             "buyer": "Direction des Mosquées",
             "deadline": "...",
             "city": "AL HAOUZ...AL HAOUZ",
-            "scraped_at": "2026-01-18T03:03:43.025436"
+            "scraped_at": "2026-01-26T12:33:19.266962"
+        },
+        {
+            "reference": "01/2026_COMRUROULRAH",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMRUROULRAH",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION D’UN (01) BLOC SANITAIRE D’ENSEIGNEMENT PRESCOLAIRE AU DOUAR LAABADLA (ECOLE MHIOULA 2) COMMUNE OULED RAHMOUNE-Province El Jadida...TRAVAUX DE CONSTRUCTION D’UN (01) BLOC SANITAIRE D’ENSEIGNEMENT PRESCOLAIRE AU DOUAR LAABADLA (ECOLE MHIOULA 2) COMMUNE OULED RAHMOUNE-Province El Jadida",
+            "buyer": "Commune rurale de OULAD RAHMOUNE",
+            "deadline": "11/02/202610:30",
+            "city": "EL JADIDA...EL JADIDA",
+            "scraped_at": "2026-01-26T12:33:19.267001"
+        },
+        {
+            "reference": "01/2026_COMMUNECHAHDA",
+            "original_reference": "01/2026",
+            "buyer_initials": "COMMUNECHAHDA",
+            "category": "Travaux",
+            "launch_date": "22/01/2026",
+            "object": "Objet :Alimentation de six douars relevant de la commune de Chahda en Eau Potable par bornes fontaines...Alimentation de six douars relevant de la commune de Chahda en Eau Potable par bornes fontaines",
+            "buyer": "Commune CHAHDA",
+            "deadline": "...",
+            "city": "SAFI...SAFI",
+            "scraped_at": "2026-01-26T12:33:19.267043"
         },
         {
             "reference": "01/2026_COMRURMECHAM",
@@ -193,9 +2041,9 @@
             "launch_date": "12/01/2026",
             "object": "Objet :TRAVAUX D'ADDUCTION EN EAU POTABLE PAR BORNES FONTAINES DU DOUAR SIDI MIMOUN A LA COMMUNE DE MECHRAA HAMMADI....TRAVAUX D'ADDUCTION EN EAU POTABLE PAR BORNES FONTAINES DU DOUAR SIDI MIMOUN A LA COMMUNE DE MECHRAA HAMMADI.",
             "buyer": "Commune rurale de MECHRAA HAMMADI",
-            "deadline": "09/02/202610:00",
+            "deadline": "...",
             "city": "TAOURIRT...TAOURIRT",
-            "scraped_at": "2026-01-18T03:03:43.027785"
+            "scraped_at": "2026-01-26T12:33:19.267407"
         },
         {
             "reference": "28/2025/DPATZSAHA_DIRPROAGRTIZ",
@@ -205,9 +2053,21 @@
             "launch_date": "12/01/2026",
             "object": "Objet :Travaux de construction de corps de chaussée en revêtement bicouche des pistes rurales, à travers la Province de Tiznit. Répartis en 2 lots séparés comme suit :LOT N°1: Travaux de construction de liaison routière reliant...Travaux de construction de corps de chaussée en revêtement bicouche des pistes rurales, à travers la Province de Tiznit. Répartis en 2 lots séparés comme suit :LOT N°1: Travaux de construction de liaison routière reliant la RP 1925 au Douar Tazourte sur une longueur 1,38 km, C.T Ammelne , cercle Tafraout, Province de Tiznit.LOT N°2: Travaux de construction de liaison routière desservant Douar Tiwddite sur une longueur 0,649 km, C.T Tarsouat, cercle Tafraout, Province de Tiznit.",
             "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE TIZNIT",
-            "deadline": "...",
+            "deadline": "11/02/202610:00",
             "city": "TIZNIT...TIZNIT",
-            "scraped_at": "2026-01-18T03:03:43.028076"
+            "scraped_at": "2026-01-26T12:33:19.267459"
+        },
+        {
+            "reference": "AO04/2026/DPA/IFRANE_DIRPROAGRIFR",
+            "original_reference": "AO04/2026/DPA/IFRANE",
+            "buyer_initials": "DIRPROAGRIFR",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :TRAVAUX DE REGENERATION DU SOL PAR EPANDAGE DE 200 TONNES D'ENGRAIS SUR UNE SUPERFICIE DE 1 000 HA EPARPILLEE, AU NIVEAU DES PARCOURS DES COMMUNES TERRITORIALES DE TIGRIGRA ET AIN LEUH, PROVINCE D’IFRANE....TRAVAUX DE REGENERATION DU SOL PAR EPANDAGE DE 200 TONNES D'ENGRAIS SUR UNE SUPERFICIE DE 1 000 HA EPARPILLEE, AU NIVEAU DES PARCOURS DES COMMUNES TERRITORIALES DE TIGRIGRA ET AIN LEUH, PROVINCE D’IFRANE.",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE IFRANE",
+            "deadline": "11/02/202610:00",
+            "city": "IFRANE...IFRANE",
+            "scraped_at": "2026-01-26T12:33:19.267583"
         },
         {
             "reference": "AO/302/2025_SOCALOMRFESMEK",
@@ -217,9 +2077,9 @@
             "launch_date": "12/01/2026",
             "object": "Objet :TRAVAUX DE CONSTRUCTION DE LOGEMENTS «AL IRANE 2 TR D » DANS LE CADRE DU NOUVEAU PROGRAMME D’AIDE AUX LOGEMENTS SIS AU LOTISSEMENT « RIAD SAISS » LA COMMUNE DE OULED TAYEB PREFECTURE DE FES...TRAVAUX DE CONSTRUCTION DE LOGEMENTS «AL IRANE 2 TR D » DANS LE CADRE DU NOUVEAU PROGRAMME D’AIDE AUX LOGEMENTS SIS AU LOTISSEMENT « RIAD SAISS » LA COMMUNE DE OULED TAYEB PREFECTURE DE FES",
             "buyer": "SOCIETE AL OMRANE FES MEKNES",
-            "deadline": "...",
+            "deadline": "11/02/202610:00",
             "city": "FES...FES",
-            "scraped_at": "2026-01-18T03:03:43.029649"
+            "scraped_at": "2026-01-26T12:33:19.267958"
         },
         {
             "reference": "01/MOD/KH2026_SOCALOMRBENMELKHE",
@@ -229,9 +2089,21 @@
             "launch_date": "12/01/2026",
             "object": "Objet :TRAVAUX D’AMENAGEMENT DES BOULEVARDS AL QODS ET AL MOKAWAMA ET DE RESTRUCTURATION DES QUARTIERS (TAHJJAOUITE-TAGHLLAFTE-AHADAF) DE LA VILLE DE M’RIRT, PROVINCE DE KHENIFRA...TRAVAUX D’AMENAGEMENT DES BOULEVARDS AL QODS ET AL MOKAWAMA ET DE RESTRUCTURATION DES QUARTIERS (TAHJJAOUITE-TAGHLLAFTE-AHADAF) DE LA VILLE DE M’RIRT, PROVINCE DE KHENIFRA",
             "buyer": "SOCIETE AL OMRANE BENI MELLAL KHENIFRA",
-            "deadline": "09/02/202610:00",
+            "deadline": "...",
             "city": "KHENIFRA...KHENIFRA",
-            "scraped_at": "2026-01-18T03:03:43.029856"
+            "scraped_at": "2026-01-26T12:33:19.268024"
+        },
+        {
+            "reference": "8/2026/ADHA_AGEDEVHAUATL",
+            "original_reference": "8/2026/ADHA",
+            "buyer_initials": "AGEDEVHAUATL",
+            "category": "Travaux",
+            "launch_date": "21/01/2026",
+            "object": "Objet :Travaux de reconstruction des établissements scolaires relevant de la province d’Ouarzazate, en 4 Lots :...Travaux de reconstruction des établissements scolaires relevant de la province d’Ouarzazate, en 4 Lots :",
+            "buyer": "AGENCE DE DEVELOPPEMENT DU HAUT ATLAS",
+            "deadline": "11/02/202610:00",
+            "city": "OUARZAZATE...OUARZAZATE",
+            "scraped_at": "2026-01-26T12:33:19.268075"
         },
         {
             "reference": "02/2026_COMMUNESIDILAAROUSSI",
@@ -241,9 +2113,21 @@
             "launch_date": "11/01/2026",
             "object": "Objet :AMENAGEMENT DE PISTE RELIANTE OUED TANSEFT ET DOUAR OULAD BEN TAJAR SUR UNE DISTANCE DE 4 KM A LA COMMUNE SIDI LAAROUSSI PROVINCE ESSAOUIRA...AMENAGEMENT DE PISTE RELIANTE OUED TANSEFT ET DOUAR OULAD BEN TAJAR SUR UNE DISTANCE DE 4 KM A LA COMMUNE SIDI LAAROUSSI PROVINCE ESSAOUIRA",
             "buyer": "Commune SIDI LAAROUSSI",
-            "deadline": "09/02/202610:00",
+            "deadline": "11/02/202610:00",
             "city": "ESSAOUIRA...ESSAOUIRA",
-            "scraped_at": "2026-01-18T03:03:43.030825"
+            "scraped_at": "2026-01-26T12:33:19.268315"
+        },
+        {
+            "reference": "AO/20/2026_SOCALOMRFESMEK",
+            "original_reference": "AO/20/2026",
+            "buyer_initials": "SOCALOMRFESMEK",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :PROGRAMME DE CONSTRUCTION DE LOGEMENTS «DALILA E2 » TRANCHE2 DANS LE CADRE DU NOUVEAU PROGRAMME D’AIDE AUX LOGEMENTS SIS AU LOTISSEMENT « DALILA » LA COMMUNE DE FES PREFECTURE DE FES...PROGRAMME DE CONSTRUCTION DE LOGEMENTS «DALILA E2 » TRANCHE2 DANS LE CADRE DU NOUVEAU PROGRAMME D’AIDE AUX LOGEMENTS SIS AU LOTISSEMENT « DALILA » LA COMMUNE DE FES PREFECTURE DE FES",
+            "buyer": "SOCIETE AL OMRANE FES MEKNES",
+            "deadline": "...",
+            "city": "FES...FES",
+            "scraped_at": "2026-01-26T12:33:19.268377"
         },
         {
             "reference": "68/2025_DIRREGSANREGDARTAF",
@@ -253,9 +2137,9 @@
             "launch_date": "07/01/2026",
             "object": "Objet :« Travaux de Raccordement 2° Catégorie Aéro-Souterrain à 22 KV et installation d’un poste de transformation MT/BT de type H61 au Centre de Sante Rural Type 2 IMILCHIL de la province de Midelt relevant de la région...« Travaux de Raccordement 2° Catégorie Aéro-Souterrain à 22 KV et installation d’un poste de transformation MT/BT de type H61 au Centre de Sante Rural Type 2 IMILCHIL de la province de Midelt relevant de la région Drâa-Tafilalet",
             "buyer": "DIRECTEUR REGIONAL DE LA SANTE A LA REGION DE DARAA TAFILALET",
-            "deadline": "...",
+            "deadline": "11/02/202609:45",
             "city": "MIDELT...MIDELT",
-            "scraped_at": "2026-01-18T03:03:43.031561"
+            "scraped_at": "2026-01-26T12:33:19.268516"
         },
         {
             "reference": "01/2026_COMMUNESIDILAAROUSSI",
@@ -265,9 +2149,9 @@
             "launch_date": "11/01/2026",
             "object": "Objet : TRAVAUX DE CONSTRUCTION DE LA PISTE RELIANT LA RP 2213 PASSANT PAR DOUAR LKARIA VERS DOUAR AIT ALI SUR UNE DISTANCE DE 2,930 KM - TRAVAUX DE CONSTRUCTION DE LA PISTE RELIANT LA RP 2213 ET DOUAR JOUADRA SUR UNE DISTANCE DE... TRAVAUX DE CONSTRUCTION DE LA PISTE RELIANT LA RP 2213 PASSANT PAR DOUAR LKARIA VERS DOUAR AIT ALI SUR UNE DISTANCE DE 2,930 KM - TRAVAUX DE CONSTRUCTION DE LA PISTE RELIANT LA RP 2213 ET DOUAR JOUADRA SUR UNE DISTANCE DE 4,120 KM A LA COMMUNE SIDI LAAROUSSI PROVINCE ESSAOUIRA",
             "buyer": "Commune SIDI LAAROUSSI",
-            "deadline": "...",
+            "deadline": "10/02/202616:00",
             "city": "ESSAOUIRA...ESSAOUIRA",
-            "scraped_at": "2026-01-18T03:03:43.032542"
+            "scraped_at": "2026-01-26T12:33:19.268718"
         },
         {
             "reference": "01/CEH/DM/FSH/2026_DIRECTIONMOSQUÉES",
@@ -277,9 +2161,9 @@
             "launch_date": "16/01/2026",
             "object": "Objet :TRAVAUX DE REFECTION DE LA MOSQUEE AIT OUHMANE ET SES DEPENDANCES A LA PROVINCE D’EL HAOUZ, EN LOT UNIQUE....TRAVAUX DE REFECTION DE LA MOSQUEE AIT OUHMANE ET SES DEPENDANCES A LA PROVINCE D’EL HAOUZ, EN LOT UNIQUE.",
             "buyer": "Direction des Mosquées",
-            "deadline": "06/02/202611:00",
+            "deadline": "...",
             "city": "AL HAOUZ...AL HAOUZ",
-            "scraped_at": "2026-01-18T03:03:43.032790"
+            "scraped_at": "2026-01-26T12:33:19.268773"
         },
         {
             "reference": "01/2026_COMMUNERURALEIZNAGUEN",
@@ -289,9 +2173,9 @@
             "launch_date": "16/01/2026",
             "object": "Objet :TRAVAUX DE CONSTRUCTION D’UN RÉSERVOIR D’EAU POTABLE DE 75 M3 À DOUAR TAOURIRTE ANISSI COMMUNE D’IZNAGUEN, PROVINCE D’OUARZAZATE....TRAVAUX DE CONSTRUCTION D’UN RÉSERVOIR D’EAU POTABLE DE 75 M3 À DOUAR TAOURIRTE ANISSI COMMUNE D’IZNAGUEN, PROVINCE D’OUARZAZATE.",
             "buyer": "Commune rurale de IZNAGUEN",
-            "deadline": "...",
+            "deadline": "10/02/202616:00",
             "city": "OUARZAZATE...OUARZAZATE",
-            "scraped_at": "2026-01-18T03:03:43.033009"
+            "scraped_at": "2026-01-26T12:33:19.268819"
         },
         {
             "reference": "50/C.M.CH/DM/2025_DIRECTIONMOSQUÉES",
@@ -301,9 +2185,33 @@
             "launch_date": "13/01/2026",
             "object": "Objet :les travaux de renforcement, de réhabilitation et de reconstruction des parties démolies de six (06) mosquées et leurs dépendances à Chichaoua affectées par le séisme d’Al Haouz, en lot unique....les travaux de renforcement, de réhabilitation et de reconstruction des parties démolies de six (06) mosquées et leurs dépendances à Chichaoua affectées par le séisme d’Al Haouz, en lot unique.",
             "buyer": "Direction des Mosquées",
-            "deadline": "05/02/202614:30",
+            "deadline": "...",
             "city": "CHICHAOUA...CHICHAOUA",
-            "scraped_at": "2026-01-18T03:03:43.035721"
+            "scraped_at": "2026-01-26T12:33:19.269413"
+        },
+        {
+            "reference": "AO/21/2026_SOCALOMRFESMEK",
+            "original_reference": "AO/21/2026",
+            "buyer_initials": "SOCALOMRFESMEK",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DE LOGEMENTS«DALILA E2 TR 3 » DANS LE CADRE DU NOUVEAU PROGRAMME D’AIDE AUX LOGEMENTS SIS AU LOTISSEMENT « DALILA » LA COMMUNE DE FES PREFECTURE DE FES...TRAVAUX DE CONSTRUCTION DE LOGEMENTS«DALILA E2 TR 3 » DANS LE CADRE DU NOUVEAU PROGRAMME D’AIDE AUX LOGEMENTS SIS AU LOTISSEMENT « DALILA » LA COMMUNE DE FES PREFECTURE DE FES",
+            "buyer": "SOCIETE AL OMRANE FES MEKNES",
+            "deadline": "10/02/202612:00",
+            "city": "FES...FES",
+            "scraped_at": "2026-01-26T12:33:19.269455"
+        },
+        {
+            "reference": "01/OLT/2026_SOCDEVOUJLITAHSA",
+            "original_reference": "01/OLT/2026",
+            "buyer_initials": "SOCDEVOUJLITAHSA",
+            "category": "Travaux",
+            "launch_date": "20/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION D'UN TETRAPYLON DE L'UNIVERSITE MOHAMED PREMIER A LA VILLE D’OUJDA...TRAVAUX DE CONSTRUCTION D'UN TETRAPYLON DE L'UNIVERSITE MOHAMED PREMIER A LA VILLE D’OUJDA",
+            "buyer": "SOCIETE DE DEVELOPPEMENT OUJDA LI TAHYIAA. SA",
+            "deadline": "...",
+            "city": "OUJDA-ANGAD...OUJDA-ANGAD",
+            "scraped_at": "2026-01-26T12:33:19.269498"
         },
         {
             "reference": "01/26_SOCALOMRCAS",
@@ -313,9 +2221,21 @@
             "launch_date": "05/01/2026",
             "object": "Objet :CONSTRUCTION DE LA MAISON DES JEUNES LISSASFA EN REZ-DE-CHAUSSEE SISE A LA PREFECTURE D'ARRONDISSEMENT HAY HASSANI LOT UNIQUE (MARCHE AU FORFAIT CLEF EN MAIN AU RABAIS OU MAJORATION) EN MOD POUR LE COMPTE DE L’ETAT...CONSTRUCTION DE LA MAISON DES JEUNES LISSASFA EN REZ-DE-CHAUSSEE SISE A LA PREFECTURE D'ARRONDISSEMENT HAY HASSANI LOT UNIQUE (MARCHE AU FORFAIT CLEF EN MAIN AU RABAIS OU MAJORATION) EN MOD POUR LE COMPTE DE L’ETAT",
             "buyer": "SOCIETE AL OMRANE CASABLANCA",
-            "deadline": "...",
+            "deadline": "30/01/202611:00",
             "city": "MAROCCASABLANCA...MAROC, CASABLANCA",
-            "scraped_at": "2026-01-18T03:03:43.036542"
+            "scraped_at": "2026-01-26T12:33:39.794197"
+        },
+        {
+            "reference": "AO/13/2026_SOCALOMRFESMEK",
+            "original_reference": "AO/13/2026",
+            "buyer_initials": "SOCALOMRFESMEK",
+            "category": "Travaux",
+            "launch_date": "19/01/2026",
+            "object": "Objet :TRAVAUX DE CONSTRUCTION DE LOGEMENTS «AL QUODS » DANS LE CADRE DU NOUVEAU PROGRAMME D’AIDE AUX LOGEMENTS SIS AU LOTISSEMENT « RIAD AL OMRANE » LA COMMUNE OUISLANE – PREFECTURE DE MEKNES...TRAVAUX DE CONSTRUCTION DE LOGEMENTS «AL QUODS » DANS LE CADRE DU NOUVEAU PROGRAMME D’AIDE AUX LOGEMENTS SIS AU LOTISSEMENT « RIAD AL OMRANE » LA COMMUNE OUISLANE – PREFECTURE DE MEKNES",
+            "buyer": "SOCIETE AL OMRANE FES MEKNES",
+            "deadline": "30/01/202611:00",
+            "city": "MEKNES...MEKNES",
+            "scraped_at": "2026-01-26T12:33:39.794441"
         },
         {
             "reference": "6/2026_COMMUNEBELFAA",
@@ -327,7 +2247,7 @@
             "buyer": "Commune de BELFAA",
             "deadline": "...",
             "city": "Préfecture de Chtouka Ait Baha...Préfecture de Chtouka Ait Baha",
-            "scraped_at": "2026-01-18T03:03:43.040811"
+            "scraped_at": "2026-01-26T12:33:39.795171"
         },
         {
             "reference": "41/2026/APDN_AGEPOUPRODEVECOSOCPREPRONORROY",
@@ -339,7 +2259,7 @@
             "buyer": "AGENCE POUR LA PROMOTION ET LE DEVELOPPEMENT ECONOMIQUE ET SOCIAL DES PREFECTURES ET PROVINCES DU NORD DU ROYAUME",
             "deadline": "...",
             "city": "Province d'Al HoceimaProvince de Tanounate...Province d'Al Hoceima, Province de Tanounate, Province de Taza, Wilaya de Tetouan, Wilaya de Tanger Assilah, Province de Larache, Préfecture de Fahs Bni Makada, Province de Chefchaouen , Province Ouezzane",
-            "scraped_at": "2026-01-18T03:03:43.041392"
+            "scraped_at": "2026-01-26T12:33:39.795258"
         },
         {
             "reference": "5/2026_COMMUNEBELFAA",
@@ -349,9 +2269,9 @@
             "launch_date": "06/01/2026",
             "object": "Objet :TRAVAUX D’AMÉNAGEMENT ET DE REVÊTEMENT EN GAZON SYNTHÉTIQUE D’UN TERRAIN DE PROXIMITÉ DE FOOT AU DOUAR : EL IGNADIFEN BELFAA C.T BELFAA...TRAVAUX D’AMÉNAGEMENT ET DE REVÊTEMENT EN GAZON SYNTHÉTIQUE D’UN TERRAIN DE PROXIMITÉ DE FOOT AU DOUAR : EL IGNADIFEN BELFAA C.T BELFAA",
             "buyer": "Commune de BELFAA",
-            "deadline": "05/02/202611:00",
+            "deadline": "30/01/202610:00",
             "city": "Préfecture de Chtouka Ait Baha...Préfecture de Chtouka Ait Baha",
-            "scraped_at": "2026-01-18T03:03:43.041663"
+            "scraped_at": "2026-01-26T12:33:39.795303"
         },
         {
             "reference": "34/2025_COMMUNEURBAINEKENITRA",
@@ -361,9 +2281,9 @@
             "launch_date": "15/01/2026",
             "object": "Objet :travaux d’aménagement de l’hôtel de ville de la commune de kenitra...travaux d’aménagement de l’hôtel de ville de la commune de kenitra",
             "buyer": "Commune urbaine de KENITRA",
-            "deadline": "05/02/202610:30",
+            "deadline": "30/01/202610:00",
             "city": "Province de Kenitra...Province de Kenitra",
-            "scraped_at": "2026-01-18T03:03:43.042733"
+            "scraped_at": "2026-01-26T12:33:39.795478"
         },
         {
             "reference": "4/2026_COMMUNEBELFAA",
@@ -375,7 +2295,7 @@
             "buyer": "Commune de BELFAA",
             "deadline": "...",
             "city": "Préfecture de Chtouka Ait Baha...Préfecture de Chtouka Ait Baha",
-            "scraped_at": "2026-01-18T03:03:43.043117"
+            "scraped_at": "2026-01-26T12:33:39.795521"
         },
         {
             "reference": "19/2026_AGEREGEXEPROREGBENMELKHE",
@@ -385,9 +2305,9 @@
             "launch_date": "06/01/2026",
             "object": "Objet :TRAVAUX DE CONSTRUCTION DES SIEGES ADMINISTRATIFS ET DES SALLES DE RESSOURCES POUR LES PERSONNES A MOBILITE REDUITE AUX DIVERS ETABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE D'AZILAL -LOT UNIQUE-...TRAVAUX DE CONSTRUCTION DES SIEGES ADMINISTRATIFS ET DES SALLES DE RESSOURCES POUR LES PERSONNES A MOBILITE REDUITE AUX DIVERS ETABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE D'AZILAL -LOT UNIQUE-",
             "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION BENI MELLAL- KHENIFRA",
-            "deadline": "05/02/202610:30",
+            "deadline": "30/01/202610:00",
             "city": "AZILAL...AZILAL",
-            "scraped_at": "2026-01-18T03:03:43.044153"
+            "scraped_at": "2026-01-26T12:33:39.795658"
         },
         {
             "reference": "31/2025_COMMUNEURBAINEKENITRA",
@@ -397,9 +2317,9 @@
             "launch_date": "02/01/2026",
             "object": "Objet :Aménagement des différents cimetières à la commune de Kénitra....Aménagement des différents cimetières à la commune de Kénitra.",
             "buyer": "Commune urbaine de KENITRA",
-            "deadline": "05/02/202610:00",
+            "deadline": "29/01/202615:00",
             "city": "Province de Kenitra...Province de Kenitra",
-            "scraped_at": "2026-01-18T03:03:43.045052"
+            "scraped_at": "2026-01-26T12:33:39.795857"
         },
         {
             "reference": "02/2026_COMOULHASHAM",
@@ -409,9 +2329,9 @@
             "launch_date": "05/01/2026",
             "object": "Objet :Travaux d’adduction en eau potable du douar sidi kerroum à la commune territoriale d’oulad hassoune hamri - Province de Rehamna - ....Travaux d’adduction en eau potable du douar sidi kerroum à la commune territoriale d’oulad hassoune hamri - Province de Rehamna - .",
             "buyer": "Commune OULAD HASSOUNE HAMRI",
-            "deadline": "05/02/202610:00",
+            "deadline": "29/01/202614:00",
             "city": "REHAMNA...REHAMNA",
-            "scraped_at": "2026-01-18T03:03:43.045520"
+            "scraped_at": "2026-01-26T12:33:39.795946"
         },
         {
             "reference": "3/2026_COMMUNEBELFAA",
@@ -423,7 +2343,7 @@
             "buyer": "Commune de BELFAA",
             "deadline": "...",
             "city": "Préfecture de Chtouka Ait Baha...Préfecture de Chtouka Ait Baha",
-            "scraped_at": "2026-01-18T03:03:43.046942"
+            "scraped_at": "2026-01-26T12:33:39.796176"
         },
         {
             "reference": "18/2026_AGEREGEXEPROREGBENMELKHE",
@@ -433,9 +2353,9 @@
             "launch_date": "07/01/2026",
             "object": "Objet :TRAVAUX DE CONSTRUCTION DU LYCEE COLLEGIAL EL MORABITINE A LA COMMUNE TERRITORIALE OULED ZMAM RELEVANT DE LA PROVINCE DE FQUIH BEN SALAH - LOT UNIQUE –...TRAVAUX DE CONSTRUCTION DU LYCEE COLLEGIAL EL MORABITINE A LA COMMUNE TERRITORIALE OULED ZMAM RELEVANT DE LA PROVINCE DE FQUIH BEN SALAH - LOT UNIQUE –",
             "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION BENI MELLAL- KHENIFRA",
-            "deadline": "05/02/202610:00",
+            "deadline": "29/01/202612:30",
             "city": "FQUIH BEN SALAH...FQUIH BEN SALAH",
-            "scraped_at": "2026-01-18T03:03:43.047671"
+            "scraped_at": "2026-01-26T12:33:39.796312"
         },
         {
             "reference": "01/2026_COMOULHASHAM",
@@ -447,7 +2367,7 @@
             "buyer": "Commune OULAD HASSOUNE HAMRI",
             "deadline": "...",
             "city": "REHAMNA...REHAMNA",
-            "scraped_at": "2026-01-18T03:03:43.050359"
+            "scraped_at": "2026-01-26T12:33:39.796810"
         },
         {
             "reference": "16/2025_COMMUNERURALEAMMELNE",
@@ -457,9 +2377,9 @@
             "launch_date": "06/01/2026",
             "object": "Objet :Travaux d’extension du réseau électrique (AM) commune Ammelne province de Tiznit...Travaux d’extension du réseau électrique (AM) commune Ammelne province de Tiznit",
             "buyer": "Commune rurale de AMMELNE",
-            "deadline": "05/02/202610:00",
+            "deadline": "29/01/202611:30",
             "city": "TIZNIT...TIZNIT",
-            "scraped_at": "2026-01-18T03:03:43.050548"
+            "scraped_at": "2026-01-26T12:33:39.796850"
         },
         {
             "reference": "01/2026_DIRREGDOMETADAK",
@@ -471,7 +2391,7 @@
             "buyer": "DIRECTION REGIONALE DES DOMAINES DE L'ETAT DE DAKHLA",
             "deadline": "...",
             "city": "OUED ED DAHAB...OUED ED DAHAB",
-            "scraped_at": "2026-01-18T03:03:43.050773"
+            "scraped_at": "2026-01-26T12:33:39.796894"
         },
         {
             "reference": "2/2026_COMMUNEBELFAA",
@@ -481,9 +2401,9 @@
             "launch_date": "06/01/2026",
             "object": "Objet :TRAVAUX D’AMÉNAGEMENT ET DE REVÊTEMENT EN GAZON SYNTHÉTIQUE D’UN TERRAIN DE PROXIMITÉ DE FOOT AU DOUAR : TOUSSOUSS ANOU NAADI COMMUNE DE BELFAA...TRAVAUX D’AMÉNAGEMENT ET DE REVÊTEMENT EN GAZON SYNTHÉTIQUE D’UN TERRAIN DE PROXIMITÉ DE FOOT AU DOUAR : TOUSSOUSS ANOU NAADI COMMUNE DE BELFAA",
             "buyer": "Commune de BELFAA",
-            "deadline": "05/02/202609:30",
+            "deadline": "29/01/202611:00",
             "city": "Préfecture de Chtouka Ait Baha...Préfecture de Chtouka Ait Baha",
-            "scraped_at": "2026-01-18T03:03:43.053828"
+            "scraped_at": "2026-01-26T12:33:39.797466"
         },
         {
             "reference": "03/2026/CBG_COMURBBENGUE",
@@ -493,9 +2413,9 @@
             "launch_date": "16/01/2026",
             "object": "Objet :AMÉNAGEMENT DES SOUKS ET CENTRES COMMERCIAUX À LA VILLE DE BENGUERIR (MARCHÉ DE GROS DE POISSON)...AMÉNAGEMENT DES SOUKS ET CENTRES COMMERCIAUX À LA VILLE DE BENGUERIR (MARCHÉ DE GROS DE POISSON)",
             "buyer": "Commune urbaine de BEN GUERIR",
-            "deadline": "05/02/202609:00",
+            "deadline": "...",
             "city": "REHAMNA...REHAMNA",
-            "scraped_at": "2026-01-18T03:03:43.055144"
+            "scraped_at": "2026-01-26T12:33:39.797680"
         },
         {
             "reference": "43/2026/APDN_AGEPOUPRODEVECOSOCPREPRONORROY",
@@ -505,9 +2425,9 @@
             "launch_date": "16/01/2026",
             "object": "Objet :TRAVAUX DE CONSTRUCTION DE 03 CLASSES PRESCOLAIRES DANS LES COMMUNES D’OULAD DAOUD- OURZAGH– PROVINCE DE TAOUNATE « LOT UNIQUE »...TRAVAUX DE CONSTRUCTION DE 03 CLASSES PRESCOLAIRES DANS LES COMMUNES D’OULAD DAOUD- OURZAGH– PROVINCE DE TAOUNATE « LOT UNIQUE »",
             "buyer": "AGENCE POUR LA PROMOTION ET LE DEVELOPPEMENT ECONOMIQUE ET SOCIAL DES PREFECTURES ET PROVINCES DU NORD DU ROYAUME",
-            "deadline": "...",
+            "deadline": "29/01/202611:00",
             "city": "Province d'Al HoceimaProvince de Tanounate...Province d'Al Hoceima, Province de Tanounate, Province de Taza, Wilaya de Tetouan, Wilaya de Tanger Assilah, Province de Larache, Préfecture de Fahs Bni Makada, Province de Chefchaouen , Province Ouezzane",
-            "scraped_at": "2026-01-18T03:03:43.055414"
+            "scraped_at": "2026-01-26T12:33:39.797732"
         },
         {
             "reference": "16/2026_AGEREGEXEPROREGBENMELKHE",
@@ -517,9 +2437,9 @@
             "launch_date": "05/01/2026",
             "object": "Objet :ACHEVEMENT DES TRAVAUX DE CONSTRUCTION DES PISTES RELEVANT DES COMMUNES TERRITORIALES SEMGUET ET BOUTFERDA DANS LE CADRE DU PRDTS -2022- PROVINCE DE BENI MELLAL-LOT UNIQUE-...ACHEVEMENT DES TRAVAUX DE CONSTRUCTION DES PISTES RELEVANT DES COMMUNES TERRITORIALES SEMGUET ET BOUTFERDA DANS LE CADRE DU PRDTS -2022- PROVINCE DE BENI MELLAL-LOT UNIQUE-",
             "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION BENI MELLAL- KHENIFRA",
-            "deadline": "...",
+            "deadline": "29/01/202611:00",
             "city": "BENI MELLAL...BENI MELLAL",
-            "scraped_at": "2026-01-18T03:03:43.058134"
+            "scraped_at": "2026-01-26T12:33:39.798361"
         },
         {
             "reference": "01/2026/CAM_ARRONDISSEMENTMGHOGHA",
@@ -529,9 +2449,9 @@
             "launch_date": "15/01/2026",
             "object": "Objet :ENTRETIEN COURANT DE PARC DU Q.MGHOGHA SGHIRA (SOUK DE PROXIMITE)...ENTRETIEN COURANT DE PARC DU Q.MGHOGHA SGHIRA (SOUK DE PROXIMITE)",
             "buyer": "Arrondissement de MGHOGHA",
-            "deadline": "04/02/202611:00",
+            "deadline": "...",
             "city": "MAROCTANGER-ASSILAH...MAROC, TANGER-ASSILAH",
-            "scraped_at": "2026-01-18T03:03:43.058323"
+            "scraped_at": "2026-01-26T12:33:39.798402"
         },
         {
             "reference": "15/2026_AGEREGEXEPROREGBENMELKHE",
@@ -541,9 +2461,9 @@
             "launch_date": "05/01/2026",
             "object": "Objet :TRAVAUX DE CONSTRUCTION ET D'AMENAGEMENT DES PISTES A LA CT AIT OUMDIS ET LA CT AIT TAMLIL DANS LA PROVINCE D'AZILAL-LOT UNIQUE...TRAVAUX DE CONSTRUCTION ET D'AMENAGEMENT DES PISTES A LA CT AIT OUMDIS ET LA CT AIT TAMLIL DANS LA PROVINCE D'AZILAL-LOT UNIQUE",
             "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION BENI MELLAL- KHENIFRA",
-            "deadline": "04/02/202610:00",
+            "deadline": "29/01/202610:30",
             "city": "AZILAL...AZILAL",
-            "scraped_at": "2026-01-18T03:03:43.060227"
+            "scraped_at": "2026-01-26T12:33:39.798721"
         },
         {
             "reference": "14/2026_AGEREGEXEPROREGBENMELKHE",
@@ -553,9 +2473,9 @@
             "launch_date": "05/01/2026",
             "object": "Objet :TRAVAUX DE TERRASSEMENT D'UNE FACULTE DE MEDECINE ET PHARMACIE A LA VILLE DE BENI MELLAL...TRAVAUX DE TERRASSEMENT D'UNE FACULTE DE MEDECINE ET PHARMACIE A LA VILLE DE BENI MELLAL",
             "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION BENI MELLAL- KHENIFRA",
-            "deadline": "04/02/202610:00",
+            "deadline": "29/01/202610:00",
             "city": "BENI MELLAL...BENI MELLAL",
-            "scraped_at": "2026-01-18T03:03:43.061327"
+            "scraped_at": "2026-01-26T12:33:39.798926"
         },
         {
             "reference": "13/2026_AGEREGEXEPROREGBENMELKHE",
@@ -565,9 +2485,9 @@
             "launch_date": "05/01/2026",
             "object": "Objet :TRAVAUX DE DÉVIATION D’UN TRONÇON DE LA LIGNE ÉLECTRIQUE HTA GENANT LA CONSTRUCTION DU FUTUR BARRAGE SUR OUED KIKOU A LA COMMUNE DE FOUM OUDI - PROVINCE DE BÉNI MELLAL – LOT UNIQUE –...TRAVAUX DE DÉVIATION D’UN TRONÇON DE LA LIGNE ÉLECTRIQUE HTA GENANT LA CONSTRUCTION DU FUTUR BARRAGE SUR OUED KIKOU A LA COMMUNE DE FOUM OUDI - PROVINCE DE BÉNI MELLAL – LOT UNIQUE –",
             "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION BENI MELLAL- KHENIFRA",
-            "deadline": "04/02/202610:00",
+            "deadline": "...",
             "city": "BENI MELLAL...BENI MELLAL",
-            "scraped_at": "2026-01-18T03:03:43.064507"
+            "scraped_at": "2026-01-26T12:33:39.799551"
         },
         {
             "reference": "07/2025_COMURBKARBAMOH",
@@ -577,9 +2497,9 @@
             "launch_date": "05/01/2026",
             "object": "Objet :TRAVAUX DE CONSTRUCTION DES VOIES DE LIAISON INTER- QUARTIER, ET ACHEVEMENT DE RESTRUCTURATION DES QUARTIERS SOUS EQUIPES (HAMRI 1,2 ET 3, ALKHARBA ET YASSMINA) A LA COMMUNE DE KARIA BA MOHAMMED- PROVINCE TAOUNATE...TRAVAUX DE CONSTRUCTION DES VOIES DE LIAISON INTER- QUARTIER, ET ACHEVEMENT DE RESTRUCTURATION DES QUARTIERS SOUS EQUIPES (HAMRI 1,2 ET 3, ALKHARBA ET YASSMINA) A LA COMMUNE DE KARIA BA MOHAMMED- PROVINCE TAOUNATE",
             "buyer": "Commune urbaine de KARIA BA MOHAMED",
-            "deadline": "...",
+            "deadline": "29/01/202610:00",
             "city": "TAOUNATE...TAOUNATE",
-            "scraped_at": "2026-01-18T03:03:43.064743"
+            "scraped_at": "2026-01-26T12:33:39.799596"
         },
         {
             "reference": "7/2026ADHA_AGEDEVHAUATL",
@@ -589,9 +2509,9 @@
             "launch_date": "14/01/2026",
             "object": "Objet :TRAVAUX DE RECONSTRUCTION DES ETABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE D’AL HAOUZ...TRAVAUX DE RECONSTRUCTION DES ETABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE D’AL HAOUZ",
             "buyer": "AGENCE DE DEVELOPPEMENT DU HAUT ATLAS",
-            "deadline": "...",
+            "deadline": "29/01/202610:00",
             "city": "AL HAOUZ...AL HAOUZ",
-            "scraped_at": "2026-01-18T03:03:43.066127"
+            "scraped_at": "2026-01-26T12:33:39.799897"
         },
         {
             "reference": "2/2026_COMMUNEURBAINEBOUJDOUR",
@@ -601,9 +2521,9 @@
             "launch_date": "05/01/2026",
             "object": "Objet :Travaux d’exploitation du centre d’enfouissement et valorisation des déchets de la ville de Boujdour...Travaux d’exploitation du centre d’enfouissement et valorisation des déchets de la ville de Boujdour",
             "buyer": "Commune urbaine de BOUJDOUR",
-            "deadline": "04/02/202610:00",
+            "deadline": "...",
             "city": "BOUJDOUR...BOUJDOUR",
-            "scraped_at": "2026-01-18T03:03:43.067348"
+            "scraped_at": "2026-01-26T12:33:39.800128"
         },
         {
             "reference": "AO/CB/35/2025_SOCIETECASABLANCABAÏA",
@@ -613,9 +2533,9 @@
             "launch_date": "12/01/2026",
             "object": "Objet :TRAVAUX D’AMENAGEMENT DU PARC AL QODS SIDI BERNOUSSI -CASABLANCA- POUR LE COMPTE DE LA COMMUNE DE CASABLANCA...TRAVAUX D’AMENAGEMENT DU PARC AL QODS SIDI BERNOUSSI -CASABLANCA- POUR LE COMPTE DE LA COMMUNE DE CASABLANCA",
             "buyer": "SOCIETE CASABLANCA BAÏA",
-            "deadline": "...",
+            "deadline": "29/01/202610:00",
             "city": "CASABLANCA...CASABLANCA",
-            "scraped_at": "2026-01-18T03:03:43.068508"
+            "scraped_at": "2026-01-26T12:33:39.800347"
         },
         {
             "reference": "01/2026/BG_GOUPREINEAITMEL",
@@ -625,9 +2545,9 @@
             "launch_date": "15/01/2026",
             "object": "Objet :TRAVAUX D’AMÉNAGEMENT ET INSTALLATION DU LOGEMENT ADMINISTRATIF RELEVANT DE LA PRÉFECTURE INEZGANE AIT MELLOUL: RÉSIDENCE OFFICIELLE....TRAVAUX D’AMÉNAGEMENT ET INSTALLATION DU LOGEMENT ADMINISTRATIF RELEVANT DE LA PRÉFECTURE INEZGANE AIT MELLOUL: RÉSIDENCE OFFICIELLE.",
             "buyer": "GOUVERNEUR DE LA PREFECTURE D'INEZGANE-AIT-MELLOUL",
-            "deadline": "03/02/202611:00",
+            "deadline": "...",
             "city": "MAROCINEZGANE-AIT MELLOUL...MAROC, INEZGANE-AIT MELLOUL",
-            "scraped_at": "2026-01-18T03:03:43.074064"
+            "scraped_at": "2026-01-26T12:33:39.801392"
         },
         {
             "reference": "6/2026/ADHA_AGEDEVHAUATL",
@@ -637,9 +2557,9 @@
             "launch_date": "13/01/2026",
             "object": "Objet :TRAVAUX DE RECONSTRUCTION DES ETABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE D’AL HAOUZ...TRAVAUX DE RECONSTRUCTION DES ETABLISSEMENTS SCOLAIRES RELEVANT DE LA PROVINCE D’AL HAOUZ",
             "buyer": "AGENCE DE DEVELOPPEMENT DU HAUT ATLAS",
-            "deadline": "...",
+            "deadline": "28/01/202614:30",
             "city": "AL HAOUZ...AL HAOUZ",
-            "scraped_at": "2026-01-18T03:03:43.074704"
+            "scraped_at": "2026-01-26T12:33:39.801531"
         },
         {
             "reference": "01/RH/2026/INV_DIRPROL’ENATRHA",
@@ -649,9 +2569,9 @@
             "launch_date": "15/01/2026",
             "object": "Objet :« TRAVAUX D’AMENAGEMENT ET DE REHABILITATION DE L’ECOLE CENTRAL LMTAGUIL A LA CT JAAFRA RELEVANT DE LA DIRECTION PROVINCIALE DE RHAMNA. AREF MARRAKECH SAFI (ECOLES PIONNIERS) »....« TRAVAUX D’AMENAGEMENT ET DE REHABILITATION DE L’ECOLE CENTRAL LMTAGUIL A LA CT JAAFRA RELEVANT DE LA DIRECTION PROVINCIALE DE RHAMNA. AREF MARRAKECH SAFI (ECOLES PIONNIERS) ».",
             "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE RHAMNA",
-            "deadline": "03/02/202611:00",
+            "deadline": "...",
             "city": "REHAMNA...REHAMNA",
-            "scraped_at": "2026-01-18T03:03:43.074935"
+            "scraped_at": "2026-01-26T12:33:39.801588"
         },
         {
             "reference": "02/RH/2026/INV_DIRPROL’ENATRHA",
@@ -661,9 +2581,9 @@
             "launch_date": "15/01/2026",
             "object": "Objet :TRAVAUX D’AMENAGEMENT ET DE REHABILITATION DU SECTEUR SCOLAIRE DAR LWASSTI A LA CT SIDI ABDELLAH RELEVANT DE LA DIRECTION PROVINCIALE DE RHAMNA. AREF MARRAKECH SAFI (ECOLES PIONNIERS)....TRAVAUX D’AMENAGEMENT ET DE REHABILITATION DU SECTEUR SCOLAIRE DAR LWASSTI A LA CT SIDI ABDELLAH RELEVANT DE LA DIRECTION PROVINCIALE DE RHAMNA. AREF MARRAKECH SAFI (ECOLES PIONNIERS).",
             "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE RHAMNA",
-            "deadline": "...",
+            "deadline": "28/01/202614:00",
             "city": "REHAMNA...REHAMNA",
-            "scraped_at": "2026-01-18T03:03:43.075191"
+            "scraped_at": "2026-01-26T12:33:39.801638"
         },
         {
             "reference": "14/2025_COMMUNEURBAINEBIOUGRA",
@@ -673,57 +2593,9 @@
             "launch_date": "02/01/2026",
             "object": "Objet :TRAVAUX D’AMENAGEMENT D’UNE VOIE A RUE TANGER- COMMUNE DE BIOUGRA...TRAVAUX D’AMENAGEMENT D’UNE VOIE A RUE TANGER- COMMUNE DE BIOUGRA",
             "buyer": "Commune urbaine de BIOUGRA",
-            "deadline": "...",
+            "deadline": "28/01/202612:00",
             "city": "CHTOUKA-AIT BAHA...CHTOUKA-AIT BAHA",
-            "scraped_at": "2026-01-18T03:03:43.076736"
-        },
-        {
-            "reference": "10/2025_COMMUNECHAHDA",
-            "original_reference": "10/2025",
-            "buyer_initials": "COMMUNECHAHDA",
-            "category": "Travaux",
-            "launch_date": "13/01/2026",
-            "object": "Objet :Alimentation de six douars relevant de la commune de Chahda en Eau Potable par bornes fontaines...Alimentation de six douars relevant de la commune de Chahda en Eau Potable par bornes fontaines",
-            "buyer": "Commune CHAHDA",
-            "deadline": "03/02/202610:30",
-            "city": "SAFI...SAFI",
-            "scraped_at": "2026-01-18T03:03:43.076960"
-        },
-        {
-            "reference": "05/SKAD/2026_SOCDEVLOCKENAMEDEV",
-            "original_reference": "05/SKAD/2026",
-            "buyer_initials": "SOCDEVLOCKENAMEDEV",
-            "category": "Travaux",
-            "launch_date": "12/01/2026",
-            "object": "Objet :Travaux de déplacement et de protection du réseau d’électricité MT souterrain existant sur l’emprise du projet d’aménagement de la Rocade Sud-Tr1 (entre giratoire ALLAL EL BAHRAOUI et pont voie ferrée BIR RAMI SUD)...Travaux de déplacement et de protection du réseau d’électricité MT souterrain existant sur l’emprise du projet d’aménagement de la Rocade Sud-Tr1 (entre giratoire ALLAL EL BAHRAOUI et pont voie ferrée BIR RAMI SUD)",
-            "buyer": "SOCIETE DE DEVELOPPEMENT LOCAL KENITRA AMENAGEMENT ET DEVELOPPEMENT",
-            "deadline": "...",
-            "city": "KENITRA...KENITRA",
-            "scraped_at": "2026-01-18T03:03:43.081467"
-        },
-        {
-            "reference": "01/2026_COMRURS.MOHLAH",
-            "original_reference": "01/2026",
-            "buyer_initials": "COMRURS.MOHLAH",
-            "category": "Travaux",
-            "launch_date": "13/01/2026",
-            "object": "Objet :TRAVAUX D’AMENAGEMENT DU CENTRE DE QUALIFICATION ET DE FORMATION AU CENTRE DE SIDI MOHAMED LAHMAR PROVINCE DE KENITRA...TRAVAUX D’AMENAGEMENT DU CENTRE DE QUALIFICATION ET DE FORMATION AU CENTRE DE SIDI MOHAMED LAHMAR PROVINCE DE KENITRA",
-            "buyer": "Commune rurale de S. MOHAMED LAHMAR",
-            "deadline": "03/02/202610:00",
-            "city": "KENITRA...KENITRA",
-            "scraped_at": "2026-01-18T03:03:43.081685"
-        },
-        {
-            "reference": "04/SKAD/2026_SOCDEVLOCKENAMEDEV",
-            "original_reference": "04/SKAD/2026",
-            "buyer_initials": "SOCDEVLOCKENAMEDEV",
-            "category": "Travaux",
-            "launch_date": "12/01/2026",
-            "object": "Objet :Travaux de déplacement et de protection des réseaux d’électricité MT et BT existants sur l’emprise du projet d’aménagement de l’avenue du Sport...Travaux de déplacement et de protection des réseaux d’électricité MT et BT existants sur l’emprise du projet d’aménagement de l’avenue du Sport",
-            "buyer": "SOCIETE DE DEVELOPPEMENT LOCAL KENITRA AMENAGEMENT ET DEVELOPPEMENT",
-            "deadline": "03/02/202610:00",
-            "city": "KENITRA...KENITRA",
-            "scraped_at": "2026-01-18T03:03:43.082170"
+            "scraped_at": "2026-01-26T12:33:39.802089"
         }
     ]
 }

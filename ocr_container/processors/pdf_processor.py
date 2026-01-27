@@ -144,6 +144,37 @@ class PDFProcessor:
         except Exception as e:
             logger.error(f"Error in table enhancement: {e}")
             return markdown_text  # Return original on error
+            
+    def _mark_tables_with_tags(self, markdown_text: str) -> str:
+        """
+        Mark tables with **Table N** headers and <table_start>/<table_end> tags.
+        
+        Args:
+            markdown_text: Markdown text
+            
+        Returns:
+            Markdown text with tagged tables
+        """
+        try:
+            # Regex for tables
+            table_pattern = r'(\|[^\n]+\|\n(?:\|[-:| ]+\|\n)?(?:\|[^\n]+\|\n?)+)'
+            
+            logger.info("Marking tables with tags...")
+            
+            counter = 1
+            def replace_func(match):
+                nonlocal counter
+                table_content = match.group(0)
+                replacement = f"\n**Table {counter}**\n<table_start>\n{table_content}<table_end>\n"
+                counter += 1
+                return replacement
+                
+            marked_text = re.sub(table_pattern, replace_func, markdown_text)
+            return marked_text
+            
+        except Exception as e:
+            logger.error(f"Error marking tables: {e}")
+            return markdown_text
     
     def process(self, pdf_path: str, document_type: str = "tender") -> str:
         """
@@ -243,6 +274,9 @@ class PDFProcessor:
             if Config.ENABLE_TABLE_ENHANCEMENT:
                 logger.info("Enhancing tables with OpenRouter...")
                 final_markdown = self._enhance_tables_with_openrouter(final_markdown)
+            
+            # Appply table tags
+            final_markdown = self._mark_tables_with_tags(final_markdown)
             
             logger.info(f"Successfully OCR'd PDF with {total_pages} pages")
             return final_markdown

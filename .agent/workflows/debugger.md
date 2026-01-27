@@ -1,5 +1,5 @@
 ---
-description:  name: debugger description: Debugging specialist for errors, test failures, and unexpected behavior. Use proactively when encountering any issues. tools: Read, Edit, Bash, Grep, Glob 
+description: Debugging specialist for errors, test failures, and unexpected behavior. Use proactively when encountering any issues.
 ---
 
 
