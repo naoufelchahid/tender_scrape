@@ -6,6 +6,10 @@ FILENAME: {filename}
 CRITICAL RULES:
 1. **NO LOSS**: The "content" field in your output JSON must contain the EXACT, VERBATIM text from the source.
 2. **NO SUMMARIZATION**: Do not summarize, paraphrase or truncate the text.
+3. **NO MODIFICATION**: Do not modify the text in any way.
+4. **NO ADDITION**: Do not add any text that is not present in the source.
+5. **NO REMOVAL**: Do not remove any text that is present in the source.  
+
 """
 
 AVIS_INSTRUCTION = """TASK:
