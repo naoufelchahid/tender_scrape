@@ -12,6 +12,6 @@ dist/
 *.log
 
 /venv
-.agent/
+
 .vscode/
 __pycache__

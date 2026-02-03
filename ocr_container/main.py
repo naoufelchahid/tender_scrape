@@ -1,6 +1,6 @@
 """
 Main OCR service script.
-Polls SQS queue, processes tender documents, and uploads markdown to S3.
+Polls SQS queue, processes tender documents using Docling, and uploads markdown to S3.
 """
 import os
 import time
@@ -12,7 +12,7 @@ from config import Config
 from logger import logger, log_processing_start, log_processing_complete, log_processing_error, log_file_processing
 from s3_utils import S3Client
 from sqs_utils import SQSClient
-from processors import get_processor, get_file_type, is_supported_file
+from document_processor import DocumentProcessor
 
 
 class OCRService:
@@ -23,6 +23,13 @@ class OCRService:
         self.s3_client = S3Client()
         self.sqs_client = SQSClient()
         self.temp_dir = '/app/temp'
+        
+        # Initialize Docling Processor
+        try:
+            self.processor = DocumentProcessor()
+        except Exception as e:
+            logger.critical(f"Failed to initialize DocumentProcessor: {e}")
+            raise
         
         # Create temp directory
         os.makedirs(self.temp_dir, exist_ok=True)
@@ -64,7 +71,7 @@ class OCRService:
             # Check if this is a folder path (ends with /)
             if s3_item_path.endswith('/'):
                 logger.info(f"Detected folder path: {s3_item_path}, listing contents...")
-                # List ALL files in folder (Lambda sanitizes filenames, so extensions may not have dots)
+                # List ALL files in folder
                 file_keys = self.s3_client.list_files(s3_item_path)
                 
                 if not file_keys:
@@ -89,9 +96,14 @@ class OCRService:
         
         return local_paths
     
+    def _is_supported_file(self, file_path: str) -> bool:
+        """Check if file extension is supported."""
+        ext = os.path.splitext(file_path)[1].lower()
+        return ext in Config.SUPPORTED_EXTENSIONS
+
     def _process_file(self, file_path: str, tender_ref: str) -> str:
         """
-        Process single file and return markdown.
+        Process single file and return markdown using Docling.
         
         Args:
             file_path: Path to file
@@ -100,26 +112,19 @@ class OCRService:
         Returns:
             Markdown text
         """
-        # Get file type
-        file_type = get_file_type(file_path)
-        
-        if not file_type:
-            logger.warning(f"Unsupported file type: {file_path}")
-            return f"[UNSUPPORTED FILE: {os.path.basename(file_path)}]"
-        
+        file_type = os.path.splitext(file_path)[1].lower()
         log_file_processing(tender_ref, file_path, file_type, "started")
         
         try:
-            # Get processor and process
-            processor = get_processor(file_path)
-            markdown_text = processor(file_path)
+            # Use unified DocumentProcessor
+            markdown_text = self.processor.process(file_path)
             
             log_file_processing(tender_ref, file_path, file_type, "completed")
             return markdown_text
         except Exception as e:
             log_file_processing(tender_ref, file_path, file_type, "failed")
             logger.error(f"Error processing {file_path}: {e}")
-            return f"[ERROR PROCESSING: {os.path.basename(file_path)}]\n{str(e)}"
+            return f"---\nfilename: {os.path.basename(file_path)}\nerror: true\n---\n\n# Error Processing File\n\n{str(e)}"
     
     def _upload_markdown(self, tender_ref: str, markdown_text: str) -> bool:
         """
@@ -133,7 +138,6 @@ class OCRService:
             True if successful, False otherwise
         """
         # Create local markdown file
-        # Replace slashes with underscores in tender_ref for S3 path
         tender_ref_safe = tender_ref.replace('/', '_')
         markdown_filename = f"{tender_ref_safe}_ocr.md"
         local_markdown_path = os.path.join(self.temp_dir, markdown_filename)
@@ -141,19 +145,21 @@ class OCRService:
         with open(local_markdown_path, 'w', encoding='utf-8') as f:
             f.write(markdown_text)
         
-        # Upload to S3 - single folder with tender_ref_safe
+        # Upload to S3
         s3_key = f"{Config.MARKDOWN_PREFIX}/{tender_ref_safe}/{markdown_filename}"
         
         metadata = {
             'tender_ref': tender_ref.encode('ascii', 'ignore').decode('ascii'),
             'processed_date': datetime.utcnow().isoformat(),
-            'ocr_version': '1.0'
+            'ocr_engine': 'docling',
+            'version': '2.0'
         }
         
         success = self.s3_client.upload_file(local_markdown_path, s3_key, metadata)
         
         # Cleanup local file
-        os.remove(local_markdown_path)
+        if os.path.exists(local_markdown_path):
+            os.remove(local_markdown_path)
         
         return success
     
@@ -176,7 +182,7 @@ class OCRService:
             logger.error("Invalid message format: missing tender_ref or s3_paths")
             return False
         
-        log_processing_start(tender_ref, len(s3_paths))
+        log_processing_start(tender_ref, len(s3_paths), s3_paths)
         
         try:
             # Download files
@@ -190,13 +196,11 @@ class OCRService:
             markdown_parts = []
             
             for local_path in local_paths:
-                if not is_supported_file(local_path):
+                if not self._is_supported_file(local_path):
                     logger.warning(f"Skipping unsupported file: {local_path}")
                     continue
                 
-                filename = os.path.basename(local_path)
-                markdown_parts.append(f"# File: {filename}\n\n")
-                
+                # Process file
                 file_markdown = self._process_file(local_path, tender_ref)
                 markdown_parts.append(file_markdown)
                 markdown_parts.append("\n\n---\n\n")
@@ -246,7 +250,6 @@ class OCRService:
                 message = self.sqs_client.receive_message()
                 
                 if not message:
-                    # No messages, continue polling
                     continue
                 
                 logger.info(f"Processing message: {message['message_id']}")
@@ -260,20 +263,20 @@ class OCRService:
                     logger.info("Message processed and deleted successfully")
                 else:
                     logger.error("Message processing failed, will retry")
-                    # Don't delete message - let it become visible again for retry
             
             except KeyboardInterrupt:
                 logger.info("Received shutdown signal")
                 break
             except Exception as e:
                 logger.error(f"Unexpected error in main loop: {e}")
-                time.sleep(5)  # Brief pause before retrying
+                time.sleep(5)
 
 
 def main():
     """Main entry point."""
     logger.info("=" * 50)
-    logger.info("OCR Service Starting")
+    logger.info("OCR Service Starting (Docling Engine)")
+    logger.info(f"GPU Acceleration: {'ENABLED ✅' if Config.USE_GPU else 'DISABLED ⚙️'}")
     logger.info("=" * 50)
     
     service = OCRService()

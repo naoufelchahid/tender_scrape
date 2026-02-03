@@ -1,4 +1,5 @@
 ---
+name: ia-engineer
 description: LLM architect
 ---
 

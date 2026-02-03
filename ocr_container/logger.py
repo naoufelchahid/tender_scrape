@@ -77,12 +77,22 @@ def setup_logger(name: str = 'ocr-service', level: int = logging.INFO) -> loggin
 logger = setup_logger()
 
 
-def log_processing_start(tender_ref: str, file_count: int) -> None:
-    """Log start of tender processing."""
+def log_processing_start(tender_ref: str, file_count: int, s3_paths: list = None) -> None:
+    """Log start of tender processing with enhanced visibility."""
+    separator = "=" * 80
+    logger.info(separator)
     logger.info(
-        f"Starting OCR processing for tender {tender_ref} with {file_count} files",
-        extra={'tender_ref': tender_ref, 'file_count': file_count}
+        f"🚀 STARTING OCR PROCESSING FOR TENDER: {tender_ref}",
+        extra={'tender_ref': tender_ref, 'file_count': file_count, 'event': 'processing_start'}
     )
+    logger.info(f"📊 Total files to process: {file_count}")
+    
+    if s3_paths:
+        logger.info(f"📁 S3 Paths:")
+        for idx, path in enumerate(s3_paths, 1):
+            logger.info(f"   {idx}. {path}")
+    
+    logger.info(separator)
 
 
 def log_processing_complete(tender_ref: str, processing_time: float, file_count: int) -> None:
