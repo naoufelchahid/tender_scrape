@@ -7,10 +7,9 @@ import asyncio
 from botocore.exceptions import ClientError
 
 
-from src.llm_chunker import LLMChunker
+from src.document_chunker import DocumentChunker
 from src.cleaning import DocumentCleaners
 from src.database import DatabaseManager
-from src.integrity import IntegrityChecker, IntegrityCheckError
 
 # Logging setup
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -42,7 +41,7 @@ def main():
     sqs = boto3.client('sqs', region_name=AWS_REGION)
     s3 = boto3.client('s3', region_name=AWS_REGION)
 
-    chunker = LLMChunker(AWS_REGION, OPENROUTER_API_KEY)
+    chunker = DocumentChunker(AWS_REGION, OPENROUTER_API_KEY)
 
     logger.info(f"Starting Extraction Service polling {SQS_QUEUE_URL}...")
 
@@ -112,13 +111,11 @@ def handle_message(msg, sqs, s3, chunker):
         logger.info(f"Downloaded markdown: {len(full_markdown):,} characters")
 
         # 2. Split Markdown into logical documents (already classified by classification container)
-        cleaner = DocumentCleaners()
-        docs = cleaner.split_concatenated_file(full_markdown)
+        docs = DocumentCleaners.split_concatenated_file(full_markdown)
         logger.info(f"Split into {len(docs)} documents: {[d.doc_type for d in docs]}")
 
         
-        # 3. LLM-assisted chunking (FIRST - with enriched metadata)
-        # Pass empty lots=[] since we don't have metadata yet - will be inferred from chunks
+        # 3. Intelligent chunking (Avis/Product via LLM, others via header splitting)
         chunks = asyncio.run(chunker.chunk_all_documents(
             docs=docs, 
             tender_id=tender_id, 
@@ -126,7 +123,7 @@ def handle_message(msg, sqs, s3, chunker):
         ))
         logger.info(f"Generated {len(chunks)} chunks from documents")
         
-        # 4. Upload Chunks to S3 (BEFORE metadata)
+        # 4. Upload Chunks to S3
         chunk_key = f"chunks_tender/{tender_ref}/chunks.json"
         s3.put_object(
             Bucket=S3_BUCKET,
@@ -135,25 +132,6 @@ def handle_message(msg, sqs, s3, chunker):
         )
         logger.info(f"Saved chunks to {chunk_key}")
         
-        # 5. Integrity Check
-        logger.info("Performing output integrity checks...")
-        chunks_valid = IntegrityChecker.check_chunks(chunks)
-        
-        if not chunks_valid:
-            logger.error(f"Integrity Check FAILED (Chunks: {chunks_valid}). rolling back S3 uploads.")
-            # Rollback: Delete the uploaded artifacts to prevent bad data
-            try:
-                s3.delete_object(Bucket=S3_BUCKET, Key=chunk_key)
-                logger.info("Rollback successful: Deleted invalid S3 artifacts.")
-            except Exception as cleanup_error:
-                logger.error(f"Rollback failed: {cleanup_error}")
-            
-            # Raise exception to trigger SQS retry (visibility timeout will put it back in queue)
-            # We specifically use a custom error to distinguish in logs
-            raise IntegrityCheckError(f"Validation failed for {tender_ref}. Chunks: {chunks_valid}")
-            
-        logger.info("Integrity Check PASSED.")
-
         # 6. Notify DB Filler Queue
         # We need to construct the URL for db_filler if it's just a name
         queue_url = DB_FILLER_QUEUE_URL

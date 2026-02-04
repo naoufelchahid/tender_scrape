@@ -50,71 +50,9 @@ OUTPUT JSON:
 }}
 """
 
-FORM_INSTRUCTION = """TASK:
-Return as ONE single chunk. Content must be IDENTICAL to input.
-Identify the form type: 'engagement' (Acte d'engagement) or 'declaration' (Déclaration sur l'honneur).
-
-METADATA TO EXTRACT:
-- `doc_type`: "form"
-- `form_type`: "engagement" or "declaration"
-- `lot_id`: "{tender_ref}_1" (Default)"""
-
-FORM_PROMPT = """{base_context}
-CONTENT:
-{content}
-
-{instruction}
-
-OUTPUT JSON:
-{{
-  "chunks": [
-    {{
-      "content": "FULL VERBATIM CONTENT...",
-      "metadata": {{
-        "type": "form",
-        "form_type": "engagement",
-        "lot_id": "{tender_ref}_1"
-      }}
-    }}
-  ]
-}}
-"""
-
-ADMIN_SPEC_INSTRUCTION = """TASK:
-Segment the text by ARTICLE or CLAUSE.
-Each chunk's content must be the EXACT RAW TEXT of that section.
-The content should be STRICTLY the same as strings in the document.
-
-METADATA TO EXTRACT:
-- `type`: "{doc_type}"
-- `title`: Header/Title of the section.
-- `clause_type` (if Administrative): [general_clause, bidding_modalities, bid_eval_critera, contractor_eval_criterea, attribution_criterea].
-- `spec_type` (if Specification): [product_spec, contractor_requirement, general_spec, administratif_spec, legal_normal]."""
-
-ADMIN_SPEC_PROMPT = """{base_context}
-CONTENT:
-{content}
-
-{instruction}
-
-OUTPUT JSON:
-{{
-  "chunks": [
-    {{
-      "content": "RAW TEXT OF ARTICLE 1...",
-      "metadata": {{
-        "type": "{doc_type}",
-        "title": "Title",
-        "clause_type": "general_clause" 
-      }}
-    }}
-  ]
-}}
-"""
-
 PRODUCT_INSTRUCTION = """TASK:
 Extract structured data from the PRICING TABLE embedded in the text.
-Create **ONE SINGLE CHUNK** containing the raw content found between the BDP tags (or the whole content).
+Create **ONE SINGLE CHUNK** containing the raw content.
 In the metadata, create a dictionary of ALL products found.
 
 METADATA TO EXTRACT:
@@ -143,26 +81,6 @@ OUTPUT JSON:
     {{
       "content": "FULL RAW CONTENT...",
       {example}
-    }}
-  ]
-}}
-"""
-
-FALLBACK_PROMPT = """{base_context}
-CONTENT:
-{content}
-
-TASK:
-Segment into logical sections. Content must be VERBATIM.
-
-OUTPUT JSON:
-{{
-  "chunks": [
-    {{
-      "content": "RAW TEXT...",
-      "metadata": {{
-        "type": "other"
-      }}
     }}
   ]
 }}

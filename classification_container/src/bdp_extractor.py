@@ -1,8 +1,6 @@
 """
-Module for identifying and tagging "Bill of Quantities" (Bordereau des Prix) tables.
-Priority:
-1. If "Document Type: product", tag the entire document content.
-2. Else, search for **Table N** and specific validation keywords using Regex.
+Pipeline Stage: Classification Container  
+Enhanced BDP extractor supporting both <table_start> markers and markdown pipe tables
 """
 
 import logging
@@ -14,6 +12,10 @@ def identify_and_tag_french_boq(markdown_text: str) -> str:
     """
     Identifies tables that look like a "Bill of Quantities" (BDP).
     Tags detected tables with <!-- BDP_START --> and <!-- BDP_END -->.
+    
+    Supports two table formats:
+    1. Tables with <table_start> and <table_end> markers (legacy OCR format)
+    2. Markdown pipe tables (current OCR format)
 
     Logic:
     - Iterate through the text, identifying logical file blocks (start with "# File:").
@@ -22,7 +24,7 @@ def identify_and_tag_french_boq(markdown_text: str) -> str:
         - If "product" or "products":
             - Tag the whole block content (excluding header metadata) as BDP.
         - Else:
-            - Run the Table-N regex detection logic on the lines of this block.
+            - Run table detection logic (both marker-based and markdown pipe tables).
 
     Args:
         markdown_text: The full markdown content string.
@@ -33,13 +35,10 @@ def identify_and_tag_french_boq(markdown_text: str) -> str:
     if not markdown_text:
         return ""
 
-    if not markdown_text:
-        return ""
-
     lines = markdown_text.split('\n')
     n_lines = len(lines)
     
-    # Keywords for detection (case-insensitive)
+    # Keywords for BDP detection (case-insensitive)
     BDP_KEYWORDS = {
         "désignation", "designation", 
         "unité", "unite", "u",
@@ -90,101 +89,8 @@ def identify_and_tag_french_boq(markdown_text: str) -> str:
             insertions.append((block_end, "<!-- BDP_END -->"))
             
         else:
-            # 1. Reconstruct block content to do regex search for <table_start>...<table_end>
-            # We need byte offsets to map back to line numbers, so we join with newlines.
-            block_lines = lines[block_start:block_end]
-            block_text = "\n".join(block_lines)
-            
-            # Find all table blocks: <table_start> ... <table_end>
-            # We use match.start() and match.end() to find where in the block text they are.
-            # Then convert those character indices back to relative line numbers.
-            
-            # Simple approach: iterate through lines in the block
-            # State machine tracking: inside_table or not
-            
-            table_start_line_rel = -1
-            inside_table = False
-            
-            # header detection
-            found_header_in_current_table = False
-            
-            for rel_i, line in enumerate(block_lines):
-                stripped = line.strip()
-                
-                if "<table_start>" in stripped:
-                    # New table starts
-                    table_start_line_rel = rel_i
-                    inside_table = True
-                    found_header_in_current_table = False
-                    continue
-                
-                if inside_table and not found_header_in_current_table:
-                    # Look for header row (contains pipes)
-                    if stripped.startswith('|') or stripped.count('|') >= 2:
-                        # Analyze Header Row
-                        match_count = 0
-                        header_lower = stripped.lower()
-                        
-                        cells = [c.strip() for c in header_lower.split('|')]
-                        for cell in cells:
-                             cell_clean = cell.strip()
-                             for keyword in BDP_KEYWORDS:
-                                 # Exact match for short words (<3 chars), contains for others
-                                 if len(keyword) < 3:
-                                      if re.search(r'\b' + re.escape(keyword) + r'\b', cell_clean):
-                                          match_count += 1
-                                          break
-                                 else:
-                                      if keyword in cell_clean:
-                                          match_count += 1
-                                          break 
-                        
-                        if match_count >= 3:
-                            # It's a BDP table!
-                            # Find the start line absolute index
-                            abs_start_idx = block_start + table_start_line_rel
-                            
-                            # Insert before <table_start>
-                            # To be safe, insert just before the line containing <table_start>
-                            insertions.append((abs_start_idx, "<!-- BDP_START -->"))
-                            
-                            found_header_in_current_table = True
-                            
-                            # Note: we still need to find <table_end> to close it
-                        else:
-                            # Not a BDP table header, or maybe header is next line?
-                            # We only check the FIRST row that looks like a table row as header.
-                            # So if this fails, we assume this table is not BDP (or header logic failed).
-                            # To allow multi-line headers, we could make this more complex, but keeping simple for now.
-                            found_header_in_current_table = True # Mark as "header processed" even if fail
-                
-                if "<table_end>" in stripped:
-                    if inside_table:
-                         # Table ends
-                         if found_header_in_current_table:
-                             # We only care if we decided it was a BDP table match_count >= 3 logic above
-                             # But wait, we need to know if it was *actually* a BDP table.
-                             # Re-check? No, we need state.
-                             
-                             # Let's refine state:
-                             # We need to know if we already emitted BDP_START for this table.
-                             # We can check insertions.
-                             
-                             # Check if the last insertion was BDP_START at abs_start_idx
-                             abs_start_idx = block_start + table_start_line_rel
-                             last_insertion_was_start = False
-                             if insertions:
-                                 last_idx, last_tag = insertions[-1]
-                                 if last_idx == abs_start_idx and last_tag == "<!-- BDP_START -->":
-                                     last_insertion_was_start = True
-                             
-                             if last_insertion_was_start:
-                                  # Insert END tag after this line
-                                  abs_end_idx = block_start + rel_i + 1
-                                  insertions.append((abs_end_idx, "<!-- BDP_END -->"))
-                    
-                    inside_table = False
-                    table_start_line_rel = -1
+            # Detect tables in this block (both formats)
+            detect_and_tag_tables_in_block(lines, block_start, block_end, BDP_KEYWORDS, insertions)
 
     # Apply insertions descending
     insertions.sort(key=lambda x: x[0], reverse=True)
@@ -197,3 +103,213 @@ def identify_and_tag_french_boq(markdown_text: str) -> str:
                  lines.append(tag)
         
     return "\n".join(lines)
+
+
+def detect_and_tag_tables_in_block(lines, block_start, block_end, bdp_keywords, insertions):
+    """
+    Detect and tag BDP tables within a block.
+    Handles both <table_start>/<table_end> format and markdown pipe tables.
+    """
+    block_lines = lines[block_start:block_end]
+    
+    # Try marker-based detection first
+    if detect_marker_tables(block_lines, block_start, bdp_keywords, insertions):
+        return
+    
+    # Fall back to markdown table detection
+    detect_markdown_pipe_tables(block_lines, block_start, bdp_keywords, insertions)
+
+
+def detect_marker_tables(block_lines, block_start, bdp_keywords, insertions):
+    """
+    Detect tables with <table_start> and <table_end> markers.
+    Returns True if any marker-based tables were found.
+    """
+    table_start_line_rel = -1
+    inside_table = False
+    found_header_in_current_table = False
+    found_any_markers = False
+    
+    for rel_i, line in enumerate(block_lines):
+        stripped = line.strip()
+        
+        if "<table_start>" in stripped:
+            found_any_markers = True
+            table_start_line_rel = rel_i
+            inside_table = True
+            found_header_in_current_table = False
+            continue
+        
+        if inside_table and not found_header_in_current_table:
+            # Look for header row (contains pipes)
+            if stripped.startswith('|') or stripped.count('|') >= 2:
+                match_count = count_bdp_keywords(stripped, bdp_keywords)
+                
+                if match_count >= 3:
+                    # It's a BDP table!
+                    abs_start_idx = block_start + table_start_line_rel
+                    insertions.append((abs_start_idx, "<!-- BDP_START -->"))
+                    found_header_in_current_table = True
+                else:
+                    found_header_in_current_table = True
+        
+        if "</table_end>" in stripped:
+            if inside_table:
+                 if found_header_in_current_table:
+                     abs_start_idx = block_start + table_start_line_rel
+                     last_insertion_was_start = False
+                     if insertions:
+                         last_idx, last_tag = insertions[-1]
+                         if last_idx == abs_start_idx and last_tag == "<!-- BDP_START -->":
+                             last_insertion_was_start = True
+                     
+                     if last_insertion_was_start:
+                          abs_end_idx = block_start + rel_i + 1
+                          insertions.append((abs_end_idx, "<!-- BDP_END -->"))
+            
+            inside_table = False
+            table_start_line_rel = -1
+    
+    return found_any_markers
+
+
+def detect_markdown_pipe_tables(block_lines, block_start, bdp_keywords, insertions):
+    """
+    Detect markdown pipe tables (|...|...|) and tag those with BDP keywords.
+    Enhanced to:
+    1. Capture preceding checks/titles/descriptions.
+    2. Handle multi-page tables (tables interrupted by page breaks/etc).
+    """
+    i = 0
+    n = len(block_lines)
+    
+    while i < n:
+        line = block_lines[i]
+        stripped = line.strip()
+        
+        # Check if this line looks like the START of a table header
+        if stripped.count('|') >= 2:
+            match_count = count_bdp_keywords(stripped, bdp_keywords)
+            
+            if match_count >= 3:
+                # Found a BDP table header!
+                
+                # 1. Look backwards for Description/Title
+                start_rel_idx = find_bdp_description_start(block_lines, i)
+                
+                # 2. Look forwards for end of table (handling interruptions)
+                end_rel_idx = find_bdp_table_end(block_lines, i, n)
+                
+                abs_start = block_start + start_rel_idx
+                abs_end = block_start + end_rel_idx + 1 # Insert AFTER the last line
+                
+                # Add Tags
+                insertions.append((abs_start, "<!-- BDP_START -->"))
+                insertions.append((abs_end, "<!-- BDP_END -->"))
+                
+                logger.info(f"Tagged continuous BDP table from line {abs_start} to {abs_end}")
+                
+                # Jump iterator to end of this table
+                i = end_rel_idx + 1
+                continue
+                
+        i += 1
+
+
+def find_bdp_description_start(lines, header_idx):
+    """
+    Scan backwards from the table header to find the logical start of the BDP section.
+    We look for keywords like "Bordereau", "Détail", "Objet", or "Prix n°".
+    We allow capturing a block of text text if it seems relevant.
+    """
+    # Look back up to 20 lines
+    search_limit = max(0, header_idx - 20)
+    best_start = header_idx
+    
+    found_keyword = False
+    
+    # Keywords indicating start of section
+    START_KEYWORDS = ["bordereau", "détail estimatif", "detail estimatif", "objet", "b.d.p", "bdp", "prix n°"]
+    
+    # We iterate backwards.
+    # If we find a keyword, we mark that line as potential start.
+    # We keep going up to see if there are earlier keywords.
+    
+    for i in range(header_idx - 1, search_limit - 1, -1):
+        line = lines[i].strip()
+        line_lower = line.lower()
+        
+        if not line:
+            continue
+            
+        # Stop boundaries
+        if line.startswith("# File:") or ("|" in line and line.count('|') >= 2):
+            break
+            
+        if any(kw in line_lower for kw in START_KEYWORDS):
+            best_start = i
+            found_keyword = True
+        elif found_keyword:
+            pass
+            
+    return best_start
+
+
+def find_bdp_table_end(lines, header_idx, max_idx):
+    """
+    Scan forwards to find the end of the table.
+    Tolerates interruptions like "## Page X", "---", or empty lines, 
+    AS LONG AS the table resumes afterwards.
+    """
+    last_table_line = header_idx
+    i = header_idx + 1
+    consecutive_non_table_lines = 0
+    MAX_GAP = 10  # Max lines of interruption allowed
+    
+    while i < max_idx:
+        line = lines[i].strip()
+        
+        is_table_row = ('|' in line) and (len(line) > 1)
+        
+        if is_table_row:
+            # It is a table row!
+            last_table_line = i
+            consecutive_non_table_lines = 0 # Reset gap counter
+        else:
+            # Not a table row. Is it a permissible interruption?
+            consecutive_non_table_lines += 1
+            
+            if consecutive_non_table_lines > MAX_GAP:
+                # Too much gap, table definitely ended at last_table_line
+                break
+            
+            # Additional check: If we hit a NEW "File:" marker, definitely stop
+            if line.startswith("# File:"):
+                break
+                
+        i += 1
+        
+    return last_table_line
+
+
+def count_bdp_keywords(header_text, bdp_keywords):
+    """Count how many BDP keywords are present in the header text."""
+    match_count = 0
+    header_lower = header_text.lower()
+    cells = [c.strip() for c in header_lower.split('|')]
+    
+    for cell in cells:
+        cell_clean = cell.strip()
+        for keyword in bdp_keywords:
+            # Exact match for short words (<3 chars), contains for others
+            if len(keyword) < 3:
+                 # Use whitespace boundaries instead of \b to handle symbols like '°'
+                 if re.search(r'(?:^|\s)' + re.escape(keyword) + r'(?:\s|$)', cell_clean):
+                     match_count += 1
+                     break
+            else:
+                 if keyword in cell_clean:
+                     match_count += 1
+                     break
+    
+    return match_count

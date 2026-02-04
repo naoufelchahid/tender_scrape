@@ -13,7 +13,9 @@ OCR_QUEUE → ocr_container → CLASSIFICATION_QUEUE → classification_containe
 ## Purpose
 
 - **Classify** tender documents using a 3-step process (filename patterns → content analysis → AI classification)
+- **Detect Missing Documents** by searching entire markdown for missing document types using pattern matching
 - **Inject** document type headers into markdown files for downstream processing
+- **Update Metadata** with discovered document types, preserving already-checked documents
 - **Route** classified documents to the extraction container
 
 ## Architecture
@@ -68,9 +70,29 @@ For documents not classified in Step 1:
 
 For documents that remain unknown after Step 2:
 
-- Uses **OpenRouter** with `xiaomi/mimo-v2-flash:free` model
+- Uses **OpenRouter** with fallback model chain
 - Sends first 5000 characters with classification prompt
 - Returns document type or "unknown" if AI fails
+
+#### Step 4: Missing Document Detection & Extraction
+
+After initial classification, the container searches the **entire markdown content** for missing document types:
+
+**Detection & Extraction Strategy:**
+
+1. **Search**: Scans entire markdown for patterns of missing document types
+2. **Mark**: Tags detected blocks with temporary balises
+3. **Extract**: Extracts tagged content into new `LogicalDocument` objects
+4. **Merge**: Combines original + extracted documents
+5. **Regenerate**: Reconstructs markdown with all documents and updates YAML/S3 metadata
+
+**Detected Document Types:**
+
+- `avis_fr`: French tender notices
+- `avis_ar`: Arabic tender notices
+- `declaration`: Declaration sur l'honneur
+- `acte_engagement`: Acte d'engagement
+- `product`: Bill of quantities (product)
 
 ### Document Types
 
