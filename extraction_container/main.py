@@ -5,6 +5,7 @@ import logging
 import boto3
 import asyncio
 from botocore.exceptions import ClientError
+from pydantic import ValidationError
 
 
 from src.document_chunker import DocumentChunker
@@ -46,6 +47,7 @@ def main():
     logger.info(f"Starting Extraction Service polling {SQS_QUEUE_URL}...")
 
     while True:
+        logger.info(f"Loop start: polling {SQS_QUEUE_URL}...")
         try:
             response = sqs.receive_message(
                 QueueUrl=SQS_QUEUE_URL,
@@ -54,6 +56,7 @@ def main():
             )
 
             if 'Messages' not in response:
+                logger.info("No messages found in this poll.")
                 continue
 
             for msg in response['Messages']:
@@ -116,51 +119,66 @@ def handle_message(msg, sqs, s3, chunker):
 
         
         # 3. Intelligent chunking (Avis/Product via LLM, others via header splitting)
-        chunks = asyncio.run(chunker.chunk_all_documents(
+        # Now returns a dictionary of chunk lists grouped by type
+        chunks_by_type = asyncio.run(chunker.chunk_all_documents(
             docs=docs, 
             tender_id=tender_id, 
             tender_ref=tender_ref
         ))
-        logger.info(f"Generated {len(chunks)} chunks from documents")
         
-        # 4. Upload Chunks to S3
-        chunk_key = f"chunks_tender/{tender_ref}/chunks.json"
-        s3.put_object(
-            Bucket=S3_BUCKET,
-            Key=chunk_key,
-            Body=json.dumps(chunks, ensure_ascii=False)
-        )
-        logger.info(f"Saved chunks to {chunk_key}")
+        total_chunks = sum(len(c) for c in chunks_by_type.values())
+        logger.info(f"Generated {total_chunks} total chunks across types: {list(chunks_by_type.keys())}")
+        
+        # 4. Upload Chunks to S3 (4 distinct files)
+        output_keys = {}
+        target_types = ['avis', 'specification', 'administrative', 'product']
+        
+        for t in target_types:
+            type_chunks = chunks_by_type.get(t, [])
+            if type_chunks:
+                key = f"chunks_tender/{tender_ref}/{t}.json"
+                s3.put_object(
+                    Bucket=S3_BUCKET,
+                    Key=key,
+                    Body=json.dumps(type_chunks, ensure_ascii=False)
+                )
+                output_keys[f"{t}_key"] = key
+                logger.info(f"Saved {len(type_chunks)} {t} chunks to {key}")
         
         # 6. Notify DB Filler Queue
-        # We need to construct the URL for db_filler if it's just a name
         queue_url = DB_FILLER_QUEUE_URL
         if not queue_url.startswith("https://"):
-            # Assume it's a queue name, try to get URL
             try:
                 q_response = sqs.get_queue_url(QueueName=DB_FILLER_QUEUE_URL)
                 queue_url = q_response['QueueUrl']
             except ClientError as e:
                 logger.error(f"Could not get URL for queue {DB_FILLER_QUEUE_URL}: {e}")
-                # Fallback: maybe it IS a URL or we can't send
-                pass
         
         logger.info(f"Sending completion message to {queue_url}")
+        
+        # Construct message payload with all keys
+        completion_payload = {
+            "tender_ref": tender_ref,
+            "tender_id": tender_id,
+            "status": "extraction_complete"
+        }
+        completion_payload.update(output_keys)
+        # Also include legacy 'chunks_key' pointing to avis or first available for backward compatibility if needed
+        if output_keys:
+            first_key = output_keys.get('avis_key') or next(iter(output_keys.values()))
+            completion_payload["chunks_key"] = first_key
+
         sqs.send_message(
             QueueUrl=queue_url,
-            MessageBody=json.dumps({
-                "tender_ref": tender_ref,
-                "tender_id": tender_id,
-                "metadata_key": None,
-                "chunks_key": chunk_key,
-                "status": "extraction_complete"
-            })
+            MessageBody=json.dumps(completion_payload)
         )
 
         # 9. Delete Message
         sqs.delete_message(QueueUrl=SQS_QUEUE_URL, ReceiptHandle=receipt_handle)
         logger.info(f"Successfully processed {tender_ref}")
 
+    except ValidationError as e:
+        logger.error(f"Validation errors processing message: {e.errors()}", exc_info=True)
     except Exception as e:
         logger.error(f"Error processing message: {e}", exc_info=True)
         # Don't delete message, let visibility timeout handle retry

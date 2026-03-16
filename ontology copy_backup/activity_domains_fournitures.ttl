@@ -1,0 +1,1046 @@
+@prefix activity: <http://www.tenderintelligence.io/ontology/activity-domains#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+activity:AccessoiresDhabillement a skos:Concept ;
+    activity:code "2.11.5" ;
+    skos:broader activity:EffetsDhabillementEtAccessoires ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.11.5" ;
+    skos:prefLabel "Accessoires d'habillement"@fr .
+
+activity:AdditifsPourCimentMortierOuBetonEtAutresAdditifsChimiquesSimilaires a skos:Concept ;
+    activity:code "2.9.2" ;
+    skos:broader activity:ProduitsChimiquesDeNettoyageInsecticides ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.9.2" ;
+    skos:prefLabel "Additifs pour ciment, mortier ou béton et autres additifs chimiques similaires"@fr .
+
+activity:AnimauxVivantsBetailCheptel a skos:Concept ;
+    activity:code "2.7.10" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.10" ;
+    skos:prefLabel "Animaux vivants (bétail, cheptel…..)"@fr .
+
+activity:AppareilsDeclairageAccumulateursPilesBatteries a skos:Concept ;
+    activity:code "2.20.5" ;
+    skos:broader activity:MaterielEtFournituresElectriquesElectroniqueElectromecaniqueEtPiecesDeRechange ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.20.5" ;
+    skos:prefLabel "Appareils d’éclairage (Accumulateurs, piles, batteries…..)"@fr .
+
+activity:AppareilsEtUstensilesDeCuisine a skos:Concept ;
+    activity:code "2.24.1" ;
+    skos:broader activity:MaterielEtArticlesDeLiterieDeCouchageDeCuisineEtDeBuanderie ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.24.1" ;
+    skos:prefLabel "Appareils et ustensiles de cuisine"@fr .
+
+activity:ArticlesChaussants a skos:Concept ;
+    activity:code "2.11.4" ;
+    skos:broader activity:EffetsDhabillementEtAccessoires ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.11.4" ;
+    skos:prefLabel "Articles chaussants"@fr .
+
+activity:ArticlesDeCorrectionDeLaVueEtArticlesConnexes a skos:Concept ;
+    activity:code "2.15.3" ;
+    skos:broader activity:EquipementsEtProduitsMedicauxPharmaceutiquesEtDeLaboratoire ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.15.3" ;
+    skos:prefLabel "Articles de correction de la vue et articles connexes"@fr .
+
+activity:ArticlesDeSport a skos:Concept ;
+    activity:code "2.12.2" ;
+    skos:broader activity:MaterielEtArticlesDeSportMedaillesEffigiesEtDrapeaux ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.12.2" ;
+    skos:prefLabel "articles de sport"@fr .
+
+activity:ArticlesEtAccessoiresDePeintureArtistique a skos:Concept ;
+    activity:code "2.13.3" ;
+    skos:broader activity:ObjetsDartArticlesArtistiquesDeDivertissementEtDeMediatheque ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.13.3" ;
+    skos:prefLabel "Articles et accessoires de peinture artistique"@fr .
+
+activity:ArticlesEtFournituresDePlomberie a skos:Concept ;
+    activity:code "2.16.2" ;
+    skos:broader activity:MateriauxDeConstructionPlomberieQuincaillerieEtOutillages ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.16.2" ;
+    skos:prefLabel "Articles et fournitures de plomberie"@fr .
+
+activity:ArticlesEtFournituresDeQuincaillerie a skos:Concept ;
+    activity:code "2.16.3" ;
+    skos:broader activity:MateriauxDeConstructionPlomberieQuincaillerieEtOutillages ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.16.3" ;
+    skos:prefLabel "Articles et fournitures de quincaillerie"@fr .
+
+activity:ArticlesEtProthesesPourLesHandicapes a skos:Concept ;
+    activity:code "2.15.4" ;
+    skos:broader activity:EquipementsEtProduitsMedicauxPharmaceutiquesEtDeLaboratoire ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.15.4" ;
+    skos:prefLabel "Articles et prothèses pour les handicapés"@fr .
+
+activity:BadgesArticlesSimilairesEtAccessoires a skos:Concept ;
+    activity:code "2.14.1" ;
+    skos:broader activity:ImprimesProduitsDimpressionDeReproductionEtDePhotographie ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.14.1" ;
+    skos:prefLabel "Badges, articles similaires et accessoires"@fr .
+
+activity:BandesMagnetiquesEtFournituresPourEquipementsDeProductionVideo a skos:Concept ;
+    activity:code "2.13.5" ;
+    skos:broader activity:ObjetsDartArticlesArtistiquesDeDivertissementEtDeMediatheque ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.13.5" ;
+    skos:prefLabel "Bandes magnétiques et fournitures pour équipements de production vidéo"@fr .
+
+activity:Bicyclettes a skos:Concept ;
+    activity:code "2.23.3" ;
+    skos:broader activity:MaterielDeTransportPiecesDeRechangeEtPneumatiques ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.23.3" ;
+    skos:prefLabel "bicyclettes"@fr .
+
+activity:CaoutchoucEtFibresSynthetiques a skos:Concept ;
+    activity:code "2.10.3" ;
+    skos:broader activity:MatieresPremieresEtProduitsDeTextileCuirCaoutchoucEtPlastique ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.10.3" ;
+    skos:prefLabel "Caoutchouc et fibres synthétiques"@fr .
+
+activity:CaoutchoucNaturelLatexNaturelEtProduitsConnexes a skos:Concept ;
+    activity:code "2.7.7" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.7" ;
+    skos:prefLabel "Caoutchouc naturel, latex naturel et produits connexes"@fr .
+
+activity:CarburantEtAutresProduitsPetroliersConnexes a skos:Concept ;
+    activity:code "2.8.2" ;
+    skos:broader activity:ProduitsPetroliersCarburantsLubrifiantsEtProduitsDeChauffage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.8.2" ;
+    skos:prefLabel "Carburant et autres produits pétroliers connexes"@fr .
+
+activity:CarrosseriesRemorquesOuSemiremorquesDeVehicules a skos:Concept ;
+    activity:code "2.23.4" ;
+    skos:broader activity:MaterielDeTransportPiecesDeRechangeEtPneumatiques ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.23.4" ;
+    skos:prefLabel "Carrosseries, remorques ou semi-remorques de véhicules."@fr .
+
+activity:CartesGeologiquesEtGeographiques a skos:Concept ;
+    activity:code "2.17.5" ;
+    skos:broader activity:DocumentationManuelsFournituresScolairesEtDenseignement ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.17.5" ;
+    skos:prefLabel "Cartes géologiques et géographiques"@fr .
+
+activity:CartesTopographiques a skos:Concept ;
+    activity:code "2.17.7" ;
+    skos:broader activity:DocumentationManuelsFournituresScolairesEtDenseignement ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.17.7" ;
+    skos:prefLabel "Cartes topographiques"@fr .
+
+activity:CartesVisiteDeVuxDinvitation a skos:Concept ;
+    activity:code "2.14.4" ;
+    skos:broader activity:ImprimesProduitsDimpressionDeReproductionEtDePhotographie ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.14.4" ;
+    skos:prefLabel "Cartes (visite, de vœux, d’invitation…)"@fr .
+
+activity:ChambreAAirPneumatiquesEtPiecesDeRechangePourVehiculesEtEngins a skos:Concept ;
+    activity:code "2.23.5" ;
+    skos:broader activity:MaterielDeTransportPiecesDeRechangeEtPneumatiques ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.23.5" ;
+    skos:prefLabel "chambre à air, pneumatiques et pièces de rechange pour véhicules et engins"@fr .
+
+activity:ColorantsEtPigments a skos:Concept ;
+    activity:code "2.9.3" ;
+    skos:broader activity:ProduitsChimiquesDeNettoyageInsecticides ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.9.3" ;
+    skos:prefLabel "Colorants et pigments"@fr .
+
+activity:CombustiblesEtProduitsDeChauffageCharbonBoisDeChauffageFuelGaz a skos:Concept ;
+    activity:code "2.8.1" ;
+    skos:broader activity:ProduitsPetroliersCarburantsLubrifiantsEtProduitsDeChauffage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.8.1" ;
+    skos:prefLabel "Combustibles et produits de chauffage (charbon, bois de chauffage, fuel, gaz….)"@fr .
+
+activity:ConsommablesDimpressionEtDeReproductionEncrePlaques a skos:Concept ;
+    activity:code "2.14.3" ;
+    skos:broader activity:ImprimesProduitsDimpressionDeReproductionEtDePhotographie ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.14.3" ;
+    skos:prefLabel "Consommables d'impression et de reproduction (encre, plaques….)"@fr .
+
+activity:ConsommablesEtReactifsDeLaboratoirePourAnalysesPhysicochimiquesBacteriologiquesMicrobiologiquesEtToxicologiquesYComprisVerreries a skos:Concept ;
+    activity:code "2.15.9" ;
+    skos:broader activity:EquipementsEtProduitsMedicauxPharmaceutiquesEtDeLaboratoire ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.15.9" ;
+    skos:prefLabel "Consommables et réactifs de laboratoire pour analyses physico-chimiques, bactériologiques, microbiologiques et toxicologiques y compris verreries"@fr .
+
+activity:CotonLaineEtProduitsConnexes a skos:Concept ;
+    activity:code "2.10.2" ;
+    skos:broader activity:MatieresPremieresEtProduitsDeTextileCuirCaoutchoucEtPlastique ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.10.2" ;
+    skos:prefLabel "Coton, laine et produits connexes"@fr .
+
+activity:CuirEtProduitsConnexes a skos:Concept ;
+    activity:code "2.10.1" ;
+    skos:broader activity:MatieresPremieresEtProduitsDeTextileCuirCaoutchoucEtPlastique ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.10.1" ;
+    skos:prefLabel "Cuir et produits connexes"@fr .
+
+activity:DetergentsEtProduitsDeNettoyage a skos:Concept ;
+    activity:code "2.9.4" ;
+    skos:broader activity:ProduitsChimiquesDeNettoyageInsecticides ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.9.4" ;
+    skos:prefLabel "Détergents et produits de nettoyage"@fr .
+
+activity:Documentation a skos:Concept ;
+    activity:code "2.17.3" ;
+    skos:broader activity:DocumentationManuelsFournituresScolairesEtDenseignement ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.17.3" ;
+    skos:prefLabel "Documentation"@fr .
+
+activity:DonneesClimatologiquesEtAutresDonneesTechniquesSimilaires a skos:Concept ;
+    activity:code "2.17.4" ;
+    skos:broader activity:DocumentationManuelsFournituresScolairesEtDenseignement ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.17.4" ;
+    skos:prefLabel "Données climatologiques, et autres données techniques similaires"@fr .
+
+activity:DrapeauxEtFanions a skos:Concept ;
+    activity:code "2.12.5" ;
+    skos:broader activity:MaterielEtArticlesDeSportMedaillesEffigiesEtDrapeaux ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.12.5" ;
+    skos:prefLabel "Drapeaux et fanions"@fr .
+
+activity:Effigies a skos:Concept ;
+    activity:code "2.12.4" ;
+    skos:broader activity:MaterielEtArticlesDeSportMedaillesEffigiesEtDrapeaux ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.12.4" ;
+    skos:prefLabel "effigies"@fr .
+
+activity:EmulsionsDeBitumesLiantsHydrocarbonesEtAutresMateriauxEnrobes a skos:Concept ;
+    activity:code "2.9.1" ;
+    skos:broader activity:ProduitsChimiquesDeNettoyageInsecticides ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.9.1" ;
+    skos:prefLabel "Emulsions de bitumes, liants hydrocarbonés et autres matériaux enrobés"@fr .
+
+activity:EnginsDeChantier a skos:Concept ;
+    activity:code "2.22.4" ;
+    skos:broader activity:EnginsDeChantierMaterielDeManutentionEtDeLevage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.22.4" ;
+    skos:prefLabel "Engins de chantier"@fr .
+
+activity:EnginsEtMaterielsDeBtp a skos:Concept ;
+    activity:code "2.22.2" ;
+    skos:broader activity:EnginsDeChantierMaterielDeManutentionEtDeLevage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.22.2" ;
+    skos:prefLabel "Engins et matériels de BTP"@fr .
+
+activity:EnginsMachinesEquipementsBtp a skos:Concept ;
+    activity:code "2.25.1" ;
+    skos:broader activity:LocationAvecOptionDachatDeBiensDequipementsDeMaterielEtDoutillage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.25.1" ;
+    skos:prefLabel "Engins, machines, équipements BTP"@fr .
+
+activity:EngraisEtComposesAzotes a skos:Concept ;
+    activity:code "2.7.3" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.3" ;
+    skos:prefLabel "Engrais et composés azotés."@fr .
+
+activity:EquipementsAudioVisuelDeCommunicationDeTelecommunication a skos:Concept ;
+    activity:code "2.20.1" ;
+    skos:broader activity:MaterielEtFournituresElectriquesElectroniqueElectromecaniqueEtPiecesDeRechange ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.20.1" ;
+    skos:prefLabel "Equipements audio visuel ; de communication, de télécommunication"@fr .
+
+activity:EquipementsElectronique a skos:Concept ;
+    activity:code "2.20.2" ;
+    skos:broader activity:MaterielEtFournituresElectriquesElectroniqueElectromecaniqueEtPiecesDeRechange ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.20.2" ;
+    skos:prefLabel "Equipements électronique"@fr .
+
+activity:EquipementsEtFournituresPourImagerieMedical a skos:Concept ;
+    activity:code "2.15.1" ;
+    skos:broader activity:EquipementsEtProduitsMedicauxPharmaceutiquesEtDeLaboratoire ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.15.1" ;
+    skos:prefLabel "Equipements et fournitures pour imagerie médical"@fr .
+
+activity:EquipementsEtMaterielMedicalMedicotechniqueEtBiomedical a skos:Concept ;
+    activity:code "2.15.2" ;
+    skos:broader activity:EquipementsEtProduitsMedicauxPharmaceutiquesEtDeLaboratoire ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.15.2" ;
+    skos:prefLabel "Equipements et matériel médical, médico-technique et biomédical"@fr .
+
+activity:FilTextileNaturelOuArtificielEtProduitsConnexes a skos:Concept ;
+    activity:code "2.10.4" ;
+    skos:broader activity:MatieresPremieresEtProduitsDeTextileCuirCaoutchoucEtPlastique ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.10.4" ;
+    skos:prefLabel "Fil textile naturel ou artificiel et produits connexes."@fr .
+
+activity:FilmsCdMusicalEtLivresAudioEtAutresArticlesSimilaires a skos:Concept ;
+    activity:code "2.13.4" ;
+    skos:broader activity:ObjetsDartArticlesArtistiquesDeDivertissementEtDeMediatheque ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.13.4" ;
+    skos:prefLabel "Films, CD musical et livres audio et autres articles similaires"@fr .
+
+activity:FongiblesEtConsommablesMedicaux a skos:Concept ;
+    activity:code "2.15.6" ;
+    skos:broader activity:EquipementsEtProduitsMedicauxPharmaceutiquesEtDeLaboratoire ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.15.6" ;
+    skos:prefLabel "Fongibles et consommables médicaux"@fr .
+
+activity:FournituresDeBureau a skos:Concept ;
+    activity:code "2.19.3" ;
+    skos:broader activity:MaterielMobilierEtFournituresDeBureau ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.19.3" ;
+    skos:prefLabel "Fournitures de bureau"@fr .
+
+activity:FournituresElectriquesLampesDisjoncteursPrises a skos:Concept ;
+    activity:code "2.20.6" ;
+    skos:broader activity:MaterielEtFournituresElectriquesElectroniqueElectromecaniqueEtPiecesDeRechange ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.20.6" ;
+    skos:prefLabel "fournitures électriques (lampes, disjoncteurs, prises……..)"@fr .
+
+activity:FournituresEtAccessoiresDesEquipementsDePhotographie a skos:Concept ;
+    activity:code "2.14.6" ;
+    skos:broader activity:ImprimesProduitsDimpressionDeReproductionEtDePhotographie ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.14.6" ;
+    skos:prefLabel "Fournitures et accessoires des équipements de photographie"@fr .
+
+activity:FournituresEtConsommablesInformatiques a skos:Concept ;
+    activity:code "2.18.5" ;
+    skos:broader activity:MaterielInformatiqueLogicielsEtPiecesDeRechanges ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.18.5" ;
+    skos:prefLabel "Fournitures et consommables informatiques"@fr .
+
+activity:FournituresEtPiecesDeRechangePourMaterielTechnique a skos:Concept ;
+    activity:code "2.21.3" ;
+    skos:broader activity:MaterielTechniqueDeLutteContreLincendieEtPiecesDeRechange ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.21.3" ;
+    skos:prefLabel "Fournitures et pièces de rechange pour matériel technique"@fr .
+
+activity:FournituresScolairesEtDenseignement a skos:Concept ;
+    activity:code "2.17.2" ;
+    skos:broader activity:DocumentationManuelsFournituresScolairesEtDenseignement ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.17.2" ;
+    skos:prefLabel "fournitures scolaires et d’enseignement"@fr .
+
+activity:GazDiversPropaneButaneGazManufacture a skos:Concept ;
+    activity:code "2.8.4" ;
+    skos:broader activity:ProduitsPetroliersCarburantsLubrifiantsEtProduitsDeChauffage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.8.4" ;
+    skos:prefLabel "Gaz divers (Propane, butane, gaz manufacturé…..)"@fr .
+
+activity:HuilesEtGraissesAnimalesOuVegetales a skos:Concept ;
+    activity:code "2.7.13" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.13" ;
+    skos:prefLabel "Huiles et graisses animales ou végétales."@fr .
+
+activity:Imprimes a skos:Concept ;
+    activity:code "2.14.5" ;
+    skos:broader activity:ImprimesProduitsDimpressionDeReproductionEtDePhotographie ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.14.5" ;
+    skos:prefLabel "Imprimés"@fr .
+
+activity:Insectes a skos:Concept ;
+    activity:code "2.7.12" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.12" ;
+    skos:prefLabel "Insectes"@fr .
+
+activity:InsecticidesPesticidesEtPhytosanitaires a skos:Concept ;
+    activity:code "2.9.6" ;
+    skos:broader activity:ProduitsChimiquesDeNettoyageInsecticides ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.9.6" ;
+    skos:prefLabel "insecticides, pesticides et phytosanitaires"@fr .
+
+activity:InstrumentsDeMusique a skos:Concept ;
+    activity:code "2.13.6" ;
+    skos:broader activity:ObjetsDartArticlesArtistiquesDeDivertissementEtDeMediatheque ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.13.6" ;
+    skos:prefLabel "Instruments de musique"@fr .
+
+activity:Jouets a skos:Concept ;
+    activity:code "2.13.7" ;
+    skos:broader activity:ObjetsDartArticlesArtistiquesDeDivertissementEtDeMediatheque ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.13.7" ;
+    skos:prefLabel "Jouets"@fr .
+
+activity:LocomotivesEtMaterielRoulantDeCheminDeFerEtDeTramwayFournituresFerroviairesEtPiecesDetachees a skos:Concept ;
+    activity:code "2.23.2" ;
+    skos:broader activity:MaterielDeTransportPiecesDeRechangeEtPneumatiques ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.23.2" ;
+    skos:prefLabel "Locomotives et matériel roulant de chemin de fer et de tramway, fournitures ferroviaires et pièces détachées"@fr .
+
+activity:LogicielsUtilitairesMiddlewaresSecuritesMessageriesCollaborationEtAutres a skos:Concept ;
+    activity:code "2.18.1" ;
+    skos:broader activity:MaterielInformatiqueLogicielsEtPiecesDeRechanges ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.18.1" ;
+    skos:prefLabel "Logiciels utilitaires, middlewares, sécurités, messageries, collaboration et autres"@fr .
+
+activity:LubrifiantsLiquideAUsageHydrauliqueEtAutresPreparationsLubrifiantes a skos:Concept ;
+    activity:code "2.8.3" ;
+    skos:broader activity:ProduitsPetroliersCarburantsLubrifiantsEtProduitsDeChauffage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.8.3" ;
+    skos:prefLabel "Lubrifiants, liquide à usage hydraulique et autres préparations lubrifiantes"@fr .
+
+activity:MachinesEquipementsTechniquesElectroniquesElectromecaniquesMedicalEtTechnicomedical a skos:Concept ;
+    activity:code "2.25.2" ;
+    skos:broader activity:LocationAvecOptionDachatDeBiensDequipementsDeMaterielEtDoutillage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.25.2" ;
+    skos:prefLabel "Machines, équipements techniques, électroniques électromécaniques, médical et technico-médical"@fr .
+
+activity:ManuelsScolairesEtDenseignement a skos:Concept ;
+    activity:code "2.17.1" ;
+    skos:broader activity:DocumentationManuelsFournituresScolairesEtDenseignement ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.17.1" ;
+    skos:prefLabel "Manuels scolaires et d'enseignement"@fr .
+
+activity:MateriauxDeConstruction a skos:Concept ;
+    activity:code "2.16.1" ;
+    skos:broader activity:MateriauxDeConstructionPlomberieQuincaillerieEtOutillages ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.16.1" ;
+    skos:prefLabel "Matériaux de construction"@fr .
+
+activity:Materiel a skos:Concept ;
+    activity:code "2.25.3" ;
+    skos:broader activity:LocationAvecOptionDachatDeBiensDequipementsDeMaterielEtDoutillage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.25.3" ;
+    skos:prefLabel "Matériel"@fr .
+
+activity:MaterielDeBureau a skos:Concept ;
+    activity:code "2.19.1" ;
+    skos:broader activity:MaterielMobilierEtFournituresDeBureau ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.19.1" ;
+    skos:prefLabel "Matériel de bureau"@fr .
+
+activity:MaterielDeManutentionEtDeLevageChariotElevateurGruesNacelles a skos:Concept ;
+    activity:code "2.22.3" ;
+    skos:broader activity:EnginsDeChantierMaterielDeManutentionEtDeLevage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.22.3" ;
+    skos:prefLabel "matériel de manutention et de levage (Chariot élévateur, grues, nacelles …)"@fr .
+
+activity:MaterielDeSport a skos:Concept ;
+    activity:code "2.12.1" ;
+    skos:broader activity:MaterielEtArticlesDeSportMedaillesEffigiesEtDrapeaux ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.12.1" ;
+    skos:prefLabel "Matériel de sport"@fr .
+
+activity:MaterielElectrique a skos:Concept ;
+    activity:code "2.20.4" ;
+    skos:broader activity:MaterielEtFournituresElectriquesElectroniqueElectromecaniqueEtPiecesDeRechange ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.20.4" ;
+    skos:prefLabel "Matériel électrique"@fr .
+
+activity:MaterielElectromecanique a skos:Concept ;
+    activity:code "2.20.3" ;
+    skos:broader activity:MaterielEtFournituresElectriquesElectroniqueElectromecaniqueEtPiecesDeRechange ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.20.3" ;
+    skos:prefLabel "Matériel électromécanique"@fr .
+
+activity:MaterielEtArticlesDeLiterieEtDeCouchage a skos:Concept ;
+    activity:code "2.24.2" ;
+    skos:broader activity:MaterielEtArticlesDeLiterieDeCouchageDeCuisineEtDeBuanderie ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.24.2" ;
+    skos:prefLabel "Matériel et articles de literie et de couchage"@fr .
+
+activity:MaterielEtEquipementsInformatiques a skos:Concept ;
+    activity:code "2.18.3" ;
+    skos:broader activity:MaterielInformatiqueLogicielsEtPiecesDeRechanges ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.18.3" ;
+    skos:prefLabel "Matériel et équipements informatiques"@fr .
+
+activity:MaterielTechnique a skos:Concept ;
+    activity:code "2.21.1" ;
+    skos:broader activity:MaterielTechniqueDeLutteContreLincendieEtPiecesDeRechange ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.21.1" ;
+    skos:prefLabel "Matériel technique"@fr .
+
+activity:MaterielsEtArticlesDeBuanderie a skos:Concept ;
+    activity:code "2.24.3" ;
+    skos:broader activity:MaterielEtArticlesDeLiterieDeCouchageDeCuisineEtDeBuanderie ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.24.3" ;
+    skos:prefLabel "Matériels et articles de buanderie"@fr .
+
+activity:MatieresPremieresPharmaceutique a skos:Concept ;
+    activity:code "2.15.7" ;
+    skos:broader activity:EquipementsEtProduitsMedicauxPharmaceutiquesEtDeLaboratoire ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.15.7" ;
+    skos:prefLabel "Matières premières pharmaceutique"@fr .
+
+activity:Medaille a skos:Concept ;
+    activity:code "2.12.3" ;
+    skos:broader activity:MaterielEtArticlesDeSportMedaillesEffigiesEtDrapeaux ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.12.3" ;
+    skos:prefLabel "Médaille"@fr .
+
+activity:MedicamentsEtProduitsPharmaceutiquesEtParapharmaceutiques a skos:Concept ;
+    activity:code "2.15.8" ;
+    skos:broader activity:EquipementsEtProduitsMedicauxPharmaceutiquesEtDeLaboratoire ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.15.8" ;
+    skos:prefLabel "Médicaments et produits pharmaceutiques et parapharmaceutiques"@fr .
+
+activity:Mobilier a skos:Concept ;
+    activity:code "2.25.4" ;
+    skos:broader activity:LocationAvecOptionDachatDeBiensDequipementsDeMaterielEtDoutillage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.25.4" ;
+    skos:prefLabel "Mobilier"@fr .
+
+activity:MobilierDeBureau a skos:Concept ;
+    activity:code "2.19.2" ;
+    skos:broader activity:MaterielMobilierEtFournituresDeBureau ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.19.2" ;
+    skos:prefLabel "Mobilier de bureau"@fr .
+
+activity:ObjetsDartTableauSculpture a skos:Concept ;
+    activity:code "2.13.1" ;
+    skos:broader activity:ObjetsDartArticlesArtistiquesDeDivertissementEtDeMediatheque ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.13.1" ;
+    skos:prefLabel "objets d’art (Tableau, sculpture…..)"@fr .
+
+activity:Outillage a skos:Concept ;
+    activity:code "2.25.5" ;
+    skos:broader activity:LocationAvecOptionDachatDeBiensDequipementsDeMaterielEtDoutillage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.25.5" ;
+    skos:prefLabel "outillage"@fr .
+
+activity:Outillages a skos:Concept ;
+    activity:code "2.16.4" ;
+    skos:broader activity:MateriauxDeConstructionPlomberieQuincaillerieEtOutillages ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.16.4" ;
+    skos:prefLabel "Outillages"@fr .
+
+activity:PhotographiesAeriennes a skos:Concept ;
+    activity:code "2.17.6" ;
+    skos:broader activity:DocumentationManuelsFournituresScolairesEtDenseignement ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.17.6" ;
+    skos:prefLabel "Photographies aériennes"@fr .
+
+activity:PiecesDeRechangeDesEquipementsMedicauxMedicotechniquesEtBiomedical a skos:Concept ;
+    activity:code "2.15.5" ;
+    skos:broader activity:EquipementsEtProduitsMedicauxPharmaceutiquesEtDeLaboratoire ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.15.5" ;
+    skos:prefLabel "Pièces de rechange des équipements médicaux, médico-techniques et biomédical"@fr .
+
+activity:PiecesDeRechangePourMaterielDeLutteContreLincendie a skos:Concept ;
+    activity:code "2.21.4" ;
+    skos:broader activity:MaterielTechniqueDeLutteContreLincendieEtPiecesDeRechange ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.21.4" ;
+    skos:prefLabel "Pièces de rechange pour matériel de lutte contre l’incendie"@fr .
+
+activity:PiecesDeRechangePourMaterielElectriqueElectroniqueEtElectromecanique a skos:Concept ;
+    activity:code "2.20.7" ;
+    skos:broader activity:MaterielEtFournituresElectriquesElectroniqueElectromecaniqueEtPiecesDeRechange ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.20.7" ;
+    skos:prefLabel "pièces de rechange pour matériel électrique, électronique et électromécanique"@fr .
+
+activity:PiecesDeRechangePourMaterielEtEquipementsInformatiques a skos:Concept ;
+    activity:code "2.18.4" ;
+    skos:broader activity:MaterielInformatiqueLogicielsEtPiecesDeRechanges ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.18.4" ;
+    skos:prefLabel "Pièces de rechange pour matériel et équipements informatiques"@fr .
+
+activity:PiecesEtAccessoiresPourLesInstrumentsDeMusiques a skos:Concept ;
+    activity:code "2.13.2" ;
+    skos:broader activity:ObjetsDartArticlesArtistiquesDeDivertissementEtDeMediatheque ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.13.2" ;
+    skos:prefLabel "Pièces et accessoires pour les instruments de musiques"@fr .
+
+activity:PlantesAUsageSpecifiquePharmacieInsecticideParfumerie a skos:Concept ;
+    activity:code "2.7.5" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.5" ;
+    skos:prefLabel "Plantes à usage spécifique (pharmacie, insecticide, parfumerie)"@fr .
+
+activity:PlantesVegetauxGrainesPlantsEtAutresProduitsDePepiniereConnexes a skos:Concept ;
+    activity:code "2.7.4" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.4" ;
+    skos:prefLabel "Plantes, végétaux, graines, plants et autres produits de pépinière connexes"@fr .
+
+activity:PortoirsDestinesALelevageDePlants a skos:Concept ;
+    activity:code "2.7.6" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.6" ;
+    skos:prefLabel "Portoirs destinés à l'élevage de plants"@fr .
+
+activity:ProduitsAlimentairesPourUsageAnimal a skos:Concept ;
+    activity:code "2.7.1" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.1" ;
+    skos:prefLabel "Produits alimentaires pour usage animal"@fr .
+
+activity:ProduitsAlimentairesPourUsageHumain a skos:Concept ;
+    activity:code "2.7.2" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.2" ;
+    skos:prefLabel "Produits alimentaires pour usage humain"@fr .
+
+activity:ProduitsDeLaMinoterieAmidonEtProduitsAmylaces a skos:Concept ;
+    activity:code "2.7.8" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.8" ;
+    skos:prefLabel "Produits de la minoterie, amidon et produits amylacés."@fr .
+
+activity:ProduitsDeLaPecheEtDeLaquaticiculturePoissonsCrustaces a skos:Concept ;
+    activity:code "2.7.9" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.9" ;
+    skos:prefLabel "Produits de la pêche et de l’aquaticiculture (poissons, crustacés….)"@fr .
+
+activity:ProduitsDexploitationForestiereBoisGrumeGommePateAPapier a skos:Concept ;
+    activity:code "2.7.11" ;
+    skos:broader activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.7.11" ;
+    skos:prefLabel "Produits d’exploitation forestière (Bois, grume, gomme, pâte à papier….)"@fr .
+
+activity:ProduitsDhygienesEtDeDesinfection a skos:Concept ;
+    activity:code "2.9.5" ;
+    skos:broader activity:ProduitsChimiquesDeNettoyageInsecticides ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.9.5" ;
+    skos:prefLabel "Produits d’hygiènes et de désinfection"@fr .
+
+activity:ProduitsDimpressionDeReproductionEtDePhotographie a skos:Concept ;
+    activity:code "2.14.2" ;
+    skos:broader activity:ImprimesProduitsDimpressionDeReproductionEtDePhotographie ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.14.2" ;
+    skos:prefLabel "Produits d’impression, de reproduction et de photographie"@fr .
+
+activity:ProduitsEnCaoutchoucEtEnPlastique a skos:Concept ;
+    activity:code "2.10.5" ;
+    skos:broader activity:MatieresPremieresEtProduitsDeTextileCuirCaoutchoucEtPlastique ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.10.5" ;
+    skos:prefLabel "Produits en caoutchouc et en plastique."@fr .
+
+activity:ProduitsEtMaterielDeLutteContreLincendie a skos:Concept ;
+    activity:code "2.21.2" ;
+    skos:broader activity:MaterielTechniqueDeLutteContreLincendieEtPiecesDeRechange ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.21.2" ;
+    skos:prefLabel "Produits et matériel de lutte contre l’incendie"@fr .
+
+activity:ProduitsTextiles a skos:Concept ;
+    activity:code "2.10.6" ;
+    skos:broader activity:MatieresPremieresEtProduitsDeTextileCuirCaoutchoucEtPlastique ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.10.6" ;
+    skos:prefLabel "Produits textiles"@fr .
+
+activity:Progiciels a skos:Concept ;
+    activity:code "2.18.2" ;
+    skos:broader activity:MaterielInformatiqueLogicielsEtPiecesDeRechanges ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.18.2" ;
+    skos:prefLabel "Progiciels"@fr .
+
+activity:SacsEtProduitsDemballage a skos:Concept ;
+    activity:code "2.10.7" ;
+    skos:broader activity:MatieresPremieresEtProduitsDeTextileCuirCaoutchoucEtPlastique ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.10.7" ;
+    skos:prefLabel "Sacs et produits d'emballage"@fr .
+
+activity:TenuesMilitairesParamilitairesEtDautreCorpsSimilaires a skos:Concept ;
+    activity:code "2.11.3" ;
+    skos:broader activity:EffetsDhabillementEtAccessoires ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.11.3" ;
+    skos:prefLabel "Tenues militaires, paramilitaires et d’autre corps similaires"@fr .
+
+activity:VapeurEauChaudeEtProduitsConnexes a skos:Concept ;
+    activity:code "2.8.5" ;
+    skos:broader activity:ProduitsPetroliersCarburantsLubrifiantsEtProduitsDeChauffage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.8.5" ;
+    skos:prefLabel "Vapeur, eau chaude et produits connexes"@fr .
+
+activity:VehiculesAMoteurAutomobilesNaviresAvions a skos:Concept ;
+    activity:code "2.23.1" ;
+    skos:broader activity:MaterielDeTransportPiecesDeRechangeEtPneumatiques ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.23.1" ;
+    skos:prefLabel "Véhicules à moteur (automobiles, navires, avions….)"@fr .
+
+activity:VehiculesBtpCamionMalaxeurCamionCiterneBulldozer a skos:Concept ;
+    activity:code "2.22.1" ;
+    skos:broader activity:EnginsDeChantierMaterielDeManutentionEtDeLevage ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.22.1" ;
+    skos:prefLabel "véhicules BTP (camion malaxeur, camion citerne, bulldozer, …)"@fr .
+
+activity:VetementsDeSport a skos:Concept ;
+    activity:code "2.11.2" ;
+    skos:broader activity:EffetsDhabillementEtAccessoires ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.11.2" ;
+    skos:prefLabel "Vêtements de sport"@fr .
+
+activity:VetementsProfessionnels a skos:Concept ;
+    activity:code "2.11.1" ;
+    skos:broader activity:EffetsDhabillementEtAccessoires ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:notation "2.11.1" ;
+    skos:prefLabel "Vêtements professionnels"@fr .
+
+activity:MaterielEtArticlesDeLiterieDeCouchageDeCuisineEtDeBuanderie a skos:Concept ;
+    activity:code "2.24" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:AppareilsEtUstensilesDeCuisine,
+        activity:MaterielEtArticlesDeLiterieEtDeCouchage,
+        activity:MaterielsEtArticlesDeBuanderie ;
+    skos:notation "2.24" ;
+    skos:prefLabel "Matériel et articles de literie, de couchage, de cuisine et de buanderie"@fr .
+
+activity:MaterielMobilierEtFournituresDeBureau a skos:Concept ;
+    activity:code "2.19" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:FournituresDeBureau,
+        activity:MaterielDeBureau,
+        activity:MobilierDeBureau ;
+    skos:notation "2.19" ;
+    skos:prefLabel "Matériel, mobilier et fournitures de bureau"@fr .
+
+activity:EnginsDeChantierMaterielDeManutentionEtDeLevage a skos:Concept ;
+    activity:code "2.22" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:EnginsDeChantier,
+        activity:EnginsEtMaterielsDeBtp,
+        activity:MaterielDeManutentionEtDeLevageChariotElevateurGruesNacelles,
+        activity:VehiculesBtpCamionMalaxeurCamionCiterneBulldozer ;
+    skos:notation "2.22" ;
+    skos:prefLabel "Engins de chantier, matériel de manutention et de levage"@fr .
+
+activity:MateriauxDeConstructionPlomberieQuincaillerieEtOutillages a skos:Concept ;
+    activity:code "2.16" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:ArticlesEtFournituresDePlomberie,
+        activity:ArticlesEtFournituresDeQuincaillerie,
+        activity:MateriauxDeConstruction,
+        activity:Outillages ;
+    skos:notation "2.16" ;
+    skos:prefLabel "Matériaux de construction, plomberie, quincaillerie et outillages"@fr .
+
+activity:MaterielTechniqueDeLutteContreLincendieEtPiecesDeRechange a skos:Concept ;
+    activity:code "2.21" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:FournituresEtPiecesDeRechangePourMaterielTechnique,
+        activity:MaterielTechnique,
+        activity:PiecesDeRechangePourMaterielDeLutteContreLincendie,
+        activity:ProduitsEtMaterielDeLutteContreLincendie ;
+    skos:notation "2.21" ;
+    skos:prefLabel "Matériel technique, de lutte contre l’incendie et pièces de rechange"@fr .
+
+activity:EffetsDhabillementEtAccessoires a skos:Concept ;
+    activity:code "2.11" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:AccessoiresDhabillement,
+        activity:ArticlesChaussants,
+        activity:TenuesMilitairesParamilitairesEtDautreCorpsSimilaires,
+        activity:VetementsDeSport,
+        activity:VetementsProfessionnels ;
+    skos:notation "2.11" ;
+    skos:prefLabel "Effets d’habillement et accessoires"@fr .
+
+activity:LocationAvecOptionDachatDeBiensDequipementsDeMaterielEtDoutillage a skos:Concept ;
+    activity:code "2.25" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:EnginsMachinesEquipementsBtp,
+        activity:MachinesEquipementsTechniquesElectroniquesElectromecaniquesMedicalEtTechnicomedical,
+        activity:Materiel,
+        activity:Mobilier,
+        activity:Outillage ;
+    skos:notation "2.25" ;
+    skos:prefLabel "Location avec option d’achat de biens, d’équipements de matériel et d’outillage"@fr .
+
+activity:MaterielDeTransportPiecesDeRechangeEtPneumatiques a skos:Concept ;
+    activity:code "2.23" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:Bicyclettes,
+        activity:CarrosseriesRemorquesOuSemiremorquesDeVehicules,
+        activity:ChambreAAirPneumatiquesEtPiecesDeRechangePourVehiculesEtEngins,
+        activity:LocomotivesEtMaterielRoulantDeCheminDeFerEtDeTramwayFournituresFerroviairesEtPiecesDetachees,
+        activity:VehiculesAMoteurAutomobilesNaviresAvions ;
+    skos:notation "2.23" ;
+    skos:prefLabel "Matériel de transport, pièces de rechange et pneumatiques"@fr .
+
+activity:MaterielEtArticlesDeSportMedaillesEffigiesEtDrapeaux a skos:Concept ;
+    activity:code "2.12" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:ArticlesDeSport,
+        activity:DrapeauxEtFanions,
+        activity:Effigies,
+        activity:MaterielDeSport,
+        activity:Medaille ;
+    skos:notation "2.12" ;
+    skos:prefLabel "Matériel et articles de sport, médailles, effigies et drapeaux"@fr .
+
+activity:MaterielInformatiqueLogicielsEtPiecesDeRechanges a skos:Concept ;
+    activity:code "2.18" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:FournituresEtConsommablesInformatiques,
+        activity:LogicielsUtilitairesMiddlewaresSecuritesMessageriesCollaborationEtAutres,
+        activity:MaterielEtEquipementsInformatiques,
+        activity:PiecesDeRechangePourMaterielEtEquipementsInformatiques,
+        activity:Progiciels ;
+    skos:notation "2.18" ;
+    skos:prefLabel "Matériel informatique, logiciels et pièces de rechanges"@fr .
+
+activity:ProduitsPetroliersCarburantsLubrifiantsEtProduitsDeChauffage a skos:Concept ;
+    activity:code "2.8" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:CarburantEtAutresProduitsPetroliersConnexes,
+        activity:CombustiblesEtProduitsDeChauffageCharbonBoisDeChauffageFuelGaz,
+        activity:GazDiversPropaneButaneGazManufacture,
+        activity:LubrifiantsLiquideAUsageHydrauliqueEtAutresPreparationsLubrifiantes,
+        activity:VapeurEauChaudeEtProduitsConnexes ;
+    skos:notation "2.8" ;
+    skos:prefLabel "Produits pétroliers, carburants, lubrifiants et produits de chauffage"@fr .
+
+activity:ImprimesProduitsDimpressionDeReproductionEtDePhotographie a skos:Concept ;
+    activity:code "2.14" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:BadgesArticlesSimilairesEtAccessoires,
+        activity:CartesVisiteDeVuxDinvitation,
+        activity:ConsommablesDimpressionEtDeReproductionEncrePlaques,
+        activity:FournituresEtAccessoiresDesEquipementsDePhotographie,
+        activity:Imprimes,
+        activity:ProduitsDimpressionDeReproductionEtDePhotographie ;
+    skos:notation "2.14" ;
+    skos:prefLabel "Imprimés, produits d’impression, de reproduction, et de photographie"@fr .
+
+activity:ProduitsChimiquesDeNettoyageInsecticides a skos:Concept ;
+    activity:code "2.9" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:AdditifsPourCimentMortierOuBetonEtAutresAdditifsChimiquesSimilaires,
+        activity:ColorantsEtPigments,
+        activity:DetergentsEtProduitsDeNettoyage,
+        activity:EmulsionsDeBitumesLiantsHydrocarbonesEtAutresMateriauxEnrobes,
+        activity:InsecticidesPesticidesEtPhytosanitaires,
+        activity:ProduitsDhygienesEtDeDesinfection ;
+    skos:notation "2.9" ;
+    skos:prefLabel "Produits chimiques, de nettoyage, insecticides"@fr .
+
+activity:DocumentationManuelsFournituresScolairesEtDenseignement a skos:Concept ;
+    activity:code "2.17" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:CartesGeologiquesEtGeographiques,
+        activity:CartesTopographiques,
+        activity:Documentation,
+        activity:DonneesClimatologiquesEtAutresDonneesTechniquesSimilaires,
+        activity:FournituresScolairesEtDenseignement,
+        activity:ManuelsScolairesEtDenseignement,
+        activity:PhotographiesAeriennes ;
+    skos:notation "2.17" ;
+    skos:prefLabel "Documentation, manuels, fournitures scolaires et d’enseignement"@fr .
+
+activity:MaterielEtFournituresElectriquesElectroniqueElectromecaniqueEtPiecesDeRechange a skos:Concept ;
+    activity:code "2.20" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:AppareilsDeclairageAccumulateursPilesBatteries,
+        activity:EquipementsAudioVisuelDeCommunicationDeTelecommunication,
+        activity:EquipementsElectronique,
+        activity:FournituresElectriquesLampesDisjoncteursPrises,
+        activity:MaterielElectrique,
+        activity:MaterielElectromecanique,
+        activity:PiecesDeRechangePourMaterielElectriqueElectroniqueEtElectromecanique ;
+    skos:notation "2.20" ;
+    skos:prefLabel "Matériel et fournitures électriques, électronique, électromécanique et pièces de rechange"@fr .
+
+activity:MatieresPremieresEtProduitsDeTextileCuirCaoutchoucEtPlastique a skos:Concept ;
+    activity:code "2.10" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:CaoutchoucEtFibresSynthetiques,
+        activity:CotonLaineEtProduitsConnexes,
+        activity:CuirEtProduitsConnexes,
+        activity:FilTextileNaturelOuArtificielEtProduitsConnexes,
+        activity:ProduitsEnCaoutchoucEtEnPlastique,
+        activity:ProduitsTextiles,
+        activity:SacsEtProduitsDemballage ;
+    skos:notation "2.10" ;
+    skos:prefLabel "Matières premières et produits de textile, cuir, caoutchouc et plastique"@fr .
+
+activity:ObjetsDartArticlesArtistiquesDeDivertissementEtDeMediatheque a skos:Concept ;
+    activity:code "2.13" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:ArticlesEtAccessoiresDePeintureArtistique,
+        activity:BandesMagnetiquesEtFournituresPourEquipementsDeProductionVideo,
+        activity:FilmsCdMusicalEtLivresAudioEtAutresArticlesSimilaires,
+        activity:InstrumentsDeMusique,
+        activity:Jouets,
+        activity:ObjetsDartTableauSculpture,
+        activity:PiecesEtAccessoiresPourLesInstrumentsDeMusiques ;
+    skos:notation "2.13" ;
+    skos:prefLabel "Objets d’art, articles artistiques, de divertissement et de médiathèque"@fr .
+
+activity:EquipementsEtProduitsMedicauxPharmaceutiquesEtDeLaboratoire a skos:Concept ;
+    activity:code "2.15" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:ArticlesDeCorrectionDeLaVueEtArticlesConnexes,
+        activity:ArticlesEtProthesesPourLesHandicapes,
+        activity:ConsommablesEtReactifsDeLaboratoirePourAnalysesPhysicochimiquesBacteriologiquesMicrobiologiquesEtToxicologiquesYComprisVerreries,
+        activity:EquipementsEtFournituresPourImagerieMedical,
+        activity:EquipementsEtMaterielMedicalMedicotechniqueEtBiomedical,
+        activity:FongiblesEtConsommablesMedicaux,
+        activity:MatieresPremieresPharmaceutique,
+        activity:MedicamentsEtProduitsPharmaceutiquesEtParapharmaceutiques,
+        activity:PiecesDeRechangeDesEquipementsMedicauxMedicotechniquesEtBiomedical ;
+    skos:notation "2.15" ;
+    skos:prefLabel "Equipements et produits médicaux, pharmaceutiques et de laboratoire"@fr .
+
+activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere a skos:Concept ;
+    activity:code "2.7" ;
+    skos:broader activity:Fournitures ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:AnimauxVivantsBetailCheptel,
+        activity:CaoutchoucNaturelLatexNaturelEtProduitsConnexes,
+        activity:EngraisEtComposesAzotes,
+        activity:HuilesEtGraissesAnimalesOuVegetales,
+        activity:Insectes,
+        activity:PlantesAUsageSpecifiquePharmacieInsecticideParfumerie,
+        activity:PlantesVegetauxGrainesPlantsEtAutresProduitsDePepiniereConnexes,
+        activity:PortoirsDestinesALelevageDePlants,
+        activity:ProduitsAlimentairesPourUsageAnimal,
+        activity:ProduitsAlimentairesPourUsageHumain,
+        activity:ProduitsDeLaMinoterieAmidonEtProduitsAmylaces,
+        activity:ProduitsDeLaPecheEtDeLaquaticiculturePoissonsCrustaces,
+        activity:ProduitsDexploitationForestiereBoisGrumeGommePateAPapier ;
+    skos:notation "2.7" ;
+    skos:prefLabel "Produits alimentaires, d’élevage, de la pêche, d’agriculture, d’horticulture et pépinière"@fr .
+
+activity:Fournitures a skos:Concept ;
+    activity:code "2" ;
+    skos:broader activity:ActivityDomain ;
+    skos:inScheme activity:SchemeFournitures ;
+    skos:narrower activity:DocumentationManuelsFournituresScolairesEtDenseignement,
+        activity:EffetsDhabillementEtAccessoires,
+        activity:EnginsDeChantierMaterielDeManutentionEtDeLevage,
+        activity:EquipementsEtProduitsMedicauxPharmaceutiquesEtDeLaboratoire,
+        activity:ImprimesProduitsDimpressionDeReproductionEtDePhotographie,
+        activity:LocationAvecOptionDachatDeBiensDequipementsDeMaterielEtDoutillage,
+        activity:MateriauxDeConstructionPlomberieQuincaillerieEtOutillages,
+        activity:MaterielDeTransportPiecesDeRechangeEtPneumatiques,
+        activity:MaterielEtArticlesDeLiterieDeCouchageDeCuisineEtDeBuanderie,
+        activity:MaterielEtArticlesDeSportMedaillesEffigiesEtDrapeaux,
+        activity:MaterielEtFournituresElectriquesElectroniqueElectromecaniqueEtPiecesDeRechange,
+        activity:MaterielInformatiqueLogicielsEtPiecesDeRechanges,
+        activity:MaterielMobilierEtFournituresDeBureau,
+        activity:MaterielTechniqueDeLutteContreLincendieEtPiecesDeRechange,
+        activity:MatieresPremieresEtProduitsDeTextileCuirCaoutchoucEtPlastique,
+        activity:ObjetsDartArticlesArtistiquesDeDivertissementEtDeMediatheque,
+        activity:ProduitsAlimentairesDelevageDeLaPecheDagricultureDhorticultureEtPepiniere,
+        activity:ProduitsChimiquesDeNettoyageInsecticides,
+        activity:ProduitsPetroliersCarburantsLubrifiantsEtProduitsDeChauffage ;
+    skos:notation "2" ;
+    skos:prefLabel "Fournitures"@fr ;
+    skos:topConceptOf activity:PublicProcurementActivityDomains .
+
+activity:SchemeFournitures a skos:ConceptScheme ;
+    skos:prefLabel "Domaines d'activité - Fournitures"@fr .
+

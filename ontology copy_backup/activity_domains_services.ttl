@@ -1,0 +1,956 @@
+@prefix activity: <http://www.tenderintelligence.io/ontology/activity-domains#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+activity:ServicesDelevage a skos:Concept ;
+    activity:code "3.21.1" ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.21.1" ;
+    skos:prefLabel "Services d'élevage"@fr .
+
+activity:ServicesLiesALaPeche a skos:Concept ;
+    activity:code "3.21.4" ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.21.4" ;
+    skos:prefLabel "Services liés à la pêche"@fr .
+
+activity:ServicesLiesALaProductionAgricole a skos:Concept ;
+    activity:code "3.21.2" ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.21.2" ;
+    skos:prefLabel "Services liés à la production agricole"@fr .
+
+activity:ServicesLiesALaquaculture a skos:Concept ;
+    activity:code "3.21.5" ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.21.5" ;
+    skos:prefLabel "Services liés à l'aquaculture"@fr .
+
+activity:ServicesZoologiques a skos:Concept ;
+    activity:code "3.21.3" ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.21.3" ;
+    skos:prefLabel "Services zoologiques"@fr .
+
+activity:AccompagnementDansLaMiseEnUvreDeProjetPilotageDesTravauxEtCoordination a skos:Concept ;
+    activity:code "3.11.1" ;
+    skos:broader activity:ConseilAuditEtAssistanceAMaitriseDouvrageALexceptionDuDomaineDesNouvellesTechnologies ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.11.1" ;
+    skos:prefLabel "Accompagnement dans la mise en œuvre de projet, pilotage des travaux Et coordination"@fr .
+
+activity:AccompagnementDansLaMiseEnUvreDeProjetPilotageDesTravauxEtCoordination_3_19_2 a skos:Concept ;
+    activity:code "3.19.2" ;
+    skos:broader activity:ServicesDeTechnologiesDeLinformationEtTelecommunications ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.19.2" ;
+    skos:prefLabel "Accompagnement dans la mise en œuvre de projet, pilotage des travaux Et coordination"@fr .
+
+activity:AnalysesBacteriologiquesMicrobiologiqueEtToxicologiquesEtAutresAnalysesMedicalesEtBioMedicalesConnexes a skos:Concept ;
+    activity:code "3.16.14" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.14" ;
+    skos:prefLabel "Analyses bactériologiques, microbiologique et toxicologiques et autres analyses médicales et bio médicales connexes"@fr .
+
+activity:AnalysesPhysicochimiquesEtMineralogiques a skos:Concept ;
+    activity:code "3.16.13" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.13" ;
+    skos:prefLabel "Analyses physico-chimiques et minéralogiques,"@fr .
+
+activity:ArchitectureAgencementEtDecoration a skos:Concept ;
+    activity:code "3.17.6" ;
+    skos:broader activity:ServicesArchitecturalesEtTopographiques ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.17.6" ;
+    skos:prefLabel "Architecture, agencement et décoration"@fr .
+
+activity:AssistanceEtConseilJuridiqueFinancierEnManagementEnGestionTechnique a skos:Concept ;
+    activity:code "3.11.2" ;
+    skos:broader activity:ConseilAuditEtAssistanceAMaitriseDouvrageALexceptionDuDomaineDesNouvellesTechnologies ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.11.2" ;
+    skos:prefLabel "Assistance et conseil (juridique, financier, en management, en gestion, technique…)"@fr .
+
+activity:AssuranceContreLesAccidentsDeTravailEtLaResponsabiliteCivile a skos:Concept ;
+    activity:code "3.20.1" ;
+    skos:broader activity:ServicesDassurance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.20.1" ;
+    skos:prefLabel "Assurance contre les accidents de travail et la responsabilité civile"@fr .
+
+activity:AssuranceContreLesDegatsDesEaux a skos:Concept ;
+    activity:code "3.20.3" ;
+    skos:broader activity:ServicesDassurance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.20.3" ;
+    skos:prefLabel "Assurance contre les dégâts des eaux"@fr .
+
+activity:AssuranceContreLexplosionEtIncendieDesBatimentsMagasinsEtEntrepots a skos:Concept ;
+    activity:code "3.20.2" ;
+    skos:broader activity:ServicesDassurance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.20.2" ;
+    skos:prefLabel "Assurance contre l'explosion et incendie des bâtiments, magasins et entrepôts"@fr .
+
+activity:AssuranceDeMaterielEtEnginsRoulantsEtFlottantsDeServitudesDesPorts a skos:Concept ;
+    activity:code "3.20.4" ;
+    skos:broader activity:ServicesDassurance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.20.4" ;
+    skos:prefLabel "Assurance de matériel et engins roulants et flottants de servitudes des ports"@fr .
+
+activity:AssuranceDesAeronefsEtPassagers a skos:Concept ;
+    activity:code "3.20.5" ;
+    skos:broader activity:ServicesDassurance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.20.5" ;
+    skos:prefLabel "Assurance des aéronefs et passagers"@fr .
+
+activity:AssuranceEtFraisMaritimesOuAeriensDeTransportDeMarchandises a skos:Concept ;
+    activity:code "3.20.6" ;
+    skos:broader activity:ServicesDassurance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.20.6" ;
+    skos:prefLabel "Assurance et frais maritimes ou aériens de transport de marchandises"@fr .
+
+activity:AssuranceMultirisque a skos:Concept ;
+    activity:code "3.20.7" ;
+    skos:broader activity:ServicesDassurance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.20.7" ;
+    skos:prefLabel "Assurance Multirisque"@fr .
+
+activity:AuditDesMarches a skos:Concept ;
+    activity:code "3.11.4" ;
+    skos:broader activity:ConseilAuditEtAssistanceAMaitriseDouvrageALexceptionDuDomaineDesNouvellesTechnologies ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.11.4" ;
+    skos:prefLabel "Audit des marchés"@fr .
+
+activity:AuditEvaluationEtCertificationDesComptes a skos:Concept ;
+    activity:code "3.11.3" ;
+    skos:broader activity:ConseilAuditEtAssistanceAMaitriseDouvrageALexceptionDuDomaineDesNouvellesTechnologies ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.11.3" ;
+    skos:prefLabel "Audit, évaluation et certification des comptes"@fr .
+
+activity:AuditOperationnelEtDeGestion a skos:Concept ;
+    activity:code "3.11.5" ;
+    skos:broader activity:ConseilAuditEtAssistanceAMaitriseDouvrageALexceptionDuDomaineDesNouvellesTechnologies ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.11.5" ;
+    skos:prefLabel "Audit opérationnel et de gestion"@fr .
+
+activity:AuditTechniqueEtDeCertification a skos:Concept ;
+    activity:code "3.11.6" ;
+    skos:broader activity:ConseilAuditEtAssistanceAMaitriseDouvrageALexceptionDuDomaineDesNouvellesTechnologies ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.11.6" ;
+    skos:prefLabel "Audit technique et de certification"@fr .
+
+activity:AuditTechniqueOrganisationnelEtDeSecuriteDesSystemesDinformation a skos:Concept ;
+    activity:code "3.19.5" ;
+    skos:broader activity:ServicesDeTechnologiesDeLinformationEtTelecommunications ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.19.5" ;
+    skos:prefLabel "Audit technique, organisationnel et de sécurité des systèmes d’information"@fr .
+
+activity:CartographieDesZonesUrbainesEtRurales a skos:Concept ;
+    activity:code "3.17.7" ;
+    skos:broader activity:ServicesArchitecturalesEtTopographiques ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.17.7" ;
+    skos:prefLabel "Cartographie des zones urbaines et rurales"@fr .
+
+activity:CollecteDesDechetsBiologiquesChimiquesEtPharmaceutiquesDuLaboratoire a skos:Concept ;
+    activity:code "3.14.8" ;
+    skos:broader activity:TransportCollecteEtServicesConnexes ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.14.8" ;
+    skos:prefLabel "Collecte des déchets biologiques chimiques et pharmaceutiques du laboratoire."@fr .
+
+activity:CollecteDesDechetsMenagers a skos:Concept ;
+    activity:code "3.14.9" ;
+    skos:broader activity:TransportCollecteEtServicesConnexes ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.14.9" ;
+    skos:prefLabel "Collecte des déchets ménagers"@fr .
+
+activity:ConseilEtIntegrationDeProgiciel a skos:Concept ;
+    activity:code "3.19.4" ;
+    skos:broader activity:ServicesDeTechnologiesDeLinformationEtTelecommunications ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.19.4" ;
+    skos:prefLabel "Conseil et intégration de progiciel"@fr .
+
+activity:ControleEtAnalyseDeLaQualiteDeLeauEtDair a skos:Concept ;
+    activity:code "3.16.11" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.11" ;
+    skos:prefLabel "Contrôle et analyse de la qualité de l’eau et d’air"@fr .
+
+activity:ControleEtAnalyseTechniquesDesEchantillonsPrelevesSurLesProduitsMaterielEtMateriauxSoumisADesNormesObligatoiresAutreQueLeDomaineDuGenieCivil a skos:Concept ;
+    activity:code "3.16.10" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.10" ;
+    skos:prefLabel "Contrôle et analyse techniques des échantillons prélevés sur les produits, matériel et matériaux soumis à des normes obligatoires (autre que le domaine du génie civil)"@fr .
+
+activity:ControleTechniqueDuMobilier a skos:Concept ;
+    activity:code "3.16.12" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.12" ;
+    skos:prefLabel "Contrôle technique du mobilier"@fr .
+
+activity:DeveloppementInformatiqueEtServicesConnexes a skos:Concept ;
+    activity:code "3.19.3" ;
+    skos:broader activity:ServicesDeTechnologiesDeLinformationEtTelecommunications ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.19.3" ;
+    skos:prefLabel "Développement informatique et services connexes"@fr .
+
+activity:ElaborationDeSchemaDirecteurDeSystemeDinformation a skos:Concept ;
+    activity:code "3.19.1" ;
+    skos:broader activity:ServicesDeTechnologiesDeLinformationEtTelecommunications ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.19.1" ;
+    skos:prefLabel "Elaboration de schéma directeur de système d’information"@fr .
+
+activity:EnginsEtMoyenDeTransportDeMaterielEtMateriaux a skos:Concept ;
+    activity:code "3.13.2" ;
+    skos:broader activity:ServicesDeLocationSansOptionDachat ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.13.2" ;
+    skos:prefLabel "Engins et moyen de transport de matériel et matériaux"@fr .
+
+activity:EntretienEtMaintenanceDeMaterielDeTelecommunication a skos:Concept ;
+    activity:code "3.15.4" ;
+    skos:broader activity:NettoyageGardiennageEntretienEtMaintenance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.15.4" ;
+    skos:prefLabel "Entretien et maintenance de matériel de télécommunication"@fr .
+
+activity:EntretienEtMaintenanceDeVehicules a skos:Concept ;
+    activity:code "3.15.1" ;
+    skos:broader activity:NettoyageGardiennageEntretienEtMaintenance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.15.1" ;
+    skos:prefLabel "Entretien et maintenance de véhicules"@fr .
+
+activity:EntretienEtMaintenanceDesEnginsEtMaterielDeChantier a skos:Concept ;
+    activity:code "3.15.2" ;
+    skos:broader activity:NettoyageGardiennageEntretienEtMaintenance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.15.2" ;
+    skos:prefLabel "Entretien et maintenance des engins et matériel de chantier"@fr .
+
+activity:EntretienEtMaintenanceDesEquipementsInformatiquesMaterielLogicielsProgiciels a skos:Concept ;
+    activity:code "3.15.3" ;
+    skos:broader activity:NettoyageGardiennageEntretienEtMaintenance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.15.3" ;
+    skos:prefLabel "Entretien et maintenance des équipements informatiques (matériel, logiciels, progiciels )"@fr .
+
+activity:EntretienEtMaintenanceDesEquipementsTechniquesElectriquesElectroniquesElectromecaniquesScientifiquesYComprisLaFournitureDesPiecesDeRechange a skos:Concept ;
+    activity:code "3.15.5" ;
+    skos:broader activity:NettoyageGardiennageEntretienEtMaintenance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.15.5" ;
+    skos:prefLabel "Entretien et maintenance des équipements techniques électriques, électroniques, électromécaniques, scientifiques y compris la fourniture des pièces de rechange"@fr .
+
+activity:EntretienEtNettoyageDesBatimentsAdministratifs a skos:Concept ;
+    activity:code "3.15.7" ;
+    skos:broader activity:NettoyageGardiennageEntretienEtMaintenance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.15.7" ;
+    skos:prefLabel "Entretien et nettoyage des bâtiments administratifs"@fr .
+
+activity:EntretienEtReparationDuMobilier a skos:Concept ;
+    activity:code "3.15.6" ;
+    skos:broader activity:NettoyageGardiennageEntretienEtMaintenance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.15.6" ;
+    skos:prefLabel "Entretien et réparation du mobilier"@fr .
+
+activity:EssaisEtControlesElectriques a skos:Concept ;
+    activity:code "3.16.7" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.7" ;
+    skos:prefLabel "Essais et contrôles électriques"@fr .
+
+activity:EssaisGeologiques a skos:Concept ;
+    activity:code "3.16.3" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.3" ;
+    skos:prefLabel "Essais géologiques"@fr .
+
+activity:EssaisGeophysiques a skos:Concept ;
+    activity:code "3.16.2" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.2" ;
+    skos:prefLabel "Essais géophysiques"@fr .
+
+activity:EssaisGeotechniques a skos:Concept ;
+    activity:code "3.16.1" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.1" ;
+    skos:prefLabel "Essais géotechniques"@fr .
+
+activity:EssaisIsolationAcoustiques a skos:Concept ;
+    activity:code "3.16.5" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.5" ;
+    skos:prefLabel "Essais isolation acoustiques"@fr .
+
+activity:EssaisIsolationThermiques a skos:Concept ;
+    activity:code "3.16.6" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.6" ;
+    skos:prefLabel "Essais isolation thermiques"@fr .
+
+activity:EssaisRoutiersEtDouvragesDart a skos:Concept ;
+    activity:code "3.16.4" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.4" ;
+    skos:prefLabel "Essais routiers et d’ouvrages d’art"@fr .
+
+activity:EssaisSurCouverturesbardagesEtEtancheite a skos:Concept ;
+    activity:code "3.16.8" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.8" ;
+    skos:prefLabel "Essais sur couvertures-bardages et étanchéité"@fr .
+
+activity:EtablissementDePlansDirecteurs a skos:Concept ;
+    activity:code "3.10.12" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.12" ;
+    skos:prefLabel "Etablissement de plans directeurs"@fr .
+
+activity:EtudeDavantprojetDindentificationEtDeRecueilDesDonnees a skos:Concept ;
+    activity:code "3.10.1" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.1" ;
+    skos:prefLabel "Etude d’avant-projet, d’indentification, et de recueil des données"@fr .
+
+activity:EtudeDeDefinition a skos:Concept ;
+    activity:code "3.10.2" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.2" ;
+    skos:prefLabel "Etude de définition"@fr .
+
+activity:EtudeDeDiagnosticDeQualiteEtDeMiseANiveau a skos:Concept ;
+    activity:code "3.10.9" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.9" ;
+    skos:prefLabel "Etude de diagnostic, de qualité et de mise à niveau"@fr .
+
+activity:EtudeDeFaisabilite a skos:Concept ;
+    activity:code "3.10.3" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.3" ;
+    skos:prefLabel "Etude de faisabilité"@fr .
+
+activity:EtudeDeLaMorphologieDesZonesUrbaineDeLhabitatDeLarchitectureEtDuPatrimoineBati a skos:Concept ;
+    activity:code "3.17.2" ;
+    skos:broader activity:ServicesArchitecturalesEtTopographiques ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.17.2" ;
+    skos:prefLabel "Etude de la morphologie des zones urbaine, de l’habitat, de l’architecture et du patrimoine bâti"@fr .
+
+activity:EtudeDeMarche a skos:Concept ;
+    activity:code "3.10.4" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.4" ;
+    skos:prefLabel "Etude de marché"@fr .
+
+activity:EtudeDeconomieEtDeSociologie a skos:Concept ;
+    activity:code "3.10.6" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.6" ;
+    skos:prefLabel "Etude d’économie et de sociologie"@fr .
+
+activity:EtudeDorganisationEtDeGestion a skos:Concept ;
+    activity:code "3.10.5" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.5" ;
+    skos:prefLabel "Etude d’organisation et de gestion"@fr .
+
+activity:EtudesDeConception a skos:Concept ;
+    activity:code "3.10.11" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.11" ;
+    skos:prefLabel "Etudes de conception"@fr .
+
+activity:EtudesDePlanification a skos:Concept ;
+    activity:code "3.10.10" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.10" ;
+    skos:prefLabel "Etudes de planification"@fr .
+
+activity:EtudesDimpactEtDeGestionDesRisques a skos:Concept ;
+    activity:code "3.10.8" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.8" ;
+    skos:prefLabel "Etudes d’impact et de gestion des risques"@fr .
+
+activity:EtudesEtEnquetesStatistiquesEtDeRecensement a skos:Concept ;
+    activity:code "3.10.15" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.15" ;
+    skos:prefLabel "Etudes et enquêtes statistiques et de recensement"@fr .
+
+activity:EtudesSectorielles a skos:Concept ;
+    activity:code "3.10.7" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.7" ;
+    skos:prefLabel "Etudes sectorielles"@fr .
+
+activity:EtudesTechniquesChoixDeTerrainsGeologiqueGeophysiqueHydrologique a skos:Concept ;
+    activity:code "3.10.13" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.13" ;
+    skos:prefLabel "Etudes techniques (choix de terrains, géologique, géophysique, hydrologique,…)"@fr .
+
+activity:ExecutionDePlansSommairesDexecutionsEtDeDetails a skos:Concept ;
+    activity:code "3.17.1" ;
+    skos:broader activity:ServicesArchitecturalesEtTopographiques ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.17.1" ;
+    skos:prefLabel "Exécution de plans, sommaires, d’exécutions et de détails"@fr .
+
+activity:ExpertisesEtControlesTechniquesDeGenieCivilDesSolsEtDesOuvragesDart a skos:Concept ;
+    activity:code "3.16.9" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.9" ;
+    skos:prefLabel "Expertises et contrôles techniques de génie civil des sols et des ouvrages d’art"@fr .
+
+activity:FormationDuPersonnel a skos:Concept ;
+    activity:code "3.12.6" ;
+    skos:broader activity:ServicesCourants ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.12.6" ;
+    skos:prefLabel "Formation du personnel"@fr .
+
+activity:GardiennageEtSurveillanceDesBatimentsAdministratifs a skos:Concept ;
+    activity:code "3.15.8" ;
+    skos:broader activity:NettoyageGardiennageEntretienEtMaintenance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.15.8" ;
+    skos:prefLabel "Gardiennage et surveillance des bâtiments administratifs"@fr .
+
+activity:GestionDesArchives a skos:Concept ;
+    activity:code "3.12.5" ;
+    skos:broader activity:ServicesCourants ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.12.5" ;
+    skos:prefLabel "Gestion des archives"@fr .
+
+activity:HebergementInfogeranceDesSystemesDinformationEtServicesConnexe a skos:Concept ;
+    activity:code "3.19.6" ;
+    skos:broader activity:ServicesDeTechnologiesDeLinformationEtTelecommunications ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.19.6" ;
+    skos:prefLabel "Hébergement, infogérance des systèmes d'information et services connexe"@fr .
+
+activity:ImpressionDeDocumentsBrochuresMaquettesEtServicesConnexes a skos:Concept ;
+    activity:code "3.12.4" ;
+    skos:broader activity:ServicesCourants ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.12.4" ;
+    skos:prefLabel "Impression de documents, brochures, maquettes et services connexes"@fr .
+
+activity:Interpretation a skos:Concept ;
+    activity:code "3.12.3" ;
+    skos:broader activity:ServicesCourants ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.12.3" ;
+    skos:prefLabel "Interprétation"@fr .
+
+activity:InterpretationEtAnalyseDesResultatsDeControleEtDesMesuresDeLaboratoires a skos:Concept ;
+    activity:code "3.10.14" ;
+    skos:broader activity:EtudesDingenierie ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.10.14" ;
+    skos:prefLabel "Interprétation et analyse des résultats de contrôle et des mesures de laboratoires"@fr .
+
+activity:JardinageDesEspacesVerts a skos:Concept ;
+    activity:code "3.15.9" ;
+    skos:broader activity:NettoyageGardiennageEntretienEtMaintenance ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.15.9" ;
+    skos:prefLabel "Jardinage des espaces verts"@fr .
+
+activity:LicencesDutilisationDeLogiciels a skos:Concept ;
+    activity:code "3.13.9" ;
+    skos:broader activity:ServicesDeLocationSansOptionDachat ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.13.9" ;
+    skos:prefLabel "Licences d'utilisation de logiciels"@fr .
+
+activity:MaterielsEtEnginsDeChantier a skos:Concept ;
+    activity:code "3.13.3" ;
+    skos:broader activity:ServicesDeLocationSansOptionDachat ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.13.3" ;
+    skos:prefLabel "Matériels et engins de chantier"@fr .
+
+activity:MaterielsEtEquipementsIndustriels a skos:Concept ;
+    activity:code "3.13.4" ;
+    skos:broader activity:ServicesDeLocationSansOptionDachat ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.13.4" ;
+    skos:prefLabel "Matériels et équipements industriels"@fr .
+
+activity:MaterielsEtEquipementsInformatiques a skos:Concept ;
+    activity:code "3.13.5" ;
+    skos:broader activity:ServicesDeLocationSansOptionDachat ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.13.5" ;
+    skos:prefLabel "Matériels et équipements informatiques."@fr .
+
+activity:MaterielsEtEquipementsTechniquesElectriquesElectroniquesEtScientifiques a skos:Concept ;
+    activity:code "3.13.6" ;
+    skos:broader activity:ServicesDeLocationSansOptionDachat ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.13.6" ;
+    skos:prefLabel "Matériels et équipements techniques, électriques, électroniques et scientifiques"@fr .
+
+activity:Metrage a skos:Concept ;
+    activity:code "3.17.9" ;
+    skos:broader activity:ServicesArchitecturalesEtTopographiques ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.17.9" ;
+    skos:prefLabel "Métrage"@fr .
+
+activity:MiseAQuaiManutentionAcconageMagasinageEtTransitEtLesInterventionsQuiLeurSontLiees a skos:Concept ;
+    activity:code "3.14.7" ;
+    skos:broader activity:TransportCollecteEtServicesConnexes ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.14.7" ;
+    skos:prefLabel "Mise à quai, manutention, acconage, magasinage et transit et les interventions qui leur sont liées"@fr .
+
+activity:Mobiliers a skos:Concept ;
+    activity:code "3.13.8" ;
+    skos:broader activity:ServicesDeLocationSansOptionDachat ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.13.8" ;
+    skos:prefLabel "Mobiliers"@fr .
+
+activity:MontageEtDemontageDuMateriel a skos:Concept ;
+    activity:code "3.12.7" ;
+    skos:broader activity:ServicesCourants ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.12.7" ;
+    skos:prefLabel "Montage et démontage du matériel"@fr .
+
+activity:MoyensDeTransportDesPersonnes a skos:Concept ;
+    activity:code "3.13.1" ;
+    skos:broader activity:ServicesDeLocationSansOptionDachat ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.13.1" ;
+    skos:prefLabel "Moyens de transport des personnes"@fr .
+
+activity:PrestationDePubliciteDeCommunicationEtDeMarketing a skos:Concept ;
+    activity:code "3.18.6" ;
+    skos:broader activity:ServicesDhotellerieHebergementRestaurationEvenementielEtMarketing ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.18.6" ;
+    skos:prefLabel "Prestation de publicité, de communication et de marketing"@fr .
+
+activity:PrestationDeReception a skos:Concept ;
+    activity:code "3.18.4" ;
+    skos:broader activity:ServicesDhotellerieHebergementRestaurationEvenementielEtMarketing ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.18.4" ;
+    skos:prefLabel "Prestation de réception"@fr .
+
+activity:PrestationDeRestauration a skos:Concept ;
+    activity:code "3.18.3" ;
+    skos:broader activity:ServicesDhotellerieHebergementRestaurationEvenementielEtMarketing ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.18.3" ;
+    skos:prefLabel "Prestation de restauration"@fr .
+
+activity:PrestationDeTopographieEtBathymetrie a skos:Concept ;
+    activity:code "3.17.8" ;
+    skos:broader activity:ServicesArchitecturalesEtTopographiques ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.17.8" ;
+    skos:prefLabel "Prestation de topographie et bathymétrie"@fr .
+
+activity:PrestationDhebergement a skos:Concept ;
+    activity:code "3.18.2" ;
+    skos:broader activity:ServicesDhotellerieHebergementRestaurationEvenementielEtMarketing ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.18.2" ;
+    skos:prefLabel "Prestation d’hébergement"@fr .
+
+activity:PrestationDhotellerie a skos:Concept ;
+    activity:code "3.18.1" ;
+    skos:broader activity:ServicesDhotellerieHebergementRestaurationEvenementielEtMarketing ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.18.1" ;
+    skos:prefLabel "Prestation d’Hôtellerie."@fr .
+
+activity:PrestationEvenementielDorganisationDeManifestations a skos:Concept ;
+    activity:code "3.18.5" ;
+    skos:broader activity:ServicesDhotellerieHebergementRestaurationEvenementielEtMarketing ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.18.5" ;
+    skos:prefLabel "Prestation événementiel, d’organisation de manifestations"@fr .
+
+activity:PrestationsArchitecturalesPourLesOperationsDeLotissement a skos:Concept ;
+    activity:code "3.17.4" ;
+    skos:broader activity:ServicesArchitecturalesEtTopographiques ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.17.4" ;
+    skos:prefLabel "Prestations architecturales pour les opérations de lotissement"@fr .
+
+activity:PrestationsDamenagementEtDeReamenagementUrbain a skos:Concept ;
+    activity:code "3.17.3" ;
+    skos:broader activity:ServicesArchitecturalesEtTopographiques ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.17.3" ;
+    skos:prefLabel "Prestations d’aménagement et de réaménagement urbain"@fr .
+
+activity:PrestationsDePharmacie a skos:Concept ;
+    activity:code "3.22.3" ;
+    skos:broader activity:ServicesDeSanteVeterinaire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.22.3" ;
+    skos:prefLabel "Prestations de pharmacie"@fr .
+
+activity:PrestationsMedicalesEtHospitalieres a skos:Concept ;
+    activity:code "3.22.1" ;
+    skos:broader activity:ServicesDeSanteVeterinaire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.22.1" ;
+    skos:prefLabel "Prestations médicales et hospitalières"@fr .
+
+activity:PrestationsParamedicaux a skos:Concept ;
+    activity:code "3.22.2" ;
+    skos:broader activity:ServicesDeSanteVeterinaire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.22.2" ;
+    skos:prefLabel "Prestations paramédicaux"@fr .
+
+activity:PrestationsVeterinaires a skos:Concept ;
+    activity:code "3.22.4" ;
+    skos:broader activity:ServicesDeSanteVeterinaire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.22.4" ;
+    skos:prefLabel "Prestations vétérinaires"@fr .
+
+activity:Recrutement a skos:Concept ;
+    activity:code "3.12.2" ;
+    skos:broader activity:ServicesCourants ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.12.2" ;
+    skos:prefLabel "Recrutement"@fr .
+
+activity:SallesEtStands a skos:Concept ;
+    activity:code "3.13.7" ;
+    skos:broader activity:ServicesDeLocationSansOptionDachat ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.13.7" ;
+    skos:prefLabel "Salles et stands"@fr .
+
+activity:ServicesDarchitecturePaysagere a skos:Concept ;
+    activity:code "3.17.5" ;
+    skos:broader activity:ServicesArchitecturalesEtTopographiques ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.17.5" ;
+    skos:prefLabel "Services d'architecture paysagère"@fr .
+
+activity:SondagesCarottes a skos:Concept ;
+    activity:code "3.16.15" ;
+    skos:broader activity:PrestationsDessaisDeControleEtDeLaboratoire ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.16.15" ;
+    skos:prefLabel "Sondages carottés"@fr .
+
+activity:TraductionDesDocumentsEtCorrespondances a skos:Concept ;
+    activity:code "3.12.1" ;
+    skos:broader activity:ServicesCourants ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.12.1" ;
+    skos:prefLabel "Traduction des documents et correspondances"@fr .
+
+activity:TransportDeFonds a skos:Concept ;
+    activity:code "3.14.5" ;
+    skos:broader activity:TransportCollecteEtServicesConnexes ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.14.5" ;
+    skos:prefLabel "Transport de fonds"@fr .
+
+activity:TransportDePersonnelEtDesDelegations a skos:Concept ;
+    activity:code "3.14.4" ;
+    skos:broader activity:TransportCollecteEtServicesConnexes ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.14.4" ;
+    skos:prefLabel "Transport de personnel et des délégations"@fr .
+
+activity:TransportDuMaterielEquipementMobilierProduitsEtDocumentParVoieAerienne a skos:Concept ;
+    activity:code "3.14.1" ;
+    skos:broader activity:TransportCollecteEtServicesConnexes ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.14.1" ;
+    skos:prefLabel "Transport du matériel, équipement, mobilier, produits et document par voie aérienne"@fr .
+
+activity:TransportDuMaterielEquipementMobilierProduitsEtDocumentParVoieMaritime a skos:Concept ;
+    activity:code "3.14.2" ;
+    skos:broader activity:TransportCollecteEtServicesConnexes ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.14.2" ;
+    skos:prefLabel "Transport du matériel, équipement, mobilier, produits et document par voie maritime"@fr .
+
+activity:TransportDuMaterielEquipementMobilierProduitsEtDocumentParVoieTerrestre a skos:Concept ;
+    activity:code "3.14.3" ;
+    skos:broader activity:TransportCollecteEtServicesConnexes ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.14.3" ;
+    skos:prefLabel "Transport du matériel, équipement, mobilier, produits et document par voie terrestre"@fr .
+
+activity:TransportRelatifsAuxProduitsRadioactifsToxiquesMedicauxEtDangereux a skos:Concept ;
+    activity:code "3.14.6" ;
+    skos:broader activity:TransportCollecteEtServicesConnexes ;
+    skos:inScheme activity:SchemeServices ;
+    skos:notation "3.14.6" ;
+    skos:prefLabel "Transport relatifs aux produits radioactifs, toxiques, médicaux et dangereux"@fr .
+
+activity:ServicesDeSanteVeterinaire a skos:Concept ;
+    activity:code "3.22" ;
+    skos:broader activity:Services ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:PrestationsDePharmacie,
+        activity:PrestationsMedicalesEtHospitalieres,
+        activity:PrestationsParamedicaux,
+        activity:PrestationsVeterinaires ;
+    skos:notation "3.22" ;
+    skos:prefLabel "Services de santé, vétérinaire"@fr .
+
+activity:ConseilAuditEtAssistanceAMaitriseDouvrageALexceptionDuDomaineDesNouvellesTechnologies a skos:Concept ;
+    activity:code "3.11" ;
+    skos:broader activity:Services ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:AccompagnementDansLaMiseEnUvreDeProjetPilotageDesTravauxEtCoordination,
+        activity:AssistanceEtConseilJuridiqueFinancierEnManagementEnGestionTechnique,
+        activity:AuditDesMarches,
+        activity:AuditEvaluationEtCertificationDesComptes,
+        activity:AuditOperationnelEtDeGestion,
+        activity:AuditTechniqueEtDeCertification ;
+    skos:notation "3.11" ;
+    skos:prefLabel "Conseil, audit et assistance à maitrise d’ouvrage (à l’exception du domaine des nouvelles technologies)"@fr .
+
+activity:ServicesDeTechnologiesDeLinformationEtTelecommunications a skos:Concept ;
+    activity:code "3.19" ;
+    skos:broader activity:Services ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:AccompagnementDansLaMiseEnUvreDeProjetPilotageDesTravauxEtCoordination_3_19_2,
+        activity:AuditTechniqueOrganisationnelEtDeSecuriteDesSystemesDinformation,
+        activity:ConseilEtIntegrationDeProgiciel,
+        activity:DeveloppementInformatiqueEtServicesConnexes,
+        activity:ElaborationDeSchemaDirecteurDeSystemeDinformation,
+        activity:HebergementInfogeranceDesSystemesDinformationEtServicesConnexe ;
+    skos:notation "3.19" ;
+    skos:prefLabel "Services de technologies de l'information et télécommunications"@fr .
+
+activity:ServicesDhotellerieHebergementRestaurationEvenementielEtMarketing a skos:Concept ;
+    activity:code "3.18" ;
+    skos:broader activity:Services ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:PrestationDePubliciteDeCommunicationEtDeMarketing,
+        activity:PrestationDeReception,
+        activity:PrestationDeRestauration,
+        activity:PrestationDhebergement,
+        activity:PrestationDhotellerie,
+        activity:PrestationEvenementielDorganisationDeManifestations ;
+    skos:notation "3.18" ;
+    skos:prefLabel "Services d’hôtellerie, hébergement, restauration, événementiel et marketing"@fr .
+
+activity:ServicesCourants a skos:Concept ;
+    activity:code "3.12" ;
+    skos:broader activity:Services ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:FormationDuPersonnel,
+        activity:GestionDesArchives,
+        activity:ImpressionDeDocumentsBrochuresMaquettesEtServicesConnexes,
+        activity:Interpretation,
+        activity:MontageEtDemontageDuMateriel,
+        activity:Recrutement,
+        activity:TraductionDesDocumentsEtCorrespondances ;
+    skos:notation "3.12" ;
+    skos:prefLabel "Services courants"@fr .
+
+activity:ServicesDassurance a skos:Concept ;
+    activity:code "3.20" ;
+    skos:broader activity:Services ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:AssuranceContreLesAccidentsDeTravailEtLaResponsabiliteCivile,
+        activity:AssuranceContreLesDegatsDesEaux,
+        activity:AssuranceContreLexplosionEtIncendieDesBatimentsMagasinsEtEntrepots,
+        activity:AssuranceDeMaterielEtEnginsRoulantsEtFlottantsDeServitudesDesPorts,
+        activity:AssuranceDesAeronefsEtPassagers,
+        activity:AssuranceEtFraisMaritimesOuAeriensDeTransportDeMarchandises,
+        activity:AssuranceMultirisque ;
+    skos:notation "3.20" ;
+    skos:prefLabel "Services d’assurance"@fr .
+
+activity:NettoyageGardiennageEntretienEtMaintenance a skos:Concept ;
+    activity:code "3.15" ;
+    skos:broader activity:Services ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:EntretienEtMaintenanceDeMaterielDeTelecommunication,
+        activity:EntretienEtMaintenanceDeVehicules,
+        activity:EntretienEtMaintenanceDesEnginsEtMaterielDeChantier,
+        activity:EntretienEtMaintenanceDesEquipementsInformatiquesMaterielLogicielsProgiciels,
+        activity:EntretienEtMaintenanceDesEquipementsTechniquesElectriquesElectroniquesElectromecaniquesScientifiquesYComprisLaFournitureDesPiecesDeRechange,
+        activity:EntretienEtNettoyageDesBatimentsAdministratifs,
+        activity:EntretienEtReparationDuMobilier,
+        activity:GardiennageEtSurveillanceDesBatimentsAdministratifs,
+        activity:JardinageDesEspacesVerts ;
+    skos:notation "3.15" ;
+    skos:prefLabel "Nettoyage, gardiennage, entretien et maintenance"@fr .
+
+activity:ServicesArchitecturalesEtTopographiques a skos:Concept ;
+    activity:code "3.17" ;
+    skos:broader activity:Services ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:ArchitectureAgencementEtDecoration,
+        activity:CartographieDesZonesUrbainesEtRurales,
+        activity:EtudeDeLaMorphologieDesZonesUrbaineDeLhabitatDeLarchitectureEtDuPatrimoineBati,
+        activity:ExecutionDePlansSommairesDexecutionsEtDeDetails,
+        activity:Metrage,
+        activity:PrestationDeTopographieEtBathymetrie,
+        activity:PrestationsArchitecturalesPourLesOperationsDeLotissement,
+        activity:PrestationsDamenagementEtDeReamenagementUrbain,
+        activity:ServicesDarchitecturePaysagere ;
+    skos:notation "3.17" ;
+    skos:prefLabel "Services architecturales et topographiques"@fr .
+
+activity:ServicesDeLocationSansOptionDachat a skos:Concept ;
+    activity:code "3.13" ;
+    skos:broader activity:Services ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:EnginsEtMoyenDeTransportDeMaterielEtMateriaux,
+        activity:LicencesDutilisationDeLogiciels,
+        activity:MaterielsEtEnginsDeChantier,
+        activity:MaterielsEtEquipementsIndustriels,
+        activity:MaterielsEtEquipementsInformatiques,
+        activity:MaterielsEtEquipementsTechniquesElectriquesElectroniquesEtScientifiques,
+        activity:Mobiliers,
+        activity:MoyensDeTransportDesPersonnes,
+        activity:SallesEtStands ;
+    skos:notation "3.13" ;
+    skos:prefLabel "Services de location sans option d’achat"@fr .
+
+activity:TransportCollecteEtServicesConnexes a skos:Concept ;
+    activity:code "3.14" ;
+    skos:broader activity:Services ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:CollecteDesDechetsBiologiquesChimiquesEtPharmaceutiquesDuLaboratoire,
+        activity:CollecteDesDechetsMenagers,
+        activity:MiseAQuaiManutentionAcconageMagasinageEtTransitEtLesInterventionsQuiLeurSontLiees,
+        activity:TransportDeFonds,
+        activity:TransportDePersonnelEtDesDelegations,
+        activity:TransportDuMaterielEquipementMobilierProduitsEtDocumentParVoieAerienne,
+        activity:TransportDuMaterielEquipementMobilierProduitsEtDocumentParVoieMaritime,
+        activity:TransportDuMaterielEquipementMobilierProduitsEtDocumentParVoieTerrestre,
+        activity:TransportRelatifsAuxProduitsRadioactifsToxiquesMedicauxEtDangereux ;
+    skos:notation "3.14" ;
+    skos:prefLabel "Transport, collecte et services connexes"@fr .
+
+activity:Services a skos:Concept ;
+    activity:code "3" ;
+    skos:broader activity:ActivityDomain ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:ConseilAuditEtAssistanceAMaitriseDouvrageALexceptionDuDomaineDesNouvellesTechnologies,
+        activity:EtudesDingenierie,
+        activity:NettoyageGardiennageEntretienEtMaintenance,
+        activity:PrestationsDessaisDeControleEtDeLaboratoire,
+        activity:ServicesArchitecturalesEtTopographiques,
+        activity:ServicesCourants,
+        activity:ServicesDassurance,
+        activity:ServicesDeLocationSansOptionDachat,
+        activity:ServicesDeSanteVeterinaire,
+        activity:ServicesDeTechnologiesDeLinformationEtTelecommunications,
+        activity:ServicesDhotellerieHebergementRestaurationEvenementielEtMarketing,
+        activity:TransportCollecteEtServicesConnexes ;
+    skos:notation "3" ;
+    skos:prefLabel "Services"@fr ;
+    skos:topConceptOf activity:PublicProcurementActivityDomains .
+
+activity:EtudesDingenierie a skos:Concept ;
+    activity:code "3.10" ;
+    skos:broader activity:Services ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:EtablissementDePlansDirecteurs,
+        activity:EtudeDavantprojetDindentificationEtDeRecueilDesDonnees,
+        activity:EtudeDeDefinition,
+        activity:EtudeDeDiagnosticDeQualiteEtDeMiseANiveau,
+        activity:EtudeDeFaisabilite,
+        activity:EtudeDeMarche,
+        activity:EtudeDeconomieEtDeSociologie,
+        activity:EtudeDorganisationEtDeGestion,
+        activity:EtudesDeConception,
+        activity:EtudesDePlanification,
+        activity:EtudesDimpactEtDeGestionDesRisques,
+        activity:EtudesEtEnquetesStatistiquesEtDeRecensement,
+        activity:EtudesSectorielles,
+        activity:EtudesTechniquesChoixDeTerrainsGeologiqueGeophysiqueHydrologique,
+        activity:InterpretationEtAnalyseDesResultatsDeControleEtDesMesuresDeLaboratoires ;
+    skos:notation "3.10" ;
+    skos:prefLabel "Etudes d’ingénierie"@fr .
+
+activity:PrestationsDessaisDeControleEtDeLaboratoire a skos:Concept ;
+    activity:code "3.16" ;
+    skos:broader activity:Services ;
+    skos:inScheme activity:SchemeServices ;
+    skos:narrower activity:AnalysesBacteriologiquesMicrobiologiqueEtToxicologiquesEtAutresAnalysesMedicalesEtBioMedicalesConnexes,
+        activity:AnalysesPhysicochimiquesEtMineralogiques,
+        activity:ControleEtAnalyseDeLaQualiteDeLeauEtDair,
+        activity:ControleEtAnalyseTechniquesDesEchantillonsPrelevesSurLesProduitsMaterielEtMateriauxSoumisADesNormesObligatoiresAutreQueLeDomaineDuGenieCivil,
+        activity:ControleTechniqueDuMobilier,
+        activity:EssaisEtControlesElectriques,
+        activity:EssaisGeologiques,
+        activity:EssaisGeophysiques,
+        activity:EssaisGeotechniques,
+        activity:EssaisIsolationAcoustiques,
+        activity:EssaisIsolationThermiques,
+        activity:EssaisRoutiersEtDouvragesDart,
+        activity:EssaisSurCouverturesbardagesEtEtancheite,
+        activity:ExpertisesEtControlesTechniquesDeGenieCivilDesSolsEtDesOuvragesDart,
+        activity:SondagesCarottes ;
+    skos:notation "3.16" ;
+    skos:prefLabel "Prestations d’essais, de contrôle et de laboratoire"@fr .
+
+activity:SchemeServices a skos:ConceptScheme ;
+    skos:prefLabel "Domaines d'activité - Services"@fr .
+

@@ -261,6 +261,19 @@ class MissingFilesDownloader:
             await page.wait_for_load_state('networkidle')
             await human_delay(3, 5)
             
+            # Change results per page to 500 to speed up search and limit pagination
+            try:
+                per_page_select = await page.query_selector('select#ctl0_CONTENU_PAGE_resultSearch_listePageSizeTop')
+                if per_page_select:
+                    current_val = await page.evaluate('(el) => el.value', per_page_select)
+                    if current_val != '500':
+                        logger.info("Changing results per page to 500")
+                        await page.select_option('select#ctl0_CONTENU_PAGE_resultSearch_listePageSizeTop', value='500')
+                        await page.wait_for_load_state('networkidle')
+                        await human_delay(2, 4)
+            except Exception as e:
+                logger.warning(f"Could not change page size to 500: {e}")
+            
             # Check if tender was found
             tender_links = await page.query_selector_all('a[href*="EntrepriseDetailConsultation"]')
             if not tender_links:
