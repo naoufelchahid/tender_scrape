@@ -26,6 +26,13 @@ from src.prompts import (
 
 logger = logging.getLogger(__name__)
 
+try:
+    from decompose import decompose_text
+    _DECOMPOSE_AVAILABLE = True
+except ImportError:
+    _DECOMPOSE_AVAILABLE = False
+    logger.warning("decompose not installed. Document cleaning and semantic segmentation disabled.")
+
 # Standard chunking settings for fallback
 STANDARD_CHUNK_SIZE = 4000  # chars
 STANDARD_CHUNK_OVERLAP = 200
@@ -34,15 +41,16 @@ STANDARD_CHUNK_OVERLAP = 200
 class DocumentChunker:
     """Specialized chunking logic for tender documents."""
     
-    def __init__(self, region_name: str, openrouter_api_key: Optional[str] = None):
+    def __init__(self, region_name: str = "us-east-1", openrouter_api_key: Optional[str] = None, client: Optional[OpenRouterClientWrapper] = None, decomposer_func: Optional[Any] = None):
         self.region_name = region_name
-        self.llm = OpenRouterClientWrapper(api_key=openrouter_api_key)
+        self.llm = client or OpenRouterClientWrapper(api_key=openrouter_api_key)
         
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=STANDARD_CHUNK_SIZE,
             chunk_overlap=STANDARD_CHUNK_OVERLAP,
             separators=["\n\n", "\n", ". ", " "]
         )
+        self._decomposer_func = decomposer_func if decomposer_func is not None else (decompose_text if _DECOMPOSE_AVAILABLE else None)
 
     async def chunk_all_documents(self, docs: List[LogicalDocument], tender_id: int, tender_ref: str) -> Dict[str, List[Dict[str, Any]]]:
         """Process all documents and return a dictionary of chunks grouped by type."""
@@ -74,14 +82,22 @@ class DocumentChunker:
                     return 'product', await self._process_with_llm(doc, tender_ref, tender_id)
                 
                 elif doc.doc_type == 'administrative':
+                    if self._decomposer_func:
+                        return 'administrative', await self._segment_with_decompose(doc, tender_ref, tender_id)
                     return 'administrative', self._split_by_headers(doc, tender_ref, tender_id)
                 
                 elif doc.doc_type == 'specification':
+                    if self._decomposer_func:
+                        return 'specification', await self._segment_with_decompose(doc, tender_ref, tender_id)
                     return 'specification', self._split_by_headers(doc, tender_ref, tender_id)
                 
                 else:
                     target_type = doc.doc_type if doc.doc_type != "unknown" else "specification"
                     logger.warning(f"Defaulting {doc.doc_type} to {target_type}")
+                    
+                    # Clean noise before splitting for unknown/misc types
+                    doc.content = self._clean_with_decompose(doc.content, target_type)
+                    
                     # Use header split for structure if probable, else simple
                     if '##' in doc.content:
                         return target_type, self._split_by_headers(doc, tender_ref, tender_id, forced_type=target_type)
@@ -111,10 +127,13 @@ class DocumentChunker:
             filename=doc.original_filename
         )
         
+        # Clean content before LLM processing
+        cleaned_content = self._clean_with_decompose(doc.content, doc.doc_type)
+        
         if 'avis' in doc.doc_type.lower():
-            prompt = AVIS_PROMPT.format(base_context=base_context, content=doc.content[:100000], instruction=AVIS_INSTRUCTION)
+            prompt = AVIS_PROMPT.format(base_context=base_context, content=cleaned_content[:100000], instruction=AVIS_INSTRUCTION)
         else: # product
-            prompt = PRODUCT_PROMPT.format(base_context=base_context, content=doc.content[:100000], instruction=PRODUCT_INSTRUCTION, example=PRODUCT_EXAMPLE)
+            prompt = PRODUCT_PROMPT.format(base_context=base_context, content=cleaned_content[:100000], instruction=PRODUCT_INSTRUCTION, example=PRODUCT_EXAMPLE)
 
         response = await self.llm.chat_completion_async(
             messages=[{"role": "user", "content": prompt}],
@@ -201,6 +220,73 @@ class DocumentChunker:
             ))
             
         return self._finalize_chunks(chunk_items, tender_ref, tender_id, doc_type)
+
+    def _clean_with_decompose(self, content: str, doc_type: str) -> str:
+        """Strip noise (OCR artifacts, headers, footers) using decompose."""
+        if not self._decomposer_func:
+            return content
+            
+        try:
+            result = self._decomposer_func(content, compact=True)
+            units = result.get('units', [])
+            cleaned = "\n".join([u['text'] for u in units if 'text' in u]).strip()
+            
+            # Minimum safety ratio: if cleaned < 20% of original, it might be too aggressive
+            if not cleaned or len(cleaned) < len(content) * 0.20:
+                logger.warning(f"Decompose cleaning too aggressive or failed for {doc_type}. Using raw content.")
+                return content
+            return cleaned
+        except Exception as e:
+            logger.warning(f"Decompose cleaning failed for {doc_type}: {e}. Using raw content.")
+            return content
+
+    async def _segment_with_decompose(self, doc: LogicalDocument, tender_ref: str, tender_id: int) -> List[Dict[str, Any]]:
+        """Semantic segmentation using decompose for Specification/Administrative docs."""
+        if not self._decomposer_func:
+            return self._split_by_headers(doc, tender_ref, tender_id)
+            
+        try:
+            # First clean the noise if not already done, or just use decompose with compact=False for segmentation
+            result = self._decomposer_func(doc.content, compact=False)
+            units = result.get('units', [])
+            
+            chunk_items = []
+            current_h2 = ""
+            current_h3 = ""
+            
+            for entry in units:
+                # Map Decompose units to our ChunkItem
+                text = entry.get('text', '').strip()
+                if not text:
+                    continue
+                
+                # Extract hierarchical headers from text if present
+                # decompose usually splits at headers, but the header remains in the text
+                lines = text.split('\n')
+                for line in lines[:5]:  # Usually headers are at the top of the segment
+                    stripped = line.strip()
+                    if stripped.startswith('### '):
+                        current_h3 = stripped.lstrip('# ').strip()
+                    elif stripped.startswith('## '):
+                        current_h2 = stripped.lstrip('# ').strip()
+                        current_h3 = ""  # Reset H3 when entering a new H2
+                    
+                chunk_items.append(ChunkItem(
+                    content=text,
+                    metadata={
+                        "type": doc.doc_type,
+                        "title": current_h3 if current_h3 else (current_h2 if current_h2 else doc.doc_type),
+                        "chapter": current_h2 if current_h2 else "General"
+                    }
+                ))
+            
+            if not chunk_items:
+                return self._split_by_headers(doc, tender_ref, tender_id)
+                
+            return self._finalize_chunks(chunk_items, tender_ref, tender_id, doc.doc_type)
+        except Exception as e:
+            logger.error(f"Decompose segmentation failed for {doc.doc_type}: {e}. Falling back to header split.")
+            return self._split_by_headers(doc, tender_ref, tender_id)
 
     def _finalize_chunks(self, items: List[ChunkItem], tender_ref: str, tender_id: int, doc_type: str) -> List[Dict[str, Any]]:
         """Add IDs and ensure metadata matches internal models."""

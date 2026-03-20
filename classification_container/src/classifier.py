@@ -4,11 +4,20 @@ Document classifier implementing 3-step classification logic
 """
 
 import re
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple
 from dataclasses import dataclass
 import logging
 
+try:
+    from decompose import decompose_text
+    _DECOMPOSE_AVAILABLE = True
+except ImportError:
+    _DECOMPOSE_AVAILABLE = False
+
 logger = logging.getLogger(__name__)
+
+if not _DECOMPOSE_AVAILABLE:
+    logger.warning("decompose-mcp not installed. Document cleaning disabled.")
 
 
 @dataclass
@@ -27,24 +36,174 @@ class DocumentClassifier:
     Step 2: Content-based classification for unknowns
     Step 3: AI-based classification using OpenRouter
     """
-    
-    def __init__(self, openrouter_client=None):
+
+    _SAMPLE_SIZE = 5000
+    _MIN_CLEAN_RATIO = 0.30
+    _DECOMPOSE_CONTEXT = (
+        "Identify document type for Moroccan public tender: "
+        "technical specifications, administrative regulations, "
+        "price tables, engagement acts, or declarations"
+    )
+
+    _SPEC_PATTERNS = (
+        r"cahier\s+des\s+prescriptions",
+        r"cahier\s+des\s+charges",
+        r"دفتر\s+التحملات",
+        r"consistance\s+du\s+projet",
+        r"clauses\s+générales",
+        r"clauses\s+techniques",
+        r"description\s+technique\s+des\s+prix",
+        r"mode\s+de\s+passation\s+du\s+marché",
+        r"nantissement",
+        r"délai\s+d['']exécution",
+        r"cctp",
+        r"c\.c\.t\.p",
+    )
+
+    _ADMIN_PATTERNS = (
+        r"objet\s+du\s+règlement",
+        r"règlement\s+de\s+la\s+consultation",
+        r"règlement\s+de\s+consultation",
+        r"نظام\s+الاستشارة",
+        r"conditions\s+requises\s+des\s+concurrents",
+        r"contenu\s+du\s+dossier\s+des\s+concurrents",
+        r"critères\s+d['']évaluation\s+des\s+offres",
+    )
+
+    _BDP_PATTERNS_STEP1 = (
+        r"bordereau\s+des\s+prix",
+        r"détail\s+estimatif",
+        r"جدول\s+الأثمان",
+        r"البيان\s+التقديري",
+        r"désignation\s+des\s+prestations",
+        r"prix\s+unitaire",
+        r"désignation",
+        r"total\s+ttc",
+        r"total\s+h\.?t",
+        r"\(chiffres\)",
+        r"arrété\s+le\s+présent",
+        r"arrêté\s+le\s+présent",
+        r"montant\s+ht",
+        r"prix\s+total",
+        r"quantité",
+        r"unité",
+    )
+
+    _BDP_PATTERNS_STEP2 = (
+        r"bordereau\s+des\s+prix",
+        r"détail\s+estimatif",
+        r"جدول\s+الأثمان",
+        r"البيان\s+التقديري",
+        r"désignation\s+des\s+prestations",
+        r"prix\s+unitaire",
+        r"total\s+ttc",
+        r"total\s+h\.?t",
+        r"quantité",
+        r"unité",
+    )
+
+    _AE_PATTERNS = (
+        r"après\s+avoir\s+pris\s+connaissance\s+du\s+dossier",
+        r"acte\s+d['']engagemnt",
+        r"acte\s+d['']engagement",
+    )
+
+    _DECL_PATTERNS = (
+        r"déclare\s+sur\s+l['']honneur",
+        r"déclaration\s+sur\s+l['']honneur",
+    )
+
+    _AVIS_AR_PATTERNS = (
+        r"إعلان",
+        r"فتح\s+الأظرفة",
+    )
+
+    _AVIS_FR_PATTERNS_STEP2 = (
+        r"avis\s+d['']appel\s+d['']offres",
+        r"avis\s+de\s+publicit[ée]",
+        r"avis\s+d['']achat",
+        r"il\s+sera\s+procédé",
+        r"www\.marchespublics\.gov\.ma",
+    )
+
+    def __init__(self, openrouter_client=None, decomposer_func=None):
         """
         Initialize classifier.
         
         Args:
             openrouter_client: OpenRouter client for Step 3 (optional)
+            decomposer_func: Function for noise cleaning (optional, defaults to decompose_text)
         """
         self.openrouter_client = openrouter_client
-    
+        self._decomposer_func = decomposer_func or (decompose_text if _DECOMPOSE_AVAILABLE else None)
+
     @staticmethod
-    def _count_matches(patterns: List[str], text: str) -> int:
+    def _count_matches(patterns: Iterable[str], text: str) -> int:
         """Count how many patterns match in text."""
         return sum(1 for p in patterns if re.search(p, text, re.IGNORECASE))
+
+    @staticmethod
+    def _normalize_filename(fname: str) -> str:
+        """Normalize filename for keyword matching."""
+        return fname.lower().replace("_", "").replace(" ", "")
+
+    @staticmethod
+    def _classify_by_pattern_count(
+        matches: int, doc_type: str, step: int
+    ) -> Optional[ClassificationResult]:
+        """Convert match count to ClassificationResult with appropriate confidence."""
+        if matches > 2:
+            return ClassificationResult(doc_type=doc_type, confidence="high", step=step)
+        if matches == 2:
+            return ClassificationResult(doc_type=doc_type, confidence="medium", step=step)
+        if matches == 1:
+            return ClassificationResult(doc_type=doc_type, confidence="low", step=step)
+        return None
     
+    def _clean_content_for_classification(self, content: str) -> str:
+        """
+        Use decompose to clean noise from document content.
+        
+        Args:
+            content: Raw document content
+            
+        Returns:
+            Cleaned content or original content on failure
+        """
+        if not self._decomposer_func:
+            return content
+            
+        try:
+            # Clean content using decompose (remove OCR artifacts, headers, etc.)
+            # The current version of decompose-mcp (0.1.0) returns a dict with units.
+            # We join the units to get the "cleaned" content.
+            result = self._decomposer_func(
+                content,
+                compact=True
+            )
+            
+            if not result or "units" not in result:
+                return content
+                
+            # Filter units: exclude those with 0 attention if they seem like noise
+            # For now, let's just join all semantic units found.
+            cleaned = "\n\n".join(unit["text"] for unit in result["units"])
+            
+            # Simple validation: if cleaning removed too MUCH content, fall back
+            if cleaned and len(cleaned) > len(content) * self._MIN_CLEAN_RATIO:
+                logger.info(f"Decompose cleaned content: {len(content)} -> {len(cleaned)} chars")
+                return cleaned
+            else:
+                logger.warning("Decompose output too short or empty, falling back to original content")
+                return content
+                
+        except Exception as e:
+            logger.error(f"Decompose cleaning failed: {e}")
+            return content
+
     def classify(self, filename: str, content: str) -> ClassificationResult:
         """
-        Classify document using 3-step process.
+        Classify document using 3-step process with noise cleaning.
         
         Args:
             filename: Original filename
@@ -53,21 +212,24 @@ class DocumentClassifier:
         Returns:
             ClassificationResult with doc_type, confidence, and step
         """
+        # Phase 2: Pre-process with decompose to clean noise
+        cleaned_content = self._clean_content_for_classification(content)
+        
         # Step 1: High-confidence filename + content
-        result = self.step1_classify(filename, content)
+        result = self.step1_classify(filename, cleaned_content)
         if result:
             logger.info(f"Step 1 classified '{filename}' as '{result.doc_type}' (confidence: {result.confidence})")
             return result
         
         # Step 2: Content-based for unknowns
-        result = self.step2_classify(filename, content)
+        result = self.step2_classify(filename, cleaned_content)
         if result:
             logger.info(f"Step 2 classified '{filename}' as '{result.doc_type}' (confidence: {result.confidence})")
             return result
         
         # Step 3: AI-based classification
         if self.openrouter_client:
-            result = self.step3_classify(filename, content)
+            result = self.step3_classify(filename, cleaned_content)
             if result:
                 logger.info(f"Step 3 classified '{filename}' as '{result.doc_type}'")
                 return result
@@ -86,159 +248,72 @@ class DocumentClassifier:
         Returns:
             ClassificationResult or None if no match
         """
-        fname_lower = filename.lower()
+        fname_norm = DocumentClassifier._normalize_filename(filename)
         content_lower = content.lower()
         
         # 1. SPECIFICATION (CPS/CCTP)
-        # Priority 1
-        cps_keywords = ["cps", "cctp", "cahierdescharges", "cahier_des_charges"]
-        if any(kw in fname_lower.replace("_", "").replace(" ", "") for kw in ["cps", "cctp", "cahierdescharges"]):
-            spec_patterns = [
-                r"cahier\s+des\s+prescriptions",
-                r"cahier\s+des\s+charges",
-                r"دفتر\s+التحملات",
-                r"consistance\s+du\s+projet",
-                r"clauses\s+générales",
-                r"clauses\s+techniques",
-                r"description\s+technique\s+des\s+prix",
-                r"mode\s+de\s+passation\s+du\s+marché",
-                r"nantissement",
-                r"délai\s+d['']exécution",
-                r"cctp",
-                r"c\.c\.t\.p"
-            ]
-            matches = DocumentClassifier._count_matches(spec_patterns, content_lower)
-            
-            if matches > 2:
-                return ClassificationResult(doc_type="specification", confidence="high", step=1)
-            elif matches == 2:
-                return ClassificationResult(doc_type="specification", confidence="medium", step=1)
-            elif matches == 1:
-                return ClassificationResult(doc_type="specification", confidence="low", step=1)
+        if any(kw in fname_norm for kw in ["cps", "cctp", "cahierdescharges"]):
+            matches = DocumentClassifier._count_matches(DocumentClassifier._SPEC_PATTERNS, content_lower)
+            result = DocumentClassifier._classify_by_pattern_count(matches, "specification", step=1)
+            if result:
+                return result
         
         # 2. ADMINISTRATIVE (RC)
-        # Priority 2
         rc_keywords = [
-            "rc", "réglement_consultation", "reglement_consultation", 
+            "rc", "reglementconsultation", 
             "rgao", "rpao", "rcdg", "ccag", "ccafg",
-            "reglement de consultation", "réglement de consultation",
-            "reglement de la consultation", "réglement de la consultation"
+            "reglementdeconsultation",
+            "reglementdelaconsultation"
         ]
-        if any(kw in fname_lower.replace("_", " ") for kw in rc_keywords):
-            admin_patterns = [
-                r"objet\s+du\s+règlement",
-                r"règlement\s+de\s+la\s+consultation",
-                r"règlement\s+de\s+consultation",
-                r"نظام\s+الاستشارة",
-                r"conditions\s+requises\s+des\s+concurrents",
-                r"contenu\s+du\s+dossier\s+des\s+concurrents",
-                r"critères\s+d['']évaluation\s+des\s+offres"
-            ]
-            matches = DocumentClassifier._count_matches(admin_patterns, content_lower)
-            
-            if matches > 2:
-                return ClassificationResult(doc_type="administrative", confidence="high", step=1)
-            elif matches == 2:
-                return ClassificationResult(doc_type="administrative", confidence="medium", step=1)
-            elif matches == 1:
-                return ClassificationResult(doc_type="administrative", confidence="low", step=1)
+        if any(kw in fname_norm for kw in rc_keywords):
+            matches = DocumentClassifier._count_matches(DocumentClassifier._ADMIN_PATTERNS, content_lower)
+            result = DocumentClassifier._classify_by_pattern_count(matches, "administrative", step=1)
+            if result:
+                return result
         
         # 3. PRODUCT / BDP
-        # Priority 3
-        bdp_keywords = ["bordereau_des_prix", "bdp", "detail_estimatif", "bordereau", "détail_estimatif", "bpu", "bdpe", "bp", "dqe","bordereaux"]
-        if any(kw in fname_lower.replace("_", " ") for kw in bdp_keywords):
-            bdp_patterns = [
-                r"bordereau\s+des\s+prix",
-                r"détail\s+estimatif",
-                r"جدول\s+الأثمان",
-                r"البيان\s+التقديري",
-                r"désignation\s+des\s+prestations",
-                r"prix\s+unitaire",
-                r"désignation",
-                r"total\s+ttc",
-                r"total\s+h\.?t",
-                r"\(chiffres\)",
-                r"arrété\s+le\s+présent",
-                r"arrêté\s+le\s+présent",
-                r"montant\s+ht",
-                r"prix\s+total",
-                r"quantité",
-                r"unité"
-            ]
-            matches = DocumentClassifier._count_matches(bdp_patterns, content_lower)
-            
-            if matches > 2:
-                return ClassificationResult(doc_type="product", confidence="high", step=1)
-            elif matches == 2:
-                return ClassificationResult(doc_type="product", confidence="medium", step=1)
-            elif matches == 1:
-                return ClassificationResult(doc_type="product", confidence="low", step=1)
+        bdp_keywords = ["bordereaudesprix", "bdp", "detailestimatif", "bordereau", "bpu", "bdpe", "bp", "dqe", "bordereaux"]
+        if any(kw in fname_norm for kw in bdp_keywords):
+            matches = DocumentClassifier._count_matches(DocumentClassifier._BDP_PATTERNS_STEP1, content_lower)
+            result = DocumentClassifier._classify_by_pattern_count(matches, "product", step=1)
+            if result:
+                return result
         
         # 4. AVIS_FR
-        # Priority 4
-        avis_fr_keywords = ["avis"]
-        if any(kw in fname_lower for kw in avis_fr_keywords):
+        if "avis" in fname_norm:
             # Check if it's NOT Arabic (avis_ar takes precedence)
-            if not ("ar" in fname_lower or "arabe" in fname_lower):
+            if not ("ar" in fname_norm or "arabe" in fname_norm):
                 # Verify with French content
                 if re.search(r"il\s+sera\s+procédé", content_lower):
                     return ClassificationResult(doc_type="avis_fr", confidence="high", step=1)
         
         # 5. AVIS_AR
-        # Priority 5
-        avis_ar_keywords = ["avis", "ar"]
         # Must have both "avis" AND "ar" in filename
-        if all(kw in fname_lower for kw in avis_ar_keywords):
+        if "avis" in fname_norm and ("ar" in fname_norm or "arabe" in fname_norm):
             # Verify with Arabic content
-            if re.search(r"إعلان", content_lower) or re.search(r"فتح\s+الأظرفة", content_lower):
+            matches = DocumentClassifier._count_matches(DocumentClassifier._AVIS_AR_PATTERNS, content_lower)
+            if matches >= 1:
                 return ClassificationResult(doc_type="avis_ar", confidence="high", step=1)
         
         # 6. ACTE_ENGAGEMENT
-        # Priority 6
-        ae_keywords = ["model_acte_engagement", "ae", "acte_engagement", "acte_d_engagement", "a_e", "acte", "engagement"]
-        if any(kw in fname_lower.replace("_", "").replace(" ", "") for kw in [k.replace("_", "") for k in ae_keywords]):
-            ae_patterns = [
-                r"après\s+avoir\s+pris\s+connaissance\s+du\s+dossier",
-                r"acte\s+d['']engagemnt",
-                r"acte\s+d['']engagement"
-            ]
-            matches = DocumentClassifier._count_matches(ae_patterns, content_lower)
-            
+        ae_keywords = ["modelacteengagement", "ae", "acteengagement", "actedengagement", "acte", "engagement"]
+        if any(kw in fname_norm for kw in ae_keywords):
+            matches = DocumentClassifier._count_matches(DocumentClassifier._AE_PATTERNS, content_lower)
             if matches >= 1:
                 return ClassificationResult(doc_type="acte_engagement", confidence="high", step=1)
         
         # 7. DECLARATION
-        # Priority 7
-        decl_keywords = ["dsh", "déclaration_sur_l_honneur", "declaration_sur_l_honneur", "declaration", "honneur", "déclaration"]
-        if any(kw in fname_lower.replace("_", "").replace(" ", "") for kw in [k.replace("_", "") for k in decl_keywords]):
-            decl_patterns = [
-                r"déclare\s+sur\s+l['']honneur",
-                r"déclaration\s+sur\s+l['']honneur"
-            ]
-            matches = DocumentClassifier._count_matches(decl_patterns, content_lower)
-            
+        decl_keywords = ["dsh", "declarationsurlhonneur", "declaration", "honneur", "declaration"]
+        if any(kw in fname_norm for kw in decl_keywords):
+            matches = DocumentClassifier._count_matches(DocumentClassifier._DECL_PATTERNS, content_lower)
             if matches >= 1:
                 return ClassificationResult(doc_type="declaration", confidence="high", step=1)
         
         # 8. ANNEXE
-        annexe_keywords = ["annexes", "annexe"]
-        if any(kw in fname_lower for kw in annexe_keywords):
-            # Check for both patterns
-            ae_patterns = [
-                r"après\s+avoir\s+pris\s+connaissance\s+du\s+dossier",
-                r"acte\s+d['']engagemnt",
-                r"acte\s+d['']engagement"
-            ]
-            decl_patterns = [
-                r"déclare\s+sur\s+l['']honneur",
-                r"déclaration\s+sur\s+l['']honneur"
-            ]
+        if "annexe" in fname_norm:
+            ae_matches = DocumentClassifier._count_matches(DocumentClassifier._AE_PATTERNS, content_lower)
+            decl_matches = DocumentClassifier._count_matches(DocumentClassifier._DECL_PATTERNS, content_lower)
             
-            ae_matches = DocumentClassifier._count_matches(ae_patterns, content_lower)
-            decl_matches = DocumentClassifier._count_matches(decl_patterns, content_lower)
-            
-            # If both patterns found, this will be split later - for now classify as annexe
-            # But we can return a special marker or handle it differently
             if ae_matches >= 1 and decl_matches >= 1:
                 # Contains both - will be split later
                 return ClassificationResult(doc_type="annexe", confidence="high", step=1)
@@ -260,133 +335,55 @@ class DocumentClassifier:
         Returns:
             ClassificationResult or None if no match
         """
-        fname_lower = filename.lower()
         content_lower = content.lower()
         doc_length = len(content)
         
         # Short documents (<3000 chars)
         if doc_length < 3000:
-            # Reordered Short Doc Checks: BDP (3) -> Avis FR (4) -> Avis AR (5) -> AE (6) -> Decl (7)
-            
             # 3. Product / BDP
-            bdp_patterns = [
-                r"bordereau\s+des\s+prix",
-                r"détail\s+estimatif",
-                r"جدول\s+الأثمان",
-                r"البيان\s+التقديري",
-                r"désignation\s+des\s+prestations",
-                r"prix\s+unitaire",
-                r"total\s+ttc",
-                r"total\s+h\.?t",
-                r"quantité",
-                r"unité"
-            ]
-            matches = DocumentClassifier._count_matches(bdp_patterns, content_lower)
-            
-            if matches > 2:
-                return ClassificationResult(doc_type="product", confidence="high", step=2)
-            elif matches == 2:
-                return ClassificationResult(doc_type="product", confidence="medium", step=2)
-            elif matches == 1:
-                return ClassificationResult(doc_type="product", confidence="low", step=2)
+            matches = DocumentClassifier._count_matches(DocumentClassifier._BDP_PATTERNS_STEP2, content_lower)
+            result = DocumentClassifier._classify_by_pattern_count(matches, "product", step=2)
+            if result:
+                return result
                 
             # 4. Avis_FR
-            avis_fr_patterns = [
-                r"avis\s+d['']appel\s+d['']offres",
-                r"avis\s+de\s+publicit[ée]",
-                r"avis\s+d['']achat",
-                r"il\s+sera\s+procédé",
-                r"www\.marchespublics\.gov\.ma"
-            ]
-            matches = DocumentClassifier._count_matches(avis_fr_patterns, content_lower)
-            
-            if matches > 2:
-                return ClassificationResult(doc_type="avis_fr", confidence="high", step=2)
-            elif matches == 2:
-                return ClassificationResult(doc_type="avis_fr", confidence="medium", step=2)
-            elif matches == 1:
-                return ClassificationResult(doc_type="avis_fr", confidence="low", step=2)
+            matches = DocumentClassifier._count_matches(DocumentClassifier._AVIS_FR_PATTERNS_STEP2, content_lower)
+            result = DocumentClassifier._classify_by_pattern_count(matches, "avis_fr", step=2)
+            if result:
+                return result
             
             # 5. Avis_AR
-            avis_ar_patterns = [
-                r"إعلان",
-                r"فتح\s+الأظرفة"
-            ]
-            matches = DocumentClassifier._count_matches(avis_ar_patterns, content_lower)
-            
+            matches = DocumentClassifier._count_matches(DocumentClassifier._AVIS_AR_PATTERNS, content_lower)
             if matches >= 1:
                 return ClassificationResult(doc_type="avis_ar", confidence="high", step=2)
             
             # 6. Acte d'Engagement
-            ae_patterns = [
-                r"après\s+avoir\s+pris\s+connaissance\s+du\s+dossier",
-                r"acte\s+d['']engagemnt",
-                r"acte\s+d['']engagement"
-            ]
-            matches = DocumentClassifier._count_matches(ae_patterns, content_lower)
-            
+            matches = DocumentClassifier._count_matches(DocumentClassifier._AE_PATTERNS, content_lower)
             if matches >= 1:
                 return ClassificationResult(doc_type="acte_engagement", confidence="high", step=2)
             
             # 7. Declaration
-            decl_patterns = [
-                r"déclare\s+sur\s+l['']honneur",
-                r"déclaration\s+sur\s+l['']honneur"
-            ]
-            matches = DocumentClassifier._count_matches(decl_patterns, content_lower)
-            
+            matches = DocumentClassifier._count_matches(DocumentClassifier._DECL_PATTERNS, content_lower)
             if matches >= 1:
                 return ClassificationResult(doc_type="declaration", confidence="high", step=2)
         
-        # Long documents (>3000 chars) - use first 5000 chars
+        # Long documents (>3000 chars) - use first _SAMPLE_SIZE chars
         else:
-            sample = content[:5000].lower()
-            
-            # Reordered Long Doc Checks: Spec (1) -> Admin (2)
+            sample = content[:DocumentClassifier._SAMPLE_SIZE].lower()
             
             # 1. Specification (CPS)
-            spec_patterns = [
-                r"cahier\s+des\s+prescriptions",
-                r"cahier\s+des\s+charges",
-                r"دفتر\s+التحملات",
-                r"consistance\s+du\s+projet",
-                r"clauses\s+générales",
-                r"clauses\s+techniques",
-                r"description\s+technique\s+des\s+prix",
-                r"mode\s+de\s+passation\s+du\s+marché",
-                r"nantissement",
-                r"délai\s+d['']exécution",
-                r"cctp",
-                r"c\.c\.t\.p"
-            ]
-            matches = DocumentClassifier._count_matches(spec_patterns, sample)
-            
-            if matches > 2:
-                return ClassificationResult(doc_type="specification", confidence="high", step=2)
-            elif matches == 2:
-                return ClassificationResult(doc_type="specification", confidence="medium", step=2)
-            elif matches == 1:
-                return ClassificationResult(doc_type="specification", confidence="low", step=2)
+            matches = DocumentClassifier._count_matches(DocumentClassifier._SPEC_PATTERNS, sample)
+            result = DocumentClassifier._classify_by_pattern_count(matches, "specification", step=2)
+            if result:
+                return result
             
             # 2. Administrative (RC)
-            admin_patterns = [
-                r"objet\s+du\s+règlement",
-                r"règlement\s+de\s+la\s+consultation",
-                r"règlement\s+de\s+consultation",
-                r"نظام\s+الاستشارة",
-                r"conditions\s+requises\s+des\s+concurrents",
-                r"contenu\s+du\s+dossier\s+des\s+concurrents",
-                r"critères\s+d['']évaluation\s+des\s+offres",
-                r"cautionnement\s+provisoire\s+.*article"
-            ]
-            matches = DocumentClassifier._count_matches(admin_patterns, sample)
-            
-            if matches > 2:
-                return ClassificationResult(doc_type="administrative", confidence="high", step=2)
-            elif matches == 2:
-                return ClassificationResult(doc_type="administrative", confidence="medium", step=2)
-            elif matches == 1:
-                return ClassificationResult(doc_type="administrative", confidence="low", step=2)
+            # RC in step 2 has an extra pattern
+            admin_patterns_step2 = list(DocumentClassifier._ADMIN_PATTERNS) + [r"cautionnement\s+provisoire\s+.*article"]
+            matches = DocumentClassifier._count_matches(admin_patterns_step2, sample)
+            result = DocumentClassifier._classify_by_pattern_count(matches, "administrative", step=2)
+            if result:
+                return result
         
         return None
     
@@ -405,8 +402,8 @@ class DocumentClassifier:
             logger.warning("OpenRouter client not available for Step 3")
             return None
         
-        # Use first 5000 chars for AI classification
-        sample = content[:5000]
+        # Use first _SAMPLE_SIZE chars for AI classification
+        sample = content[:DocumentClassifier._SAMPLE_SIZE]
         
         prompt = f"""You are a document classifier for Moroccan public tender documents.
 
@@ -422,7 +419,7 @@ Classify the following document into ONE of these categories:
 - other: Any other document type
 
 Document filename: {filename}
-Document content (first 5000 chars):
+Document content (first {DocumentClassifier._SAMPLE_SIZE} chars):
 {sample}
 
 Respond with ONLY the category name (avis_fr, avis_ar, administrative, specification, product, acte_engagement, declaration, annexe, or other)."""

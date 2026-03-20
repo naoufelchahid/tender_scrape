@@ -15,3 +15,4 @@ json_repair>=0.10.0
 xlrd>=2.0.1
 openpyxl>=3.1.0
 pytest>=8.0.0
+decompose-mcp>=0.1.0
