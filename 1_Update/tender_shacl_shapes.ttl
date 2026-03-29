@@ -1,0 +1,175 @@
+# SHACL Shapes for Tender Knowledge Graph Validation
+# Phase 3: kg_builder.py
+# Validates RDF data against tender_structure.owl constraints
+
+@prefix sh:    <http://www.w3.org/ns/shacl#> .
+@prefix ts:    <http://www.tenderintelligence.io/ontology/tender-structure#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# ----- Tender Shape -----
+# Validates ts:Tenders individuals
+ts:TenderShape a sh:NodeShape ;
+    sh:targetClass ts:Tenders ;
+    sh:message "Tender validation failed" ;
+
+    # Must have exactly 1 reference (ts:reference)
+    sh:property [
+        sh:path ts:reference ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Tender Reference" ;
+        sh:message "Tender must have exactly one reference"
+    ] ;
+
+    # Must have exactly 1 object/title (ts:object)
+    sh:property [
+        sh:path ts:object ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Tender Object" ;
+        sh:message "Tender must have exactly one object/title"
+    ] ;
+
+    # Budget is optional but must be decimal if present (ts:estimated_value)
+    sh:property [
+        sh:path ts:estimated_value ;
+        sh:datatype xsd:decimal ;
+        sh:maxCount 1 ;
+        sh:name "Estimated Value" ;
+        sh:message "Estimated value, if present, must be a decimal value"
+    ] ;
+
+    # Deadline optional, must be dateTime if present (ts:deadline)
+    sh:property [
+        sh:path ts:deadline ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:name "Deadline" ;
+        sh:message "Deadline, if present, must be an xsd:dateTime"
+    ] ;
+
+    # Publication date optional, must be dateTime if present (ts:launch_date)
+    sh:property [
+        sh:path ts:launch_date ;
+        sh:datatype xsd:dateTime ;
+        sh:maxCount 1 ;
+        sh:name "Launch Date" ;
+        sh:message "Launch date, if present, must be an xsd:dateTime"
+    ] ;
+
+    # City is optional but must be string if present (ts:city)
+    sh:property [
+        sh:path ts:city ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:name "City" ;
+        sh:message "City must be an xsd:string if present"
+    ] ;
+
+    # Has_Is_Documents must be boolean if present (ts:Has_Is_Documents)
+    sh:property [
+        sh:path ts:Has_Is_Documents ;
+        sh:datatype xsd:boolean ;
+        sh:maxCount 1 ;
+        sh:name "Has Documents" ;
+        sh:message "Has_Is_Documents must be an xsd:boolean if present"
+    ] ;
+
+    # Must link to at least one buyer (ts:buyer)
+    sh:property [
+        sh:path ts:buyer ;
+        sh:class ts:Buyer ;
+        sh:minCount 1 ;
+        sh:name "Buyer" ;
+        sh:message "Tender must be linked to at least one buyer"
+    ] ;
+
+    # CPS Doc (S3 URI) is optional but must be anyURI if present (ts:Has_CPS_Doc)
+    sh:property [
+        sh:path ts:Has_CPS_Doc ;
+        sh:datatype xsd:anyURI ;
+        sh:maxCount 1 ;
+        sh:name "CPS Document" ;
+        sh:message "CPS document, if present, must be a valid URI"
+    ] .
+
+# ----- Buyer Shape -----
+# Validates ts:Buyer individuals
+ts:BuyerShape a sh:NodeShape ;
+    sh:targetClass ts:Buyer ;
+    sh:message "Buyer validation failed" ;
+
+    # Must have a label
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Buyer Name" ;
+        sh:message "Buyer must have exactly one rdfs:label"
+    ] .
+
+# ----- Lot Shape -----
+# Validates ts:Lots individuals
+ts:LotShape a sh:NodeShape ;
+    sh:targetClass ts:Lots ;
+    sh:message "Lot validation failed" ;
+
+    # Lot ID is required (ts:lotID)
+    sh:property [
+        sh:path ts:lotID ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:name "Lot ID" ;
+        sh:message "Lot must have a lot identifer"
+    ] ;
+
+    # Description is optional but must be string if present (ts:lotDescription)
+    sh:property [
+        sh:path ts:lotDescription ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:name "Lot Description" ;
+        sh:message "Lot description must be an xsd:string if present"
+    ] ;
+    
+    # Budget is optional but must be decimal if present (ts:lot_estimated_value)
+    sh:property [
+        sh:path ts:lot_estimated_value ;
+        sh:datatype xsd:decimal ;
+        sh:maxCount 1 ;
+        sh:name "Lot Estimated Value" ;
+        sh:message "Lot estimated value, if present, must be a decimal value"
+    ] ;
+
+    # Qualifications (ts:lot_qualifications)
+    sh:property [
+        sh:path ts:lot_qualifications ;
+        sh:datatype xsd:string ;
+        sh:name "Lot Qualifications" ;
+        sh:message "Lot qualifications must be a string"
+    ] ;
+
+    # Agrements (ts:lot_agrements)
+    sh:property [
+        sh:path ts:lot_agrements ;
+        sh:datatype xsd:string ;
+        sh:name "Lot Agrements" ;
+        sh:message "Lot agrements must be a string"
+    ] .
+
+# ----- Validation Report -----
+# This shape defines the structure of validation results
+ts:ValidationReportShape a sh:NodeShape ;
+    sh:targetClass sh:ValidationReport ;
+    sh:property [
+        sh:path sh:conforms ;
+        sh:datatype xsd:boolean ;
+        sh:name "Conforms" ;
+        sh:message "Validation result: conforms to shapes"
+    ] .
