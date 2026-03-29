@@ -1,0 +1,86 @@
+{
+  "reference": "TO4130038/2026/ONEEBELEC",
+  "original_reference": "TO4130038/2026/ONEEBELEC",
+  "buyer": "MEMEE / ONEEBELEC - OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+  "category": "",
+  "launch_date": "",
+  "object": "RENFORCEMENT DES LIGNES HTB DE LA DTO AU NIVEAU DES TRAVERSEES DE ROUTE, AUTOROUTES ET ONCF",
+  "deadline": "2026-05-14T09:00:00",
+  "mode_passation": "| Sur offre de prix",
+  "procedure_type": "Appel d'offres ouvert",
+  "main_category": "Travaux",
+  "allotissement": "3 Lots",
+  "activity_domains": [
+    "Travaux / Travaux d’électricité / Travaux d'installation pour usage industriel"
+  ],
+  "is_sme_reserved": null,
+  "retrait_address": "ONEE/Branche Electricité Bureaux de la Direction Approvisionnements et Marchés (DAM) : 65, Rue OTHMAN BEN AFFAN 20 000 CASABLANCA B.P. 13 498 -MAROC, Tel : (212) 5-22 66 80 21 ; Télécopieur : (212) 5-22 43 31 12",
+  "depot_address": "ONEE/Branche Electricité Bureaux de la Direction Approvisionnements et Marchés (DAM) : 65, Rue OTHMAN BEN AFFAN 20 000 CASABLANCA B.P. 13 498 -MAROC, Tel : (212) 5-22 66 80 21 ; Télécopieur : (212) 5-22 43 31 12",
+  "mode_soumission": "Electronique",
+  "opening_location": "ONEE/Branche Electricité Bureaux de la Direction Approvisionnements et Marchés (DAM) : 65, Rue OTHMAN BEN AFFAN 20 000 CASABLANCA B.P. 13 498 -MAROC, Tel : (212) 5-22 66 80 21 ; Télécopieur : (212) 5-22 43 31 12",
+  "contacts": {
+    "name": "Fatima DOUZI",
+    "email": "f.douzi@onee.ma",
+    "phone": "0661091459",
+    "fax": "05-36-69-15-10"
+  },
+  "estimated_value": null,
+  "plan_cost": null,
+  "provisional_deposit": null,
+  "qualifications": null,
+  "agrements": null,
+  "variante": null,
+  "reunion": null,
+  "site_visit": null,
+  "samples_info": null,
+  "lots": [
+    {
+      "lot number": 1,
+      "lot1_object": "Renforcement des lignes HTB région Fès, Taza et Hoceima Comporte des dispositions envrionnementales",
+      "Lot1_estimation": "4 517 791,20",
+      "Lot1_caution": "50 000,00",
+      "Lot1_qualification": null,
+      "Lot1_agreement": null,
+      "Procpectus_et_echantillons": null,
+      "Reunion": "15/04/2026 10:00",
+      "visite_des_lieux": null,
+      "variante": "Non",
+      "Env_consideration": "Oui - Exécution du marché incluant une obligation environnementale",
+      "Reserve_TPE_PME": "Oui"
+    },
+    {
+      "lot number": 2,
+      "lot2_object": "Renforcement des lignes HTB région Meknès, Khnéifra et Er-Rachidia Comporte des dispositions envrionnementales",
+      "Lot2_estimation": "4 868 962,80",
+      "Lot2_caution": "50 000,00",
+      "Lot2_qualification": null,
+      "Lot2_agreement": null,
+      "Procpectus_et_echantillons": null,
+      "Reunion": "15/04/2026 10:00",
+      "visite_des_lieux": null,
+      "variante": "Non",
+      "Env_consideration": "Oui - Exécution du marché incluant une obligation environnementale",
+      "Reserve_TPE_PME": "Non"
+    },
+    {
+      "lot number": 3,
+      "lot3_object": "Renforcement des lignes HTB région Oujda et Nador Comporte des dispositions envrionnementales",
+      "Lot3_estimation": "3 473 478,00",
+      "Lot3_caution": "50 000,00",
+      "Lot3_qualification": null,
+      "Lot3_agreement": null,
+      "Procpectus_et_echantillons": null,
+      "Reunion": "15/04/2026 10:00",
+      "visite_des_lieux": null,
+      "variante": "Non",
+      "Env_consideration": "Oui - Exécution du marché incluant une obligation environnementale",
+      "Reserve_TPE_PME": "Non"
+    }
+  ],
+  "download_available": true,
+  "downloadable_files": [
+    "Dossier de consultation - 4,16 Mo"
+  ],
+  "s3_folder": "tender_doc_final/TO4130038_2026_ONEEBELEC/",
+  "processed_at": "2026-03-27T13:21:36.875295"
+}

@@ -1,0 +1,49 @@
+{
+  "reference": "12/BR/RGON/2026",
+  "original_reference": "12/BR/RGON/2026",
+  "buyer": "RGON / RGON - REGION DE GUELMIM - OUED NOUN",
+  "category": "",
+  "launch_date": "",
+  "object": "TRAVAUX D’AMENAGEMENT DES TROTTOIRS ET VOIRIE DES AVENUES HASSAN II, FES ET LA PLAGE DE LA VILLE DE TAN-TAN",
+  "city": "TAN-TAN",
+  "all_cities": null,
+  "deadline": "2026-05-12T10:00:00",
+  "mode_passation": "| Sur offre de prix",
+  "procedure_type": "Appel d'offres ouvert",
+  "main_category": "Travaux",
+  "allotissement": null,
+  "activity_domains": [
+    "Travaux / Travaux de voiries, chemins et pistes / Travaux d’assises traitées et enrobées à chaud",
+    "Travaux / Travaux de voiries, chemins et pistes / Travaux de bétonnage et de dallage de trottoirs",
+    "Travaux / Travaux de voiries, chemins et pistes / Travaux d’équipements de la route et des voiries"
+  ],
+  "is_sme_reserved": false,
+  "retrait_address": "Le dossier d'appel d'offre est disponible au format électronique, et peut être téléchargé à partir du portail des marchés publics.",
+  "depot_address": "les offres doivent être déposer électroniquement via le portail des marchés publics (www.marchespublics.gov.ma)",
+  "mode_soumission": "Physique/Hybride",
+  "opening_location": "la salle de réunion n°01 au siège de la Région Guelmim - Oued Noun",
+  "contacts": {
+    "name": "Région Guelmim Oued Noun Direction générale des Service",
+    "email": "marches.rgon@gmail.com",
+    "phone": "0528772436",
+    "fax": "0528772099"
+  },
+  "estimated_value": "114 956 868,00",
+  "plan_cost": null,
+  "provisional_deposit": "2 295 000,00",
+  "qualifications": [
+    "Equipement / B- Travaux routiers et voirie urbaine  / B.6- Assises traitées et enrobés à chaud  / Classe 1",
+    "Equipement / B- Travaux routiers et voirie urbaine  / B.11- Travaux de dallage et bétonnage de la voirie urbaine  / Classe 1"
+  ],
+  "agrements": null,
+  "variante": "Non",
+  "reunion": null,
+  "site_visit": null,
+  "samples_info": null,
+  "download_available": true,
+  "downloadable_files": [
+    "Dossier de consultation - 46,21 Mo"
+  ],
+  "s3_folder": "tender_doc_final/12_BR_RGON_2026/",
+  "processed_at": "2026-03-27T13:44:16.225503"
+}

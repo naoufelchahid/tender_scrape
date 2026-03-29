@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  fuseki:
+    image: stain/jena-fuseki:latest
+    container_name: fuseki
+    ports:
+      - "3030:3030"
+    environment:
+      # Set fixed admin password (must match JENA_PASSWORD in .env)
+      ADMIN_PASSWORD: admin
+      # Optional: JVM memory settings
+      JVM_ARGS: "-Xmx2g"
+    volumes:
+      # Persist Fuseki data between container restarts
+      - fuseki_data:/fuseki
+      # Optional: Mount custom configuration
+      # - ./fuseki-config:/fuseki-config
+    networks:
+      - tender_network
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:3030/$/ping" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  kb_ingestion:
+    build: ./kb_ingestion_container
+    container_name: kb_ingestion
+    mem_limit: 1g
+    memswap_limit: 1g
+    environment:
+      # Password must match Fuseki's ADMIN_PASSWORD above
+      - JENA_PASSWORD=your_secure_password_here
+    env_file:
+      - .env
+    depends_on:
+      fuseki:
+        condition: service_healthy
+    networks:
+      - tender_network
+    restart: unless-stopped
+    # Optional: Mount logs for debugging
+    volumes:
+      - ./logs:/app/logs
+
+networks:
+  tender_network:
+    driver: bridge
+    name: tender_network
+
+volumes:
+  fuseki_data:
+    driver: local

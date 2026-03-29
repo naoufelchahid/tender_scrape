@@ -1,0 +1,44 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix ts:  <http://www.tenderintelligence.io/ontology/tender-structure#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ---------------------------------------------------------------------------
+# Enrichment SHACL Shapes
+#
+# Validates ONLY what the kb_ingestion_container produces:
+#   - Bordereau + Articles subgraph
+#   - TenderSpecifications chunk nodes
+#   - TenderReglement chunk nodes
+#
+# Intentionally does NOT include TendersShape — core tender data
+# (type, buyer, category, region, deadline) is owned by migration_container.
+# ---------------------------------------------------------------------------
+
+ts:BordereauxShape
+    a sh:NodeShape ;
+    sh:targetClass ts:Bordereaux ;
+    sh:property [
+        sh:path ts:Has_Article ;
+        sh:minCount 1 ;
+        sh:message "A Bordereau must have at least one Article (ts:Has_Article)." ;
+    ] ;
+    sh:property [
+        sh:path ts:Is_Bordereau_of ;
+        sh:minCount 1 ;
+        sh:message "A Bordereau must be linked to a Tender via ts:Is_Bordereau_of." ;
+    ] .
+
+ts:ArticlesShape
+    a sh:NodeShape ;
+    sh:targetClass ts:Articles ;
+    sh:property [
+        sh:path ts:Has_Designation ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:message "An Article must have a ts:Has_Designation string value." ;
+    ] ;
+    sh:property [
+        sh:path ts:Is_Article_of ;
+        sh:minCount 1 ;
+        sh:message "An Article must be linked to a Bordereau via ts:Is_Article_of." ;
+    ] .

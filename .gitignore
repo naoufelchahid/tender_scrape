@@ -4,16 +4,17 @@
 # Ignore dependencies
 node_modules/
 dist/
-
+.venv/
+venv/
 # Ignore environment variables (passwords/API keys)
 .env
 
 # Ignore logs
 *.log
 
-/venv
 
+.agents/
 .vscode/
 __pycache__
 
-.agent/
+
