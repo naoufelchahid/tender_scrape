@@ -1,0 +1,18 @@
+# Tender Scrape Workflow - Phase 1 Dependencies
+# Requirements for running ref_updater.py, Db_updater.py, and kg_builder.py
+
+# Core dependencies
+boto3==1.42.75
+rdflib==7.6.0
+playwright==1.40.0
+python-dotenv==1.2.2
+beautifulsoup4==4.14.3
+lxml==6.0.2
+
+# Stealth and validation
+playwright-stealth==2.0.2
+pyshacl==0.31.0
+
+# RDF/OWL support
+owlrl==7.1.4
+html5rdf==1.2.1
