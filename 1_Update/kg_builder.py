@@ -366,137 +366,302 @@ class KGBuilder:
     
     def build_tender_triples(self, tender: Dict) -> Graph:
         """
-        Build RDF triples for a single tender.
-        
-        Returns an rdflib.Graph with all triples for this tender.
+        Build RDF triples for a single tender from per-tender JSON format.
+        Lot triples are included via _build_lot_triples().
         """
         g = Graph()
         g.bind("ts", TS)
         g.bind("rdfs", RDFS)
         g.bind("xsd", XSD)
         g.bind("activity", ACTIVITY)
-        
+        g.bind("skos", SKOS)
+        g.bind("regions", REGIONS)
+        g.bind("qualif", QUALIF)
+
         reference = tender.get('reference')
         if not reference:
             logger.warning("Skipping tender without reference")
             return g
-        
-        # Create tender URI
+
         tender_uri = get_tender_uri(reference)
-        
-        # rdf:type ts:Tenders
         g.add((tender_uri, RDF.type, TS.Tenders))
-        
-        # ts:Ref (composite reference)
+
+        # ── Core data properties ──────────────────────────────────────────
         g.add((tender_uri, TS.Ref, Literal(reference, datatype=XSD.string)))
-        
-        # ts:Has_Original_Reference
-        original_reference = tender.get('original_reference')
-        if original_reference:
-            g.add((
-                tender_uri,
-                TS.Has_Original_Reference,
-                Literal(original_reference, datatype=XSD.string)
-            ))
-        
-        # ts:Has_Object (tender title/object)
+
+        orig_ref = tender.get('original_reference')
+        if orig_ref:
+            g.add((tender_uri, TS.Has_Original_Reference,
+                   Literal(orig_ref, datatype=XSD.string)))
+
         obj = tender.get('object')
         if obj:
-            g.add((
-                tender_uri,
-                TS.Has_Object,
-                Literal(obj, datatype=XSD.string)
-            ))
-        
-        # ts:Has_Deadline
+            g.add((tender_uri, TS.Has_Object, Literal(obj, datatype=XSD.string)))
+
         deadline = tender.get('deadline')
         if deadline:
-            parsed_deadline = parse_date(deadline)
-            if parsed_deadline:
-                g.add((
-                    tender_uri,
-                    TS.Has_Deadline,
-                    Literal(parsed_deadline, datatype=XSD.dateTime)
-                ))
-        
-        # ts:Has_Publication_Date
+            parsed = parse_date(deadline)
+            if parsed:
+                g.add((tender_uri, TS.Has_Deadline,
+                       Literal(parsed, datatype=XSD.dateTime)))
+
         launch_date = tender.get('launch_date')
         if launch_date:
-            parsed_launch = parse_date(launch_date)
-            if parsed_launch:
-                g.add((
-                    tender_uri,
-                    TS.Has_Publication_Date,
-                    Literal(parsed_launch, datatype=XSD.dateTime)
-                ))
-        
-        # ts:Has_City
+            parsed = parse_date(launch_date)
+            if parsed:
+                g.add((tender_uri, TS.launch_date,
+                       Literal(parsed, datatype=XSD.dateTime)))
+
+        # ── SKOS: main_category → top concept ────────────────────────────
+        main_cat = (tender.get('main_category') or '').strip().lower()
+        cat_uri = CATEGORY_TOP.get(main_cat)
+        if cat_uri:
+            g.add((tender_uri, TS.Has_Category, cat_uri))
+
+        # ── SKOS: city / all_cities → Is_Located_In ──────────────────────
+        def _add_city(city_str: str):
+            if not city_str:
+                return
+            city_uri = self.resolver.resolve('regions', city_str) if self.resolver else None
+            if city_uri:
+                g.add((tender_uri, TS.Is_Located_In, city_uri))
+                g.add((tender_uri, SKOS.exactMatch, city_uri))
+            else:
+                g.add((tender_uri, TS.city, Literal(city_str, datatype=XSD.string)))
+
         city = tender.get('city')
         if city:
-            g.add((
-                tender_uri,
-                TS.Has_City,
-                Literal(city, datatype=XSD.string)
-            ))
-        
-        # ts:Has_Category (ObjectProperty to activity domain)
-        category = tender.get('category')
-        if category and category in ACTIVITY_DOMAINS:
-            g.add((
-                tender_uri,
-                TS.Has_Category,
-                ACTIVITY_DOMAINS[category]
-            ))
-        
-        # ts:Has_CPS_Doc (S3 folder URI)
+            _add_city(city)
+
+        all_cities = tender.get('all_cities') or []
+        if isinstance(all_cities, list):
+            for c in all_cities:
+                if c and c != city:
+                    _add_city(c)
+
+        # ── SKOS: mode_passation ──────────────────────────────────────────
+        mode_raw = tender.get('mode_passation') or ''
+        mode_clean = mode_raw.lstrip('|').strip()
+        if mode_clean:
+            mode_uri = self.resolver.resolve('mode_passation', mode_clean) if self.resolver else None
+            if mode_uri:
+                g.add((tender_uri, TS.Has_Mode_Passation, mode_uri))
+                g.add((tender_uri, SKOS.exactMatch, mode_uri))
+            else:
+                g.add((tender_uri, TS.mode_passation,
+                       Literal(mode_clean, datatype=XSD.string)))
+
+        # ── SKOS: activity_domains (last segment each) ────────────────────
+        for domain_str in (tender.get('activity_domains') or []):
+            if not domain_str:
+                continue
+            last_seg = domain_str.split(' / ')[-1].strip()
+            act_uri = self.resolver.resolve('activity', last_seg) if self.resolver else None
+            if act_uri:
+                g.add((tender_uri, TS.Has_Activity_Domain, act_uri))
+                g.add((tender_uri, SKOS.exactMatch, act_uri))
+            else:
+                g.add((tender_uri, TS.activity_domains,
+                       Literal(last_seg, datatype=XSD.string)))
+
+        # ── SKOS: is_sme_reserved ─────────────────────────────────────────
+        if tender.get('is_sme_reserved') is True:
+            g.add((tender_uri, TS.Is_SME_Reserved, TS.IsSmeReserved))
+            g.add((tender_uri, SKOS.exactMatch, TS.IsSmeReserved))
+
+        # ── Plain string data properties ──────────────────────────────────
+        for field, prop in [
+            ('retrait_address',  TS.retrait_address),
+            ('depot_address',    TS.depot_address),
+            ('mode_soumission',  TS.mode_soumission),
+            ('opening_location', TS.opening_location),
+            ('plan_cost',        TS.plan_cost),
+            ('reunion',          TS.reunionDetails),
+            ('site_visit',       TS.visiteLieuxDetails),
+            ('samples_info',     TS.samples_info),
+        ]:
+            val = tender.get(field)
+            if val:
+                g.add((tender_uri, prop, Literal(str(val), datatype=XSD.string)))
+
+        # ── Decimal properties ────────────────────────────────────────────
+        est_val = parse_fr_decimal(tender.get('estimated_value'))
+        if est_val is not None:
+            g.add((tender_uri, TS.estimated_value,
+                   Literal(est_val, datatype=XSD.decimal)))
+
+        prov_dep = parse_fr_decimal(tender.get('provisional_deposit'))
+        if prov_dep is not None:
+            g.add((tender_uri, TS.provisional_deposit,
+                   Literal(prov_dep, datatype=XSD.decimal)))
+
+        # ── SKOS: qualifications (3rd segment each) ───────────────────────
+        for qual_str in (tender.get('qualifications') or []):
+            if not qual_str:
+                continue
+            parts = qual_str.split(' / ')
+            seg = parts[2].strip() if len(parts) >= 3 else qual_str.strip()
+            qual_uri = self.resolver.resolve('qualifications', seg) if self.resolver else None
+            if qual_uri:
+                g.add((tender_uri, TS.Has_Qualification, qual_uri))
+                g.add((tender_uri, SKOS.exactMatch, qual_uri))
+            else:
+                g.add((tender_uri, TS.Has_Qualifications,
+                       Literal(seg, datatype=XSD.string)))
+
+        # ── SKOS: agrements (3rd segment each) ────────────────────────────
+        for agr_str in (tender.get('agrements') or []):
+            if not agr_str:
+                continue
+            parts = agr_str.split(' / ')
+            seg = parts[2].strip() if len(parts) >= 3 else agr_str.strip()
+            agr_uri = self.resolver.resolve('agrements', seg) if self.resolver else None
+            if agr_uri:
+                g.add((tender_uri, TS.Has_Agrement, agr_uri))
+                g.add((tender_uri, SKOS.exactMatch, agr_uri))
+            else:
+                g.add((tender_uri, TS.requiredAgrements,
+                       Literal(seg, datatype=XSD.string)))
+
+        # ── Boolean: variante ─────────────────────────────────────────────
+        variante = parse_bool_str(tender.get('variante'))
+        if variante is not None:
+            g.add((tender_uri, TS.hasVariante,
+                   Literal(variante, datatype=XSD.boolean)))
+
+        # ── Documents ─────────────────────────────────────────────────────
+        download_available = tender.get('download_available')
+        g.add((tender_uri, TS.Has_Is_Documents,
+               Literal(bool(download_available), datatype=XSD.boolean)))
+
         s3_folder = tender.get('s3_folder')
         if s3_folder:
-            # Ensure proper URI format
             if not s3_folder.startswith('s3://') and not s3_folder.startswith('http'):
                 s3_folder = f"s3://{self.s3_bucket}/{s3_folder}" if self.s3_bucket else s3_folder
-            g.add((
-                tender_uri,
-                TS.Has_CPS_Doc,
-                Literal(s3_folder, datatype=XSD.anyURI)
-            ))
-        
-        # ts:Has_Is_Documents (whether documents were downloaded)
-        # Based on presence of s3_folder
-        has_documents = bool(s3_folder)
-        g.add((
-            tender_uri,
-            TS.Has_Is_Documents,
-            Literal(has_documents, datatype=XSD.boolean)
-        ))
-        
-        # ts:Has_Multilot (whether tender has multiple lots)
-        lots = tender.get('lots', [])
-        is_multilot = len(lots) > 1 if lots else False
-        g.add((
-            tender_uri,
-            TS.Has_Multilot,
-            Literal(is_multilot, datatype=XSD.boolean)
-        ))
-        
-        # ts:Launched_by (link to buyer)
-        buyer = tender.get('buyer')
-        if buyer:
-            buyer_uri = get_buyer_uri(buyer)
-            
-            # Only emit buyer type and label once
+            g.add((tender_uri, TS.Has_CPS_Doc,
+                   Literal(s3_folder, datatype=XSD.anyURI)))
+
+        # ── Multilot ──────────────────────────────────────────────────────
+        lots = tender.get('lots') or []
+        g.add((tender_uri, TS.Has_Multilot,
+               Literal(len(lots) > 1, datatype=XSD.boolean)))
+
+        # ── Buyer node ────────────────────────────────────────────────────
+        buyer_raw = tender.get('buyer') or ''
+        if buyer_raw:
+            buyer_name = parse_buyer_name(buyer_raw)
+            buyer_uri = get_buyer_uri(buyer_name)
             if buyer_uri not in self.seen_buyers:
                 g.add((buyer_uri, RDF.type, TS.Buyers))
-                g.add((
-                    buyer_uri,
-                    RDFS.label,
-                    Literal(buyer, datatype=XSD.string)
-                ))
+                g.add((buyer_uri, RDFS.label,
+                       Literal(buyer_name, datatype=XSD.string)))
+                contacts = tender.get('contacts') or {}
+                if contacts.get('name'):
+                    g.add((buyer_uri, TS.Has_Contact,
+                           Literal(contacts['name'], datatype=XSD.string)))
+                if contacts.get('email'):
+                    g.add((buyer_uri, TS.Has_Mail,
+                           Literal(contacts['email'], datatype=XSD.string)))
+                if contacts.get('phone'):
+                    g.add((buyer_uri, TS.Has_Phone,
+                           Literal(contacts['phone'], datatype=XSD.string)))
+                opening_loc = tender.get('opening_location')
+                if opening_loc:
+                    g.add((buyer_uri, TS.Has_Adress,
+                           Literal(opening_loc, datatype=XSD.string)))
                 self.seen_buyers.add(buyer_uri)
-            
-            # Add Launched_by relationship
             g.add((tender_uri, TS.Launched_by, buyer_uri))
-        
+
+        # ── Lot nodes ─────────────────────────────────────────────────────
+        for lot in lots:
+            self._build_lot_triples(g, tender_uri, reference, lot)
+
         return g
+
+    def _build_lot_triples(
+        self, g: Graph, tender_uri: URIRef, reference: str, lot: Dict
+    ) -> None:
+        """Add lot triples to graph g. Called once per lot dict."""
+        lot_n = lot.get('lot number')
+        if lot_n is None:
+            return
+        lot_id = str(lot_n)
+        lot_uri = TS[f"Lot_{slugify(reference)}_{lot_id}"]
+        g.add((lot_uri, RDF.type, TS.Lots))
+        g.add((lot_uri, TS.lotID, Literal(lot_id, datatype=XSD.string)))
+        g.add((tender_uri, TS.Has_lot, lot_uri))
+
+        lot_desc = lot.get(f'lot{lot_id}_object')
+        if lot_desc:
+            g.add((lot_uri, TS.lot_description,
+                   Literal(lot_desc, datatype=XSD.string)))
+
+        lot_est = parse_fr_decimal(lot.get(f'Lot{lot_id}_estimation'))
+        if lot_est is not None:
+            g.add((lot_uri, TS.lot_estimated_value,
+                   Literal(lot_est, datatype=XSD.decimal)))
+
+        lot_caut = parse_fr_decimal(lot.get(f'Lot{lot_id}_caution'))
+        if lot_caut is not None:
+            g.add((lot_uri, TS.lot_provisional_deposit,
+                   Literal(lot_caut, datatype=XSD.decimal)))
+
+        lot_qual = lot.get(f'Lot{lot_id}_qualification')
+        if lot_qual:
+            parts = lot_qual.split(' / ')
+            seg = parts[2].strip() if len(parts) >= 3 else lot_qual.strip()
+            qual_uri = self.resolver.resolve('qualifications', seg) if self.resolver else None
+            if qual_uri:
+                g.add((lot_uri, TS.Has_Qualification, qual_uri))
+                g.add((lot_uri, SKOS.exactMatch, qual_uri))
+            else:
+                g.add((lot_uri, TS.lot_qualifications,
+                       Literal(seg, datatype=XSD.string)))
+
+        lot_agr = lot.get(f'Lot{lot_id}_agreement')
+        if lot_agr:
+            parts = lot_agr.split(' / ')
+            seg = parts[2].strip() if len(parts) >= 3 else lot_agr.strip()
+            agr_uri = self.resolver.resolve('agrements', seg) if self.resolver else None
+            if agr_uri:
+                g.add((lot_uri, TS.Has_Agrement, agr_uri))
+                g.add((lot_uri, SKOS.exactMatch, agr_uri))
+            else:
+                g.add((lot_uri, TS.lot_agrements,
+                       Literal(seg, datatype=XSD.string)))
+
+        samples = lot.get('Procpectus_et_echantillons')
+        if samples:
+            g.add((lot_uri, TS.samples_info,
+                   Literal(str(samples), datatype=XSD.string)))
+
+        reunion = lot.get('Reunion')
+        if reunion:
+            parsed = parse_date(reunion)
+            if parsed:
+                g.add((lot_uri, TS.lot_meeting_date,
+                       Literal(parsed, datatype=XSD.dateTime)))
+
+        visite = lot.get('visite_des_lieux')
+        if visite:
+            parsed = parse_date(visite)
+            if parsed:
+                g.add((lot_uri, TS.lot_site_visit,
+                       Literal(parsed, datatype=XSD.dateTime)))
+
+        lot_var = parse_bool_str(lot.get('variante'))
+        if lot_var is not None:
+            g.add((lot_uri, TS.lot_variant_allowed,
+                   Literal(lot_var, datatype=XSD.boolean)))
+
+        env = lot.get('Env_consideration')
+        if env:
+            g.add((lot_uri, TS.lot_env_considerations,
+                   Literal(str(env), datatype=XSD.string)))
+
+        if parse_bool_str(lot.get('Reserve_TPE_PME')) is True:
+            g.add((lot_uri, TS.Is_SME_Reserved, TS.IsSmeReserved))
+            g.add((lot_uri, SKOS.exactMatch, TS.IsSmeReserved))
     
     def build_batch_graph(self, tenders: List[Dict]) -> Graph:
         """
@@ -508,10 +673,13 @@ class KGBuilder:
         self.seen_buyers = set()
         
         batch_graph = Graph()
-        batch_graph.bind("ts", TS)
-        batch_graph.bind("rdfs", RDFS)
-        batch_graph.bind("xsd", XSD)
+        batch_graph.bind("ts",       TS)
+        batch_graph.bind("rdfs",     RDFS)
+        batch_graph.bind("xsd",      XSD)
         batch_graph.bind("activity", ACTIVITY)
+        batch_graph.bind("skos",     SKOS)
+        batch_graph.bind("regions",  REGIONS)
+        batch_graph.bind("qualif",   QUALIF)
         
         for tender in tenders:
             tender_graph = self.build_tender_triples(tender)
@@ -730,7 +898,7 @@ class KGBuilder:
                     'Metadata': {
                         'batch_date': datetime.now().isoformat(),
                         'tender_count': str(tender_count),
-                        'source_file': self.input_file.name
+                        'source_file': self.input_file.name if self.input_file else str(self.input_dir)
                     }
                 }
             )
