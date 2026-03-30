@@ -24,12 +24,13 @@ import re
 import sys
 import unicodedata
 from datetime import datetime
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 import boto3
 from dotenv import load_dotenv
-from rdflib import Graph, Literal, Namespace, RDF, RDFS, XSD, URIRef
+from rdflib import Graph, Literal, Namespace, RDF, RDFS, SKOS, XSD, URIRef
 
 # Setup logging
 logging.basicConfig(
@@ -41,22 +42,17 @@ logger = logging.getLogger(__name__)
 # Load environment variables
 load_dotenv()
 
-# Namespace definitions matching tender_structure.owl
-TS = Namespace("http://www.tenderintelligence.io/ontology/tender-structure#")
+# Namespace definitions
+TS      = Namespace("http://www.tenderintelligence.io/ontology/tender-structure#")
 ACTIVITY = Namespace("http://www.tenderintelligence.io/ontology/activity-domains#")
+REGIONS = Namespace("http://www.tenderintelligence.io/ontology/morocco-regions#")
+QUALIF  = Namespace("http://www.tenderintelligence.io/ontology/qualification#")
 
-# Category mapping (from AGENTS.md)
-CATEGORY_MAP = {
-    'travaux': 'travaux',
-    'fournitures': 'fournitures',
-    'services': 'services'
-}
-
-# Activity domain URIs
-ACTIVITY_DOMAINS = {
-    'travaux': ACTIVITY['travaux'],
-    'fournitures': ACTIVITY['fournitures'],
-    'services': ACTIVITY['services']
+# Top-level category → SKOS concept URI
+CATEGORY_TOP = {
+    'travaux':     ACTIVITY.Travaux,
+    'fournitures': ACTIVITY.Fournitures,
+    'services':    ACTIVITY.Services,
 }
 
 
@@ -113,29 +109,31 @@ def slugify(text: str) -> str:
     return sanitized.strip('_').upper()
 
 
-def parse_date(date_str: str) -> Optional[str]:
+def parse_date(date_str) -> Optional[str]:
     """
     Parse date string to ISO 8601 xsd:dateTime.
-    Handles malformed format: dd/mm/yyyyHH:MM (missing space)
+    Tries: fromisoformat → dd/mm/yyyy HH:MM → dd/mm/yyyy
+    Handles malformed format: dd/mm/yyyyHH:MM (missing space).
     """
     if not date_str:
         return None
-    
-    # Fix malformed dates (e.g., "03/02/202610:00" -> "03/02/2026 10:00")
-    date_str = re.sub(r'(\d{2}/\d{2}/\d{4})(\d{2}:\d{2})', r'\1 \2', date_str)
-    
+    date_str = str(date_str).strip()
+    # Try ISO format first (e.g., "2026-05-12T10:00:00")
     try:
-        # Try with time component
-        dt = datetime.strptime(date_str, "%d/%m/%Y %H:%M")
+        dt = datetime.fromisoformat(date_str)
         return dt.strftime("%Y-%m-%dT%H:%M:%S") + "+00:00"
     except ValueError:
+        pass
+    # Fix malformed dates (e.g., "03/02/202610:00" → "03/02/2026 10:00")
+    date_str = re.sub(r'(\d{2}/\d{2}/\d{4})(\d{2}:\d{2})', r'\1 \2', date_str)
+    for fmt in ("%d/%m/%Y %H:%M", "%d/%m/%Y"):
         try:
-            # Try date only
-            dt = datetime.strptime(date_str, "%d/%m/%Y")
+            dt = datetime.strptime(date_str, fmt)
             return dt.strftime("%Y-%m-%dT%H:%M:%S") + "+00:00"
         except ValueError:
-            logger.warning(f"Could not parse date: {date_str}")
-            return None
+            continue
+    logger.warning(f"Could not parse date: {date_str!r}")
+    return None
 
 
 def get_tender_uri(reference: str) -> URIRef:
@@ -148,6 +146,117 @@ def get_buyer_uri(buyer_name: str) -> URIRef:
     """Generate buyer URI from buyer name."""
     slug = slugify(buyer_name)
     return TS[f"Buyer_{slug}"]
+
+
+def parse_fr_decimal(value) -> Optional[Decimal]:
+    """Parse French-formatted decimal string ('114 956 868,00') to Decimal."""
+    if value is None:
+        return None
+    s = str(value).strip().replace('\xa0', '').replace(' ', '').replace(',', '.')
+    try:
+        return Decimal(s)
+    except InvalidOperation:
+        return None
+
+
+def parse_bool_str(value) -> Optional[bool]:
+    """Convert 'Oui'/'Non'/bool/None to bool or None."""
+    if value is None:
+        return None
+    if isinstance(value, bool):
+        return value
+    s = str(value).strip().lower()
+    if s in ('oui', 'true', '1', 'yes'):
+        return True
+    if s in ('non', 'false', '0', 'no'):
+        return False
+    return None
+
+
+def parse_buyer_name(buyer_raw: str) -> str:
+    """Extract display name: 'CODE / CODE - FULL NAME' → 'FULL NAME'."""
+    if ' - ' in buyer_raw:
+        return buyer_raw.split(' - ', 1)[1].strip()
+    return buyer_raw.strip()
+
+
+class SkosResolver:
+    """
+    Parses the OWL ontology once and builds normalized-label → URIRef
+    lookup dicts for five SKOS schemes. Used by KGBuilder to resolve
+    string fields to SKOS concept URIs.
+    """
+
+    def __init__(self, ontology_path: Path):
+        self._g = Graph()
+        self._g.parse(str(ontology_path), format="xml")
+        logger.info(f"SkosResolver: loaded {len(self._g)} triples from {ontology_path.name}")
+        self.regions        = self._build_scheme_index(REGIONS.Scheme)
+        self.activity       = self._build_activity_index()
+        self.mode_passation = self._build_scheme_index(TS.ModeDePassationScheme)
+        self.qualifications = self._build_subtree_index(QUALIF.QualificationCategory)
+        self.agrements      = self._build_subtree_index(QUALIF.Agrement)
+        logger.info(
+            f"SkosResolver: regions={len(self.regions)}, activity={len(self.activity)}, "
+            f"mode_passation={len(self.mode_passation)}, "
+            f"qualifications={len(self.qualifications)}, agrements={len(self.agrements)}"
+        )
+
+    @staticmethod
+    def _normalize(s: str) -> str:
+        """Strip accents, lowercase, collapse whitespace."""
+        s = unicodedata.normalize('NFKD', s)
+        s = ''.join(c for c in s if not unicodedata.combining(c))
+        return ' '.join(s.lower().split())
+
+    def _build_scheme_index(self, scheme_uri: URIRef) -> Dict[str, URIRef]:
+        """Index all concepts in a scheme by normalized prefLabel."""
+        idx: Dict[str, URIRef] = {}
+        for concept in self._g.subjects(SKOS.inScheme, scheme_uri):
+            for label in self._g.objects(concept, SKOS.prefLabel):
+                idx[self._normalize(str(label))] = concept
+        return idx
+
+    def _build_activity_index(self) -> Dict[str, URIRef]:
+        """Combine all three activity domain schemes into one index."""
+        idx: Dict[str, URIRef] = {}
+        for scheme in [
+            ACTIVITY.SchemeTravaux,
+            ACTIVITY.SchemeFournitures,
+            ACTIVITY.SchemeServices,
+        ]:
+            idx.update(self._build_scheme_index(scheme))
+        return idx
+
+    def _build_subtree_index(self, root: URIRef) -> Dict[str, URIRef]:
+        """Walk narrowerTransitive from root, index every node by prefLabel."""
+        idx: Dict[str, URIRef] = {}
+        seen: set = set()
+        queue = [root]
+        while queue:
+            node = queue.pop()
+            if node in seen:
+                continue
+            seen.add(node)
+            for label in self._g.objects(node, SKOS.prefLabel):
+                idx[self._normalize(str(label))] = node
+            for child in self._g.objects(node, SKOS.narrowerTransitive):
+                queue.append(child)
+        return idx
+
+    def resolve(self, scheme: str, label: str) -> Optional[URIRef]:
+        """Return the URIRef for `label` in `scheme`, or None if not found."""
+        idx = {
+            'regions':        self.regions,
+            'activity':       self.activity,
+            'mode_passation': self.mode_passation,
+            'qualifications': self.qualifications,
+            'agrements':      self.agrements,
+        }.get(scheme)
+        if idx is None:
+            logger.warning(f"SkosResolver: unknown scheme '{scheme}'")
+            return None
+        return idx.get(self._normalize(label))
 
 
 class KGBuilder:
@@ -189,6 +298,13 @@ class KGBuilder:
 
         # Create output directory if needed
         self.output_dir.mkdir(parents=True, exist_ok=True)
+
+        # SKOS concept resolver — built once from OWL at init time
+        if self.ontology_file.exists():
+            self.resolver = SkosResolver(self.ontology_file)
+        else:
+            logger.warning(f"Ontology not found: {self.ontology_file} — SKOS resolution disabled")
+            self.resolver = None
 
         # Initialize S3 client
         if self.s3_bucket:
