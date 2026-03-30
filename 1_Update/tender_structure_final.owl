@@ -1134,6 +1134,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.tenderintelligence.io/ontology/tender-structure#Has_Adress">
         <rdfs:domain rdf:resource="http://www.tenderintelligence.io/ontology/tender-structure#Contractor"/>
+        <rdfs:domain rdf:resource="http://www.tenderintelligence.io/ontology/tender-structure#Buyers"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <skos:altLabel xml:lang="fr">Adresse</skos:altLabel>
         <skos:definition xml:lang="fr">Adresse physique ou siège social de l&apos;entreprise (concurrent).</skos:definition>
@@ -1253,6 +1254,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.tenderintelligence.io/ontology/tender-structure#Has_Contact">
         <rdfs:domain rdf:resource="http://www.tenderintelligence.io/ontology/tender-structure#Contractor"/>
+        <rdfs:domain rdf:resource="http://www.tenderintelligence.io/ontology/tender-structure#Buyers"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <skos:altLabel xml:lang="fr">Personne à Contacter</skos:altLabel>
         <skos:definition xml:lang="fr">Nom de la personne physique désignée comme contact principal pour l&apos;entreprise.</skos:definition>
@@ -1369,6 +1371,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.tenderintelligence.io/ontology/tender-structure#Has_Mail">
         <rdfs:domain rdf:resource="http://www.tenderintelligence.io/ontology/tender-structure#Contractor"/>
+        <rdfs:domain rdf:resource="http://www.tenderintelligence.io/ontology/tender-structure#Buyers"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <skos:altLabel xml:lang="fr">Courriel</skos:altLabel>
         <skos:definition xml:lang="fr">Adresse email de contact professionnel de l&apos;entreprise ou du représentant.</skos:definition>
@@ -1489,6 +1492,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.tenderintelligence.io/ontology/tender-structure#Has_Phone">
         <rdfs:domain rdf:resource="http://www.tenderintelligence.io/ontology/tender-structure#Contractor"/>
+        <rdfs:domain rdf:resource="http://www.tenderintelligence.io/ontology/tender-structure#Buyers"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <skos:altLabel xml:lang="fr">Tél</skos:altLabel>
         <skos:definition xml:lang="fr">Numéro de téléphone fixe ou mobile pour contacter l&apos;entreprise.</skos:definition>
