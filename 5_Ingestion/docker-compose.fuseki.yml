@@ -8,7 +8,7 @@ services:
       - "3030:3030"
     environment:
       # Set fixed admin password (must match JENA_PASSWORD in .env)
-      ADMIN_PASSWORD: admin
+      ADMIN_PASSWORD: ${JENA_PASSWORD}
       # Optional: JVM memory settings
       JVM_ARGS: "-Xmx2g"
     volumes:
@@ -27,13 +27,13 @@ services:
       start_period: 40s
 
   kb_ingestion:
-    build: ./kb_ingestion_container
+    build: .
     container_name: kb_ingestion
     mem_limit: 1g
     memswap_limit: 1g
     environment:
       # Password must match Fuseki's ADMIN_PASSWORD above
-      - JENA_PASSWORD=your_secure_password_here
+      - JENA_PASSWORD=${JENA_PASSWORD}
     env_file:
       - .env
     depends_on:

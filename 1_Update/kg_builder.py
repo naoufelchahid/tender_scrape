@@ -829,28 +829,38 @@ class KGBuilder:
     def validate_shacl(self, graph: Graph) -> Tuple[bool, str]:
         """
         Validate graph against SHACL shapes.
-        
+
         Returns (conforms, results_text) tuple.
+
+        NOTE: pyshacl.validate() with large ontologies (8000+ triples) can hang indefinitely
+        due to infinite loops in the reasoning engine. Setting SKIP_SHACL=1 env var bypasses this.
         """
+        import os
+
+        # Allow skipping SHACL validation via environment variable
+        if os.getenv('SKIP_SHACL'):
+            logger.warning("SHACL validation skipped (SKIP_SHACL=1)")
+            return True, "Skipped via SKIP_SHACL env var"
+
         try:
             from pyshacl import validate
         except ImportError:
             logger.warning("pyshacl not installed - skipping SHACL validation")
             return True, "pyshacl not available"
-        
+
         if not self.shacl_file or not self.shacl_file.exists():
             logger.info("No SHACL shapes file - skipping validation")
             return True, "No SHACL file"
-        
+
         # Load SHACL shapes
         shacl_graph = Graph()
         shacl_graph.parse(self.shacl_file, format="turtle")
-        
+
         # Load ontology
         ontology_graph = Graph()
         if self.ontology_file.exists():
             ontology_graph.parse(self.ontology_file, format="xml")
-        
+
         # Validate
         conforms, results_graph, results_text = validate(
             graph,
@@ -859,13 +869,13 @@ class KGBuilder:
             inference='none',
             abort_on_first=False
         )
-        
+
         if conforms:
             logger.info("SHACL validation passed")
         else:
             logger.error("SHACL validation failed:")
             logger.error(results_text)
-        
+
         return conforms, results_text
     
     def serialize_ntriples(self, graph: Graph) -> Path:

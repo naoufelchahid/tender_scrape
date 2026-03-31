@@ -33,6 +33,18 @@ Responsibility: parse OWL at init, expose `resolve(scheme, label) → Optional[U
 
 **Fallback contract:** when `resolve()` returns `None`, caller emits a `xsd:string` literal on the corresponding fallback data property. Nothing is silently dropped.
 
+**exactMatch contract:** for every resolved SKOS concept, two triples are emitted in parallel:
+1. The domain-specific object property (e.g. `ts:Has_Activity_Domain`, `ts:Is_Located_In`, `ts:Has_Mode_Passation`, `ts:Has_Qualification`, `ts:Has_Agrement`, `ts:Is_SME_Reserved`)
+2. A `skos:exactMatch` triple from the same subject (tender or lot node) to the same concept URI
+
+Example:
+```turtle
+tender:X  ts:Has_Activity_Domain  activity:TravauxVoirie ;
+          skos:exactMatch         activity:TravauxVoirie .
+```
+
+This applies to all SKOS-resolved object properties at both tender level and lot level.
+
 ---
 
 ## 3. Ontology Changes (tender_structure_final.owl)
@@ -111,6 +123,13 @@ sh:property [
 sh:property [
     sh:path ts:samples_info ; sh:datatype xsd:string ; sh:maxCount 1 ] ;
 ```
+
+### TenderShape and LotShape — allow skos:exactMatch
+```turtle
+sh:property [
+    sh:path skos:exactMatch ; sh:class skos:Concept ] ;
+```
+Add to both TenderShape and LotShape to permit multiple `skos:exactMatch` triples without SHACL violations.
 
 ### Alignment gap fix
 TenderShape currently uses `sh:path ts:buyer → sh:class ts:Buyer`. Add a parallel constraint for `ts:Launched_by → ts:Buyers` to match the actual code pattern, or replace the existing one.
