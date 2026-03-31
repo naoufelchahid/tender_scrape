@@ -1,9 +1,9 @@
 [
     {
-        "name": "ocr-cuda-container",
+        "name": "ocr-cpu-container",
         "image": "034791378578.dkr.ecr.eu-west-3.amazonaws.com/ocr-cuda-container:latest",
-        "cpu": 3072,
-        "memory": 12288,
+        "cpu": 2048,
+        "memory": 8192,
         "essential": true,
         "environment": [
             {
@@ -23,22 +23,6 @@
                 "value": "https://sqs.eu-west-3.amazonaws.com/034791378578/CLASSIFICATION_QUEUE"
             },
             {
-                "name": "OPENROUTER_API_KEY",
-                "value": "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"
-            },
-            {
-                "name": "PRIMARY_MODEL",
-                "value": "meta-llama/llama-4-maverick"
-            },
-            {
-                "name": "FALLBACK_MODEL_1",
-                "value": "meta-llama/llama-guard-4-12b"
-            },
-            {
-                "name": "FALLBACK_MODEL_2",
-                "value": "meta-llama/llama-4-scout"
-            },
-            {
                 "name": "MAX_RETRIES",
                 "value": "3"
             },
@@ -47,23 +31,7 @@
                 "value": "900"
             },
             {
-                "name": "BATCH_SIZE",
-                "value": "10"
-            },
-            {
-                "name": "ENABLE_TABLE_ENHANCEMENT",
-                "value": "true"
-            },
-            {
-                "name": "MAX_WORKERS",
-                "value": "8"
-            },
-            {
                 "name": "CUDA_VISIBLE_DEVICES",
-                "value": ""
-            },
-            {
-                "name": "PYTORCH_CUDA_ALLOC_CONF",
                 "value": ""
             }
         ],
