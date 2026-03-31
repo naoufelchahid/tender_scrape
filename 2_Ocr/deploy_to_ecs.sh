@@ -1,6 +1,6 @@
 #!/bin/bash
 # Stage: Infrastructure Deployment
-# Deploy OCR container to AWS ECS with GPU support
+# Deploy OCR container to AWS ECS (CPU-only)
 
 set -e  # Exit on error
 
@@ -13,7 +13,7 @@ NC='\033[0m' # No Color
 # Script directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-echo -e "${GREEN}=== OCR Container ECS Deployment ===${NC}"
+echo -e "${GREEN}=== OCR Container ECS Deployment (CPU-only) ===${NC}"
 
 # Load environment variables from .env
 if [ -f "$SCRIPT_DIR/.env" ]; then
@@ -35,9 +35,9 @@ done
 
 # Configuration
 REPOSITORY_NAME="ocr-cuda-container"
-CLUSTER_NAME="ocr-gpu-cluster"
-TASK_FAMILY="ocr-cuda-task"
-SERVICE_NAME="ocr-cuda-service"
+CLUSTER_NAME="ocr-cpu-cluster"
+TASK_FAMILY="ocr-cpu-task"
+SERVICE_NAME="ocr-cpu-service"
 
 echo -e "${GREEN}Configuration:${NC}"
 echo "  Region: $AWS_REGION"
@@ -216,46 +216,32 @@ cat > /tmp/task-definition.json <<EOF
   "family": "${TASK_FAMILY}",
   "networkMode": "bridge",
   "requiresCompatibilities": ["EC2"],
-  "cpu": "4096",
-  "memory": "16384",
+  "cpu": "2048",
+  "memory": "8192",
   "executionRoleArn": "arn:aws:iam::${AWS_ACCOUNT_ID}:role/ecsOCRTaskExecutionRole",
   "taskRoleArn": "arn:aws:iam::${AWS_ACCOUNT_ID}:role/ecsOCRTaskRole",
   "containerDefinitions": [
     {
-      "name": "${REPOSITORY_NAME}",
+      "name": "ocr-cpu-container",
       "image": "${ECR_REPO_URI}:latest",
-      "cpu": 4096,
-      "memory": 16384,
+      "cpu": 2048,
+      "memory": 8192,
       "essential": true,
-      "resourceRequirements": [
-        {
-          "type": "GPU",
-          "value": "1"
-        }
-      ],
       "environment": [
         {"name": "AWS_REGION", "value": "${AWS_REGION}"},
         {"name": "S3_BUCKET_NAME", "value": "${S3_BUCKET_NAME}"},
         {"name": "OCR_QUEUE_URL", "value": "${OCR_QUEUE_URL}"},
         {"name": "CLASSIFICATION_QUEUE_URL", "value": "${CLASSIFICATION_QUEUE_URL}"},
-        {"name": "OPENROUTER_API_KEY", "value": "${OPENROUTER_API_KEY}"},
-        {"name": "PRIMARY_MODEL", "value": "${PRIMARY_MODEL:-meta-llama/llama-4-maverick}"},
-        {"name": "FALLBACK_MODEL_1", "value": "${FALLBACK_MODEL_1:-meta-llama/llama-guard-4-12b}"},
-        {"name": "FALLBACK_MODEL_2", "value": "${FALLBACK_MODEL_2:-meta-llama/llama-4-scout}"},
         {"name": "MAX_RETRIES", "value": "${MAX_RETRIES:-3}"},
         {"name": "VISIBILITY_TIMEOUT", "value": "${VISIBILITY_TIMEOUT:-900}"},
-        {"name": "BATCH_SIZE", "value": "${BATCH_SIZE:-10}"},
-        {"name": "ENABLE_TABLE_ENHANCEMENT", "value": "${ENABLE_TABLE_ENHANCEMENT:-true}"},
-        {"name": "MAX_WORKERS", "value": "${MAX_WORKERS:-10}"},
-        {"name": "CUDA_VISIBLE_DEVICES", "value": "0"},
-        {"name": "PYTORCH_CUDA_ALLOC_CONF", "value": "max_split_size_mb:512"}
+        {"name": "CUDA_VISIBLE_DEVICES", "value": ""}
       ],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
           "awslogs-group": "/ecs/${TASK_FAMILY}",
           "awslogs-region": "${AWS_REGION}",
-          "awslogs-stream-prefix": "ocr"
+          "awslogs-stream-prefix": "ocr-cpu"
         }
       }
     }
@@ -280,10 +266,10 @@ echo "  ✓ Task Definition: $TASK_FAMILY"
 echo ""
 echo -e "${YELLOW}=== Next Steps ===${NC}"
 echo ""
-echo "To run this container, you need a GPU-enabled EC2 instance:"
+echo "To run this container, launch a CPU EC2 instance (c6i.xlarge or m6i.large recommended):"
 echo ""
-echo "1. Launch a GPU instance (g4dn.xlarge recommended):"
-echo "   - Use ECS-optimized GPU AMI"
+echo "1. Launch a CPU instance:"
+echo "   - Use ECS-optimized AMI (standard, not GPU)"
 echo "   - Configure it to join cluster: $CLUSTER_NAME"
 echo ""
 echo "2. Run the task:"
