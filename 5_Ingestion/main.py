@@ -6,7 +6,7 @@ import boto3
 from datetime import datetime
 from typing import Dict, Any, List, Optional
 from src.config import settings
-from src.models import ChunkingOutput, AvisMetadata, ProductChunkMetadata, SpecificationMetadata, AdministrativeMetadata
+from src.models import ChunkingOutput, ProductChunkMetadata, SpecificationMetadata, AdministrativeMetadata
 from src.uri_builder import TS
 from src.json_to_rdf import JsonToRdfMapper
 from src.data_tester import DataTester
@@ -74,7 +74,7 @@ class KBIngestor:
             # -- Avis --
             avis_key = body.get('avis_key') or self._guess_key(folder, 'avis')
             if avis_key:
-                self._process_avis(avis_key, mapper)
+                await self._process_avis_vector(avis_key, mapper)
 
             # -- Products --
             product_key = body.get('product_key') or self._guess_key(folder, 'product')
@@ -142,16 +142,27 @@ class KBIngestor:
     # Per-document processors                                              #
     # ------------------------------------------------------------------ #
 
-    def _process_avis(self, key: str, mapper: JsonToRdfMapper):
-        """Download avis JSON and map to RDF."""
+    async def _process_avis_vector(self, key: str, mapper: JsonToRdfMapper):
+        """Download avis JSON, embed all content as a single vector, save to S3,
+        and write the vector key as ts:Has_Avis_Vector_Key on the tender node."""
         data = self._get_s3_json(key)
-        for chunk in data.get('chunks', []):
-            meta = chunk.get('metadata', {})
-            if isinstance(meta, dict) and meta.get('type') == 'avis':
-                try:
-                    mapper.map_avis(AvisMetadata(**meta))
-                except Exception as e:
-                    logger.warning(f"Failed to parse avis metadata: {e}")
+        text = " ".join(c.get('content', '') for c in data.get('chunks', []))
+        if not text.strip():
+            logger.warning(f"Avis key {key} has no text content — skipping vectorization.")
+            return
+        embeddings = await self.embedder.async_batch_get_embeddings([text])
+        if not embeddings or embeddings[0] is None:
+            logger.warning(f"Embedding failed for avis {key} — skipping vector key.")
+            return
+        vector_key = await self.vector_store.async_save_vector(
+            tender_ref=mapper.tender_ref,
+            doc_type='avis',
+            chunk_index=0,
+            h3_header=None,
+            vector=embeddings[0],
+        )
+        if vector_key:
+            mapper.map_avis_vector_key(vector_key)
 
     def _process_products(self, key: str, mapper: JsonToRdfMapper):
         """Download product JSON, extract nested products, map to RDF."""
