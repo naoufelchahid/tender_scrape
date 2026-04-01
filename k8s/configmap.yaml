@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pipeline-config
+  namespace: tender-pipeline
+data:
+  AWS_REGION: "eu-west-3"
+  S3_BUCKET_NAME: "my-tender-documents-bucket"
+  MARKDOWN_PREFIX: "markdown_tender/"
+  OCR_QUEUE_URL: "https://sqs.eu-west-3.amazonaws.com/034791378578/OCR_QUEUE"
+  CLASSIFICATION_QUEUE_URL: "https://sqs.eu-west-3.amazonaws.com/034791378578/CLASSIFICATION_QUEUE"
+  EXTRACTION_QUEUE_URL: "https://sqs.eu-west-3.amazonaws.com/034791378578/EXTRACTION_QUEUE"
+  KB_INGESTION_QUEUE_URL: "https://sqs.eu-west-3.amazonaws.com/034791378578/KB_INGESTION_QUEUE_URL"
+  JENA_ENDPOINT: "http://fuseki:3030"
+  JENA_DATASET: "tenders"
+  VECTOR_S3_BUCKET: "my-tender-vectors-bucket"
+  VECTOR_S3_PREFIX: "index/tender-index/"
+  EMBEDDING_MODEL: "openai/text-embedding-3-small"
+  PYTHONUNBUFFERED: "1"
