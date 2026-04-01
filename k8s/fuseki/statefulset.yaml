@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: fuseki
+  namespace: tender-pipeline
+spec:
+  serviceName: fuseki
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fuseki
+  template:
+    metadata:
+      labels:
+        app: fuseki
+    spec:
+      containers:
+        - name: fuseki
+          image: stain/jena-fuseki:latest
+          imagePullPolicy: Always
+          env:
+            - name: JVM_ARGS
+              value: "-Xmx2g"
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: fuseki-auth
+                  key: JENA_PASSWORD
+          ports:
+            - containerPort: 3030
+              name: sparql
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "2.5Gi"
+            limits:
+              cpu: "1000m"
+              memory: "3Gi"
+          volumeMounts:
+            - name: fuseki-storage
+              mountPath: /fuseki
+          livenessProbe:
+            httpGet:
+              path: /$/ping
+              port: 3030
+            initialDelaySeconds: 40
+            periodSeconds: 30
+            timeoutSeconds: 10
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /$/ping
+              port: 3030
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+      volumes:
+        - name: fuseki-storage
+          persistentVolumeClaim:
+            claimName: fuseki-data
