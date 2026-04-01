@@ -1,72 +1,5 @@
-from typing import List, Optional, Union, Any, Literal, Dict
+from typing import List, Optional, Union, Any, Literal
 from pydantic import BaseModel, Field, field_validator, ConfigDict
-
-
-class AvisMetadata(BaseModel):
-    """Metadata extracted from avis_fr or avis_ar."""
-    model_config = ConfigDict(populate_by_name=True)
-
-    type: Literal["avis"] = "avis"
-    objet: Optional[str] = Field(None, description="The object of the tender")
-    mode_de_soumission: Optional[str] = Field(None, alias="mode de soumission")
-    mode_de_passation: Optional[str] = Field(None, alias="mode de passation")
-    qualifications: Optional[str] = None
-    agrements: Optional[str] = None
-    budget: Optional[Union[float, str]] = None
-    location: Optional[str] = None
-    deadline: Optional[str] = None
-    launch_date: Optional[str] = None
-    adjudication_date: Optional[str] = None
-    execution_start_date: Optional[str] = None
-    caution: Optional[Union[float, str]] = None
-    contact: Optional[str] = None
-    phone: Optional[str] = None
-    lot_number: str = "0"
-    category: Optional[str] = Field(None, description="Category: Travaux, Fournitures, or Services (maps to SKOS concept)")
-    lots: Optional[Dict[str, Any]] = Field(None, description="Multi-lot data keyed by lot label")
-
-    @field_validator('budget', 'caution', mode='before')
-    @classmethod
-    def parse_numeric(cls, v):
-        if v == "" or v is None:
-            return None
-        if isinstance(v, str):
-            clean = v.replace('\xa0', '').replace(' ', '').replace(',', '.').replace('DH', '').strip()
-            try:
-                return float(clean)
-            except ValueError:
-                return v
-        return v
-
-
-class LotMetadata(BaseModel):
-    """Metadata for a single lot inside a multi-lot tender."""
-    model_config = ConfigDict(populate_by_name=True, extra="allow")
-
-    description: Optional[str] = None
-    estimation_dhs: Optional[Union[float, str]] = None
-    caution_provisoire: Optional[Union[float, str]] = None
-    qualifications: Optional[str] = None
-    agrements: Optional[str] = None
-    prospectus_documents: Optional[str] = None
-    reunion_details: Optional[str] = None
-    visite_lieux_details: Optional[str] = None
-    variante: Optional[bool] = None
-    environmental_considerations: Optional[str] = None
-    reserved_pme: Optional[bool] = None
-
-    @field_validator('estimation_dhs', 'caution_provisoire', mode='before')
-    @classmethod
-    def parse_numeric(cls, v):
-        if v == "" or v is None:
-            return None
-        if isinstance(v, str):
-            clean = v.replace('\xa0', '').replace(' ', '').replace(',', '.').replace('DH', '').strip()
-            try:
-                return float(clean)
-            except ValueError:
-                return v
-        return v
 
 
 class SpecificationMetadata(BaseModel):
@@ -136,7 +69,6 @@ class ChunkItem(BaseModel):
     """Represents a single extracted segment and its associated metadata."""
     content: str = Field(..., description="The verbatim text extracted from the document.")
     metadata: Union[
-        AvisMetadata,
         SpecificationMetadata,
         AdministrativeMetadata,
         ProductChunkMetadata,

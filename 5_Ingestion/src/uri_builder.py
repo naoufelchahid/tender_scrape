@@ -54,10 +54,6 @@ def get_category_uri(category_name: str) -> URIRef:
     else:
         return ACTIVITY[slugify(category_name)]
 
-def get_lot_uri(tender_ref: str, lot_index: int) -> URIRef:
-    """URI for a lot node: ts:Lot_{slug}_{index}"""
-    return TS[f"Lot_{slugify(tender_ref)}_{lot_index}"]
-
 def get_spec_chunk_uri(tender_ref: str, chunk_index: int) -> URIRef:
     """URI for a specification chunk node (TenderSpecifications class)."""
     return TS[f"SpecChunk_{slugify(tender_ref)}_{chunk_index}"]

@@ -1,5 +1,5 @@
 from rdflib import Graph, Literal, RDF, XSD
-from typing import List, Dict, Any, Optional
+from typing import List, Any, Optional
 from datetime import datetime
 import logging
 
@@ -19,11 +19,11 @@ def parse_date(date_str: str):
             return None
 
 
-from .models import AvisMetadata, LotMetadata, ProductChunkMetadata, SpecificationMetadata, AdministrativeMetadata, ChunkItem
+from .models import ProductChunkMetadata, SpecificationMetadata, AdministrativeMetadata, ChunkItem
 from .uri_builder import (
     get_tender_uri, get_bordereau_uri,
     get_article_uri, get_specification_uri, get_reglement_uri,
-    get_lot_uri, get_spec_chunk_uri, get_admin_chunk_uri,
+    get_spec_chunk_uri, get_admin_chunk_uri,
     TS
 )
 
@@ -46,125 +46,12 @@ class JsonToRdfMapper:
         self.graph.bind("ts", TS)
 
     # ------------------------------------------------------------------ #
-    # Avis mapping                                                         #
+    # Avis vector key                                                      #
     # ------------------------------------------------------------------ #
 
-    def map_avis(self, metadata: AvisMetadata):
-        """Map Avis supplemental data properties to the existing Tender node.
-
-        Does NOT re-create core tender data (type, buyer, category, region, deadline)
-        that already exists in the KB from the migration container.
-        """
-        if metadata.objet:
-            self.graph.add((self.tender_uri, TS.Has_Object, Literal(metadata.objet, datatype=XSD.string)))
-
-        # Mode properties
-        if metadata.mode_de_soumission:
-            self.graph.add((self.tender_uri, TS.Has_Mode_Soumission, Literal(metadata.mode_de_soumission, datatype=XSD.string)))
-        if metadata.mode_de_passation:
-            self.graph.add((self.tender_uri, TS.Has_Mode_Passation, Literal(metadata.mode_de_passation, datatype=XSD.string)))
-
-        # Multilot flag
-        try:
-            lot_num = int(metadata.lot_number)
-        except (ValueError, TypeError):
-            lot_num = 1 if str(metadata.lot_number).lower() in ("lot unique", "0") else 0
-
-        is_multilot = lot_num > 1
-        self.graph.add((self.tender_uri, TS.Has_Multilot, Literal(is_multilot, datatype=XSD.boolean)))
-
-        if metadata.budget:
-            val = float(metadata.budget) if isinstance(metadata.budget, (int, float)) else metadata.budget
-            self.graph.add((self.tender_uri, TS.Has_Budget, Literal(val, datatype=XSD.float)))
-
-        # Parse dates — launch and deadline already exist from migration, not re-added here
-        d_launch = parse_date(metadata.launch_date)
-        d_deadline = parse_date(metadata.deadline)
-        d_adj = parse_date(metadata.adjudication_date)
-        d_exec = parse_date(metadata.execution_start_date)
-
-        # Avis-specific dates (not in migration)
-        if d_adj:
-            self.graph.add((self.tender_uri, TS.hasAdjudicationDate, Literal(d_adj, datatype=XSD.date)))
-        if d_exec:
-            self.graph.add((self.tender_uri, TS.hasExecutionStartDate, Literal(d_exec, datatype=XSD.date)))
-
-        # Duration calculations (enrichment computed fields)
-        if d_launch and d_deadline:
-            duration = (d_deadline - d_launch).days
-            if duration >= 0:
-                self.graph.add((self.tender_uri, TS.durationLaunchToDeadlineDays, Literal(duration, datatype=XSD.integer)))
-            else:
-                logger.warning(f"Negative launch-deadline duration for {self.tender_ref}")
-
-        if d_deadline and d_adj:
-            duration = (d_adj - d_deadline).days
-            if duration >= 0:
-                self.graph.add((self.tender_uri, TS.durationDeadlineToAdjudicationDays, Literal(duration, datatype=XSD.integer)))
-
-        if d_adj and d_exec:
-            duration = (d_exec - d_adj).days
-            if duration >= 0:
-                self.graph.add((self.tender_uri, TS.durationAdjudicationToExecutionDays, Literal(duration, datatype=XSD.integer)))
-
-        if metadata.caution:
-            val = float(metadata.caution) if isinstance(metadata.caution, (int, float)) else metadata.caution
-            self.graph.add((self.tender_uri, TS.Has_Caution, Literal(val, datatype=XSD.float)))
-
-        # Single-lot qualifications
-        if not is_multilot and metadata.qualifications:
-            self.graph.add((self.tender_uri, TS.Has_Qualifications, Literal(metadata.qualifications, datatype=XSD.string)))
-
-        # Multi-lot nodes
-        if is_multilot and metadata.lots:
-            self._map_lots(metadata.lots)
-
-    # ------------------------------------------------------------------ #
-    # Lot mapping                                                          #
-    # ------------------------------------------------------------------ #
-
-    def _map_lots(self, lots_data: Dict[str, Any]):
-        """Create Lot nodes for each entry in lots_data."""
-        for idx, (lot_label, lot_raw) in enumerate(lots_data.items(), start=1):
-            lot_uri = get_lot_uri(self.tender_ref, idx)
-            self.graph.add((lot_uri, RDF.type, TS.Lots))
-            self.graph.add((lot_uri, TS.Has_Lot_ID, Literal(lot_label, datatype=XSD.string)))
-
-            # Parse into LotMetadata (flexible — extra fields allowed)
-            if isinstance(lot_raw, dict):
-                try:
-                    lot = LotMetadata(**lot_raw)
-                except Exception:
-                    lot = LotMetadata()
-            else:
-                lot = LotMetadata()
-
-            if lot.description:
-                self.graph.add((lot_uri, TS.Has_Lot_Description, Literal(lot.description, datatype=XSD.string)))
-            if lot.estimation_dhs is not None:
-                self.graph.add((lot_uri, TS.Has_Budget, Literal(float(lot.estimation_dhs), datatype=XSD.float)))
-            if lot.caution_provisoire is not None:
-                self.graph.add((lot_uri, TS.Has_Caution, Literal(float(lot.caution_provisoire), datatype=XSD.float)))
-            if lot.qualifications:
-                self.graph.add((lot_uri, TS.Has_Qualifications, Literal(lot.qualifications, datatype=XSD.string)))
-            if lot.agrements:
-                self.graph.add((lot_uri, TS.Has_Agrements, Literal(lot.agrements, datatype=XSD.string)))
-            if lot.prospectus_documents:
-                self.graph.add((lot_uri, TS.Has_Prospectus_Documents, Literal(lot.prospectus_documents, datatype=XSD.string)))
-            if lot.reunion_details:
-                self.graph.add((lot_uri, TS.Has_Reunion_Details, Literal(lot.reunion_details, datatype=XSD.string)))
-            if lot.visite_lieux_details:
-                self.graph.add((lot_uri, TS.Has_Visite_Details, Literal(lot.visite_lieux_details, datatype=XSD.string)))
-            if lot.variante is not None:
-                self.graph.add((lot_uri, TS.Has_Variante, Literal(lot.variante, datatype=XSD.boolean)))
-            if lot.environmental_considerations:
-                self.graph.add((lot_uri, TS.Has_Environmental_Considerations, Literal(lot.environmental_considerations, datatype=XSD.string)))
-            if lot.reserved_pme is not None:
-                self.graph.add((lot_uri, TS.Reserved_For_PME, Literal(lot.reserved_pme, datatype=XSD.boolean)))
-
-            # Bidirectional link
-            self.graph.add((self.tender_uri, TS.Has_Lot, lot_uri))
-            self.graph.add((lot_uri, TS.Is_Lot_Of, self.tender_uri))
+    def map_avis_vector_key(self, vector_key: str):
+        """Write the avis embedding vector S3 key onto the existing tender node."""
+        self.graph.add((self.tender_uri, TS.Has_Avis_Vector_Key, Literal(vector_key, datatype=XSD.string)))
 
     # ------------------------------------------------------------------ #
     # Product mapping                                                      #
