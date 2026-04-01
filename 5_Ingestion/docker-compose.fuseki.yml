@@ -50,6 +50,7 @@ networks:
   tender_network:
     driver: bridge
     name: tender_network
+    external: true
 
 volumes:
   fuseki_data:

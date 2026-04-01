@@ -1,13 +1,16 @@
 import os
 import logging
 from typing import List, Optional
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, Session
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.orm import sessionmaker, Session, declarative_base
 from contextlib import contextmanager
 
-# Import shared models from database package
-# Docker PYTHONPATH=/app is set in Dockerfile
-from database.models import Tender, LotConstitution, Article, Base
+Base = declarative_base()
+
+class Tender(Base):
+    __tablename__ = "tenders"
+    id = Column(Integer, primary_key=True)
+    reference = Column(String, unique=True, index=True)
 
 logger = logging.getLogger(__name__)
 

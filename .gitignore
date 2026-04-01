@@ -1,25 +1,19 @@
-# Ignore Mac system files
-.DS_Store
-
-# Ignore dependencies
-node_modules/
-dist/
-.venv/
-venv/
-# Ignore environment variables (passwords/API keys)
-.env
-
-# Ignore logs
-*.log
-
 
 .agents/
-.vscode/
-__pycache__
-
-
 .claude/
-.worktrees/
-
-# Kubernetes secrets (never commit real values)
+dist/
+.DS_Store
+.env
+# Ignore dependencies
+# Ignore environment variables (passwords/API keys)
+# Ignore logs
+# Ignore Mac system files
 k8s/secrets/secrets.yaml
+# Kubernetes secrets (never commit real values)
+*.log
+node_modules/
+__pycache__
+.venv/
+venv/
+.vscode/
+.worktrees/

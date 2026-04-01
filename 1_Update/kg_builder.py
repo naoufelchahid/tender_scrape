@@ -466,6 +466,7 @@ class KGBuilder:
 
         # ── SKOS: is_sme_reserved ─────────────────────────────────────────
         if tender.get('is_sme_reserved') is True:
+            g.add((TS.IsSmeReserved, RDF.type, SKOS.Concept))
             g.add((tender_uri, TS.Is_SME_Reserved, TS.IsSmeReserved))
             g.add((tender_uri, SKOS.exactMatch, TS.IsSmeReserved))
 
@@ -660,6 +661,7 @@ class KGBuilder:
                    Literal(str(env), datatype=XSD.string)))
 
         if parse_bool_str(lot.get('Reserve_TPE_PME')) is True:
+            g.add((TS.IsSmeReserved, RDF.type, SKOS.Concept))
             g.add((lot_uri, TS.Is_SME_Reserved, TS.IsSmeReserved))
             g.add((lot_uri, SKOS.exactMatch, TS.IsSmeReserved))
     

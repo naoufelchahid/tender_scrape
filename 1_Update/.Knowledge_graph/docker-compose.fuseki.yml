@@ -26,25 +26,6 @@ services:
       retries: 3
       start_period: 40s
 
-  kb_ingestion:
-    build: ./kb_ingestion_container
-    container_name: kb_ingestion
-    mem_limit: 1g
-    memswap_limit: 1g
-    environment:
-      # Password must match Fuseki's ADMIN_PASSWORD above
-      - JENA_PASSWORD=your_secure_password_here
-    env_file:
-      - .env
-    depends_on:
-      fuseki:
-        condition: service_healthy
-    networks:
-      - tender_network
-    restart: unless-stopped
-    # Optional: Mount logs for debugging
-    volumes:
-      - ./logs:/app/logs
 
 networks:
   tender_network:

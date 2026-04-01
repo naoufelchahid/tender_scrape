@@ -20,7 +20,7 @@ from src.models import (
     ProductItemMetadata, ProductChunkMetadata
 )
 from src.prompts import (
-    BASE_CONTEXT, AVIS_INSTRUCTION, AVIS_PROMPT,
+    BASE_CONTEXT,
     PRODUCT_INSTRUCTION, PRODUCT_EXAMPLE, PRODUCT_PROMPT
 )
 
@@ -67,8 +67,10 @@ class DocumentChunker:
             
             if target_avis:
                 best_avis = max(target_avis, key=lambda d: len(d.content))
-                logger.info(f"Selected Avis for LLM: {best_avis.original_filename} ({best_avis.doc_type})")
-                chunks = await self._process_with_llm(best_avis, tender_ref, tender_id)
+                logger.info(f"Selected Avis: {best_avis.original_filename} ({best_avis.doc_type})")
+                cleaned_content = self._clean_with_decompose(best_avis.content, 'avis')
+                chunk_item = ChunkItem(content=cleaned_content, metadata={"type": "avis"})
+                chunks = self._finalize_chunks([chunk_item], tender_ref, tender_id, 'avis')
                 all_chunks_by_type['avis'].extend(chunks)
 
         # 2. Process others in parallel

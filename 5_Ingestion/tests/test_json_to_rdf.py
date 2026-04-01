@@ -1,70 +1,8 @@
 import pytest
 from rdflib import RDF, XSD, Literal
 from src.json_to_rdf import JsonToRdfMapper
-from src.models import AvisMetadata, ProductChunkMetadata, SpecificationMetadata, AdministrativeMetadata, ChunkItem
-from src.uri_builder import TS, get_spec_chunk_uri, get_admin_chunk_uri, get_lot_uri
-
-
-def test_map_avis_basic():
-    """map_avis() adds supplemental properties but NOT type, buyer, category, or region."""
-    mapper = JsonToRdfMapper("AO_TEST_001")
-    metadata = AvisMetadata(
-        objet="Test Tender Object",
-        budget=1000000.50,
-        contact="The Big Buyer",
-        location="Casablanca",
-        mode_de_soumission="Electronique",
-        mode_de_passation="Appel d'offres ouvert",
-        lot_number="0",
-    )
-
-    mapper.map_avis(metadata)
-    g = mapper.graph
-
-    tender = mapper.tender_uri
-
-    # Core enrichment properties are set
-    assert (tender, TS.Has_Object, Literal("Test Tender Object", datatype=XSD.string)) in g
-    assert (tender, TS.Has_Budget, Literal(1000000.50, datatype=XSD.float)) in g
-    assert (tender, TS.Has_Mode_Soumission, Literal("Electronique", datatype=XSD.string)) in g
-    assert (tender, TS.Has_Mode_Passation, Literal("Appel d'offres ouvert", datatype=XSD.string)) in g
-    assert (tender, TS.Has_Multilot, Literal(False, datatype=XSD.boolean)) in g
-
-    # Core tender data owned by migration_container must NOT be re-created
-    assert (tender, RDF.type, TS.Tenders) not in g
-    assert len(list(g.objects(tender, TS.Launched_by))) == 0
-    assert len(list(g.objects(tender, TS.Has_Category))) == 0
-    assert len(list(g.objects(tender, TS.Is_Located_In))) == 0
-    # Deadline and launch date are already in KB from migration — not re-added
-    assert len(list(g.objects(tender, TS.Has_Deadline))) == 0
-    assert len(list(g.objects(tender, TS.hasLaunchDate))) == 0
-
-
-def test_map_avis_multilot():
-    """Multi-lot tenders create Lot nodes linked to the tender."""
-    mapper = JsonToRdfMapper("AO_MULTILOT_001")
-    metadata = AvisMetadata(
-        objet="Multi-lot tender",
-        contact="Buyer Org",
-        lot_number="2",
-        lots={
-            "Lot 1": {"description": "Génie civil", "estimation_dhs": 500000.0},
-            "Lot 2": {"description": "Equipements", "estimation_dhs": 300000.0},
-        }
-    )
-
-    mapper.map_avis(metadata)
-    g = mapper.graph
-
-    tender = mapper.tender_uri
-    assert (tender, TS.Has_Multilot, Literal(True, datatype=XSD.boolean)) in g
-
-    lots = list(g.objects(tender, TS.Has_Lot))
-    assert len(lots) == 2
-
-    lot_1_uri = get_lot_uri("AO_MULTILOT_001", 1)
-    assert (lot_1_uri, RDF.type, TS.Lots) in g
-    assert (lot_1_uri, TS.Has_Lot_Description, Literal("Génie civil", datatype=XSD.string)) in g
+from src.models import ProductChunkMetadata, SpecificationMetadata, AdministrativeMetadata, ChunkItem
+from src.uri_builder import TS, get_spec_chunk_uri, get_admin_chunk_uri
 
 
 def test_map_products():
@@ -162,3 +100,18 @@ def test_extract_nested_products():
     designations = {p.designation for p in products}
     assert "Béton" in designations
     assert "Acier" in designations
+
+
+def test_map_avis_vector_key():
+    """map_avis_vector_key() writes ts:Has_Avis_Vector_Key on the tender node."""
+    mapper = JsonToRdfMapper("AO_TEST_AVIS_VEC")
+    vector_key = "index/tender-index/AO_TEST_AVIS_VEC/avis_chunk_0_vector.json"
+
+    mapper.map_avis_vector_key(vector_key)
+    g = mapper.graph
+
+    assert (
+        mapper.tender_uri,
+        TS.Has_Avis_Vector_Key,
+        Literal(vector_key, datatype=XSD.string),
+    ) in g

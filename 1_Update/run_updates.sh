@@ -41,7 +41,7 @@ PROCESSED_FILE="processed_tenders.json"
 METADATA_DIR="tenders_metadata"
 DOWNLOADS_DIR="downloads"
 OUTPUT_DIR="output"
-ONTOLOGY="tender_structure.owl"
+ONTOLOGY="tender_structure_final.owl"
 SHACL="tender_shacl_shapes.ttl"
 
 # ---------------------------------------------------------------------------
@@ -76,6 +76,16 @@ count_metadata_files() {
     fi
     find "${METADATA_DIR}" -maxdepth 1 -name '*.json' | wc -l
 }
+
+# ---------------------------------------------------------------------------
+# Load environment variables
+# ---------------------------------------------------------------------------
+if [[ -f ".env" ]]; then
+    set -a
+    # shellcheck source=.env
+    source .env
+    set +a
+fi
 
 # ---------------------------------------------------------------------------
 # Pre-flight checks

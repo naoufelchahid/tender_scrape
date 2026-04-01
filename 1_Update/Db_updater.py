@@ -692,7 +692,7 @@ class TenderDownloader:
             logger.info("Clicked search button")
             
             # Wait for page load
-            await page.wait_for_load_state('networkidle')
+            await page.wait_for_load_state('load', timeout=30000)
             await human_delay(3, 5)
             
             # Check if tender was found
@@ -705,7 +705,7 @@ class TenderDownloader:
             
             # Navigate to first tender (should be unique with ref + buyer)
             await tender_links[0].click()
-            await page.wait_for_load_state('networkidle')
+            await page.wait_for_load_state('load', timeout=30000)
             await human_delay(2, 3)
             
             logger.info("✅ Successfully navigated to tender detail page")
@@ -746,7 +746,7 @@ class TenderDownloader:
             await dce_link.click()
             logger.info("Clicked on document download link")
             
-            await page.wait_for_load_state('networkidle')
+            await page.wait_for_load_state('load', timeout=30000)
             await human_delay(2, 3)
             
             # Retry loop for form submission (max 3 attempts)
@@ -796,7 +796,7 @@ class TenderDownloader:
                 if valider_button:
                     await valider_button.click()
                     logger.info("Form submitted")
-                    await page.wait_for_load_state('networkidle')
+                    await page.wait_for_load_state('load', timeout=30000)
                     await human_delay(3, 5)
                 
                 # Check for error message
@@ -1066,17 +1066,18 @@ class TenderDownloader:
         try:
             await page.goto(
                 'http://www.marchespublics.gov.ma/?page=entreprise.EntrepriseAdvancedSearch&searchAnnCons',
-                wait_until='domcontentloaded'
+                wait_until='domcontentloaded',
+                timeout=60000
             )
             await human_delay(1, 2)
-            
+
             # Fill reference
             ref_input = await page.query_selector('input#ctl0_CONTENU_PAGE_AdvancedSearch_reference')
             if not ref_input:
                 logger.error("Reference input field not found")
                 return False
             await ref_input.fill(original_reference)
-            
+
             # Search - Updated ID
             search_btn = await page.query_selector('input#ctl0_CONTENU_PAGE_AdvancedSearch_lancerRecherche')
             if not search_btn:
@@ -1084,9 +1085,9 @@ class TenderDownloader:
                 # Fallback to any submit button in search area
                 search_btn = await page.query_selector('input[type="submit"][id*="Search"]')
                 if not search_btn: return False
-            
+
             await search_btn.click()
-            await page.wait_for_load_state('networkidle')
+            await page.wait_for_load_state('load', timeout=30000)
             await human_delay(2, 3)
             
             # Find result and click download icon (Step 3 user request: picto-acces-consultation.gif)
@@ -1095,9 +1096,9 @@ class TenderDownloader:
             if not download_icon:
                 logger.error("Download (consultation access) link not found in results")
                 return False
-            
+
             await download_icon.click()
-            await page.wait_for_load_state('networkidle')
+            await page.wait_for_load_state('load', timeout=30000)
             logger.info("✅ Navigated to consultation download page")
             return True
             
@@ -1144,28 +1145,40 @@ class TenderDownloader:
             # ── Step 4: Lot details (popup) ────────────────────────────────
             lots_navigated = False
             lots_link = await page.query_selector('a#ctl0_CONTENU_PAGE_idEntrepriseConsultationSummary_linkDetailLots')
-            
+
             if lots_link:
                 is_visible = await lots_link.is_visible()
                 href = await lots_link.get_attribute('href') or ""
-                
+
                 if is_visible and 'PopUpDetailLots' in href:
                     logger.info("Opening lots popup...")
-                    try:
-                        async with page.expect_popup(timeout=60000) as popup_info:
-                            await lots_link.click(force=True)
-                        popup = await popup_info.value
-                        await popup.wait_for_load_state('networkidle')
-                        
-                        popup_html = await popup.content()
-                        lots_data = await self.extract_lot_metadata(popup_html)
-                        full_metadata['lots'] = lots_data
-                        
-                        await popup.close()
-                        lots_navigated = True
-                        logger.info(f"✅ Successfully extracted metadata for {len(lots_data)} lots")
-                    except Exception as lot_err:
-                        logger.error(f"Failed to navigate/extract lots: {lot_err}")
+                    # Retry logic with page refresh for frozen pages
+                    for attempt in range(1, 3):
+                        try:
+                            async with page.expect_popup(timeout=60000) as popup_info:
+                                await lots_link.click(force=True)
+                            popup = await popup_info.value
+                            # Use 'load' instead of 'networkidle' + shorter timeout to avoid hanging
+                            await popup.wait_for_load_state('load', timeout=30000)
+
+                            popup_html = await popup.content()
+                            lots_data = await self.extract_lot_metadata(popup_html)
+                            full_metadata['lots'] = lots_data
+
+                            await popup.close()
+                            lots_navigated = True
+                            logger.info(f"✅ Successfully extracted metadata for {len(lots_data)} lots")
+                            break  # Success, exit retry loop
+                        except Exception as lot_err:
+                            await popup.close() if 'popup' in locals() else None
+                            if attempt < 2:
+                                logger.warning(f"Attempt {attempt} failed: {lot_err}. Refreshing page and retrying...")
+                                await page.reload(wait_until='domcontentloaded')
+                                await human_delay(2, 3)
+                                # Re-query the lots link after page refresh
+                                lots_link = await page.query_selector('a#ctl0_CONTENU_PAGE_idEntrepriseConsultationSummary_linkDetailLots')
+                            else:
+                                logger.error(f"Failed to extract lots after {attempt} attempts: {lot_err}")
                 else:
                     logger.info("Lots link present but not active/visible for detail view")
             else:
@@ -1217,7 +1230,7 @@ class TenderDownloader:
 
                     await human_scroll(page)
                     await dl_link.click()
-                    await page.wait_for_load_state('networkidle')
+                    await page.wait_for_load_state('load', timeout=30000)
                     await human_delay(2, 3)
 
                     # Fill identity form if download requires it
@@ -1252,7 +1265,7 @@ class TenderDownloader:
                             )
                             if valider:
                                 await valider.click()
-                                await page.wait_for_load_state('networkidle')
+                                await page.wait_for_load_state('load', timeout=30000)
                                 await human_delay(3, 5)
                             err = await page.query_selector('div#divValidationSummary')
                             if err and await err.is_visible():
