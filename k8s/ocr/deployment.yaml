@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ocr
+  namespace: tender-pipeline
+  labels:
+    app: ocr
+    stage: "2"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ocr
+  template:
+    metadata:
+      labels:
+        app: ocr
+        stage: "2"
+    spec:
+      containers:
+        - name: ocr
+          image: tender-ocr:latest
+          imagePullPolicy: Never
+          resources:
+            requests:
+              cpu: "2000m"
+              memory: "8Gi"
+            limits:
+              cpu: "2000m"
+              memory: "8Gi"
+          envFrom:
+            - configMapRef:
+                name: pipeline-config
+          env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws-credentials
+                  key: AWS_ACCESS_KEY_ID
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-credentials
+                  key: AWS_SECRET_ACCESS_KEY
+            - name: CUDA_VISIBLE_DEVICES
+              value: ""
+            - name: OMP_NUM_THREADS
+              value: "2"
