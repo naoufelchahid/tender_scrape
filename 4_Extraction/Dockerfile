@@ -11,8 +11,8 @@ WORKDIR /app
 COPY 4_Extraction/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
-COPY . .
+# Copy application code (4_Extraction/* → /app/*)
+COPY 4_Extraction/ .
 
 # Set Python path to include src
 ENV PYTHONPATH=/app
