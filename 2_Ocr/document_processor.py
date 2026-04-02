@@ -8,49 +8,40 @@ import yaml
 import subprocess
 import shutil
 from pathlib import Path
-from typing import Dict, Any, Optional
 
-
+import torch
 from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.base_models import InputFormat
-from docling.datamodel.pipeline_options import PdfPipelineOptions, TableStructureOptions
+from docling.datamodel.pipeline_options import (
+    PdfPipelineOptions,
+    TableStructureOptions,
+    AcceleratorOptions,
+    AcceleratorDevice,
+)
 from docling.backend.pypdfium2_backend import PyPdfiumDocumentBackend
 
 from logger import logger
 from config import Config
 
 
-def _detect_gpu_availability() -> bool:
+def _assert_gpu_available() -> None:
     """
-    Check if CUDA GPU is available for PyTorch.
-    
-    Returns:
-        True if GPU is available and enabled, False otherwise.
+    Assert that a CUDA GPU is available. Raises RuntimeError at startup if not.
+    This service requires GPU — there is no CPU fallback.
     """
-    if not Config.USE_GPU:
-        logger.info("⚙️ GPU disabled via configuration (USE_GPU=false)")
-        return False
-    
-    try:
-        import torch
-        available = torch.cuda.is_available()
-        if available:
-            device_name = torch.cuda.get_device_name(0)
-            total_memory = torch.cuda.get_device_properties(0).total_memory / 1024**3
-            logger.info("=" * 80)
-            logger.info(f"🚀 GPU DETECTED: {device_name}")
-            logger.info(f"📊 VRAM: {total_memory:.2f} GB")
-            logger.info(f"🔧 CUDA Version: {torch.version.cuda}")
-            logger.info("=" * 80)
-        else:
-            logger.warning("⚠️ GPU not detected, falling back to CPU")
-        return available
-    except ImportError:
-        logger.warning("⚠️ PyTorch not installed, using CPU mode")
-        return False
-    except Exception as e:
-        logger.error(f"⚠️ Error detecting GPU: {e}, using CPU mode")
-        return False
+    if not torch.cuda.is_available():
+        raise RuntimeError(
+            "No CUDA GPU detected. This service requires GPU. "
+            "Ensure the container is started with --gpus all or equivalent."
+        )
+
+    device_name = torch.cuda.get_device_name(0)
+    total_memory = torch.cuda.get_device_properties(0).total_memory / 1024**3
+    logger.info("=" * 80)
+    logger.info(f"🚀 GPU DETECTED: {device_name}")
+    logger.info(f"📊 VRAM: {total_memory:.2f} GB")
+    logger.info(f"🔧 CUDA Version: {torch.version.cuda}")
+    logger.info("=" * 80)
 
 
 class DocumentProcessor:
@@ -62,15 +53,20 @@ class DocumentProcessor:
     
     def __init__(self):
         """Initialize Docling converter with OCR and Table options."""
-        # Detect GPU availability
-        self.gpu_available = _detect_gpu_availability()
-        
+        # Fail fast if no GPU — this service does not support CPU fallback
+        _assert_gpu_available()
+
         # Configure Pipeline Options for OCR and Tables
         pipeline_options = PdfPipelineOptions()
-        pipeline_options.do_ocr = True  # Enable OCR for scanned pages
-        pipeline_options.do_table_structure = True # Enable specific table structure recognition
-        
-        # Configure Table Options (ensure markdown output is optimized)
+        pipeline_options.do_ocr = True
+        pipeline_options.do_table_structure = True
+
+        # Explicitly target CUDA — Docling must not fall back to CPU
+        pipeline_options.accelerator_options = AcceleratorOptions(
+            device=AcceleratorDevice.CUDA
+        )
+
+        # Configure Table Options
         table_options = TableStructureOptions()
         pipeline_options.table_structure_options = table_options
 
@@ -78,13 +74,12 @@ class DocumentProcessor:
             format_options={
                 InputFormat.PDF: PdfFormatOption(
                     pipeline_options=pipeline_options,
-                    backend=PyPdfiumDocumentBackend # Use robust backend
+                    backend=PyPdfiumDocumentBackend
                 )
             }
         )
-        
-        device_info = "GPU" if self.gpu_available else "CPU"
-        logger.info(f"✅ DocumentProcessor initialized with Docling (OCR enabled, Device: {device_info})")
+
+        logger.info("✅ DocumentProcessor initialized with Docling (OCR enabled, Device: CUDA)")
 
     def process(self, file_path: str) -> str:
         """
