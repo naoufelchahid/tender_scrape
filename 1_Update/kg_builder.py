@@ -317,6 +317,15 @@ class KGBuilder:
             self.s3_client = None
             logger.warning("S3 bucket not configured - upload will be skipped")
 
+        # Initialize SQS client for posting to OCR_QUEUE
+        self.sqs_client = boto3.client(
+            'sqs',
+            region_name=os.getenv('AWS_REGION', 'eu-west-3'),
+            aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+            aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY')
+        )
+        self.ocr_queue_url = os.getenv('OCR_QUEUE_URL')
+
     
     def load_processed_tenders(self) -> List[Dict]:
         """Load processed tenders from JSON file."""
@@ -922,6 +931,57 @@ class KGBuilder:
             logger.error(f"S3 upload failed: {e}")
             return False
     
+    def post_tenders_to_ocr_queue(self, tenders: List[Dict]) -> bool:
+        """
+        Post tender references to SQS OCR_QUEUE for microservices pipeline.
+
+        Args:
+            tenders: List of processed tender dictionaries
+
+        Returns:
+            True if successful, False otherwise
+        """
+        if not self.ocr_queue_url:
+            logger.warning("OCR_QUEUE_URL not configured - skipping SQS posting")
+            return True  # Don't fail if queue not configured
+
+        try:
+            posted_count = 0
+            failed_count = 0
+
+            for tender in tenders:
+                tender_ref = tender.get('reference')
+                s3_folder = tender.get('s3_folder')
+
+                if not tender_ref or not s3_folder:
+                    logger.warning(f"Skipping tender missing reference or s3_folder: {tender_ref}")
+                    failed_count += 1
+                    continue
+
+                # Prepare message for OCR_QUEUE
+                message_body = {
+                    'tender_ref': tender_ref,
+                    's3_paths': [s3_folder]  # 2_Ocr can handle folder paths
+                }
+
+                try:
+                    self.sqs_client.send_message(
+                        QueueUrl=self.ocr_queue_url,
+                        MessageBody=json.dumps(message_body)
+                    )
+                    posted_count += 1
+                    logger.info(f"Posted to OCR_QUEUE: {tender_ref}")
+                except Exception as e:
+                    logger.error(f"Failed to post {tender_ref} to OCR_QUEUE: {e}")
+                    failed_count += 1
+
+            logger.info(f"OCR_QUEUE posting: {posted_count} succeeded, {failed_count} failed")
+            return failed_count == 0
+
+        except Exception as e:
+            logger.error(f"Error posting to OCR_QUEUE: {e}")
+            return False
+
     def run(self) -> int:
         """
         Main orchestrator for Phase 3.
@@ -995,6 +1055,13 @@ class KGBuilder:
         if self.s3_client:
             logger.info(f"S3 prefix: s3://{self.s3_bucket}/{self.s3_prefix}")
         logger.info("=" * 60)
+
+        # Post tender references to OCR_QUEUE to start microservices pipeline
+        logger.info("Posting tenders to OCR_QUEUE for microservices pipeline...")
+        if self.post_tenders_to_ocr_queue(tenders):
+            logger.info("Successfully posted all tenders to OCR_QUEUE")
+        else:
+            logger.warning("Some tenders failed to post to OCR_QUEUE (pipeline may be delayed)")
 
         return 0
 
