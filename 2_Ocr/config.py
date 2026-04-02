@@ -36,13 +36,9 @@ class Config:
     # S3 Path Prefixes
     FINAL_DOC_PREFIX: str = 'tenders_doc_final'
     MARKDOWN_PREFIX: str = 'markdown_tender'
-    
+
     # Supported file extensions
     SUPPORTED_EXTENSIONS: tuple = ('.pdf', '.docx', '.doc', '.xlsx', '.xls', '.jpeg', '.jpg', '.png')
-    
-    # GPU Configuration
-    USE_GPU: bool = os.getenv('USE_GPU', 'true').lower() == 'true'
-    GPU_MEMORY_FRACTION: float = float(os.getenv('GPU_MEMORY_FRACTION', '0.8'))
     
     @classmethod
     def validate(cls) -> bool:
@@ -84,8 +80,6 @@ class Config:
         print(f"  MAX_RETRIES: {cls.MAX_RETRIES}")
         print(f"  VISIBILITY_TIMEOUT: {cls.VISIBILITY_TIMEOUT}s")
         print(f"  BATCH_SIZE: {cls.BATCH_SIZE}")
-        print(f"  USE_GPU: {cls.USE_GPU}")
-        print(f"  GPU_MEMORY_FRACTION: {cls.GPU_MEMORY_FRACTION}")
 
 
 # Validate configuration on import

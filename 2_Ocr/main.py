@@ -276,7 +276,6 @@ def main():
     """Main entry point."""
     logger.info("=" * 50)
     logger.info("OCR Service Starting (Docling Engine)")
-    logger.info(f"GPU Acceleration: {'ENABLED ✅' if Config.USE_GPU else 'DISABLED ⚙️'}")
     logger.info("=" * 50)
     
     service = OCRService()
