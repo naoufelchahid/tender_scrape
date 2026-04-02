@@ -9,6 +9,11 @@ WORKDIR /app
 
 # Copy requirements and install Python dependencies
 COPY requirements.txt .
+
+# Install torch first (required by flash-attn and other ML packages)
+RUN pip install --no-cache-dir "torch>=2.6.0" --index-url https://download.pytorch.org/whl/cpu
+
+# Install remaining dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
