@@ -21,7 +21,6 @@ from docling.datamodel.pipeline_options import (
 from docling.backend.pypdfium2_backend import PyPdfiumDocumentBackend
 
 from logger import logger
-from config import Config
 
 
 def _assert_gpu_available() -> None:
@@ -102,24 +101,6 @@ class DocumentProcessor:
             conv_result = self.converter.convert(file_path)
             markdown_content = conv_result.document.export_to_markdown()
             
-            # Get basic stats for metadata
-            page_count = 0
-            # Try to get page count if available in metadata or struct
-            # Docling might allow accessing pages through doc structure, 
-            # here we assume 1 if not paginated or extract from doc.
-            # conv_result.document usually has pages info.
-            # Assuming export_to_markdown doesn't give pages directly, we check document object
-            try:
-                # Docling's DocRes has pages list usually, or we can approximate
-                 # For now, if it's not exposed easily, we default to "N/A" or 1
-                # But let's check input format
-                if file_path.lower().endswith('.pdf'):
-                    # We could use pypdf or just rely on docling internal count if accessible
-                    # Leaving as generic metadata extraction for now
-                    pass
-            except:
-                pass
-
             # 2. Post-process (Strict Hierarchy & Noise Removal)
             cleaned_markdown = self._post_process_markdown(markdown_content)
             
