@@ -42,7 +42,7 @@ class TestAssertGpuAvailable:
             mock_torch.cuda.get_device_properties.return_value = mock_props
             mock_torch.version.cuda = "12.1"
 
-            with caplog.at_level(logging.INFO, logger="document_processor"):
+            with caplog.at_level(logging.INFO, logger="ocr-service"):
                 from document_processor import _assert_gpu_available
                 _assert_gpu_available()
 
