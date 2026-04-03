@@ -164,6 +164,8 @@ STAGE PERFORMANCE
 DATA QUALITY
   Update         new_refs: 10   already_known: 2   docs_per_tender avg: 3.2
                  download_failures: 2/12  (16%)
+                 [ingestion outcome] total triples: 1 842   lots_count: 34
+                 SHACL passed: 8/9   post-validation: 8/9
   OCR            avg markdown: 18 400 chars   empty outputs: 0
                  file_types: pdf=28  doc=4  img=2
   Classification step-1: 6   step-2: 2   step-3: 1  (LLM fallback)
