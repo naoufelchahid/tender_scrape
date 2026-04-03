@@ -10,7 +10,6 @@ import os
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Optional
 
 _SCHEMA = """
 CREATE TABLE IF NOT EXISTS events (
