@@ -43,6 +43,9 @@ UPDATE_DIR="${PROJECT_ROOT}/1_Update"
 CLASSIFICATION_CONTAINER="e2e_classification"
 EXTRACTION_CONTAINER="e2e_extraction"
 
+# Docker command (docker compose or docker-compose)
+DOCKER_COMPOSE="docker compose"
+
 # Defaults
 BUILD_IMAGES=false
 LIMIT_TENDERS=1
@@ -172,7 +175,7 @@ build_images() {
     success "4_Extraction built"
 
     log "  → Building 5_Ingestion (Fuseki + kb_ingestion)..."
-    docker-compose -f "$FUSEKI_COMPOSE" build > /dev/null
+    $DOCKER_COMPOSE -f "$FUSEKI_COMPOSE" build > /dev/null
     success "5_Ingestion built"
 
     success "All images built"
@@ -201,13 +204,21 @@ start_services() {
     log "Starting all services..."
 
     log "  → Starting Fuseki + 5_Ingestion..."
-    docker-compose -f "$FUSEKI_COMPOSE" up -d
+    $DOCKER_COMPOSE -f "$FUSEKI_COMPOSE" up -d
     success "Fuseki + 5_Ingestion started"
 
     wait_for_fuseki
 
     log "  → Starting 2_Ocr..."
-    docker-compose -f "$OCR_COMPOSE" up -d
+    docker run -d \
+        --name ocr-container \
+        --env-file "${PROJECT_ROOT}/2_Ocr/.env" \
+        --gpus all \
+        --restart unless-stopped \
+        --volume "${PROJECT_ROOT}/2_Ocr/logs:/app/logs" \
+        --volume "${PROJECT_ROOT}/2_Ocr/temp:/app/temp" \
+        --memory 8g \
+        tender-ocr:latest > /dev/null
     success "2_Ocr started"
 
     log "  → Starting 3_Classification..."
@@ -257,10 +268,10 @@ monitor_logs() {
     log ""
 
     # Start log tailing in background
-    docker-compose -f "$FUSEKI_COMPOSE" logs -f 2>/dev/null &
+    $DOCKER_COMPOSE -f "$FUSEKI_COMPOSE" logs -f 2>/dev/null &
     local fuseki_pid=$!
 
-    docker-compose -f "$OCR_COMPOSE" logs -f 2>/dev/null &
+    $DOCKER_COMPOSE -f "$OCR_COMPOSE" logs -f 2>/dev/null &
     local ocr_pid=$!
 
     docker logs -f "$CLASSIFICATION_CONTAINER" 2>/dev/null &
@@ -337,11 +348,11 @@ stop_all() {
     log "Stopping all services..."
 
     log "  → Stopping Fuseki + 5_Ingestion..."
-    docker-compose -f "$FUSEKI_COMPOSE" down 2>/dev/null || true
+    $DOCKER_COMPOSE -f "$FUSEKI_COMPOSE" down 2>/dev/null || true
     success "Fuseki + 5_Ingestion stopped"
 
     log "  → Stopping 2_Ocr..."
-    docker-compose -f "$OCR_COMPOSE" down 2>/dev/null || true
+    docker rm -f ocr-container 2>/dev/null || true
     success "2_Ocr stopped"
 
     log "  → Removing 3_Classification..."

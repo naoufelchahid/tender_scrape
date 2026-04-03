@@ -326,6 +326,11 @@ class KGBuilder:
         )
         self.ocr_queue_url = os.getenv('OCR_QUEUE_URL')
 
+        # Jena connection for direct updates (Step 14)
+        self.jena_endpoint = os.getenv('JENA_ENDPOINT')
+        self.jena_update_endpoint = os.getenv('JENA_UPDATE_ENDPOINT') # e.g. http://fuseki:3030/tender/update
+        self.jena_auth = (os.getenv('JENA_USER', 'admin'), os.getenv('JENA_PASSWORD', 'admin'))
+
     
     def load_processed_tenders(self) -> List[Dict]:
         """Load processed tenders from JSON file."""
@@ -982,6 +987,52 @@ class KGBuilder:
             logger.error(f"Error posting to OCR_QUEUE: {e}")
             return False
 
+    def insert_triples_to_jena(self, graph: Graph) -> bool:
+        """
+        Push graph triples directly to Jena Fuseki via SPARQL UPDATE.
+        
+        Args:
+            graph: rdflib.Graph containing triples to insert
+            
+        Returns:
+            True if update succeeded or wasn't configured, False on error
+        """
+        if not self.jena_update_endpoint:
+            logger.info("JENA_UPDATE_ENDPOINT not configured - skipping Jena update")
+            return True
+
+        if len(graph) == 0:
+            return True
+
+        try:
+            import requests
+            
+            # Serialize to N-Triples for the update payload
+            nt_data = graph.serialize(format="nt")
+            
+            # Build SPARQL Update query
+            update_query = f"INSERT DATA {{ {nt_data} }}"
+            
+            logger.info(f"Pushing {len(graph)} triples to Jena: {self.jena_update_endpoint}")
+            
+            response = requests.post(
+                self.jena_update_endpoint,
+                data={'update': update_query},
+                auth=self.jena_auth if self.jena_auth[0] else None,
+                timeout=30
+            )
+            
+            if response.status_code >= 400:
+                logger.error(f"Jena update failed ({response.status_code}): {response.text}")
+                return False
+                
+            logger.info("✅ Successfully pushed shell triples to Jena")
+            return True
+
+        except Exception as e:
+            logger.error(f"Error pushing triples to Jena: {e}")
+            return False
+
     def run(self) -> int:
         """
         Main orchestrator for Phase 3.
@@ -1039,6 +1090,9 @@ class KGBuilder:
         # Step 5: Serialize to N-Triples
         nt_file = self.serialize_ntriples(batch_graph)
         
+        # Step 5b: Push to local Jena (Step 14)
+        self.insert_triples_to_jena(batch_graph)
+
         # Step 6: Upload to S3
         if self.s3_client:
             success = self.upload_to_s3(nt_file, len(tenders))

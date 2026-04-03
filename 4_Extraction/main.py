@@ -25,7 +25,7 @@ except ImportError:
 
 # Config
 SQS_QUEUE_URL = os.environ.get('EXTRACTION_QUEUE_URL')
-DB_FILLER_QUEUE_URL = os.environ.get('DB_FILLER_QUEUE_URL', 'db_filler')
+KB_INGESTION_QUEUE_URL= os.environ.get('KB_INGESTION_QUEUE_URL')
 S3_BUCKET = os.environ.get('S3_BUCKET_NAME')
 AWS_REGION = os.environ.get('AWS_REGION', 'eu-west-3')
 DB_URL = os.environ.get('DB_URL')
@@ -173,13 +173,13 @@ def handle_message(msg, sqs, s3, chunker):
                 logger.info(f"Saved {len(type_chunks)} {t} chunks to {key}")
         
         # 6. Notify DB Filler Queue
-        queue_url = DB_FILLER_QUEUE_URL
+        queue_url = KB_INGESTION_QUEUE_URL
         if not queue_url.startswith("https://"):
             try:
-                q_response = sqs.get_queue_url(QueueName=DB_FILLER_QUEUE_URL)
+                q_response = sqs.get_queue_url(QueueName=KB_INGESTION_QUEUE_URL)
                 queue_url = q_response['QueueUrl']
             except ClientError as e:
-                logger.error(f"Could not get URL for queue {DB_FILLER_QUEUE_URL}: {e}")
+                logger.error(f"Could not get URL for queue {KB_INGESTION_QUEUE_URL}: {e}")
         
         logger.info(f"Sending completion message to {queue_url}")
         

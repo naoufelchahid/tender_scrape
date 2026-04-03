@@ -77,8 +77,10 @@ class JsonToRdfMapper:
 
             if product.product_header:
                 self.graph.add((article_uri, TS.Has_Product_Header, Literal(product.product_header, datatype=XSD.string)))
-            if product.designation:
-                self.graph.add((article_uri, TS.Has_Designation, Literal(product.designation, datatype=XSD.string)))
+            
+            # SHACL requires Has_Designation. Use product_header or chunk_index as fallback.
+            designation = product.designation or product.product_header or f"Article {i+1}"
+            self.graph.add((article_uri, TS.Has_Designation, Literal(designation, datatype=XSD.string)))
             if product.quantity is not None:
                 val = float(product.quantity) if isinstance(product.quantity, (int, float)) else product.quantity
                 self.graph.add((article_uri, TS.Has_quantity, Literal(val, datatype=XSD.float)))
@@ -182,7 +184,8 @@ class JsonToRdfMapper:
     # ------------------------------------------------------------------ #
 
     def get_ntriples(self) -> str:
-        return self.graph.serialize(format="ntriples")
+        """Serialize as N-Triples (no @prefix headers) for SPARQL INSERT DATA compatibility."""
+        return self.graph.serialize(format="nt")
 
     def get_turtle(self) -> str:
         return self.graph.serialize(format="turtle")

@@ -1,0 +1,44 @@
+{
+  "reference": "03/2026/LAAT",
+  "original_reference": "03/2026/LAAT",
+  "buyer": "M4 / DLAATM - DIRECTEUR DU LYCEE AGRICOLE DE AIN TAOUJDATE MEKNES",
+  "category": "Travaux",
+  "launch_date": "01/04/2026",
+  "object": "Travaux d'alimentation en énergie solaire du Lycée Agricole d’Ain Taoujdate",
+  "city": "EL-HAJEB",
+  "all_cities": null,
+  "deadline": "2026-05-15T10:00:00",
+  "mode_passation": "| Sur offre de prix",
+  "procedure_type": "Appel d'offres ouvert",
+  "main_category": "Travaux",
+  "allotissement": null,
+  "activity_domains": [
+    "Travaux / Travaux d’installation / Travaux d’installation de matériel et équipements hydro-électromécaniques, électroniques, électromécaniques et similaires"
+  ],
+  "is_sme_reserved": false,
+  "retrait_address": "www.marchéspublics.gov.ma",
+  "depot_address": "www.marchéspublics.gov.ma",
+  "mode_soumission": "Physique/Hybride",
+  "opening_location": "bureau du Directeur de Lycée Agricole d’Ain Taoujdate",
+  "contacts": {
+    "name": "SIDI MOHAMED HAMIDI",
+    "email": "hamidiyou@yahoo.fr",
+    "phone": "0662083812",
+    "fax": "0535440863"
+  },
+  "estimated_value": "797 826,00",
+  "plan_cost": null,
+  "provisional_deposit": "15 800,00",
+  "qualifications": null,
+  "agrements": null,
+  "variante": "Non",
+  "reunion": null,
+  "site_visit": null,
+  "samples_info": null,
+  "download_available": true,
+  "downloadable_files": [
+    "Dossier de consultation - 29,14 Mo"
+  ],
+  "s3_folder": "tender_doc_final/03_2026_LAAT_DIRLYCAGRAINTAOMEK/",
+  "processed_at": "2026-04-02T20:08:30.775138"
+}

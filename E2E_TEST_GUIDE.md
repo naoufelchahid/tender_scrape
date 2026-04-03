@@ -27,7 +27,8 @@ bash e2e_test.sh --stop
 
 ---
 
-## Pipeline Overview
+## 
+claudePipeline Overview
 
 The pipeline has 5 stages connected via AWS SQS and S3:
 
@@ -94,8 +95,7 @@ bash e2e_test.sh --monitor
 Press `Ctrl+C` to stop monitoring (services keep running).
 
 ### `--stop`
-Stop and remove all test containers and services.
-
+  
 ```bash
 bash e2e_test.sh --stop
 ```
