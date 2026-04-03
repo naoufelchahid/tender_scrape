@@ -1,4 +1,6 @@
 import logging
+import re
+import unicodedata
 import requests
 from requests.auth import HTTPBasicAuth
 from typing import Optional
@@ -48,6 +50,27 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         self._update_fn = sparql_update_fn
 
     # ------------------------------------------------------------------ #
+    # URI sanitization (mirrors kg_builder.py slugify)                      #
+    # ------------------------------------------------------------------ #
+
+    @staticmethod
+    def _sanitize_ref(ref: str) -> str:
+        """Sanitize a tender reference for URI construction.
+
+        Must mirror the slugify() function in kg_builder.py so that
+        the IRI constructed here matches the one persisted by the builder.
+        Converts slashes, spaces and special chars to underscores, strips
+        accents, collapses runs of underscores, and upper-cases.
+        """
+        if not ref:
+            return ""
+        nfkd = unicodedata.normalize('NFKD', ref)
+        without_accents = "".join(c for c in nfkd if not unicodedata.combining(c))
+        sanitized = re.sub(r'[^a-zA-Z0-9_\-]', '_', without_accents)
+        sanitized = re.sub(r'_+', '_', sanitized)
+        return sanitized.strip('_').upper()
+
+    # ------------------------------------------------------------------ #
     # Public API                                                           #
     # ------------------------------------------------------------------ #
 
@@ -57,10 +80,11 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         Returns None on failure or if not found.
         """
         try:
+            safe_ref = self._sanitize_ref(tender_ref)
             query = self._build_find_tender_query(tender_ref)
             result = self._execute_query(query)
             if result and result.get("boolean"):
-                tender_uri = f"{self.TS_PREFIX}Tender_{tender_ref}"
+                tender_uri = f"{self.TS_PREFIX}Tender_{safe_ref}"
                 logger.info(f"Found tender in KB: {tender_uri}")
                 return tender_uri
             
@@ -71,7 +95,11 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             return None
 
     def insert_triples(self, turtle_data: str) -> bool:
-        """Execute a SPARQL INSERT DATA with turtle-formatted triples."""
+        """Execute a SPARQL INSERT DATA with N-Triples format (no prefixes in data block).
+
+        N-Triples avoids prefix declaration issues inside INSERT DATA blocks.
+        The data parameter should already be in N-Triples format (from get_ntriples()).
+        """
         try:
             update = self._build_insert_update(turtle_data)
             return self._execute_update(update)
@@ -136,7 +164,8 @@ ASK {{
     # ------------------------------------------------------------------ #
 
     def _build_find_tender_query(self, tender_ref: str) -> str:
-        tender_uri = f"{self.TS_PREFIX}Tender_{tender_ref}"
+        safe_ref = self._sanitize_ref(tender_ref)
+        tender_uri = f"{self.TS_PREFIX}Tender_{safe_ref}"
         return f"""
 {self.PREFIXES}
 ASK {{

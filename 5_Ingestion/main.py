@@ -64,7 +64,11 @@ class KBIngestor:
             # 1. Locate tender IRI in Jena KB
             tender_iri = self.jena.find_tender_by_ref(tender_ref)
             if not tender_iri:
-                logger.warning(f"Tender '{tender_ref}' not found in Jena KB. Skipping.")
+                logger.warning(f"Tender '{tender_ref}' not found in Jena KB. Deleting message to avoid infinite loop.")
+                self.sqs.delete_message(
+                    QueueUrl=self.queue_url,
+                    ReceiptHandle=message['ReceiptHandle']
+                )
                 return False
 
             # 2. Build the RDF graph enrichment
@@ -108,8 +112,9 @@ class KBIngestor:
                 # but rule says "Call check_tender_has_spec() ... before inserting data to validate"
             
             # 5. Insert enrichment triples into Jena via SPARQL UPDATE
-            turtle_body = mapper.get_turtle()
-            if not self.jena.insert_triples(turtle_body):
+            # Use N-Triples format (no prefixes) to avoid SPARQL INSERT DATA syntax errors
+            ntriples_body = mapper.get_ntriples()
+            if not self.jena.insert_triples(ntriples_body):
                 logger.error(f"Failed to insert triples for {tender_ref} into Jena.")
                 return False
 
@@ -342,7 +347,7 @@ def sparql_update_http(update: str, dataset: str) -> None:
     import requests
     from requests.auth import HTTPBasicAuth
     url = f"{settings.JENA_ENDPOINT}/{dataset}/update"
-    auth = HTTPBasicAuth(settings.JENA_USER, settings.JENA_PASSWORD) if settings.JENA_USER else None
+    auth = HTTPBasicAuth(settings.JENA_USERNAME, settings.JENA_PASSWORD) if settings.JENA_USERNAME else None
     response = requests.post(
         url,
         data={'update': update},
