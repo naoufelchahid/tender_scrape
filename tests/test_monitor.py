@@ -10,10 +10,6 @@ def tmp_db(tmp_path, monkeypatch):
     """Override DB path to an isolated temp file for each test."""
     db_file = tmp_path / "test_pipeline.db"
     monkeypatch.setenv("PIPELINE_DB_PATH", str(db_file))
-    # Force monitor to reload _DB_PATH from env
-    import importlib
-    import monitor
-    importlib.reload(monitor)
     yield db_file
     monkeypatch.delenv("PIPELINE_DB_PATH", raising=False)
 
