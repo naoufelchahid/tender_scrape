@@ -320,7 +320,7 @@ def _section_anomalies(conn, batch_id: str) -> str:
 
     items = []
     for row in rows:
-        flags = json.loads(row["detail"]).get("flags", [])
+        flags = (json.loads(row["detail"]) if row["detail"] else {}).get("flags", [])
         stage_label = {
             "update": "1_Update", "ocr": "2_Ocr",
             "classification": "3_Classification",
