@@ -13,6 +13,23 @@ from logger import logger, log_processing_start, log_processing_complete, log_pr
 from s3_utils import S3Client
 from sqs_utils import SQSClient
 from document_processor import DocumentProcessor
+from pathlib import Path as _Path
+from monitor import enter as mon_enter, complete as mon_complete, failed as mon_failed, anomaly as mon_anomaly
+
+
+def _get_active_batch_id():
+    """Get the most recent batch_id from pipeline.db for monitoring."""
+    try:
+        import sqlite3
+        from monitor import _db_path
+        with sqlite3.connect(str(_db_path()), timeout=5) as conn:
+            row = conn.execute(
+                "SELECT batch_id FROM events WHERE event='batch_start' "
+                "ORDER BY id DESC LIMIT 1"
+            ).fetchone()
+            return row[0] if row else None
+    except Exception:
+        return None
 
 
 class OCRService:
@@ -183,7 +200,10 @@ class OCRService:
             return False
         
         log_processing_start(tender_ref, len(s3_paths), s3_paths)
-        
+        batch_id = _get_active_batch_id()
+        if batch_id:
+            mon_enter(batch_id, tender_ref, "ocr")
+
         try:
             # Download files
             local_paths = self._download_tender_files(tender_ref, s3_paths)
@@ -230,11 +250,28 @@ class OCRService:
             # Log completion
             processing_time = time.time() - start_time
             log_processing_complete(tender_ref, processing_time, len(local_paths))
-            
+
+            if batch_id:
+                file_types = {}
+                for p in local_paths:
+                    ext = _Path(p).suffix.lower().lstrip(".") or "unknown"
+                    file_types[ext] = file_types.get(ext, 0) + 1
+                empty_output = len(final_markdown.strip()) == 0
+                if empty_output:
+                    mon_anomaly(batch_id, tender_ref, "ocr", ["empty_output"])
+                mon_complete(
+                    batch_id, tender_ref, "ocr",
+                    processing_time_s=round(processing_time, 1),
+                    file_count=len(local_paths),
+                    markdown_chars=len(final_markdown),
+                    file_types=file_types,
+                )
             return True
         except Exception as e:
             log_processing_error(tender_ref, e)
             self._cleanup_temp_files(tender_ref)
+            if batch_id:
+                mon_failed(batch_id, tender_ref, "ocr", error=str(e))
             return False
     
     def run(self) -> None:
