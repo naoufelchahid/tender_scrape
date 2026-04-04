@@ -29,6 +29,10 @@ from playwright.async_api import Page
 from playwright_stealth import Stealth
 from browser_config import create_browser
 from bs4 import BeautifulSoup
+from monitor import open_batch, close_batch
+from monitor import complete as mon_complete
+from monitor import failed as mon_failed
+from monitor import anomaly as mon_anomaly
 
 # Load environment variables
 load_dotenv()
@@ -203,6 +207,7 @@ class TenderDownloader:
             's3_failed': 0
         }
         
+        self.batch_id: Optional[str] = None
         logger.info(f"TenderDownloader initialized")
         logger.info(f"Input file: {self.input_file}")
         logger.info(f"Output file: {self.output_file}")
@@ -1118,10 +1123,16 @@ class TenderDownloader:
         logger.info(f"Processing: {composite_reference}")
         logger.info(f"{'='*80}")
 
+        scrape_start = datetime.now()
         try:
             # ── Step 1: Reach download page ──────────────────────
             if not await self.search_by_reference_and_buyer(page, original_reference, buyer_name):
                 self.stats['files_failed'] += 1
+                if self.batch_id:
+                    mon_anomaly(self.batch_id, composite_reference, "update",
+                                [f"download_failed:{composite_reference}"])
+                    mon_failed(self.batch_id, composite_reference, "update",
+                               error="search_failed")
                 return False
 
             detail_url = page.url
@@ -1293,6 +1304,9 @@ class TenderDownloader:
                             self.stats['files_downloaded'] += 1
                         except asyncio.TimeoutError:
                             logger.error(f"❌ Download timed out for [{label}]")
+                            if self.batch_id:
+                                mon_anomaly(self.batch_id, composite_reference, "update",
+                                            [f"download_failed:{composite_reference}"])
                     else:
                         logger.warning(f"No download button found after form for [{label}]")
 
@@ -1324,6 +1338,14 @@ class TenderDownloader:
             self.processed_tenders.append(full_metadata)
 
             logger.info(f"✅ Successfully processed: {composite_reference}")
+            if self.batch_id:
+                scrape_time = (datetime.now() - scrape_start).total_seconds()
+                docs_count = len([f for f in (self.downloads_dir / composite_reference.replace('/', '_')).iterdir()]) if (self.downloads_dir / composite_reference.replace('/', '_')).exists() else 1
+                mon_complete(
+                    self.batch_id, composite_reference, "update",
+                    scrape_time_s=round(scrape_time, 1),
+                    docs_count=docs_count,
+                )
             return True
 
 
@@ -1353,6 +1375,8 @@ class TenderDownloader:
             logger.warning("No new references to process")
             return
         
+        self.batch_id = open_batch(stage="update")
+
         # Limit number of tenders if specified
         if max_tenders:
             new_references = new_references[:max_tenders]
@@ -1391,7 +1415,17 @@ class TenderDownloader:
         
         # Save processed tenders to output JSON
         self.save_processed_tenders()
-        
+
+        # Emit batch close event for pipeline monitoring
+        already_known = self.stats['total_references'] - len(new_references)
+        close_batch(
+            self.batch_id,
+            total_scraped=len(new_references),
+            new_refs=len(self.processed_tenders),
+            already_known=already_known,
+            download_failed_count=self.stats['files_failed'],
+        )
+
         # Print final summary
         self.print_summary()
     
