@@ -461,11 +461,8 @@ class ClassificationService:
 
             
             # Detect missing doc types
-            EXPECTED_TYPES = {"avis", "administrative", "specification", "product"}
-            try:
-                final_types = {doc.doc_type for doc in all_docs}
-            except Exception:
-                final_types = set()
+            EXPECTED_TYPES = {"avis_fr", "avis_ar", "administrative", "specification", "product"}
+            final_types = {doc.doc_type for doc in all_docs}
             missing_types = EXPECTED_TYPES - final_types
             if missing_types and batch_id:
                 mon_anomaly(batch_id, tender_ref, "classification",
