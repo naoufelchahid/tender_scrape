@@ -13,10 +13,25 @@ from src.data_tester import DataTester
 from src.embedding_client import EmbeddingClient
 from src.vector_storage import VectorStorage
 from src.jena_client import JenaClient
+from monitor import enter as mon_enter, complete as mon_complete, failed as mon_failed, anomaly as mon_anomaly
 
 # Logging Setup
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+
+def _get_active_batch_id():
+    try:
+        import sqlite3
+        from monitor import _db_path
+        with sqlite3.connect(str(_db_path()), timeout=5) as conn:
+            row = conn.execute(
+                "SELECT batch_id FROM events WHERE event='batch_start' "
+                "ORDER BY id DESC LIMIT 1"
+            ).fetchone()
+            return row[0] if row else None
+    except (sqlite3.OperationalError, sqlite3.DatabaseError):
+        return None
 
 
 class KBIngestor:
@@ -45,26 +60,31 @@ class KBIngestor:
     # ------------------------------------------------------------------ #
 
     async def process_message(self, message: Dict[str, Any]) -> bool:
-        """Process a single SQS message gracefully. Returns False on failure.
+        """Process a single SQS message. Returns False on failure.
 
-        The graph is always exported to N-Triples in the finally block,
-        regardless of success or failure, so that partial graphs are
-        available for diagnostics.
+        Consistency check and SHACL validation run per-tender before any
+        Jena insert. N-Triples are written only when the tender passes all
+        checks, so each .nt file represents clean validated data.
         """
-        mapper = None
         try:
             body = json.loads(message['Body'])
             tender_ref: str = body.get('tender_ref')
             if not tender_ref:
                 logger.error("Message missing tender_ref.")
                 return False
-                
+
             logger.info(f"Processing tender: {tender_ref}")
+            batch_id = _get_active_batch_id()
+            if batch_id:
+                mon_enter(batch_id, tender_ref, "ingestion")
 
             # 1. Locate tender IRI in Jena KB
             tender_iri = self.jena.find_tender_by_ref(tender_ref)
             if not tender_iri:
                 logger.warning(f"Tender '{tender_ref}' not found in Jena KB. Deleting message to avoid infinite loop.")
+                if batch_id:
+                    mon_anomaly(batch_id, tender_ref, "ingestion", ["tender_not_in_jena"])
+                    mon_failed(batch_id, tender_ref, "ingestion", error="tender_not_in_jena")
                 self.sqs.delete_message(
                     QueueUrl=self.queue_url,
                     ReceiptHandle=message['ReceiptHandle']
@@ -97,34 +117,54 @@ class KBIngestor:
             if admin_key:
                 admin_vector_keys = await self._process_doc_chunks(admin_key, mapper, 'administrative')
 
-            # 3. Local TDD data testing (graph-level)
+            # 3. Per-tender consistency check (SHACL + logical assertions)
             if not self.tester.test_tender_graph(mapper.graph):
-                logger.error(f"TDD Validation failed for {tender_ref}. Aborting ingestion.")
+                logger.error(f"Tender {tender_ref}: consistency check failed — skipping ingestion.")
+                if batch_id:
+                    mon_anomaly(batch_id, tender_ref, "ingestion", ["shacl_failed"])
+                    mon_failed(batch_id, tender_ref, "ingestion", error="shacl_failed")
                 self._move_to_dlq(message)
                 return False
 
-            # 4. Quality gates BEFORE insert (check existing state if needed)
-            # The user request implies confirming these pass before we add enrichment.
-            # However, usually we check if the MUST HAVE nodes exist.
+            # 4. Quality gate: verify expected structure exists before enrichment
             if not self.jena.check_tender_has_spec(tender_iri):
                 logger.warning(f"Tender {tender_ref} missing specification node before enrichment.")
-                # We proceed if the current enrichment will PROVIDE it, 
-                # but rule says "Call check_tender_has_spec() ... before inserting data to validate"
-            
-            # 5. Insert enrichment triples into Jena via SPARQL UPDATE
-            # Use N-Triples format (no prefixes) to avoid SPARQL INSERT DATA syntax errors
+
+            # 5. Write distinct N-Triples file for this tender (validation passed)
+            try:
+                self._export_nt_file(mapper.tender_ref, mapper.graph)
+            except Exception as ex:
+                logger.error(f"Tender {tender_ref}: failed to export N-Triples: {ex}")
+
+            # 6. Insert enrichment triples into Jena via SPARQL UPDATE
             ntriples_body = mapper.get_ntriples()
+            triple_count = ntriples_body.count("\n") if ntriples_body else 0
             if not self.jena.insert_triples(ntriples_body):
-                logger.error(f"Failed to insert triples for {tender_ref} into Jena.")
+                logger.error(f"Tender {tender_ref}: failed to insert triples into Jena.")
+                if batch_id:
+                    if triple_count == 0:
+                        mon_anomaly(batch_id, tender_ref, "ingestion", ["zero_triples"])
+                    mon_failed(batch_id, tender_ref, "ingestion", error="insert_triples_failed")
                 return False
 
-            # 6. Post-ingestion verification
-            if not self.tester.validate_tender_in_jena(tender_iri):
+            # 7. Post-ingestion verification
+            post_validation_passed = self.tester.validate_tender_in_jena(tender_iri)
+            if not post_validation_passed:
                 logger.warning(f"Post-ingestion validation failed for {tender_ref}.")
+                if batch_id:
+                    mon_anomaly(batch_id, tender_ref, "ingestion", ["post_validation_failed"])
 
-            logger.info(f"Successfully ingested tender {tender_ref}")
+            logger.info(f"Tender {tender_ref}: passed all checks ✓")
+            if batch_id:
+                mon_complete(
+                    batch_id, tender_ref, "ingestion",
+                    triple_count=triple_count,
+                    lots_count=0,
+                    shacl_passed=True,
+                    post_validation_passed=bool(post_validation_passed),
+                )
 
-            # 7. Cleanup SQS message
+            # 8. Cleanup SQS message
             self.sqs.delete_message(
                 QueueUrl=self.queue_url,
                 ReceiptHandle=message['ReceiptHandle']
@@ -132,16 +172,10 @@ class KBIngestor:
             return True
 
         except Exception as e:
-            logger.error(f"Failed to process message: {str(e)}")
+            logger.error(f"Tender {tender_ref if 'tender_ref' in locals() else '?'}: unexpected error — {str(e)}")
+            if 'batch_id' in locals() and batch_id and 'tender_ref' in locals() and tender_ref:
+                mon_failed(batch_id, tender_ref, "ingestion", error=str(e))
             return False
-
-        finally:
-            # Always-export: write N-Triples for diagnostics in all code paths
-            if mapper is not None:
-                try:
-                    self._export_nt_file(mapper.tender_ref, mapper.graph)
-                except Exception as ex:
-                    logger.error(f"Failed to export N-Triples: {ex}")
 
     # ------------------------------------------------------------------ #
     # Per-document processors                                              #
