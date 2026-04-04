@@ -28,7 +28,7 @@ def _get_active_batch_id():
                 "ORDER BY id DESC LIMIT 1"
             ).fetchone()
             return row[0] if row else None
-    except Exception:
+    except (sqlite3.OperationalError, sqlite3.DatabaseError):
         return None
 
 
@@ -269,9 +269,9 @@ class OCRService:
             return True
         except Exception as e:
             log_processing_error(tender_ref, e)
-            self._cleanup_temp_files(tender_ref)
             if batch_id:
                 mon_failed(batch_id, tender_ref, "ocr", error=str(e))
+            self._cleanup_temp_files(tender_ref)
             return False
     
     def run(self) -> None:
