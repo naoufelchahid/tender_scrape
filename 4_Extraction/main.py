@@ -11,6 +11,21 @@ from pydantic import ValidationError
 from src.document_chunker import DocumentChunker
 from src.cleaning import DocumentCleaners
 from src.database import DatabaseManager
+from monitor import enter as mon_enter, complete as mon_complete, failed as mon_failed, anomaly as mon_anomaly
+
+
+def _get_active_batch_id():
+    try:
+        import sqlite3
+        from monitor import _db_path
+        with sqlite3.connect(str(_db_path()), timeout=5) as conn:
+            row = conn.execute(
+                "SELECT batch_id FROM events WHERE event='batch_start' "
+                "ORDER BY id DESC LIMIT 1"
+            ).fetchone()
+            return row[0] if row else None
+    except (sqlite3.OperationalError, sqlite3.DatabaseError):
+        return None
 
 # Logging setup
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -47,7 +62,7 @@ def main():
     logger.info(f"Starting Extraction Service polling {SQS_QUEUE_URL}...")
 
     while True:
-        logger.info(f"Loop start: polling {SQS_QUEUE_URL}...")
+        logger.debug(f"Loop start: polling {SQS_QUEUE_URL}...")
         try:
             response = sqs.receive_message(
                 QueueUrl=SQS_QUEUE_URL,
@@ -56,7 +71,7 @@ def main():
             )
 
             if 'Messages' not in response:
-                logger.info("No messages found in this poll.")
+                logger.debug("No messages found in this poll.")
                 continue
 
             for msg in response['Messages']:
@@ -121,6 +136,9 @@ def handle_message(msg, sqs, s3, chunker):
             return
             
         logger.info(f"Processing {tender_ref} (ID: {tender_id})...")
+        batch_id = _get_active_batch_id()
+        if batch_id:
+            mon_enter(batch_id, tender_ref, "extraction")
 
         # 1. Download Markdown - support single key or multiple paths
         if markdown_key:
@@ -154,7 +172,22 @@ def handle_message(msg, sqs, s3, chunker):
         
         total_chunks = sum(len(c) for c in chunks_by_type.values())
         logger.info(f"Generated {total_chunks} total chunks across types: {list(chunks_by_type.keys())}")
-        
+
+        # Anomaly detection
+        anomaly_flags = []
+        if total_chunks == 0:
+            anomaly_flags.append("zero_chunks")
+        avis_chunks = chunks_by_type.get("avis", [])
+        if avis_chunks:
+            has_lots = any(
+                (c.get("metadata", {}) or {}).get("lots") for c in avis_chunks
+                if isinstance(c, dict)
+            )
+            if not has_lots:
+                anomaly_flags.append("zero_lots_in_avis")
+        if anomaly_flags and batch_id:
+            mon_anomaly(batch_id, tender_ref, "extraction", anomaly_flags)
+
         # 4. Upload Chunks to S3 (4 distinct files)
         output_keys = {}
         target_types = ['avis', 'specification', 'administrative', 'product']
@@ -203,12 +236,23 @@ def handle_message(msg, sqs, s3, chunker):
         # 9. Delete Message
         sqs.delete_message(QueueUrl=SQS_QUEUE_URL, ReceiptHandle=receipt_handle)
         logger.info(f"Successfully processed {tender_ref}")
+        if batch_id:
+            chunks_by_type_counts = {k: len(v) for k, v in chunks_by_type.items()}
+            mon_complete(
+                batch_id, tender_ref, "extraction",
+                chunk_count=total_chunks,
+                chunks_by_type=chunks_by_type_counts,
+            )
 
     except ValidationError as e:
         logger.error(f"Validation errors processing message: {e.errors()}", exc_info=True)
+        if 'batch_id' in locals() and batch_id and 'tender_ref' in locals() and tender_ref:
+            mon_failed(batch_id, tender_ref, "extraction", error=str(e))
     except Exception as e:
         logger.error(f"Error processing message: {e}", exc_info=True)
         # Don't delete message, let visibility timeout handle retry
+        if 'batch_id' in locals() and batch_id and 'tender_ref' in locals() and tender_ref:
+            mon_failed(batch_id, tender_ref, "extraction", error=str(e))
 
 if __name__ == "__main__":
     main()
