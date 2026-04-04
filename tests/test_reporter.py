@@ -207,3 +207,23 @@ def test_is_batch_complete_false_when_in_flight(populated_db):
     conn.commit()
     conn.close()
     assert reporter.is_batch_complete(str(db_file), batch_id) is False
+
+
+def test_is_batch_complete_false_when_only_ocr_done(populated_db):
+    """Batch should NOT be complete if tenders only finished OCR, not yet ingestion."""
+    db_file, batch_id = populated_db
+    import reporter
+    conn = sqlite3.connect(str(db_file))
+    # Add a 5th tender that only has OCR complete (not yet at ingestion, not failed)
+    conn.execute("INSERT INTO tender_stage VALUES (?,?,?,?,?,?,?)",
+                 (batch_id, "AO_05_2026", "ocr", "complete",
+                  "2026-04-03T18:05:00Z", "2026-04-03T18:05:40Z",
+                  json.dumps({"processing_time_s": 40, "file_count": 2,
+                              "markdown_chars": 8000, "file_types": {"pdf": 2}})))
+    # Update total_scraped to 5
+    conn.execute("UPDATE events SET detail=? WHERE event='batch_end' AND batch_id=?",
+                 (json.dumps({"total_scraped": 5, "new_refs": 4, "already_known": 1,
+                              "download_failed_count": 0}), batch_id))
+    conn.commit()
+    conn.close()
+    assert reporter.is_batch_complete(str(db_file), batch_id) is False

@@ -71,8 +71,11 @@ def is_batch_complete(db_path: str, batch_id: str) -> bool:
             return False
 
         terminal = conn.execute(
-            "SELECT COUNT(DISTINCT tender_ref) FROM tender_stage "
-            "WHERE batch_id=? AND status IN ('complete','failed')",
+            """SELECT COUNT(DISTINCT tender_ref) FROM tender_stage
+               WHERE batch_id=? AND (
+                   status = 'failed'
+                   OR (stage = 'ingestion' AND status IN ('complete', 'failed'))
+               )""",
             (batch_id,)
         ).fetchone()[0]
         return terminal >= total
