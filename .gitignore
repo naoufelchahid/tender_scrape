@@ -17,3 +17,7 @@ __pycache__
 venv/
 .vscode/
 .worktrees/
+
+# Pipeline monitoring
+pipeline.db
+reports/
