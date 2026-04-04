@@ -413,6 +413,9 @@ class ClassificationService:
                 classified_markdown, found_types
             )
             
+            # Default: final document set is the originally classified docs
+            all_docs = docs
+
             if newly_found_types:
                 logger.info(f"✓ Detected missing document types: {', '.join(newly_found_types)}")
                 
@@ -460,7 +463,7 @@ class ClassificationService:
             # Detect missing doc types
             EXPECTED_TYPES = {"avis", "administrative", "specification", "product"}
             try:
-                final_types = {doc.doc_type for doc in docs}
+                final_types = {doc.doc_type for doc in all_docs}
             except Exception:
                 final_types = set()
             missing_types = EXPECTED_TYPES - final_types
@@ -497,7 +500,7 @@ class ClassificationService:
             if batch_id:
                 mon_complete(
                     batch_id, tender_ref, "classification",
-                    doc_count=len(docs),
+                    doc_count=len(all_docs),
                 )
 
             return True
