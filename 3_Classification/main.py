@@ -17,6 +17,21 @@ from src.document_splitter import split_concatenated_file, LogicalDocument
 from src.openrouter_wrapper import OpenRouterClientWrapper
 from src.hierarchy_restructurer import restructure_by_type
 from src.missing_doc_detector import detect_missing_documents, extract_balised_documents
+from monitor import enter as mon_enter, complete as mon_complete, failed as mon_failed, anomaly as mon_anomaly
+
+def _get_active_batch_id():
+    try:
+        import sqlite3
+        from monitor import _db_path
+        with sqlite3.connect(str(_db_path()), timeout=5) as conn:
+            row = conn.execute(
+                "SELECT batch_id FROM events WHERE event='batch_start' "
+                "ORDER BY id DESC LIMIT 1"
+            ).fetchone()
+            return row[0] if row else None
+    except (sqlite3.OperationalError, sqlite3.DatabaseError):
+        return None
+
 
 # All possible document types for integrity checklist
 ALL_DOCUMENT_TYPES = [
@@ -359,7 +374,10 @@ class ClassificationService:
                 return False
             
             logger.info(f"Processing tender: {tender_ref}")
-            
+            batch_id = _get_active_batch_id()
+            if batch_id:
+                mon_enter(batch_id, tender_ref, "classification")
+
             # Download and concatenate all markdown files
             markdown_parts = []
             for md_path in markdown_paths:
@@ -439,6 +457,17 @@ class ClassificationService:
                 s3_metadata = self._generate_s3_metadata(docs)
 
             
+            # Detect missing doc types
+            EXPECTED_TYPES = {"avis", "administrative", "specification", "product"}
+            try:
+                final_types = {doc.doc_type for doc in docs}
+            except Exception:
+                final_types = set()
+            missing_types = EXPECTED_TYPES - final_types
+            if missing_types and batch_id:
+                mon_anomaly(batch_id, tender_ref, "classification",
+                            [f"missing_doc_type:{t}" for t in sorted(missing_types)])
+
             # Generate output S3 key - REMOVE "_ocr" from filename as per user requirement
             # Example: markdown_tender/TEST_REF/TEST_REF_ocr.md → markdown_tender/TEST_REF/TEST_REF.md
             output_key = markdown_paths[0].replace('_ocr.md', '.md')
@@ -465,11 +494,18 @@ class ClassificationService:
                 ReceiptHandle=message['ReceiptHandle']
             )
             logger.info(f"✓ Successfully processed {tender_ref}")
-            
+            if batch_id:
+                mon_complete(
+                    batch_id, tender_ref, "classification",
+                    doc_count=len(docs),
+                )
+
             return True
             
         except Exception as e:
             logger.error(f"Error processing message: {e}", exc_info=True)
+            if 'batch_id' in locals() and batch_id:
+                mon_failed(batch_id, tender_ref, "classification", error=str(e))
             return False
     
     def run(self) -> None:
