@@ -1,0 +1,39 @@
+@prefix sh:  <http://www.w3.org/ns/shacl#> .
+@prefix ts:  <http://www.tenderintelligence.io/ontology/tender-structure#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ---------------------------------------------------------------------------
+# Results SHACL Shapes
+#
+# Validates what 7_Result_Ingestion produces:
+#   - TenderResults nodes (PV)
+#   - TenderBids nodes (winner + other bidders)
+# ---------------------------------------------------------------------------
+
+ts:TenderResultsShape
+    a sh:NodeShape ;
+    sh:targetClass ts:TenderResults ;
+    sh:property [
+        sh:path ts:Is_Proces_Verbal_of ;
+        sh:minCount 1 ;
+        sh:message "A TenderResults must link to a Tender via ts:Is_Proces_Verbal_of." ;
+    ] ;
+    sh:property [
+        sh:path ts:Has_Bid ;
+        sh:minCount 1 ;
+        sh:message "A TenderResults must have at least one Bid (ts:Has_Bid)." ;
+    ] .
+
+ts:TenderBidsShape
+    a sh:NodeShape ;
+    sh:targetClass ts:TenderBids ;
+    sh:property [
+        sh:path ts:Is_Bid_of ;
+        sh:minCount 1 ;
+        sh:message "A TenderBids must link to a Contractor via ts:Is_Bid_of." ;
+    ] ;
+    sh:property [
+        sh:path ts:Is_Bid_in ;
+        sh:minCount 1 ;
+        sh:message "A TenderBids must link to a TenderResults via ts:Is_Bid_in." ;
+    ] .
