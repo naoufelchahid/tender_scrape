@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  result-ingestion:
+    build: .
+    container_name: result-ingestion
+    env_file:
+      - .env
+    volumes:
+      - ./ontology:/app/ontology
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
