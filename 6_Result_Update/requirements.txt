@@ -1,0 +1,6 @@
+boto3>=1.34
+requests>=2.31
+playwright>=1.40
+playwright-stealth>=1.0
+beautifulsoup4>=4.12
+python-dotenv>=1.0
