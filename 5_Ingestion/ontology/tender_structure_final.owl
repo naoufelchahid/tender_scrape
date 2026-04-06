@@ -15614,6 +15614,15 @@
         <rdfs:label xml:lang="fr">Prospectus et échantillons</rdfs:label>
     </owl:DatatypeProperty>
 
+    <!-- http://www.tenderintelligence.io/ontology/tender-structure#Has_Avis_Vector_Key -->
+
+    <owl:DatatypeProperty rdf:about="http://www.tenderintelligence.io/ontology/tender-structure#Has_Avis_Vector_Key">
+        <rdfs:domain rdf:resource="http://www.tenderintelligence.io/ontology/tender-structure#Tenders"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <skos:prefLabel xml:lang="fr">Clé vecteur de l'avis</skos:prefLabel>
+        <skos:definition xml:lang="fr">Clé S3 du vecteur d'embedding de l'avis d'appel d'offres.</skos:definition>
+    </owl:DatatypeProperty>
+
     <!-- New NamedIndividual: SME reservation concept -->
 
     <owl:NamedIndividual rdf:about="http://www.tenderintelligence.io/ontology/tender-structure#IsSmeReserved">
