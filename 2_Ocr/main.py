@@ -274,33 +274,136 @@ class OCRService:
             self._cleanup_temp_files(tender_ref)
             return False
     
+    def _process_result(self, message_body: dict) -> bool:
+        """Process result document from RESULTS_OCR_QUEUE.
+
+        Same OCR pipeline as tenders, but uploads to Results_markdown/
+        and sends downstream message to RESULTS_INGESTION_QUEUE.
+        """
+        start_time = time.time()
+        tender_ref = message_body.get('tender_ref')
+        s3_paths = message_body.get('s3_paths', [])
+
+        if not tender_ref or not s3_paths:
+            logger.error("Invalid result message: missing tender_ref or s3_paths")
+            return False
+
+        log_processing_start(tender_ref, len(s3_paths), s3_paths)
+        batch_id = _get_active_batch_id()
+        if batch_id:
+            mon_enter(batch_id, tender_ref, "ocr")
+
+        try:
+            # Download files
+            local_paths = self._download_tender_files(tender_ref, s3_paths)
+            if not local_paths:
+                logger.error(f"No files downloaded for result {tender_ref}")
+                return False
+
+            # Process each file with same OCR pipeline
+            markdown_parts = []
+            for local_path in local_paths:
+                if not self._is_supported_file(local_path):
+                    continue
+                file_markdown = self._process_file(local_path, tender_ref)
+                markdown_parts.append(file_markdown)
+                markdown_parts.append("\n\n---\n\n")
+
+            final_markdown = "".join(markdown_parts)
+
+            # Upload to Results_markdown/ (different prefix from tenders)
+            tender_ref_safe = tender_ref.replace('/', '_')
+            markdown_filename = f"{tender_ref_safe}.md"
+            local_md_path = os.path.join(self.temp_dir, markdown_filename)
+            with open(local_md_path, 'w', encoding='utf-8') as f:
+                f.write(final_markdown)
+
+            md_s3_key = f"Results_markdown/markdown_files/{markdown_filename}"
+            metadata = {
+                'tender_ref': tender_ref.encode('ascii', 'ignore').decode('ascii'),
+                'processed_date': datetime.utcnow().isoformat(),
+                'ocr_engine': 'docling',
+                'type': 'result',
+            }
+            if not self.s3_client.upload_file(local_md_path, md_s3_key, metadata):
+                logger.error(f"Failed to upload result markdown for {tender_ref}")
+                return False
+
+            if os.path.exists(local_md_path):
+                os.remove(local_md_path)
+
+            # Send to RESULTS_INGESTION_QUEUE
+            if Config.RESULTS_INGESTION_QUEUE_URL:
+                ingestion_msg = {
+                    'tender_ref': tender_ref,
+                    'markdown_s3_key': md_s3_key,
+                    'bucket': Config.S3_BUCKET_NAME,
+                    'timestamp': datetime.utcnow().isoformat(),
+                }
+                self.sqs_client.send_message(
+                    ingestion_msg,
+                    queue_url=Config.RESULTS_INGESTION_QUEUE_URL,
+                )
+                logger.info(f"Sent result to RESULTS_INGESTION_QUEUE: {tender_ref}")
+
+            self._cleanup_temp_files(tender_ref)
+            processing_time = time.time() - start_time
+
+            if batch_id:
+                mon_complete(
+                    batch_id, tender_ref, "ocr",
+                    processing_time_s=round(processing_time, 1),
+                    file_count=len(local_paths),
+                    markdown_chars=len(final_markdown),
+                    type="result",
+                )
+            return True
+
+        except Exception as e:
+            log_processing_error(tender_ref, e)
+            if batch_id:
+                mon_failed(batch_id, tender_ref, "ocr", error=str(e))
+            self._cleanup_temp_files(tender_ref)
+            return False
+
     def run(self) -> None:
-        """
-        Main service loop.
-        Continuously polls SQS queue and processes messages.
-        """
+        """Main service loop. Polls OCR_QUEUE and RESULTS_OCR_QUEUE."""
         logger.info("Starting OCR service main loop")
-        
+        polls_results = bool(Config.RESULTS_OCR_QUEUE_URL)
+        if polls_results:
+            logger.info(f"Dual-queue mode: also polling RESULTS_OCR_QUEUE")
+
         while True:
             try:
-                # Receive message
+                # Poll primary OCR queue
                 message = self.sqs_client.receive_message()
-                
-                if not message:
+                if message:
+                    logger.info(f"Processing tender message: {message['message_id']}")
+                    success = self._process_tender(message['body'])
+                    if success:
+                        self.sqs_client.delete_message(message['receipt_handle'])
+                        logger.info("Tender message processed and deleted")
+                    else:
+                        logger.error("Tender message failed, will retry")
                     continue
-                
-                logger.info(f"Processing message: {message['message_id']}")
-                
-                # Process tender
-                success = self._process_tender(message['body'])
-                
-                # Delete message only if successful
-                if success:
-                    self.sqs_client.delete_message(message['receipt_handle'])
-                    logger.info("Message processed and deleted successfully")
-                else:
-                    logger.error("Message processing failed, will retry")
-            
+
+                # Poll results OCR queue (only if configured)
+                if polls_results:
+                    result_msg = self.sqs_client.receive_message(
+                        queue_url=Config.RESULTS_OCR_QUEUE_URL
+                    )
+                    if result_msg:
+                        logger.info(f"Processing result message: {result_msg['message_id']}")
+                        success = self._process_result(result_msg['body'])
+                        if success:
+                            self.sqs_client.delete_message(
+                                result_msg['receipt_handle'],
+                                queue_url=Config.RESULTS_OCR_QUEUE_URL,
+                            )
+                            logger.info("Result message processed and deleted")
+                        else:
+                            logger.error("Result message failed, will retry")
+
             except KeyboardInterrupt:
                 logger.info("Received shutdown signal")
                 break

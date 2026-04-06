@@ -17,6 +17,8 @@ class Config:
     # SQS Queue URLs
     OCR_QUEUE_URL: str = os.getenv('OCR_QUEUE_URL', '')
     CLASSIFICATION_QUEUE_URL: str = os.getenv('CLASSIFICATION_QUEUE_URL', '')
+    RESULTS_OCR_QUEUE_URL: str = os.getenv('RESULTS_OCR_QUEUE_URL', '')
+    RESULTS_INGESTION_QUEUE_URL: str = os.getenv('RESULTS_INGESTION_QUEUE_URL', '')
     
     # OpenRouter API Configuration
     OPENROUTER_API_KEY: str = os.getenv('OPENROUTER_API_KEY', '')
@@ -71,6 +73,10 @@ class Config:
         print(f"  S3_BUCKET_NAME: {cls.S3_BUCKET_NAME}")
         print(f"  OCR_QUEUE_URL: {cls.OCR_QUEUE_URL[:50]}...")
         print(f"  CLASSIFICATION_QUEUE_URL: {cls.CLASSIFICATION_QUEUE_URL[:50]}...")
+        if cls.RESULTS_OCR_QUEUE_URL:
+            print(f"  RESULTS_OCR_QUEUE_URL: {cls.RESULTS_OCR_QUEUE_URL[:50]}...")
+        if cls.RESULTS_INGESTION_QUEUE_URL:
+            print(f"  RESULTS_INGESTION_QUEUE_URL: {cls.RESULTS_INGESTION_QUEUE_URL[:50]}...")
         print(f"  OPENROUTER_API_KEY: {'*' * 10 if cls.OPENROUTER_API_KEY else 'NOT SET'}")
         print(f"  OPENROUTER_APP_NAME: {cls.OPENROUTER_APP_NAME}")
         print(f"  PRIMARY_MODEL: {cls.PRIMARY_MODEL}")
