@@ -15,6 +15,9 @@ services:
     volumes:
       - ./logs:/app/logs
       - ./temp:/app/temp
+      - ../pipeline.db:/app/pipeline.db
+      - ../pipeline.db-shm:/app/pipeline.db-shm
+      - ../pipeline.db-wal:/app/pipeline.db-wal
     restart: unless-stopped
     mem_limit: 8g
     runtime: nvidia

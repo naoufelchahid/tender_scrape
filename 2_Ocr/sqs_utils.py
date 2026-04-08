@@ -33,7 +33,7 @@ class SQSClient:
             queue_url = self.ocr_queue_url
         
         try:
-            logger.info(f"Polling queue: {queue_url[:50]}...")
+            logger.debug(f"Polling queue: {queue_url[:50]}...")
             
             response = self.client.receive_message(
                 QueueUrl=queue_url,

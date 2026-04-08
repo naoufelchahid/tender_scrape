@@ -16,3 +16,4 @@ pyshacl==0.31.0
 # RDF/OWL support
 owlrl==7.1.4
 html5rdf==1.2.1
+requests

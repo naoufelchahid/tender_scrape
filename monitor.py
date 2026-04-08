@@ -39,7 +39,23 @@ def _db_path() -> Path:
     env = os.environ.get("PIPELINE_DB_PATH")
     if env:
         return Path(env)
-    return Path(__file__).resolve().parent / "pipeline.db"
+
+    # Handle symlinks: walk up from current location to find pipeline.db
+    current = Path(__file__).resolve().parent
+
+    # First check if pipeline.db exists in current directory
+    db_file = current / "pipeline.db"
+    if db_file.exists():
+        return db_file
+
+    # Walk up to parent directories (for symlinked monitor.py in stage directories)
+    for parent in current.parents:
+        db_file = parent / "pipeline.db"
+        if db_file.exists():
+            return db_file
+
+    # If not found, default to root project directory
+    return current / "pipeline.db"
 
 
 def _connect() -> sqlite3.Connection:

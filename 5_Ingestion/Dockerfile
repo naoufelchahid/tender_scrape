@@ -1,9 +1,20 @@
 FROM python:3.11-slim
+
 WORKDIR /app
-COPY requirements.txt .
+
+# Copy requirements and install
+COPY 5_Ingestion/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-COPY ontology/ ./ontology/
-COPY src/ ./src/
-COPY tests/ ./tests/
-COPY main.py .
+
+# Copy application code and shared dependencies
+COPY 5_Ingestion/ontology/ ./ontology/
+COPY 5_Ingestion/src/ ./src/
+COPY 5_Ingestion/tests/ ./tests/
+COPY 5_Ingestion/main.py .
+COPY monitor.py .
+
+# Set environment variables
+ENV PYTHONPATH=/app
+ENV PYTHONUNBUFFERED=1
+
 CMD ["python", "main.py"]

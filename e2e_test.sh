@@ -52,6 +52,8 @@ LIMIT_TENDERS=1
 SKIP_SCRAPER=false
 MONITOR_MODE=false
 STOP_MODE=false
+GPU_AVAILABLE=false
+JENA_ALREADY_UP=false
 
 # =============================================================================
 # Colors & Logging
@@ -144,6 +146,80 @@ check_sqs_queues() {
     success "SQS queue check done"
 }
 
+get_container_status() {
+    docker inspect --format '{{.State.Status}}' "$1" 2>/dev/null || echo ""
+}
+
+ensure_container_running() {
+    local name="$1"
+    shift
+    local status
+    status=$(get_container_status "$name")
+
+    case "$status" in
+        running)
+            log "  → $name already running, skipping"
+            return 0
+            ;;
+        exited|paused|created)
+            log "  → $name exists but is $status — restarting"
+            docker start "$name" > /dev/null
+            success "$name restarted"
+            return 0
+            ;;
+        "")
+            log "  → $name not found — creating"
+            docker run -d --name "$name" "$@" > /dev/null
+            success "$name started"
+            ;;
+        *)
+            warn "$name is in unexpected state '$status' — attempting start"
+            docker start "$name" > /dev/null || true
+            ;;
+    esac
+}
+
+check_gpu() {
+    log "Checking GPU availability..."
+    if command -v nvidia-smi &>/dev/null && nvidia-smi &>/dev/null; then
+        local gpu_count
+        gpu_count=$(nvidia-smi --query-gpu=name --format=csv,noheader 2>/dev/null | wc -l)
+        success "GPU available ($gpu_count device(s) detected)"
+        GPU_AVAILABLE=true
+    elif docker run --rm --gpus all nvidia/cuda:12.0-base-ubuntu22.04 nvidia-smi &>/dev/null 2>&1; then
+        success "GPU available via Docker"
+        GPU_AVAILABLE=true
+    else
+        warn "No GPU detected — OCR container will start WITHOUT --gpus flag (CPU fallback)"
+        warn "OCR performance will be significantly slower"
+        GPU_AVAILABLE=false
+    fi
+}
+
+check_jena_connectivity() {
+    local max_attempts="${1:-5}"
+    local wait_seconds="${2:-1}"
+    set -a; source "${PROJECT_ROOT}/.env" 2>/dev/null; set +a
+    local jena_endpoint="${JENA_ENDPOINT:-http://localhost:3030}"
+    # Strip any dataset/path suffix — ping lives at the Fuseki root
+    local fuseki_base
+    fuseki_base=$(echo "$jena_endpoint" | grep -oP '^https?://[^/]+')
+    fuseki_base="${fuseki_base:-http://localhost:3030}"
+    local url="${fuseki_base}/\$/ping"
+    local attempt=0
+
+    log "Checking Jena connectivity at $url ..."
+    while [[ $attempt -lt $max_attempts ]]; do
+        if curl -sf "$url" &>/dev/null; then
+            success "Jena is reachable at $fuseki_base"
+            return 0
+        fi
+        attempt=$((attempt + 1))
+        sleep "$wait_seconds"
+    done
+    return 1
+}
+
 create_network() {
     if docker network inspect "$NETWORK_NAME" &> /dev/null; then
         log "Docker network $NETWORK_NAME already exists"
@@ -160,6 +236,15 @@ build_images() {
         return
     fi
 
+    log "Preparing shared dependencies..."
+    # Replace symlinks with actual files for Docker context
+    for stage in 1_Update 2_Ocr 3_Classification 4_Extraction 5_Ingestion; do
+        if [ -L "${PROJECT_ROOT}/${stage}/monitor.py" ]; then
+            rm "${PROJECT_ROOT}/${stage}/monitor.py"
+            cp "${PROJECT_ROOT}/monitor.py" "${PROJECT_ROOT}/${stage}/monitor.py"
+        fi
+    done
+
     log "Building Docker images..."
 
     log "  → Building 2_Ocr..."
@@ -174,8 +259,8 @@ build_images() {
     docker build -t tender-extraction:latest -f "${PROJECT_ROOT}/4_Extraction/Dockerfile" "${PROJECT_ROOT}" > /dev/null
     success "4_Extraction built"
 
-    log "  → Building 5_Ingestion (Fuseki + kb_ingestion)..."
-    $DOCKER_COMPOSE -f "$FUSEKI_COMPOSE" build > /dev/null
+    log "  → Building 5_Ingestion (kb_ingestion)..."
+    docker build -t tender-ingestion:latest -f "${PROJECT_ROOT}/5_Ingestion/Dockerfile" "${PROJECT_ROOT}" > /dev/null
     success "5_Ingestion built"
 
     success "All images built"
@@ -203,39 +288,41 @@ wait_for_fuseki() {
 start_services() {
     log "Starting all services..."
 
-    log "  → Starting Fuseki + 5_Ingestion..."
-    $DOCKER_COMPOSE -f "$FUSEKI_COMPOSE" up -d
-    success "Fuseki + 5_Ingestion started"
-
-    wait_for_fuseki
+    log "  → Fuseki + 5_Ingestion..."
+    if [[ "$JENA_ALREADY_UP" == true ]]; then
+        log "  → Fuseki already up, skipping startup"
+    else
+        $DOCKER_COMPOSE -f "$FUSEKI_COMPOSE" up -d
+        success "Fuseki + 5_Ingestion started"
+        wait_for_fuseki
+    fi
+    check_jena_connectivity 60 1 || die "Jena unreachable after startup — aborting"
 
     log "  → Starting 2_Ocr..."
-    docker run -d \
-        --name ocr-container \
-        --env-file "${PROJECT_ROOT}/2_Ocr/.env" \
-        --gpus all \
-        --restart unless-stopped \
-        --volume "${PROJECT_ROOT}/2_Ocr/logs:/app/logs" \
-        --volume "${PROJECT_ROOT}/2_Ocr/temp:/app/temp" \
-        --memory 8g \
-        tender-ocr:latest > /dev/null
-    success "2_Ocr started"
+    local ocr_flags=(
+        --env-file "${PROJECT_ROOT}/2_Ocr/.env"
+        --restart unless-stopped
+        --network "$NETWORK_NAME"
+        --volume "${PROJECT_ROOT}/2_Ocr/logs:/app/logs"
+        --volume "${PROJECT_ROOT}/2_Ocr/temp:/app/temp"
+        --memory 8g
+    )
+    [[ "$GPU_AVAILABLE" == true ]] && ocr_flags+=(--gpus all)
+    ensure_container_running ocr-container "${ocr_flags[@]}" tender-ocr:latest
 
     log "  → Starting 3_Classification..."
-    docker run -d \
-        --name "$CLASSIFICATION_CONTAINER" \
+    ensure_container_running "$CLASSIFICATION_CONTAINER" \
         --env-file "${PROJECT_ROOT}/3_Classification/.env" \
         --restart unless-stopped \
-        tender-classification:latest > /dev/null
-    success "3_Classification started"
+        --network "$NETWORK_NAME" \
+        tender-classification:latest
 
     log "  → Starting 4_Extraction..."
-    docker run -d \
-        --name "$EXTRACTION_CONTAINER" \
+    ensure_container_running "$EXTRACTION_CONTAINER" \
         --env-file "${PROJECT_ROOT}/4_Extraction/.env" \
         --restart unless-stopped \
-        tender-extraction:latest > /dev/null
-    success "4_Extraction started"
+        --network "$NETWORK_NAME" \
+        tender-extraction:latest
 
     log ""
     success "All services started"
@@ -249,7 +336,7 @@ run_scraper() {
         log "Skipping ref_updater.py; using existing new_references.json"
         log "Running Db_updater.py directly..."
         cd "$UPDATE_DIR"
-        python Db_updater.py --max-tenders "$LIMIT_TENDERS" 2>&1 | tee -a run_updates.log
+        python3 Db_updater.py --max-tenders "$LIMIT_TENDERS" 2>&1 | tee -a run_updates.log
         cd "$PROJECT_ROOT"
     else
         log "Running 1_Update scraper (limit: $LIMIT_TENDERS tender(s))..."
@@ -326,16 +413,23 @@ verify_jena_data() {
     set +a
 
     local jena_endpoint="${JENA_ENDPOINT:-http://localhost:3030}"
+    # JENA_ENDPOINT may already be the full SPARQL query URL; derive base and build cleanly
+    local fuseki_base
+    fuseki_base=$(echo "$jena_endpoint" | grep -oP '^https?://[^/]+')
+    fuseki_base="${fuseki_base:-http://localhost:3030}"
     local jena_dataset="${JENA_DATASET:-tenders}"
-    local query_url="${jena_endpoint}/${jena_dataset}/query"
+    local query_url="${fuseki_base}/${jena_dataset}/query"
 
     log "Jena endpoint: $query_url"
 
-    # Simple COUNT query
-    local count=$(curl -s -X POST "$query_url" \
+    # Simple COUNT query — grep failure handled explicitly to avoid pipefail exit
+    local raw_response
+    raw_response=$(curl -s -X POST "$query_url" \
         -H "Content-Type: application/x-www-form-urlencoded" \
-        -d "query=SELECT%20(COUNT(%3F?s)%20as%20%3Fcount)%20WHERE%20%7B%20%3Fs%20%3Fp%20%3Fo%20%7D" \
-        -q 2>/dev/null | grep -oP '(?<=>)\d+(?=<)' | head -1 || echo "N/A")
+        -d "query=SELECT%20(COUNT(%3Fs)%20as%20%3Fcount)%20WHERE%20%7B%20%3Fs%20%3Fp%20%3Fo%20%7D" \
+        2>/dev/null || true)
+    local count
+    count=$(echo "$raw_response" | grep -oP '(?<=>)\d+(?=<)' | head -1 || true)
 
     if [[ "$count" != "N/A" && "$count" -gt 0 ]]; then
         success "Jena contains $count triples"
@@ -395,6 +489,13 @@ main() {
     check_env_files
     check_aws_credentials
     check_sqs_queues
+    check_gpu
+    if check_jena_connectivity 3 1; then
+        JENA_ALREADY_UP=true
+    else
+        log "Jena not yet reachable — will start Fuseki"
+        JENA_ALREADY_UP=false
+    fi
     success "All preflight checks passed"
     log ""
 

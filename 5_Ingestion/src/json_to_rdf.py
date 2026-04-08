@@ -27,6 +27,21 @@ from .uri_builder import (
     TS
 )
 
+import re
+
+def parse_float_safely(val: Any) -> float:
+    if isinstance(val, (int, float)):
+        return float(val)
+    if not val:
+        return 0.0
+    clean_val = re.sub(r'\s+', '', str(val))
+    clean_val = clean_val.replace(',', '.')
+    try:
+        return float(clean_val)
+    except ValueError:
+        logger.warning(f"Could not parse '{val}' as float, defaulting to 0.0")
+        return 0.0
+
 
 class JsonToRdfMapper:
     def __init__(self, tender_ref: str, tender_iri: Optional[str] = None):
@@ -82,7 +97,7 @@ class JsonToRdfMapper:
             designation = product.designation or product.product_header or f"Article {i+1}"
             self.graph.add((article_uri, TS.Has_Designation, Literal(designation, datatype=XSD.string)))
             if product.quantity is not None:
-                val = float(product.quantity) if isinstance(product.quantity, (int, float)) else product.quantity
+                val = parse_float_safely(product.quantity)
                 self.graph.add((article_uri, TS.Has_quantity, Literal(val, datatype=XSD.float)))
             if product.unit:
                 self.graph.add((article_uri, TS.Has_Unit, Literal(product.unit, datatype=XSD.string)))

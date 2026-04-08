@@ -14,6 +14,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code (4_Extraction/* → /app/*)
 COPY 4_Extraction/ .
 
+# Copy monitor.py from root (after 4_Extraction to avoid being overwritten)
+COPY monitor.py .
+
 # Set Python path to include src
 ENV PYTHONPATH=/app
 ENV PYTHONDONTWRITEBYTECODE=1

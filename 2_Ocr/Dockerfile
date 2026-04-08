@@ -54,10 +54,12 @@ DocumentConverter(format_options={__import__('docling.datamodel.base_models', fr
 print('Docling models cached')" || echo "Docling model pre-cache skipped (non-fatal)"
 
 # Pre-download RapidOCR models (~40MB, avoids modelscope download on first run)
-RUN python -c "\
+# Note: This may fail if modelscope.cn is unreachable, but it's OK — models will be cached on first use
+# If network access is available during build, models are cached; if not, they'll be downloaded at runtime
+RUN timeout 60 python -c "\
 from rapidocr import RapidOCR; \
 ocr = RapidOCR(); \
-print('RapidOCR models cached')" || echo "RapidOCR model pre-cache skipped (non-fatal)"
+print('✅ RapidOCR models pre-cached successfully')" 2>/dev/null || echo "⚠️  RapidOCR pre-cache skipped (will download at runtime if needed)"
 
 COPY . .
 

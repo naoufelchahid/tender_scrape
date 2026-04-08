@@ -307,8 +307,9 @@ class KBIngestor:
         Naming convention: {NT_OUTPUT_DIR}/{tender_ref}/{tender_ref}_{YYYYMMDDTHHMMSS}Z.nt
         """
         timestamp = datetime.utcnow().strftime("%Y%m%dT%H%M%S") + "Z"
-        filename = f"{tender_ref}_{timestamp}.nt"
-        out_dir = os.path.join(settings.NT_OUTPUT_DIR, tender_ref)
+        safe_ref = tender_ref.replace('/', '_')
+        filename = f"{safe_ref}_{timestamp}.nt"
+        out_dir = os.path.join(settings.NT_OUTPUT_DIR, safe_ref)
         os.makedirs(out_dir, exist_ok=True)
         path = os.path.join(out_dir, filename)
         graph.serialize(destination=path, format="nt")

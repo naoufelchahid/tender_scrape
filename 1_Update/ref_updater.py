@@ -100,8 +100,9 @@ class JenaClient:
             List of result bindings
         """
         try:
+            query_url = self.endpoint if self.endpoint.endswith('/query') else self.endpoint.rstrip('/') + '/query'
             response = self.session.get(
-                self.endpoint,
+                query_url,
                 params={'query': sparql},
                 timeout=60
             )
