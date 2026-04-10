@@ -36,11 +36,14 @@ set -euo pipefail
 VENV_DIR="${VENV_DIR:-./venv}"
 PYTHON="${VENV_DIR}/bin/python3"
 
-NEW_REFS_FILE="new_references.json"
-PROCESSED_FILE="processed_tenders.json"
-METADATA_DIR="tenders_metadata"
-DOWNLOADS_DIR="downloads"
-OUTPUT_DIR="output"
+# Data flow directories (centralized at project root)
+DATA_FLOW_ROOT="${DATA_FLOW_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/Data_flow}"
+
+NEW_REFS_FILE="${DATA_FLOW_ROOT}/1_New_ref/new_references.json"
+PROCESSED_FILE="${DATA_FLOW_ROOT}/2_tender_meta_data/processed_tenders.json"
+METADATA_DIR="${DATA_FLOW_ROOT}/2_tender_meta_data/tenders_metadata"
+DOWNLOADS_DIR="${DATA_FLOW_ROOT}/2_tender_meta_data/downloads"
+OUTPUT_DIR="${DATA_FLOW_ROOT}/3_tender_buyer_triples"
 ONTOLOGY="tender_structure.owl"
 SHACL="tender_shacl_shapes.ttl"
 
