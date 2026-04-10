@@ -1,3 +1,5 @@
+
+
 #!/usr/bin/env bash
 # =============================================================================
 # e2e_test.sh - End-to-End Single-Tender Pipeline Test Orchestrator
@@ -35,13 +37,15 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="${SCRIPT_DIR}"
 NETWORK_NAME="tender_network"
-FUSEKI_COMPOSE="${PROJECT_ROOT}/5_Ingestion/docker-compose.fuseki.yml"
-OCR_COMPOSE="${PROJECT_ROOT}/2_Ocr/docker-compose.yml"
+FUSEKI_COMPOSE="${PROJECT_ROOT}/docker-compose.jena.yml"
+VERIFY_COMPOSE="${PROJECT_ROOT}/docker-compose.verify.yml"
 UPDATE_DIR="${PROJECT_ROOT}/1_Update"
 
-# Container names for services without compose
-CLASSIFICATION_CONTAINER="e2e_classification"
-EXTRACTION_CONTAINER="e2e_extraction"
+# Container names for services (matching docker-compose.verify.yml)
+OCR_CONTAINER="OCR"
+CLASSIFICATION_CONTAINER="Classification"
+EXTRACTION_CONTAINER="Extraction"
+INGESTION_CONTAINER="Ingestion"
 
 # Docker command (docker compose or docker-compose)
 DOCKER_COMPOSE="docker compose"
@@ -288,41 +292,49 @@ wait_for_fuseki() {
 start_services() {
     log "Starting all services..."
 
-    log "  → Fuseki + 5_Ingestion..."
-    if [[ "$JENA_ALREADY_UP" == true ]]; then
-        log "  → Fuseki already up, skipping startup"
-    else
-        $DOCKER_COMPOSE -f "$FUSEKI_COMPOSE" up -d
-        success "Fuseki + 5_Ingestion started"
-        wait_for_fuseki
-    fi
+    log "  → Starting Fuseki..."
+    $DOCKER_COMPOSE -f "$FUSEKI_COMPOSE" up -d
+    wait_for_fuseki
     check_jena_connectivity 60 1 || die "Jena unreachable after startup — aborting"
 
-    log "  → Starting 2_Ocr..."
+    log "  → Starting OCR Stage..."
     local ocr_flags=(
         --env-file "${PROJECT_ROOT}/2_Ocr/.env"
         --restart unless-stopped
         --network "$NETWORK_NAME"
-        --volume "${PROJECT_ROOT}/2_Ocr/logs:/app/logs"
-        --volume "${PROJECT_ROOT}/2_Ocr/temp:/app/temp"
+        --volume "${PROJECT_ROOT}/Logs/2_Ocr:/app/logs"
+        --volume "${PROJECT_ROOT}/Data_flow:/app/data_flow"
         --memory 8g
     )
     [[ "$GPU_AVAILABLE" == true ]] && ocr_flags+=(--gpus all)
-    ensure_container_running ocr-container "${ocr_flags[@]}" tender-ocr:latest
+    ensure_container_running "$OCR_CONTAINER" "${ocr_flags[@]}" tender-ocr:latest
 
-    log "  → Starting 3_Classification..."
+    log "  → Starting Classification Stage..."
     ensure_container_running "$CLASSIFICATION_CONTAINER" \
         --env-file "${PROJECT_ROOT}/3_Classification/.env" \
         --restart unless-stopped \
         --network "$NETWORK_NAME" \
+        --volume "${PROJECT_ROOT}/Logs/3_Classification:/app/logs" \
+        --volume "${PROJECT_ROOT}/Data_flow:/app/data_flow" \
         tender-classification:latest
 
-    log "  → Starting 4_Extraction..."
+    log "  → Starting Extraction Stage..."
     ensure_container_running "$EXTRACTION_CONTAINER" \
         --env-file "${PROJECT_ROOT}/4_Extraction/.env" \
         --restart unless-stopped \
         --network "$NETWORK_NAME" \
+        --volume "${PROJECT_ROOT}/Logs/4_Extraction:/app/logs" \
+        --volume "${PROJECT_ROOT}/Data_flow:/app/data_flow" \
         tender-extraction:latest
+
+    log "  → Starting Ingestion Stage..."
+    ensure_container_running "$INGESTION_CONTAINER" \
+        --env-file "${PROJECT_ROOT}/5_Ingestion/.env" \
+        --restart unless-stopped \
+        --network "$NETWORK_NAME" \
+        --volume "${PROJECT_ROOT}/Logs/5_Ingestion:/app/logs" \
+        --volume "${PROJECT_ROOT}/Data_flow:/app/data_flow" \
+        tender-ingestion:latest
 
     log ""
     success "All services started"
@@ -330,10 +342,11 @@ start_services() {
 
 run_scraper() {
     if [[ "$SKIP_SCRAPER" == true ]]; then
-        if [[ ! -f "${UPDATE_DIR}/new_references.json" ]]; then
-            die "--skip-scraper requires new_references.json to exist in 1_Update/"
+        local input_file="${PROJECT_ROOT}/Data_flow/1_New_ref/new_references.json"
+        if [[ ! -f "$input_file" ]]; then
+            die "--skip-scraper requires new_references.json to exist in Data_flow/1_New_ref/"
         fi
-        log "Skipping ref_updater.py; using existing new_references.json"
+        log "Skipping ref_updater.py; using existing $input_file"
         log "Running Db_updater.py directly..."
         cd "$UPDATE_DIR"
         python3 Db_updater.py --max-tenders "$LIMIT_TENDERS" 2>&1 | tee -a run_updates.log
@@ -358,7 +371,8 @@ monitor_logs() {
     $DOCKER_COMPOSE -f "$FUSEKI_COMPOSE" logs -f 2>/dev/null &
     local fuseki_pid=$!
 
-    $DOCKER_COMPOSE -f "$OCR_COMPOSE" logs -f 2>/dev/null &
+    # Note: Services are started via docker run, not compose, so we tail directly
+    docker logs -f "$OCR_CONTAINER" 2>/dev/null &
     local ocr_pid=$!
 
     docker logs -f "$CLASSIFICATION_CONTAINER" 2>/dev/null &
