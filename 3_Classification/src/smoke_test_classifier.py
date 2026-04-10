@@ -2,7 +2,8 @@
 import logging
 import sys
 from unittest.mock import MagicMock
-from classifier import DocumentClassifier, ClassificationResult
+from src.classifier import DocumentClassifier, ClassificationResult
+from src.segmentation_engine import SegmentationEngine, Segment
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -25,6 +26,31 @@ def test_classifier_refactoring():
         result = classifier.classify(filename, content)
         logger.info(f"Test: {filename} -> {result.doc_type} (expected: {expected_type})")
         assert result.doc_type == expected_type, f"Failed for {filename}: expected {expected_type}, got {result.doc_type}"
+
+def test_segmentation_engine_smoke():
+    """Verify that the segmentation engine can split a mixed text."""
+    engine = SegmentationEngine()
+    classifier = DocumentClassifier()
+    
+    text = (
+        "# CAHIER DES PRESCRIPTIONS SPECIALES\n"
+        + "Article 1: Objet\n"
+        + "Cahier des prescriptions spéciales pour le projet X clauses techniques nantissement\n" * 50
+        + "\n---\n"
+        + "# BORDEREAU DES PRIX\n"
+        + "| désignation | unité | quantité | prix unitaire | montant |\n" * 50
+    )
+    
+    segments = engine.segment_and_classify(text, classifier)
+    
+    logger.info(f"Segmentation smoke test: produced {len(segments)} segments")
+    for seg in segments:
+        logger.info(f"  Segment: {seg.doc_type} (conf={seg.confidence:.2f}, method={seg.method})")
+    
+    assert len(segments) >= 2
+    types = {s.doc_type for s in segments}
+    assert "specification" in types
+    assert "product" in types
 
 def test_decompose_integration():
     """Verify that decompose is called and its output is used."""
@@ -62,6 +88,7 @@ if __name__ == "__main__":
     try:
         logger.info("Running smoke tests...")
         test_classifier_refactoring()
+        test_segmentation_engine_smoke()
         test_decompose_integration()
         logger.info("All smoke tests passed!")
     except Exception as e:

@@ -1,0 +1,45 @@
+{
+  "reference": "18/2026/AMDL",
+  "original_reference": "18/2026/AMDL",
+  "buyer": "M3 / AMDL - AGENCE MAROCAINE DE DEVELOPPEMENT DE LA LOGISTIQUE",
+  "category": "Travaux",
+  "launch_date": "06/04/2026",
+  "object": "Travaux d’aménagement des espaces verts du projet du centre routier d’El Hajeb dans la commune d’El Hajeb",
+  "city": "EL-HAJEB",
+  "all_cities": null,
+  "deadline": "2026-05-05T10:30:00",
+  "mode_passation": "| Sur offre de prix",
+  "procedure_type": "Appel d'offres ouvert",
+  "main_category": "Travaux",
+  "allotissement": null,
+  "activity_domains": [
+    "Travaux / Aménagement de jardins, d'espaces verts  / Aménagement d'espaces verts et jardins et apports de terres végétales"
+  ],
+  "is_sme_reserved": false,
+  "retrait_address": "www.marchespublics.gov.ma",
+  "depot_address": "www.marchespublics.gov.ma",
+  "mode_soumission": "Physique/Hybride",
+  "opening_location": "42, Avenue Al Alaouiyine, Hassan-Rabat",
+  "contacts": {
+    "name": "NAJIB HADDOUCHI",
+    "email": "najib.haddouchi@amdl.gov.ma",
+    "phone": "0538009354",
+    "fax": "0537761668"
+  },
+  "estimated_value": "377 251,20",
+  "plan_cost": null,
+  "provisional_deposit": "5 600,00",
+  "qualifications": [
+    "Equipement / V- Amenagement d'espaces verts et jardins / V.1- aménagement d'espaces verts et jardins / Classe 3"
+  ],
+  "agrements": null,
+  "variante": "Non",
+  "reunion": null,
+  "site_visit": null,
+  "samples_info": null,
+  "download_available": true,
+  "downloadable_files": [
+    "Dossier de consultation - 38,66 Mo"
+  ],
+  "processed_at": "2026-04-07T12:00:03.072416"
+}

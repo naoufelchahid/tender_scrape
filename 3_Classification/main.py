@@ -13,10 +13,9 @@ from typing import Dict, Any, List, Set
 
 from src.config import Config
 from src.classifier import DocumentClassifier
-from src.document_splitter import split_concatenated_file, LogicalDocument
+from src.segmentation_engine import SegmentationEngine, Segment
 from src.openrouter_wrapper import OpenRouterClientWrapper
 from src.hierarchy_restructurer import restructure_by_type
-from src.missing_doc_detector import detect_missing_documents, extract_balised_documents
 from monitor import enter as mon_enter, complete as mon_complete, failed as mon_failed, anomaly as mon_anomaly
 
 def _get_active_batch_id():
@@ -81,6 +80,9 @@ class ClassificationService:
         # Document classifier
         self.classifier = DocumentClassifier(openrouter_client=self.openrouter_client)
         
+        # Segmentation engine
+        self.segmenter = SegmentationEngine()
+        
         logger.info("Classification Service initialized successfully")
     
     def _download_markdown(self, s3_key: str) -> str:
@@ -131,13 +133,13 @@ class ClassificationService:
             logger.error(f"Failed to upload {s3_key}: {e}")
             raise
     
-    def _generate_yaml_header(self, tender_ref: str, docs: List[LogicalDocument]) -> str:
+    def _generate_yaml_header(self, tender_ref: str, segments: List[Segment]) -> str:
         """
         Generate YAML frontmatter header with document type checklist.
         
         Args:
             tender_ref: Tender reference ID
-            docs: List of classified LogicalDocument objects
+            segments: List of classified Segment objects
             
         Returns:
             YAML frontmatter as string
@@ -146,7 +148,7 @@ class ClassificationService:
         timestamp = datetime.utcnow().isoformat() + 'Z'
         
         # Build document checklist
-        found_types = {doc.doc_type for doc in docs}
+        found_types = {seg.doc_type for seg in segments}
         checklist = {}
         for doc_type in ALL_DOCUMENT_TYPES:
             checklist[doc_type] = "checked" if doc_type in found_types else "missing"
@@ -167,137 +169,6 @@ class ClassificationService:
         
         return "\n".join(yaml_lines)
     
-    def _generate_s3_metadata(self, docs: List[LogicalDocument]) -> Dict[str, str]:
-        """
-        Generate S3 metadata from document checklist.
-        
-        Args:
-            docs: List of classified LogicalDocument objects
-            
-        Returns:
-            Dictionary of S3 metadata
-        """
-        found_types = {doc.doc_type for doc in docs}
-        metadata = {}
-        
-        for doc_type in ALL_DOCUMENT_TYPES:
-            # S3 metadata keys must be lowercase and use hyphens
-            # Format: doc-<type>: checked|missing
-            key = f"doc-{doc_type.replace('_', '-')}"
-            value = "checked" if doc_type in found_types else "missing"
-            metadata[key] = value
-        
-        return metadata
-    
-    def _parse_existing_yaml_checklist(self, markdown: str) -> Set[str]:
-        """
-        Parse existing YAML header to extract already-checked document types.
-        
-        Args:
-            markdown: Markdown content with YAML frontmatter
-            
-        Returns:
-            Set of document types that are currently marked as 'checked'
-        """
-        lines = markdown.split('\n')
-        
-        # Find YAML boundaries
-        if not lines or lines[0].strip() != '---':
-            return set()
-        
-        yaml_end = -1
-        for i in range(1, len(lines)):
-            if lines[i].strip() == '---':
-                yaml_end = i
-                break
-        
-        if yaml_end == -1:
-            return set()
-        
-        # Parse checklist
-        checked_types = set()
-        in_checklist = False
-        
-        for i in range(1, yaml_end):
-            line = lines[i].strip()
-            
-            if line == 'document_checklist:':
-                in_checklist = True
-                continue
-            
-            if in_checklist and line.startswith(' '):
-                # Parse: "  avis_fr: checked"
-                parts = line.split(':', 1)
-                if len(parts) == 2:
-                    doc_type = parts[0].strip()
-                    status = parts[1].strip()
-                    if status == 'checked':
-                        checked_types.add(doc_type)
-        
-        return checked_types
-    
-    def _update_yaml_header(
-        self, markdown: str, tender_ref: str, newly_found_types: Set[str]
-    ) -> str:
-        """
-        Update YAML header with newly detected document types.
-        
-        Only updates documents transitioning from missing → checked.
-        Preserves existing checked status.
-        
-        Args:
-            markdown: Markdown content with existing YAML header
-            tender_ref: Tender reference ID
-            newly_found_types: Document types newly detected
-            
-        Returns:
-            Markdown with updated YAML header
-        """
-        # Parse existing checked types
-        existing_checked = self._parse_existing_yaml_checklist(markdown)
-        
-        # Combine existing + newly found
-        all_checked_types = existing_checked.union(newly_found_types)
-        
-        # Generate new YAML header
-        timestamp = datetime.utcnow().isoformat() + 'Z'
-        
-        yaml_lines = [
-            "---",
-            f"tender_ref: {tender_ref}",
-            f"classification_date: {timestamp}",
-            "document_checklist:"
-        ]
-        
-        for doc_type in ALL_DOCUMENT_TYPES:
-            status = "checked" if doc_type in all_checked_types else "missing"
-            yaml_lines.append(f"  {doc_type}: {status}")
-        
-        yaml_lines.append("---")
-        yaml_lines.append("")  # Empty line after YAML
-        
-        new_yaml_header = '\n'.join(yaml_lines)
-        
-        # Replace existing YAML header
-        lines = markdown.split('\n')
-        if lines and lines[0].strip() == '---':
-            # Find end of existing YAML
-            yaml_end = -1
-            for i in range(1, len(lines)):
-                if lines[i].strip() == '---':
-                    yaml_end = i
-                    break
-            
-            if yaml_end != -1:
-                # Remove old YAML header and prepend new one
-                remaining_content = '\n'.join(lines[yaml_end + 1:])
-                if remaining_content.startswith('\n'):
-                    remaining_content = remaining_content[1:]
-                return new_yaml_header + remaining_content
-        
-        # No existing YAML header, prepend new one
-        return new_yaml_header + markdown
-    
     def _generate_s3_metadata_from_types(self, found_types: Set[str]) -> Dict[str, str]:
         """
         Generate S3 metadata from set of found document types.
@@ -311,43 +182,38 @@ class ClassificationService:
         metadata = {}
         
         for doc_type in ALL_DOCUMENT_TYPES:
+            # S3 metadata keys must be lowercase and use hyphens
+            # Format: doc-<type>: checked|missing
             key = f"doc-{doc_type.replace('_', '-')}"
             value = "checked" if doc_type in found_types else "missing"
             metadata[key] = value
         
         return metadata
     
-    def _inject_document_headers(self, tender_ref: str, docs: List[LogicalDocument]) -> str:
+    def _inject_segment_headers(self, tender_ref: str, segments: List[Segment]) -> str:
         """
-        Inject document type headers and reconstruct markdown.
+        Inject segment headers and reconstruct markdown with YAML frontmatter.
         
         Args:
             tender_ref: Tender reference ID
-            docs: List of classified LogicalDocument objects
+            segments: List of classified Segment objects
             
         Returns:
-            Reconstructed markdown with YAML header and document headers
+            Reconstructed markdown
         """
-        markdown_parts = []
+        # Build YAML header
+        yaml_header = self._generate_yaml_header(tender_ref, segments)
         
-        # Add YAML frontmatter header at the beginning
-        yaml_header = self._generate_yaml_header(tender_ref, docs)
-        markdown_parts.append(yaml_header)
+        # Build document sections
+        markdown_parts = [yaml_header]
         
-        for doc in docs:
-            # Add file header
-            markdown_parts.append(f"# File: {doc.original_filename}\n\n")
-            
-            # Inject document type header
-            markdown_parts.append(f"> Document Type: {doc.doc_type}\n\n")
-            
-            # Add content
-            markdown_parts.append(doc.content)
-            
-            # Add separator
+        for i, seg in enumerate(segments):
+            filename = f"segment_{i+1}_{seg.doc_type}.md"
+            markdown_parts.append(f"# File: {filename}\n\n")
+            markdown_parts.append(f"> Document Type: {seg.doc_type}\n\n")
+            markdown_parts.append(seg.content)
             markdown_parts.append("\n\n---\n\n")
         
-        # Join and remove trailing separator
         result = "".join(markdown_parts)
         if result.endswith("\n\n---\n\n"):
             result = result[:-7]
@@ -386,90 +252,35 @@ class ClassificationService:
             
             full_markdown = "\n\n---\n\n".join(markdown_parts)
             
-            # Split into logical documents
-            docs = split_concatenated_file(full_markdown)
-            logger.info(f"Split into {len(docs)} logical documents")
+            # Run 4-pass segmentation pipeline
+            segments = self.segmenter.segment_and_classify(full_markdown, self.classifier)
+            logger.info(f"Segmentation produced {len(segments)} segments")
             
-            # Classify each document
-            for doc in docs:
-                result = self.classifier.classify(doc.original_filename, doc.content)
-                doc.doc_type = result.doc_type
+            for seg in segments:
                 logger.info(
-                    f"  '{doc.original_filename}' → {result.doc_type} "
-                    f"(step {result.step}, confidence: {result.confidence})"
+                    f"  [{seg.start_line}-{seg.end_line}] {seg.doc_type} "
+                    f"(conf={seg.confidence:.2f}, method={seg.method})"
                 )
             
-            # Inject headers and reconstruct markdown (with YAML frontmatter)
-            classified_markdown = self._inject_document_headers(tender_ref, docs)
+            # Reconstruct markdown with document headers and YAML frontmatter
+            classified_markdown = self._inject_segment_headers(tender_ref, segments)
             
             # Restructure hierarchy based on document type
             logger.info("Restructuring markdown hierarchy based on document types...")
             classified_markdown = restructure_by_type(classified_markdown)
             
-            # Detect missing documents in the entire markdown (includes BDP detection now)
-            logger.info("Searching for missing document types in entire markdown...")
-            found_types = {doc.doc_type for doc in docs}
-            classified_markdown, newly_found_types = detect_missing_documents(
-                classified_markdown, found_types
-            )
-            
-            # Default: final document set is the originally classified docs
-            all_docs = docs
-
-            if newly_found_types:
-                logger.info(f"✓ Detected missing document types: {', '.join(newly_found_types)}")
-                
-                # Extract balised content and create LogicalDocument objects
-                logger.info("Extracting balised content as classified documents...")
-                classified_markdown, extracted_docs = extract_balised_documents(classified_markdown)
-                
-                if extracted_docs:
-                    logger.info(f"✓ Extracted {len(extracted_docs)} document(s) from balised content")
-                    
-                    # Merge extracted documents with original documents
-                    all_docs = docs + extracted_docs
-                    
-                    # Regenerate complete markdown with ALL documents (original + extracted)
-                    logger.info("Regenerating markdown with extracted documents...")
-                    classified_markdown = self._inject_document_headers(tender_ref, all_docs)
-                    
-                    # Generate and prepend YAML header
-                    yaml_header = self._generate_yaml_header(tender_ref, all_docs)
-                    classified_markdown = yaml_header + "\n\n" + classified_markdown
-                    
-                    # Re-running hierarchy restructuring only
-                    logger.info("Re-running hierarchy restructuring on complete markdown...")
-                    classified_markdown = restructure_by_type(classified_markdown)
-                    
-                    # Generate S3 metadata from ALL documents (original + extracted)
-                    all_found_types = {doc.doc_type for doc in all_docs}
-                    s3_metadata = self._generate_s3_metadata_from_types(all_found_types)
-                    
-                    logger.info(
-                        f"✓ Complete document set: {len(all_docs)} documents "
-                        f"({len(docs)} original + {len(extracted_docs)} extracted)"
-                    )
-                else:
-                    logger.info("No documents extracted from balises (balised sections may be empty)")
-                    # Use newly found types for metadata update only
-                    all_found_types = found_types.union(newly_found_types)
-                    s3_metadata = self._generate_s3_metadata_from_types(all_found_types)
-            else:
-                logger.info("No additional missing documents detected")
-                # Use original classification results
-                s3_metadata = self._generate_s3_metadata(docs)
-
-            
-            # Detect missing doc types
+            # Detect anomalies: missing expected document types
             EXPECTED_TYPES = {"avis_fr", "avis_ar", "administrative", "specification", "product"}
-            final_types = {doc.doc_type for doc in all_docs}
+            final_types = {seg.doc_type for seg in segments}
             missing_types = EXPECTED_TYPES - final_types
             if missing_types and batch_id:
                 mon_anomaly(batch_id, tender_ref, "classification",
                             [f"missing_doc_type:{t}" for t in sorted(missing_types)])
-
-            # Generate output S3 key - REMOVE "_ocr" from filename as per user requirement
-            # Example: markdown_tender/TEST_REF/TEST_REF_ocr.md → markdown_tender/TEST_REF/TEST_REF.md
+            
+            # Generate S3 metadata
+            s3_metadata = self._generate_s3_metadata_from_types(final_types)
+            
+            # Generate output S3 key
             output_key = markdown_paths[0].replace('_ocr.md', '.md')
             
             # Upload classified markdown with metadata
@@ -493,11 +304,11 @@ class ClassificationService:
                 QueueUrl=Config.CLASSIFICATION_QUEUE_URL,
                 ReceiptHandle=message['ReceiptHandle']
             )
-            logger.info(f"✓ Successfully processed {tender_ref}")
+            logger.info(f"Successfully processed {tender_ref}")
             if batch_id:
                 mon_complete(
                     batch_id, tender_ref, "classification",
-                    doc_count=len(all_docs),
+                    doc_count=len(segments),
                 )
 
             return True

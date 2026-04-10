@@ -1,0 +1,46 @@
+{
+  "reference": "04/BM/2026",
+  "original_reference": "04/BM/2026",
+  "buyer": "RMTA / CRAO - Commune AL OUIDANE",
+  "category": "Travaux",
+  "launch_date": "07/04/2026",
+  "object": "Travaux de Pavage des Douars : CHARFA ; BEL MEJAD ; SAADNA ; TAABART ; LAAREB ; TALIWIN A la commune AL OUIDANE province de Marrakech",
+  "city": "MARRAKECH",
+  "all_cities": null,
+  "deadline": "2026-04-30T11:00:00",
+  "mode_passation": "| Sur offre de prix",
+  "procedure_type": "Appel d'offres ouvert",
+  "main_category": "Travaux",
+  "allotissement": null,
+  "activity_domains": [
+    "Travaux / Travaux de revêtement, platerie et  peinture  / Revêtement en pierre"
+  ],
+  "is_sme_reserved": false,
+  "retrait_address": "www.marchespublics.gov.ma .",
+  "depot_address": "www.marchespublics.gov.ma .",
+  "mode_soumission": "Physique/Hybride",
+  "opening_location": "BUREAU DU PRESIDENT DE LA CR AL OUIDANE",
+  "contacts": {
+    "name": "dt service marches",
+    "email": "tech.alouidane2015@gmail.com",
+    "phone": "0524484991",
+    "fax": "0524484988"
+  },
+  "estimated_value": "2 308 164,00",
+  "plan_cost": null,
+  "provisional_deposit": "45 000,00",
+  "qualifications": [
+    "Equipement / O- Revetements / O.1- Travaux de revêtements courants  / Classe 2"
+  ],
+  "agrements": null,
+  "variante": "Non",
+  "reunion": null,
+  "site_visit": null,
+  "samples_info": null,
+  "download_available": true,
+  "downloadable_files": [
+    "Dossier de consultation - 1,04 Mo"
+  ],
+  "s3_folder": "tender_doc_final/04_BM_2026_COMMUNEALOUIDANE/",
+  "processed_at": "2026-04-07T12:20:26.642011"
+}

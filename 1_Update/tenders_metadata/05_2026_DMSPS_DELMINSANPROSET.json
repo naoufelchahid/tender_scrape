@@ -1,0 +1,46 @@
+{
+  "reference": "05/2026/DMSPS",
+  "original_reference": "05/2026/DMSPS",
+  "buyer": "MS / DMSPS - DELEGUE DU MINISTERE DE LA SANTE A LA PROVINCE SETTAT",
+  "category": "Travaux",
+  "launch_date": "06/04/2026",
+  "object": "TRAVAUX DE MISE A NIVEAU DES INSTALLATIONS DES FLUIDES MEDICAUX DE L'HOPITAL DE PROXIMITE DE BEN AHMED RELEVANT DE LA DELEGATION DU MINISTERE DE LA SANTE ET DE LA PROTECTION SOCIALE A LA PROVINCE DE SETTAT.",
+  "city": "SETTAT",
+  "all_cities": null,
+  "deadline": "2026-05-05T15:00:00",
+  "mode_passation": "| Sur offre de prix",
+  "procedure_type": "Appel d'offres ouvert",
+  "main_category": "Travaux",
+  "allotissement": null,
+  "activity_domains": [
+    "Travaux / Travaux d’assainissement, d’eau potable et de réseaux divers / Réseaux de fluides médicaux et d'air comprimé"
+  ],
+  "is_sme_reserved": false,
+  "retrait_address": "Le dossier d'appel d'offres peut être téléchargé à partir du portail des marches publiques, à partir de l’adresse électronique suivante :www.marchespublics.gov.ma",
+  "depot_address": "Les concurrents doivent déposer par voie électronique conformément à l’arrêté du ministre de l’économie et des finances n° 1692-23 du 23-06-2023.",
+  "mode_soumission": "Physique/Hybride",
+  "opening_location": "la salle de réunion de la Délégation Provinciale de la Santé et de la protection sociale, Hay Lagnant, Settat.",
+  "contacts": {
+    "name": "mohamed zahri",
+    "email": "zahrithm@yahoo.fr",
+    "phone": "0662612917",
+    "fax": "0523402215"
+  },
+  "estimated_value": "1 142 376,00",
+  "plan_cost": null,
+  "provisional_deposit": "22 847,00",
+  "qualifications": [
+    "Equipement / W- Reseaux des fluides industriels et medicaux, de gaz et d'air comprime / W.2- Travaux et installation de réseaux de fluides médicaux et d'air comprimé des moyens et petits établissements hospitaliers / Classe 3"
+  ],
+  "agrements": null,
+  "variante": "Non",
+  "reunion": null,
+  "site_visit": null,
+  "samples_info": null,
+  "download_available": true,
+  "downloadable_files": [
+    "Dossier de consultation - 1,03 Mo"
+  ],
+  "s3_folder": "tender_doc_final/05_2026_DMSPS_DELMINSANPROSET/",
+  "processed_at": "2026-04-07T11:51:27.047601"
+}

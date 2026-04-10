@@ -384,6 +384,12 @@ class DocumentClassifier:
             result = DocumentClassifier._classify_by_pattern_count(matches, "administrative", step=2)
             if result:
                 return result
+
+            # 3. Product / BDP (also check for long BDPs)
+            matches = DocumentClassifier._count_matches(DocumentClassifier._BDP_PATTERNS_STEP2, sample)
+            result = DocumentClassifier._classify_by_pattern_count(matches, "product", step=2)
+            if result:
+                return result
         
         return None
     
@@ -450,3 +456,82 @@ Respond with ONLY the category name (avis_fr, avis_ar, administrative, specifica
         except Exception as e:
             logger.error(f"Step 3 AI classification failed: {e}")
             return None
+
+    def classify_segment(
+        self,
+        content: str,
+        hint_type: str = None,
+        hint_strength: float = 0.0,
+        anchor_offset: int = None,
+    ) -> ClassificationResult:
+        """
+        Classify a segment with optional signal hint from segmentation engine.
+
+        Decision logic:
+        - hint_strength >= 0.8 AND Steps 1-2 agree: use result, skip LLM
+        - hint_strength >= 0.8 AND Steps 1-2 disagree/unknown: use hint
+        - hint_strength < 0.8 AND Steps 1-2 return a type: use Steps 1-2
+        - hint_strength < 0.8 AND Steps 1-2 unknown: invoke LLM with hint context
+        - No hint: standard Steps 1-2-3
+
+        Args:
+            content: Segment content
+            hint_type: Dominant doc type from signal extractors (or None)
+            hint_strength: Confidence of the hint (0.0-1.0)
+            anchor_offset: Character offset of the opening anchor for smart sampling
+
+        Returns:
+            ClassificationResult
+        """
+        # Smart sampling: if anchor_offset given, use content from that point
+        if anchor_offset is not None and anchor_offset < len(content):
+            sample_content = content[anchor_offset:anchor_offset + self._SAMPLE_SIZE]
+        else:
+            sample_content = content
+
+        cleaned = self._clean_content_for_classification(sample_content)
+
+        # Run Steps 1-2 (use "segment" as filename since we have no filename)
+        step_result = self.step1_classify("segment", cleaned)
+        if not step_result:
+            step_result = self.step2_classify("segment", cleaned)
+
+        has_hint = hint_type is not None and hint_strength > 0
+        has_step_result = step_result is not None and step_result.doc_type != "unknown"
+
+        # Decision matrix
+        if has_hint and hint_strength >= 0.8:
+            if has_step_result and step_result.doc_type == hint_type:
+                # Agreement: high confidence, skip LLM
+                return ClassificationResult(
+                    doc_type=step_result.doc_type,
+                    confidence=max(step_result.confidence, "high"),
+                    step=step_result.step,
+                )
+            else:
+                # Strong hint overrides unknown or disagreeing steps
+                return ClassificationResult(
+                    doc_type=hint_type,
+                    confidence="hint",
+                    step=0,
+                )
+
+        if has_step_result:
+            # Weak or no hint, but steps found something
+            return step_result
+
+        # Steps returned nothing — try LLM if available
+        if self.openrouter_client:
+            llm_result = self.step3_classify("segment", cleaned)
+            if llm_result:
+                return llm_result
+
+        # Last resort: use weak hint if available
+        if has_hint:
+            return ClassificationResult(
+                doc_type=hint_type,
+                confidence="hint",
+                step=0,
+            )
+
+        return ClassificationResult(doc_type="unknown", confidence="unknown", step=0)

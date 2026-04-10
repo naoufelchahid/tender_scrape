@@ -1,23 +1,37 @@
 
+
+# Ignore agents skills 
 .agents/
 .claude/
-dist/
-.DS_Store
-.env
-# Ignore dependencies
+
 # Ignore environment variables (passwords/API keys)
-# Ignore logs
+.env
+
 # Ignore Mac system files
-k8s/secrets/secrets.yaml
-# Kubernetes secrets (never commit real values)
-*.log
 node_modules/
 __pycache__
+dist/
+.DS_Store
+# Kubernetes secrets (never commit real values)
+k8s/secrets/secrets.yaml
+
+# Ignore logs
+*.log
+
+# Ignore dependencies
 .venv/
 venv/
 .vscode/
+
+# Ignore local git
 .worktrees/
 
+# Ignore data 
+.knowledge_graph
 # Pipeline monitoring
+
 pipeline.db
 reports/
+
+# Ignore local_llm images 
+local_llm/

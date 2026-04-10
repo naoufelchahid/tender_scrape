@@ -1,0 +1,46 @@
+{
+  "reference": "25/2026/DPA/G",
+  "original_reference": "25/2026/DPA/G",
+  "buyer": "M4 / DPAG - DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE GUERCIF",
+  "category": "Travaux",
+  "launch_date": "01/04/2026",
+  "object": "Travaux D’aménagement Hydro-Agricoles du périmètre Tachrift Au Niveau De La Commune Territorial Ras El Kser Dans Le Cadre Du Projet d'Appui Au Développement Rural Intégré Des Zones De Montagne De l'Oriental (PADERMO); Province De Guercif",
+  "city": "GUERCIF",
+  "all_cities": null,
+  "deadline": "2026-05-06T10:00:00",
+  "mode_passation": "| Sur offre de prix",
+  "procedure_type": "Appel d'offres ouvert",
+  "main_category": "Travaux",
+  "allotissement": null,
+  "activity_domains": [
+    "Travaux / Travaux hydrauliques, maritimes et fluviaux / Travaux de construction de barrages et d’ouvrages hydrauliques"
+  ],
+  "is_sme_reserved": false,
+  "retrait_address": "Portail des marchés de publics de l’adresse électronique suivant: https://www.marchespublics.gov.ma/",
+  "depot_address": "Portail des marchés de publics de l’adresse électronique suivante :https://www.marchespublics.gov.ma/",
+  "mode_soumission": "Physique/Hybride",
+  "opening_location": "Direction Provinciale de l'agriculture de Guercif.",
+  "contacts": {
+    "name": "ABDELKADER EL KHALKI",
+    "email": "dpa.guercif02@gmail.com",
+    "phone": "0535676300",
+    "fax": "0535676300"
+  },
+  "estimated_value": "796 200,00",
+  "plan_cost": null,
+  "provisional_deposit": "15 900,00",
+  "qualifications": [
+    "Agriculture  / Travaux de séguia et de pose de canaux portés / 4.1.Travaux de séguia et khettara / Classe 5"
+  ],
+  "agrements": null,
+  "variante": "Non",
+  "reunion": null,
+  "site_visit": null,
+  "samples_info": null,
+  "download_available": true,
+  "downloadable_files": [
+    "Dossier de consultation - 3,61 Mo"
+  ],
+  "s3_folder": "tender_doc_final/25_2026_DPA_G_DIRPROAGRGUE/",
+  "processed_at": "2026-04-07T11:50:19.349947"
+}

@@ -1,0 +1,120 @@
+{
+  "weights": {
+    "anchor": 0.5,
+    "structural": 0.4,
+    "vocabulary": 0.2,
+    "fingerprint": 0.1
+  },
+  "thresholds": {
+    "boundary_score": 0.4,
+    "peak_cluster_lines": 5,
+    "min_segment_chars": 300,
+    "min_mass_chars": 500,
+    "closing_lookback_lines": 50,
+    "opening_snap_lines": 5,
+    "merge_score_ceiling": 0.6
+  },
+  "vocabulary": {
+    "window_size": 50
+  },
+  "anchors": {
+    "specification": {
+      "open": [
+        "CAHIER\\s+DES\\s+PRESCRIPTIONS\\s+SP[EEe][Cc]IALES",
+        "C\\.?P\\.?S",
+        "CCTP",
+        "C\\.?C\\.?T\\.?P",
+        "CAHIER\\s+DES\\s+CHARGES"
+      ],
+      "close": [
+        "Fait\\s+[a\u00e0]\\s+.*,\\s+le\\s+\\d+",
+        "Lu\\s+et\\s+accept[e\u00e9]",
+        "Le\\s+Titulaire"
+      ],
+      "internal": [
+        "ARTICLE\\s+\\d+\\s*:",
+        "CHAPITRE\\s+\\d+"
+      ]
+    },
+    "administrative": {
+      "open": [
+        "R[\u00c8E\u00c9]GLEMENT\\s+DE\\s+(?:LA\\s+)?CONSULTATION",
+        "\\bR\\.?C\\b",
+        "\u0646\u0638\u0627\u0645\\s+\u0627\u0644\u0627\u0633\u062a\u0634\u0627\u0631\u0629"
+      ],
+      "close": [
+        "Fait\\s+[a\u00e0]\\s+.*,\\s+le\\s+\\d+",
+        "Lu\\s+et\\s+accept[e\u00e9]"
+      ],
+      "internal": [
+        "OBJET\\s+DU\\s+R[\u00c8E\u00c9]GLEMENT"
+      ]
+    },
+    "product": {
+      "open": [
+        "BORDEREAU\\s+DES\\s+PRIX",
+        "D[\u00c9Ee]TAIL\\s+ESTIMATIF",
+        "\u062c\u062f\u0648\u0644\\s+\u0627\u0644\u0623\u062b\u0645\u0627\u0646",
+        "\u0627\u0644\u0628\u064a\u0627\u0646\\s+\u0627\u0644\u062a\u0642\u062f\u064a\u0631\u064a"
+      ],
+      "close": [
+        "Arr[\u00ea\u00e9e]t[\u00e9e]\\s+le\\s+pr[\u00e9e]sent\\s+bordereau"
+      ],
+      "internal": [
+        "DESIGNATION\\s*\\|\\s*UNITE"
+      ]
+    },
+    "avis_fr": {
+      "open": [
+        "AVIS\\s+D['\u2019']APPEL\\s+D['\u2019']OFFRES",
+        "AVIS\\s+DE\\s+PUBLICIT[\u00c9Ee]"
+      ],
+      "close": [
+        "Fait\\s+[a\u00e0]",
+        "www\\.marchespublics\\.gov\\.ma"
+      ],
+      "internal": []
+    },
+    "avis_ar": {
+      "open": [
+        "\u0625\u0639\u0644\u0627\u0646\\s+\u0639\u0646\\s+\u0637\u0644\u0628\\s+\u0639\u0631\u0648\u0636"
+      ],
+      "close": [
+        "\u0641\u062a\u062d\\s+\u0627\u0644\u0623\u0638\u0631\u0641\u0629"
+      ],
+      "internal": []
+    },
+    "acte_engagement": {
+      "open": [
+        "(?:MOD[\u00c8E]LE\\s+(?:DE\\s+L|D)['\u2019'])?ACTE\\s+D['\u2019']ENGAGEMENT"
+      ],
+      "close": [
+        "Signature",
+        "cachet"
+      ],
+      "internal": [
+        "apr[\u00e8e]s\\s+avoir\\s+pris\\s+connaissance"
+      ]
+    },
+    "declaration": {
+      "open": [
+        "(?:MOD[\u00c8E]LE\\s+DE\\s+(?:LA\\s+)?)?D[\u00c9Ee]CLARATION\\s+SUR\\s+L['\u2019']HONNEUR"
+      ],
+      "close": [
+        "Signature",
+        "cachet",
+        "Fait\\s+[a\u00e0]"
+      ],
+      "internal": [
+        "Je\\s+soussign[\u00e9e]"
+      ]
+    },
+    "annexe": {
+      "open": [
+        "ANNEXE\\s+[IVXLCDM\\d]"
+      ],
+      "close": [],
+      "internal": []
+    }
+  }
+}

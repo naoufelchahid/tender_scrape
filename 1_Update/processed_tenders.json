@@ -1,5 +1,551 @@
 {
-  "processed_date": "2026-04-03T12:34:34.224419",
-  "total_processed": 0,
-  "tenders": []
+  "processed_date": "2026-04-07T12:21:21.179126",
+  "total_processed": 11,
+  "tenders": [
+    {
+      "reference": "641/2026/RR320/T2/TRAV",
+      "original_reference": "641/2026/RR320/T2/TRAV",
+      "buyer": "M6 / CA - CASABLANCA AMENAGEMENT SA",
+      "category": "Travaux",
+      "launch_date": "06/04/2026",
+      "object": "Travaux de triplement de la route régionale RR320 entre la route provinciale RP3003 et la route provinciale RP3001, dans la province de Nouaceur.",
+      "city": "NOUACEUR",
+      "all_cities": null,
+      "deadline": "2026-05-18T10:00:00",
+      "mode_passation": "| Sur offre de prix",
+      "procedure_type": "Appel d'offres ouvert",
+      "main_category": "Travaux",
+      "allotissement": null,
+      "activity_domains": [
+        "Travaux / Travaux de voiries, chemins et pistes / Routes et voiries en béton",
+        "Travaux / Travaux de voiries, chemins et pistes / Travaux d’équipements de la route et des voiries"
+      ],
+      "is_sme_reserved": false,
+      "retrait_address": "Le portail des marchés publics",
+      "depot_address": "Le portail des marchés publics",
+      "mode_soumission": "Physique/Hybride",
+      "opening_location": "casablanca aménagement",
+      "contacts": {
+        "name": "Zoulale KHYAR",
+        "email": "zkhyar@casa-amenagement.ma",
+        "phone": "0522392300",
+        "fax": "0522390100"
+      },
+      "estimated_value": "119 398 500,00",
+      "plan_cost": null,
+      "provisional_deposit": "1 200 000,00",
+      "qualifications": null,
+      "agrements": null,
+      "variante": "Non",
+      "reunion": null,
+      "site_visit": null,
+      "samples_info": null,
+      "download_available": true,
+      "downloadable_files": [
+        "Dossier de consultation - 150,5 Mo"
+      ],
+      "processed_at": "2026-04-07T11:46:19.791996"
+    },
+    {
+      "reference": "TL4130275/2026/01/ONEEBELEC",
+      "original_reference": "TL4130275/2026/01/ONEEBELEC",
+      "buyer": "MEMEE / ONEEBELEC - OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+      "category": "Travaux",
+      "launch_date": "06/04/2026",
+      "object": "Fourniture et Remplacement des isolateurs composites des lignes à 400 KV de la Division Exploitation Transport Laâyoune : - Lot n° 1 : Lignes 400 KV du réseau Guelmim-Tan Tan - Lot n° 2 : Lignes 400 KV du réseau Tan Tan-Laayoune",
+      "city": "GUELMIM",
+      "all_cities": [
+        "GUELMIM",
+        "TAN-TAN",
+        "LAAYOUNE"
+      ],
+      "deadline": "2026-05-14T09:00:00",
+      "mode_passation": "| Sur offre de prix",
+      "procedure_type": "Appel d'offres ouvert",
+      "main_category": "Travaux",
+      "allotissement": "2 Lots",
+      "activity_domains": [
+        "Travaux / Travaux d’électricité / Travaux d'installation pour usage industriel"
+      ],
+      "is_sme_reserved": null,
+      "retrait_address": "ONEE/Branche Electricité Bureau d’ordre de la Direction Approvisionnements et Marchés (DAM) 65, Rue OTHMAN BEN AFFAN 20 000 CASABLANCA B.P. 13 498 - MAROC, Tél : (212) 05 22 66 80 21 Télécopieur : (212) 05 22 43 31 12",
+      "depot_address": "ONEE/Branche Electricité Bureau d’ordre de la Direction Approvisionnements et Marchés (DAM) 65, Rue OTHMAN BEN AFFAN 20 000 CASABLANCA B.P. 13 498 - MAROC, Tél : (212) 05 22 66 80 21 Télécopieur : (212) 05 22 43 31 12",
+      "mode_soumission": "Electronique",
+      "opening_location": "ONEE/Branche Electricité Bureau d’ordre de la Direction Approvisionnements et Marchés (DAM) 65, Rue OTHMAN BEN AFFAN 20 000 CASABLANCA B.P. 13 498 - MAROC, Tél : (212) 05 22 66 80 21 Télécopieur : (212) 05 22 43 31 12",
+      "contacts": {
+        "name": "Laila NAKKOUCH",
+        "email": "leila.n@onee.ma",
+        "phone": "0528211653",
+        "fax": "0528221852"
+      },
+      "estimated_value": null,
+      "plan_cost": null,
+      "provisional_deposit": null,
+      "qualifications": null,
+      "agrements": null,
+      "variante": null,
+      "reunion": null,
+      "site_visit": null,
+      "samples_info": null,
+      "lots": [
+        {
+          "lot number": 1,
+          "lot1_object": "Lignes 400 KV du réseau Guelmim-Tan Tan",
+          "Lot1_estimation": "33 027 360,00",
+          "Lot1_caution": "500 000,00",
+          "Lot1_qualification": null,
+          "Lot1_agreement": null,
+          "Procpectus_et_echantillons": null,
+          "Reunion": null,
+          "visite_des_lieux": null,
+          "variante": "Oui",
+          "Env_consideration": "Non - Aucune norme ou exigence environnementale applicable identifiée",
+          "Reserve_TPE_PME": "Non"
+        },
+        {
+          "lot number": 2,
+          "lot2_object": "Lignes 400 KV du réseau Tan Tan-Laayoune",
+          "Lot2_estimation": "38 575 560,00",
+          "Lot2_caution": "500 000,00",
+          "Lot2_qualification": null,
+          "Lot2_agreement": null,
+          "Procpectus_et_echantillons": null,
+          "Reunion": null,
+          "visite_des_lieux": null,
+          "variante": "Non",
+          "Env_consideration": "Non - Aucune norme ou exigence environnementale applicable identifiée",
+          "Reserve_TPE_PME": "Non"
+        }
+      ],
+      "download_available": true,
+      "downloadable_files": [
+        "Dossier de consultation - 4,28 Mo"
+      ],
+      "s3_folder": "tender_doc_final/TL4130275_2026_01_ONEEBELEC_OFFNATELEEAUPOTBRAELE/",
+      "processed_at": "2026-04-07T11:47:16.785234"
+    },
+    {
+      "reference": "11/2026/DPANEF/SE",
+      "original_reference": "11/2026/DPANEF/SE",
+      "buyer": "ANEF / DRANEFFM - DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+      "category": "Travaux",
+      "launch_date": "06/04/2026",
+      "object": "exécution des travaux d’infrastructures antiérosives au lieu-dit Tete Oudern, situé dans la Commune territoriale d’Adrej, Province de Sefrou.",
+      "city": "SEFROU",
+      "all_cities": null,
+      "deadline": "2026-05-13T09:00:00",
+      "mode_passation": "| Sur offre de prix",
+      "procedure_type": "Appel d'offres ouvert",
+      "main_category": "Travaux",
+      "allotissement": null,
+      "activity_domains": [
+        "Travaux / Travaux forestiers  / Travaux de conservation des eaux et des sols"
+      ],
+      "is_sme_reserved": false,
+      "retrait_address": "1, Avenue HASSAN II, BP 08 FES",
+      "depot_address": "1, Avenu HASSAN II, BP 08 FES",
+      "mode_soumission": "Physique/Hybride",
+      "opening_location": "Salle de réunion de la DRANEF de Fès Meknès",
+      "contacts": {
+        "name": "ISSAM LABIAD",
+        "email": "issamlabiadanef@gmail.com",
+        "phone": "0600370892",
+        "fax": "0535625534"
+      },
+      "estimated_value": "400 074,00",
+      "plan_cost": null,
+      "provisional_deposit": "6 000,00",
+      "qualifications": null,
+      "agrements": null,
+      "variante": "Non",
+      "reunion": null,
+      "site_visit": null,
+      "samples_info": null,
+      "download_available": true,
+      "downloadable_files": [
+        "Dossier de consultation - 3,32 Mo"
+      ],
+      "s3_folder": "tender_doc_final/11_2026_DPANEF_SE_DIRREGAGENATEAUFORFESMEK/",
+      "processed_at": "2026-04-07T11:48:52.444485"
+    },
+    {
+      "reference": "08/SAP/SP.IM/2026",
+      "original_reference": "08/SAP/SP.IM/2026",
+      "buyer": "M6 / CSB - CHEF DE LA SURETE DE BENIMELLAL",
+      "category": "Travaux",
+      "launch_date": "06/04/2026",
+      "object": "TRAVAUX D’AMÉNAGEMENT ET MISE À NIVEAU DU SIEGE DU 1ER ARRONDISSEMENT DE POLICE ET SERVICE ADTI RELEVANT DU COMMISSARIAT DE CIRCONSCRIPTION DE DEMNATE EN LOT UNIQUE",
+      "city": "AZILAL",
+      "all_cities": null,
+      "deadline": "2026-05-07T10:00:00",
+      "mode_passation": "| Sur offre de prix",
+      "procedure_type": "Appel d'offres ouvert",
+      "main_category": "Travaux",
+      "allotissement": null,
+      "activity_domains": [
+        "Travaux / Travaux de construction et d’aménagement / Travaux d’aménagement, d’entretien et réhabilitation  des bâtiments"
+      ],
+      "is_sme_reserved": false,
+      "retrait_address": "Chef du Service Administratif Préfectoral au (siège de la préfecture de police de Beni Mellal)",
+      "depot_address": "Chef du Service Administratif Préfectoral au (siège de la préfecture de police de Beni Mellal)",
+      "mode_soumission": "Physique/Hybride",
+      "opening_location": "bureau de Monsieur le Préfet de Police de Beni Mellal",
+      "contacts": {
+        "name": "MUSTAPHA BOUDA",
+        "email": "ppbenimellal@menara.ma",
+        "phone": "0523483000",
+        "fax": "0523483000"
+      },
+      "estimated_value": "989 152,80",
+      "plan_cost": null,
+      "provisional_deposit": "19 000,00",
+      "qualifications": [
+        "Equipement / A- Construction  / A.5- Travaux d’aménagement et de réhabilitation de bâtiments / Classe 5"
+      ],
+      "agrements": null,
+      "variante": "Non",
+      "reunion": null,
+      "site_visit": null,
+      "samples_info": null,
+      "download_available": true,
+      "downloadable_files": [
+        "Dossier de consultation - 1017,24 Ko"
+      ],
+      "s3_folder": "tender_doc_final/08_SAP_SP_IM_2026_CHEFSURETEBENIMELLAL/",
+      "processed_at": "2026-04-07T11:49:31.658671"
+    },
+    {
+      "reference": "25/2026/DPA/G",
+      "original_reference": "25/2026/DPA/G",
+      "buyer": "M4 / DPAG - DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE GUERCIF",
+      "category": "Travaux",
+      "launch_date": "01/04/2026",
+      "object": "Travaux D’aménagement Hydro-Agricoles du périmètre Tachrift Au Niveau De La Commune Territorial Ras El Kser Dans Le Cadre Du Projet d'Appui Au Développement Rural Intégré Des Zones De Montagne De l'Oriental (PADERMO); Province De Guercif",
+      "city": "GUERCIF",
+      "all_cities": null,
+      "deadline": "2026-05-06T10:00:00",
+      "mode_passation": "| Sur offre de prix",
+      "procedure_type": "Appel d'offres ouvert",
+      "main_category": "Travaux",
+      "allotissement": null,
+      "activity_domains": [
+        "Travaux / Travaux hydrauliques, maritimes et fluviaux / Travaux de construction de barrages et d’ouvrages hydrauliques"
+      ],
+      "is_sme_reserved": false,
+      "retrait_address": "Portail des marchés de publics de l’adresse électronique suivant: https://www.marchespublics.gov.ma/",
+      "depot_address": "Portail des marchés de publics de l’adresse électronique suivante :https://www.marchespublics.gov.ma/",
+      "mode_soumission": "Physique/Hybride",
+      "opening_location": "Direction Provinciale de l'agriculture de Guercif.",
+      "contacts": {
+        "name": "ABDELKADER EL KHALKI",
+        "email": "dpa.guercif02@gmail.com",
+        "phone": "0535676300",
+        "fax": "0535676300"
+      },
+      "estimated_value": "796 200,00",
+      "plan_cost": null,
+      "provisional_deposit": "15 900,00",
+      "qualifications": [
+        "Agriculture  / Travaux de séguia et de pose de canaux portés / 4.1.Travaux de séguia et khettara / Classe 5"
+      ],
+      "agrements": null,
+      "variante": "Non",
+      "reunion": null,
+      "site_visit": null,
+      "samples_info": null,
+      "download_available": true,
+      "downloadable_files": [
+        "Dossier de consultation - 3,61 Mo"
+      ],
+      "s3_folder": "tender_doc_final/25_2026_DPA_G_DIRPROAGRGUE/",
+      "processed_at": "2026-04-07T11:50:19.349947"
+    },
+    {
+      "reference": "05/2026/DMSPS",
+      "original_reference": "05/2026/DMSPS",
+      "buyer": "MS / DMSPS - DELEGUE DU MINISTERE DE LA SANTE A LA PROVINCE SETTAT",
+      "category": "Travaux",
+      "launch_date": "06/04/2026",
+      "object": "TRAVAUX DE MISE A NIVEAU DES INSTALLATIONS DES FLUIDES MEDICAUX DE L'HOPITAL DE PROXIMITE DE BEN AHMED RELEVANT DE LA DELEGATION DU MINISTERE DE LA SANTE ET DE LA PROTECTION SOCIALE A LA PROVINCE DE SETTAT.",
+      "city": "SETTAT",
+      "all_cities": null,
+      "deadline": "2026-05-05T15:00:00",
+      "mode_passation": "| Sur offre de prix",
+      "procedure_type": "Appel d'offres ouvert",
+      "main_category": "Travaux",
+      "allotissement": null,
+      "activity_domains": [
+        "Travaux / Travaux d’assainissement, d’eau potable et de réseaux divers / Réseaux de fluides médicaux et d'air comprimé"
+      ],
+      "is_sme_reserved": false,
+      "retrait_address": "Le dossier d'appel d'offres peut être téléchargé à partir du portail des marches publiques, à partir de l’adresse électronique suivante :www.marchespublics.gov.ma",
+      "depot_address": "Les concurrents doivent déposer par voie électronique conformément à l’arrêté du ministre de l’économie et des finances n° 1692-23 du 23-06-2023.",
+      "mode_soumission": "Physique/Hybride",
+      "opening_location": "la salle de réunion de la Délégation Provinciale de la Santé et de la protection sociale, Hay Lagnant, Settat.",
+      "contacts": {
+        "name": "mohamed zahri",
+        "email": "zahrithm@yahoo.fr",
+        "phone": "0662612917",
+        "fax": "0523402215"
+      },
+      "estimated_value": "1 142 376,00",
+      "plan_cost": null,
+      "provisional_deposit": "22 847,00",
+      "qualifications": [
+        "Equipement / W- Reseaux des fluides industriels et medicaux, de gaz et d'air comprime / W.2- Travaux et installation de réseaux de fluides médicaux et d'air comprimé des moyens et petits établissements hospitaliers / Classe 3"
+      ],
+      "agrements": null,
+      "variante": "Non",
+      "reunion": null,
+      "site_visit": null,
+      "samples_info": null,
+      "download_available": true,
+      "downloadable_files": [
+        "Dossier de consultation - 1,03 Mo"
+      ],
+      "s3_folder": "tender_doc_final/05_2026_DMSPS_DELMINSANPROSET/",
+      "processed_at": "2026-04-07T11:51:27.047601"
+    },
+    {
+      "reference": "1/2026/BP",
+      "original_reference": "1/2026/BP",
+      "buyer": "RMTA / PEKS - PROVINCE D'EL KELAA DES SRAGHNA",
+      "category": "Travaux",
+      "launch_date": "06/04/2026",
+      "object": "TRAVAUX DE REALISATION DE L'HORS SITE D'AEP DU MARCHE DE GROS À LA VILLE D'EL KELAA DES SRAGHNAS",
+      "city": "EL KELAA DES SRAGHNA",
+      "all_cities": null,
+      "deadline": "2026-05-05T11:00:00",
+      "mode_passation": "| Sur offre de prix",
+      "procedure_type": "Appel d'offres ouvert",
+      "main_category": "Travaux",
+      "allotissement": null,
+      "activity_domains": [
+        "Travaux / Travaux d’assainissement, d’eau potable et de réseaux divers / Pose de conduites d'assainissement",
+        "Travaux / Travaux d’assainissement, d’eau potable et de réseaux divers / Pose de conduites d'eau potable",
+        "Travaux / Travaux d’assainissement, d’eau potable et de réseaux divers / Travaux d’adduction d’eau potable"
+      ],
+      "is_sme_reserved": false,
+      "retrait_address": "portail des marchés publics accessibles à l’adresse : www.marchespublics.gov.ma",
+      "depot_address": "portail des marchés publics accessibles à l’adresse : www.marchespublics.gov.ma",
+      "mode_soumission": "Physique/Hybride",
+      "opening_location": "les bureaux du conseil provincial d’El Kelâa des Sraghna. (Salle de réunion)",
+      "contacts": {
+        "name": "Jalal Hamoudi",
+        "email": "peksportail@gmail.com",
+        "phone": "05 24 41 21 00",
+        "fax": "05 24 41 24 47"
+      },
+      "estimated_value": "633 749,60",
+      "plan_cost": null,
+      "provisional_deposit": "12 000,00",
+      "qualifications": null,
+      "agrements": null,
+      "variante": "Non",
+      "reunion": null,
+      "site_visit": null,
+      "samples_info": null,
+      "download_available": true,
+      "downloadable_files": [
+        "Dossier de consultation - 1,37 Mo"
+      ],
+      "s3_folder": "tender_doc_final/1_2026_BP_PROELKELSRA/",
+      "processed_at": "2026-04-07T11:52:27.112505"
+    },
+    {
+      "reference": "18/2026/AMDL",
+      "original_reference": "18/2026/AMDL",
+      "buyer": "M3 / AMDL - AGENCE MAROCAINE DE DEVELOPPEMENT DE LA LOGISTIQUE",
+      "category": "Travaux",
+      "launch_date": "06/04/2026",
+      "object": "Travaux d’aménagement des espaces verts du projet du centre routier d’El Hajeb dans la commune d’El Hajeb",
+      "city": "EL-HAJEB",
+      "all_cities": null,
+      "deadline": "2026-05-05T10:30:00",
+      "mode_passation": "| Sur offre de prix",
+      "procedure_type": "Appel d'offres ouvert",
+      "main_category": "Travaux",
+      "allotissement": null,
+      "activity_domains": [
+        "Travaux / Aménagement de jardins, d'espaces verts  / Aménagement d'espaces verts et jardins et apports de terres végétales"
+      ],
+      "is_sme_reserved": false,
+      "retrait_address": "www.marchespublics.gov.ma",
+      "depot_address": "www.marchespublics.gov.ma",
+      "mode_soumission": "Physique/Hybride",
+      "opening_location": "42, Avenue Al Alaouiyine, Hassan-Rabat",
+      "contacts": {
+        "name": "NAJIB HADDOUCHI",
+        "email": "najib.haddouchi@amdl.gov.ma",
+        "phone": "0538009354",
+        "fax": "0537761668"
+      },
+      "estimated_value": "377 251,20",
+      "plan_cost": null,
+      "provisional_deposit": "5 600,00",
+      "qualifications": [
+        "Equipement / V- Amenagement d'espaces verts et jardins / V.1- aménagement d'espaces verts et jardins / Classe 3"
+      ],
+      "agrements": null,
+      "variante": "Non",
+      "reunion": null,
+      "site_visit": null,
+      "samples_info": null,
+      "download_available": true,
+      "downloadable_files": [
+        "Dossier de consultation - 38,66 Mo"
+      ],
+      "processed_at": "2026-04-07T12:00:03.072416"
+    },
+    {
+      "reference": "09/2026/INDH",
+      "original_reference": "09/2026/INDH",
+      "buyer": "M6 / GKES - GOUVERNEUR DE KELAA ES-SRAGHNA",
+      "category": "Travaux",
+      "launch_date": "06/04/2026",
+      "object": "A) EQUIPEMENT FORAGE DOUAR HOURIA CT ZEMRANE CHARKIA B) CONSTRUCTION D'UN RESERVOIR DE 25 M3 AU DOUAR AIT BOUAADI CT LOUED LAKHDER C) CONSTRUCTION D'UN RESERVOIR DE 50 M3 DOUAR LAKSOUR CT OUARGUI",
+      "city": "EL KELAA DES SRAGHNA",
+      "all_cities": null,
+      "deadline": "2026-04-30T11:30:00",
+      "mode_passation": "| Sur offre de prix",
+      "procedure_type": "Appel d'offres ouvert",
+      "main_category": "Travaux",
+      "allotissement": null,
+      "activity_domains": [
+        "Travaux",
+        "Travaux / Terrassements  / Travaux de fouilles",
+        "Travaux / Fondations, injections, parois moulées, sondages et forages",
+        "Travaux / Fondations, injections, parois moulées, sondages et forages / Travaux d'injection",
+        "Travaux / Travaux de construction et d’aménagement / Travaux en béton armé ou maçonnerie",
+        "Travaux / Travaux de construction et d’aménagement / Pose de planchers",
+        "Travaux / Travaux de construction et d’aménagement / Préfabrication et mise en œuvre d'éléments de construction",
+        "Travaux / Travaux de construction et d’aménagement / Travaux de construction traditionnelle en pierre, en terre banchée et en brique de terre",
+        "Travaux / Travaux d’étanchéité, isolation, plomberie et menuiserie / Travaux d'étanchéité",
+        "Travaux / Travaux d’étanchéité, isolation, plomberie et menuiserie / Travaux de menuiserie en bois, en aluminium, en PVC et métallique",
+        "Travaux / Travaux de revêtement, platerie et  peinture  / Peinture générale de bâtiment",
+        "Fournitures / Matériel et fournitures électriques, électronique, électromécanique et pièces de rechange / Matériel électrique"
+      ],
+      "is_sme_reserved": false,
+      "retrait_address": "Le dossier d’appel d’offres doit être téléchargé à partir du portail des marchés publics accessible à l’adresse :www.marchéspublics.gov.ma",
+      "depot_address": "- Les concurrents doivent déposer leurs dossiers par voie électronique dans le portail des marchés publics accessible à l’adresse www.marchéspublic.gov.ma",
+      "mode_soumission": "Physique/Hybride",
+      "opening_location": "dans les bureaux du secrétariat général de la Province d’El Kelaa des Sraghna (Salle Ait Abdelmoula Abdelouahab)",
+      "contacts": {
+        "name": "SALEK HANID",
+        "email": null,
+        "phone": "024412100",
+        "fax": "champsvide"
+      },
+      "estimated_value": "595 345,20",
+      "plan_cost": null,
+      "provisional_deposit": "11 000,00",
+      "qualifications": [
+        "Equipement / A- Construction  / A.6- Travaux de construction des réservoirs courants en béton armé de capacité inférieure ou égale à 1000 m3 / Classe 5"
+      ],
+      "agrements": null,
+      "variante": "Non",
+      "reunion": null,
+      "site_visit": null,
+      "samples_info": null,
+      "download_available": true,
+      "downloadable_files": [
+        "Dossier de consultation - 1,02 Mo"
+      ],
+      "s3_folder": "tender_doc_final/09_2026_INDH_GOUKELESSRA/",
+      "processed_at": "2026-04-07T12:19:47.224774"
+    },
+    {
+      "reference": "04/BM/2026",
+      "original_reference": "04/BM/2026",
+      "buyer": "RMTA / CRAO - Commune AL OUIDANE",
+      "category": "Travaux",
+      "launch_date": "07/04/2026",
+      "object": "Travaux de Pavage des Douars : CHARFA ; BEL MEJAD ; SAADNA ; TAABART ; LAAREB ; TALIWIN A la commune AL OUIDANE province de Marrakech",
+      "city": "MARRAKECH",
+      "all_cities": null,
+      "deadline": "2026-04-30T11:00:00",
+      "mode_passation": "| Sur offre de prix",
+      "procedure_type": "Appel d'offres ouvert",
+      "main_category": "Travaux",
+      "allotissement": null,
+      "activity_domains": [
+        "Travaux / Travaux de revêtement, platerie et  peinture  / Revêtement en pierre"
+      ],
+      "is_sme_reserved": false,
+      "retrait_address": "www.marchespublics.gov.ma .",
+      "depot_address": "www.marchespublics.gov.ma .",
+      "mode_soumission": "Physique/Hybride",
+      "opening_location": "BUREAU DU PRESIDENT DE LA CR AL OUIDANE",
+      "contacts": {
+        "name": "dt service marches",
+        "email": "tech.alouidane2015@gmail.com",
+        "phone": "0524484991",
+        "fax": "0524484988"
+      },
+      "estimated_value": "2 308 164,00",
+      "plan_cost": null,
+      "provisional_deposit": "45 000,00",
+      "qualifications": [
+        "Equipement / O- Revetements / O.1- Travaux de revêtements courants  / Classe 2"
+      ],
+      "agrements": null,
+      "variante": "Non",
+      "reunion": null,
+      "site_visit": null,
+      "samples_info": null,
+      "download_available": true,
+      "downloadable_files": [
+        "Dossier de consultation - 1,04 Mo"
+      ],
+      "s3_folder": "tender_doc_final/04_BM_2026_COMMUNEALOUIDANE/",
+      "processed_at": "2026-04-07T12:20:26.642011"
+    },
+    {
+      "reference": "08/2026/INDH",
+      "original_reference": "08/2026/INDH",
+      "buyer": "M6 / GKES - GOUVERNEUR DE KELAA ES-SRAGHNA",
+      "category": "Travaux",
+      "launch_date": "06/04/2026",
+      "object": "TRAVAUX DE CREUSEMENT ET EQUIPEMENT D’UN FORAGE AU DOUAR OD HMAMA CT ZEMRANE LA PROVINCE D’EL KELAA DES SRAGHNA",
+      "city": "EL KELAA DES SRAGHNA",
+      "all_cities": null,
+      "deadline": "2026-04-30T11:00:00",
+      "mode_passation": "| Sur offre de prix",
+      "procedure_type": "Appel d'offres ouvert",
+      "main_category": "Travaux",
+      "allotissement": null,
+      "activity_domains": [
+        "Travaux",
+        "Travaux / Fondations, injections, parois moulées, sondages et forages"
+      ],
+      "is_sme_reserved": false,
+      "retrait_address": "Le dossier d’appel d’offres doit être téléchargé à partir du portail des marchés publics accessible à l’adresse :www.marchéspublics.gov.ma",
+      "depot_address": "- Les concurrents doivent déposer leurs dossiers par voie électronique dans le portail des marchés publics accessible à l’adresse www.marchéspublic.gov.ma",
+      "mode_soumission": "Physique/Hybride",
+      "opening_location": "dans les bureaux du secrétariat général de la Province d’El Kelaa des Sraghna (Salle Ait Abdelmoula Abdelouahab)",
+      "contacts": {
+        "name": "SALEK HANID",
+        "email": null,
+        "phone": "024412100",
+        "fax": "champsvide"
+      },
+      "estimated_value": "703 200,00",
+      "plan_cost": null,
+      "provisional_deposit": "10 000,00",
+      "qualifications": [
+        "Equipement / H- Sondages geotechnique et forages hydrogeologique / H.3- Forages hydrogéologique profond (≥ 200m)  / Classe 4"
+      ],
+      "agrements": null,
+      "variante": "Non",
+      "reunion": null,
+      "site_visit": null,
+      "samples_info": null,
+      "download_available": true,
+      "downloadable_files": [
+        "Dossier de consultation - 737,49 Ko"
+      ],
+      "s3_folder": "tender_doc_final/08_2026_INDH_GOUKELESSRA/",
+      "processed_at": "2026-04-07T12:21:14.181822"
+    }
+  ]
 }

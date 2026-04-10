@@ -1,0 +1,44 @@
+{
+  "reference": "641/2026/RR320/T2/TRAV",
+  "original_reference": "641/2026/RR320/T2/TRAV",
+  "buyer": "M6 / CA - CASABLANCA AMENAGEMENT SA",
+  "category": "Travaux",
+  "launch_date": "06/04/2026",
+  "object": "Travaux de triplement de la route régionale RR320 entre la route provinciale RP3003 et la route provinciale RP3001, dans la province de Nouaceur.",
+  "city": "NOUACEUR",
+  "all_cities": null,
+  "deadline": "2026-05-18T10:00:00",
+  "mode_passation": "| Sur offre de prix",
+  "procedure_type": "Appel d'offres ouvert",
+  "main_category": "Travaux",
+  "allotissement": null,
+  "activity_domains": [
+    "Travaux / Travaux de voiries, chemins et pistes / Routes et voiries en béton",
+    "Travaux / Travaux de voiries, chemins et pistes / Travaux d’équipements de la route et des voiries"
+  ],
+  "is_sme_reserved": false,
+  "retrait_address": "Le portail des marchés publics",
+  "depot_address": "Le portail des marchés publics",
+  "mode_soumission": "Physique/Hybride",
+  "opening_location": "casablanca aménagement",
+  "contacts": {
+    "name": "Zoulale KHYAR",
+    "email": "zkhyar@casa-amenagement.ma",
+    "phone": "0522392300",
+    "fax": "0522390100"
+  },
+  "estimated_value": "119 398 500,00",
+  "plan_cost": null,
+  "provisional_deposit": "1 200 000,00",
+  "qualifications": null,
+  "agrements": null,
+  "variante": "Non",
+  "reunion": null,
+  "site_visit": null,
+  "samples_info": null,
+  "download_available": true,
+  "downloadable_files": [
+    "Dossier de consultation - 150,5 Mo"
+  ],
+  "processed_at": "2026-04-07T11:46:19.791996"
+}

@@ -1,0 +1,78 @@
+{
+  "reference": "TL4130275/2026/01/ONEEBELEC",
+  "original_reference": "TL4130275/2026/01/ONEEBELEC",
+  "buyer": "MEMEE / ONEEBELEC - OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+  "category": "Travaux",
+  "launch_date": "06/04/2026",
+  "object": "Fourniture et Remplacement des isolateurs composites des lignes à 400 KV de la Division Exploitation Transport Laâyoune : - Lot n° 1 : Lignes 400 KV du réseau Guelmim-Tan Tan - Lot n° 2 : Lignes 400 KV du réseau Tan Tan-Laayoune",
+  "city": "GUELMIM",
+  "all_cities": [
+    "GUELMIM",
+    "TAN-TAN",
+    "LAAYOUNE"
+  ],
+  "deadline": "2026-05-14T09:00:00",
+  "mode_passation": "| Sur offre de prix",
+  "procedure_type": "Appel d'offres ouvert",
+  "main_category": "Travaux",
+  "allotissement": "2 Lots",
+  "activity_domains": [
+    "Travaux / Travaux d’électricité / Travaux d'installation pour usage industriel"
+  ],
+  "is_sme_reserved": null,
+  "retrait_address": "ONEE/Branche Electricité Bureau d’ordre de la Direction Approvisionnements et Marchés (DAM) 65, Rue OTHMAN BEN AFFAN 20 000 CASABLANCA B.P. 13 498 - MAROC, Tél : (212) 05 22 66 80 21 Télécopieur : (212) 05 22 43 31 12",
+  "depot_address": "ONEE/Branche Electricité Bureau d’ordre de la Direction Approvisionnements et Marchés (DAM) 65, Rue OTHMAN BEN AFFAN 20 000 CASABLANCA B.P. 13 498 - MAROC, Tél : (212) 05 22 66 80 21 Télécopieur : (212) 05 22 43 31 12",
+  "mode_soumission": "Electronique",
+  "opening_location": "ONEE/Branche Electricité Bureau d’ordre de la Direction Approvisionnements et Marchés (DAM) 65, Rue OTHMAN BEN AFFAN 20 000 CASABLANCA B.P. 13 498 - MAROC, Tél : (212) 05 22 66 80 21 Télécopieur : (212) 05 22 43 31 12",
+  "contacts": {
+    "name": "Laila NAKKOUCH",
+    "email": "leila.n@onee.ma",
+    "phone": "0528211653",
+    "fax": "0528221852"
+  },
+  "estimated_value": null,
+  "plan_cost": null,
+  "provisional_deposit": null,
+  "qualifications": null,
+  "agrements": null,
+  "variante": null,
+  "reunion": null,
+  "site_visit": null,
+  "samples_info": null,
+  "lots": [
+    {
+      "lot number": 1,
+      "lot1_object": "Lignes 400 KV du réseau Guelmim-Tan Tan",
+      "Lot1_estimation": "33 027 360,00",
+      "Lot1_caution": "500 000,00",
+      "Lot1_qualification": null,
+      "Lot1_agreement": null,
+      "Procpectus_et_echantillons": null,
+      "Reunion": null,
+      "visite_des_lieux": null,
+      "variante": "Oui",
+      "Env_consideration": "Non - Aucune norme ou exigence environnementale applicable identifiée",
+      "Reserve_TPE_PME": "Non"
+    },
+    {
+      "lot number": 2,
+      "lot2_object": "Lignes 400 KV du réseau Tan Tan-Laayoune",
+      "Lot2_estimation": "38 575 560,00",
+      "Lot2_caution": "500 000,00",
+      "Lot2_qualification": null,
+      "Lot2_agreement": null,
+      "Procpectus_et_echantillons": null,
+      "Reunion": null,
+      "visite_des_lieux": null,
+      "variante": "Non",
+      "Env_consideration": "Non - Aucune norme ou exigence environnementale applicable identifiée",
+      "Reserve_TPE_PME": "Non"
+    }
+  ],
+  "download_available": true,
+  "downloadable_files": [
+    "Dossier de consultation - 4,28 Mo"
+  ],
+  "s3_folder": "tender_doc_final/TL4130275_2026_01_ONEEBELEC_OFFNATELEEAUPOTBRAELE/",
+  "processed_at": "2026-04-07T11:47:16.785234"
+}
