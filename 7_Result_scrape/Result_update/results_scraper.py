@@ -32,11 +32,13 @@ from bs4 import BeautifulSoup
 load_dotenv()
 
 # Configure logging
+_log_dir = os.environ.get('LOG_DIR', os.path.join(os.path.dirname(__file__), '..', '..', 'Logs', '7_Result_scrape'))
+os.makedirs(_log_dir, exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('results_scraper.log'),
+        logging.FileHandler(os.path.join(_log_dir, 'results_scraper.log')),
         logging.StreamHandler()
     ]
 )

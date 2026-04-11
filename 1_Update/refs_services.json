@@ -1,0 +1,2988 @@
+{
+    "category": "services",
+    "scan_date": "2026-04-10T12:27:49.813915",
+    "total_website_references": 498,
+    "total_jena_references": 5144,
+    "new_references_count": 331,
+    "new_references": [
+        {
+            "reference": "15/2026/cuva_COMURBVILAGA",
+            "original_reference": "15/2026/cuva",
+            "buyer": "Commune urbaine de la ville d'Agadir",
+            "buyer_initials": "COMURBVILAGA",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538063"
+        },
+        {
+            "reference": "04/DRCRMS/2026_DIRREGAFFCULMARSAF",
+            "original_reference": "04/DRCRMS/2026",
+            "buyer": "DIRECTEUR REGIONALE DES AFFAIRES CULTURELLES MARRAKECH SAFI",
+            "buyer_initials": "DIRREGAFFCULMARSAF",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538099"
+        },
+        {
+            "reference": "03/DRCRMS/2026_DIRREGAFFCULMARSAF",
+            "original_reference": "03/DRCRMS/2026",
+            "buyer": "DIRECTEUR REGIONALE DES AFFAIRES CULTURELLES MARRAKECH SAFI",
+            "buyer_initials": "DIRREGAFFCULMARSAF",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538138"
+        },
+        {
+            "reference": "01/AURS/2026_AGEURBRABSAL",
+            "original_reference": "01/AURS/2026",
+            "buyer": "AGENCE URBAINE DE RABAT-SALE",
+            "buyer_initials": "AGEURBRABSAL",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538172"
+        },
+        {
+            "reference": "15/2026/DPA/2/SAHA_DIRPROAGRALHOC",
+            "original_reference": "15/2026/DPA/2/SAHA",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE- AL HOCEIMA",
+            "buyer_initials": "DIRPROAGRALHOC",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538200"
+        },
+        {
+            "reference": "01/CA/2026/MENPS_DIRINFSPOAGENATEQUPUB",
+            "original_reference": "01/CA/2026/MENPS",
+            "buyer": "DIRECTION DES INFRASTRUCTURES SPORTIVES DE L'AGENCE NATIONALE DES EQUIPEMENTS PUBLICS",
+            "buyer_initials": "DIRINFSPOAGENATEQUPUB",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538229"
+        },
+        {
+            "reference": "AO005/2026/ANCFCC/DOSI_AGENATCONFONCADCAR",
+            "original_reference": "AO005/2026/ANCFCC/DOSI",
+            "buyer": "AGENCE NATIONALE DE LA CONSERVATION FONCIERE, DU CADASTRE ET DE LA CARTOGRAPHIE",
+            "buyer_initials": "AGENATCONFONCADCAR",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538258"
+        },
+        {
+            "reference": "06/DRCC/2026_DIRREGCULPOUREGGRACAS",
+            "original_reference": "06/DRCC/2026",
+            "buyer": "DIRECTION REGIONALE DE LA CULTURE POUR LA REGION DU GRAND CASABLANCA",
+            "buyer_initials": "DIRREGCULPOUREGGRACAS",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538284"
+        },
+        {
+            "reference": "12/2026/DAH_DIRECTEURAMENAGEMENTSHYDRAULIQUES",
+            "original_reference": "12/2026/DAH",
+            "buyer": "DIRECTEUR DES AMENAGEMENTS HYDRAULIQUES",
+            "buyer_initials": "DIRECTEURAMENAGEMENTSHYDRAULIQUES",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538358"
+        },
+        {
+            "reference": "CA01/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "CA01/2026/ORMVAL",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538456"
+        },
+        {
+            "reference": "03/2026/CDC_PTD_MINEDUNATENSSUPFORCADRECSCIENSSUPFORCADRECSCI",
+            "original_reference": "03/2026/CDC_PTD",
+            "buyer": "Ministère de l'education nationale, de l'enseignement superieur, de la formation des cadres et de la recherche scientifique - l'enseignement superieur, la formation des cadres et la recherche scientifique",
+            "buyer_initials": "MINEDUNATENSSUPFORCADRECSCIENSSUPFORCADRECSCI",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538527"
+        },
+        {
+            "reference": "10/2026/DAH_DIRECTEURAMENAGEMENTSHYDRAULIQUES",
+            "original_reference": "10/2026/DAH",
+            "buyer": "DIRECTEUR DES AMENAGEMENTS HYDRAULIQUES",
+            "buyer_initials": "DIRECTEURAMENAGEMENTSHYDRAULIQUES",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538551"
+        },
+        {
+            "reference": "11/2026/DRPE_DIRRECPLAEAU",
+            "original_reference": "11/2026/DRPE",
+            "buyer": "DIRECTEUR DE LA RECHERCHE ET DE LA PLANIFICATION DE L'EAU",
+            "buyer_initials": "DIRRECPLAEAU",
+            "category": "Services",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.538577"
+        },
+        {
+            "reference": "06/2026/COLLECTIF/BG_DELREGAFFISLREGRABSALKEN",
+            "original_reference": "06/2026/COLLECTIF/BG",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES DE LA REGION RABAT SALE KENITRA",
+            "buyer_initials": "DELREGAFFISLREGRABSALKEN",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538605"
+        },
+        {
+            "reference": "16/RH/2026/EXP_DIRPROL’ENATRHA",
+            "original_reference": "16/RH/2026/EXP",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE RHAMNA",
+            "buyer_initials": "DIRPROL’ENATRHA",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538661"
+        },
+        {
+            "reference": "009/2026/CHUMVIO_CENHOSUNIMOHVIOUJ",
+            "original_reference": "009/2026/CHUMVIO",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE MOHAMMED VI - OUJDA",
+            "buyer_initials": "CENHOSUNIMOHVIOUJ",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538810"
+        },
+        {
+            "reference": "05/2026/DRCTTH_DIRREGCULTANTETALHOC",
+            "original_reference": "05/2026/DRCTTH",
+            "buyer": "DIRECTEUR REGIONAL DE LA CULTURE TANGER-TETOUAN-AL HOCEIMA",
+            "buyer_initials": "DIRREGCULTANTETALHOC",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538863"
+        },
+        {
+            "reference": "A064/RRA/2026_RABATREGIONAMENAGEMENT",
+            "original_reference": "A064/RRA/2026",
+            "buyer": "RABAT REGION AMENAGEMENT",
+            "buyer_initials": "RABATREGIONAMENAGEMENT",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538886"
+        },
+        {
+            "reference": "03/2026/CNDH_CONNATDROHOM",
+            "original_reference": "03/2026/CNDH",
+            "buyer": "Le Conseil National des Droits de l'Homme",
+            "buyer_initials": "CONNATDROHOM",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538938"
+        },
+        {
+            "reference": "02/2026/DRDE/LAAYOUNE_DIRREGDOMLAA",
+            "original_reference": "02/2026/DRDE/LAAYOUNE",
+            "buyer": "DIRECTEUR REGIONAL DE DOMAINES LAAYOUNE",
+            "buyer_initials": "DIRREGDOMLAA",
+            "category": "Services",
+            "launch_date": "04/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.538989"
+        },
+        {
+            "reference": "2/2026/GCTGAMDU_GROCOLTER\"GRAGAPOUTRAMOBURB",
+            "original_reference": "2/2026/GCTGAMDU",
+            "buyer": "GROUPEMENT DE COLLECTIVITES TERRITORIALES \"GRAND AGADIR POUR LE TRANSPORT ET LA MOBILITE URBAINE \"",
+            "buyer_initials": "GROCOLTER\"GRAGAPOUTRAMOBURB",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.539040"
+        },
+        {
+            "reference": "02/DRC/2026_DIRREGCULRABSALKEN",
+            "original_reference": "02/DRC/2026",
+            "buyer": "DIRECTION REGIONALE DE LA CULTURE RABAT SALE KENITRA",
+            "buyer_initials": "DIRREGCULRABSALKEN",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.539066"
+        },
+        {
+            "reference": "63/2025/DGI_DIRECTEURIMPOTSRABAT",
+            "original_reference": "63/2025/DGI",
+            "buyer": "DIRECTEUR DES IMPOTS -RABAT",
+            "buyer_initials": "DIRECTEURIMPOTSRABAT",
+            "category": "Services",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.539136"
+        },
+        {
+            "reference": "08/CS/2026_COMMUNEURBAINESALE",
+            "original_reference": "08/CS/2026",
+            "buyer": "Commune urbaine de SALE",
+            "buyer_initials": "COMMUNEURBAINESALE",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.539178"
+        },
+        {
+            "reference": "02/ESSP/2026/ANEPCO_DIRREGAGENATEQUPUBCENOUE",
+            "original_reference": "02/ESSP/2026/ANEPCO",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EQUIPEMENTS PUBLICS DU CENTRE OUEST",
+            "buyer_initials": "DIRREGAGENATEQUPUBCENOUE",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.539220"
+        },
+        {
+            "reference": "050/26/AOO/ONDA_OFFICENATIONALAEROPORTS",
+            "original_reference": "050/26/AOO/ONDA",
+            "buyer": "OFFICE NATIONAL DES AEROPORTS",
+            "buyer_initials": "OFFICENATIONALAEROPORTS",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.539254"
+        },
+        {
+            "reference": "10/2026/ANDA_AGENATPOUDEVAQU",
+            "original_reference": "10/2026/ANDA",
+            "buyer": "AGENCE NATIONALE POUR LE DEVELOPPEMENT DE L'AQUACULTURE",
+            "buyer_initials": "AGENATPOUDEVAQU",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.539298"
+        },
+        {
+            "reference": "02/2026/DRANEFFM/CNHP_DIRREGAGENATEAUFORFESMEK",
+            "original_reference": "02/2026/DRANEFFM/CNHP",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+            "buyer_initials": "DIRREGAGENATEAUFORFESMEK",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.539331"
+        },
+        {
+            "reference": "06/2026/DPTR/ANP_AGENATPORDIRPORTANREG",
+            "original_reference": "06/2026/DPTR/ANP",
+            "buyer": "AGENCE NATIONALE DES PORTS/ DIRECTION DU PORT DE TANGER ET REGION",
+            "buyer_initials": "AGENATPORDIRPORTANREG",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.539361"
+        },
+        {
+            "reference": "TO2130304/2026/ONEEBELEC_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "TO2130304/2026/ONEEBELEC",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.539386"
+        },
+        {
+            "reference": "02/2026/ct_COMMUNEURBAINETOUISSIT",
+            "original_reference": "02/2026/ct",
+            "buyer": "Commune urbaine de TOUISSIT",
+            "buyer_initials": "COMMUNEURBAINETOUISSIT",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.539552"
+        },
+        {
+            "reference": "03/2026/ct_COMMUNEURBAINETOUISSIT",
+            "original_reference": "03/2026/ct",
+            "buyer": "Commune urbaine de TOUISSIT",
+            "buyer_initials": "COMMUNEURBAINETOUISSIT",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.539588"
+        },
+        {
+            "reference": "15DR3/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "15DR3/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.539905"
+        },
+        {
+            "reference": "68/2025/DGI_DIRECTEURIMPOTSRABAT",
+            "original_reference": "68/2025/DGI",
+            "buyer": "DIRECTEUR DES IMPOTS -RABAT",
+            "buyer_initials": "DIRECTEURIMPOTSRABAT",
+            "category": "Services",
+            "launch_date": "27/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.539973"
+        },
+        {
+            "reference": "03/2026/DS_DIRECTEURSTATISTIQUESRABAT",
+            "original_reference": "03/2026/DS",
+            "buyer": "DIRECTEUR DES STATISTIQUES RABAT",
+            "buyer_initials": "DIRECTEURSTATISTIQUESRABAT",
+            "category": "Services",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.540103"
+        },
+        {
+            "reference": "29/2026/DGR_OFFREGMISVALAGRELGHA",
+            "original_reference": "29/2026/DGR",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE D'EL GHARB",
+            "buyer_initials": "OFFREGMISVALAGRELGHA",
+            "category": "Services",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.540229"
+        },
+        {
+            "reference": "14DR3/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "14DR3/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.540261"
+        },
+        {
+            "reference": "10006090_SOCREGMULORIS.A",
+            "original_reference": "10006090",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Services",
+            "launch_date": "28/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.540289"
+        },
+        {
+            "reference": "01FEGG/2026/PUIZ_PREUNIIBNZOHAGA",
+            "original_reference": "01FEGG/2026/PUIZ",
+            "buyer": "PRESIDENCE DE L'UNIVERSITE IBN ZOHR AGADIR",
+            "buyer_initials": "PREUNIIBNZOHAGA",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.540317"
+        },
+        {
+            "reference": "02ENCGG/2026/PUIZ_PREUNIIBNZOHAGA",
+            "original_reference": "02ENCGG/2026/PUIZ",
+            "buyer": "PRESIDENCE DE L'UNIVERSITE IBN ZOHR AGADIR",
+            "buyer_initials": "PREUNIIBNZOHAGA",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.540359"
+        },
+        {
+            "reference": "04/2026/DRANEFFM/SAP_DIRREGAGENATEAUFORFESMEK",
+            "original_reference": "04/2026/DRANEFFM/SAP",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+            "buyer_initials": "DIRREGAGENATEAUFORFESMEK",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.540417"
+        },
+        {
+            "reference": "03/2026/DRANEFFM/SAP_DIRREGAGENATEAUFORFESMEK",
+            "original_reference": "03/2026/DRANEFFM/SAP",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+            "buyer_initials": "DIRREGAGENATEAUFORFESMEK",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.540546"
+        },
+        {
+            "reference": "02/2026/DRANEFFM/SAP_DIRREGAGENATEAUFORFESMEK",
+            "original_reference": "02/2026/DRANEFFM/SAP",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+            "buyer_initials": "DIRREGAGENATEAUFORFESMEK",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.540613"
+        },
+        {
+            "reference": "34/2026/DPAT_DIRPROAGRTAO",
+            "original_reference": "34/2026/DPAT",
+            "buyer": "Direction Provinciale de l'Agriculture de Taourirt",
+            "buyer_initials": "DIRPROAGRTAO",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.540656"
+        },
+        {
+            "reference": "04/2026/AO/CRITTA_CENREGINVTANTETALHOC",
+            "original_reference": "04/2026/AO/CRITTA",
+            "buyer": "CENTRE REGIONAL D'INVESTISSEMENT - TANGER- TETOUAN – AL-HOCEIMA",
+            "buyer_initials": "CENREGINVTANTETALHOC",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.540697"
+        },
+        {
+            "reference": "07/2026/DAH_DIRECTEURAMENAGEMENTSHYDRAULIQUES",
+            "original_reference": "07/2026/DAH",
+            "buyer": "DIRECTEUR DES AMENAGEMENTS HYDRAULIQUES",
+            "buyer_initials": "DIRECTEURAMENAGEMENTSHYDRAULIQUES",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.540788"
+        },
+        {
+            "reference": "20/2026/AMDL_AGEMARDEVLOG",
+            "original_reference": "20/2026/AMDL",
+            "buyer": "AGENCE MAROCAINE DE DEVELOPPEMENT DE LA LOGISTIQUE",
+            "buyer_initials": "AGEMARDEVLOG",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.540816"
+        },
+        {
+            "reference": "22/2026/CM_COMMUNEURBAINEMARRAKECH",
+            "original_reference": "22/2026/CM",
+            "buyer": "Commune urbaine de MARRAKECH",
+            "buyer_initials": "COMMUNEURBAINEMARRAKECH",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.540901"
+        },
+        {
+            "reference": "17/2026/DPETLC_DIRPROEQUCHE",
+            "original_reference": "17/2026/DPETLC",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'EQUIPEMENT CHEFCHAOUEN",
+            "buyer_initials": "DIRPROEQUCHE",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.540928"
+        },
+        {
+            "reference": "19/2026/AMDL_AGEMARDEVLOG",
+            "original_reference": "19/2026/AMDL",
+            "buyer": "AGENCE MAROCAINE DE DEVELOPPEMENT DE LA LOGISTIQUE",
+            "buyer_initials": "AGEMARDEVLOG",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541012"
+        },
+        {
+            "reference": "52/2025/DAAJ_MINAGRPECMARDEVRUREAUFOR",
+            "original_reference": "52/2025/DAAJ",
+            "buyer": "MINISTERE DE L'AGRICULTURE, DE LA PECHE MARITIME, DU DEVELOPPEMENT RURAL ET DES EAUX ET FORETS",
+            "buyer_initials": "MINAGRPECMARDEVRUREAUFOR",
+            "category": "Services",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.541050"
+        },
+        {
+            "reference": "06/2026/DAH_DIRECTEURAMENAGEMENTSHYDRAULIQUES",
+            "original_reference": "06/2026/DAH",
+            "buyer": "DIRECTEUR DES AMENAGEMENTS HYDRAULIQUES",
+            "buyer_initials": "DIRECTEURAMENAGEMENTSHYDRAULIQUES",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541136"
+        },
+        {
+            "reference": "24/2026/MEF/AC/MAIN_MINISTEREECONOMIE,FINANCES",
+            "original_reference": "24/2026/MEF/AC/MAIN",
+            "buyer": "MINISTERE DE L'ECONOMIE, ET DES FINANCES",
+            "buyer_initials": "MINISTEREECONOMIE,FINANCES",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541165"
+        },
+        {
+            "reference": "26/2026/DPA/G_DIRPROAGRGUE",
+            "original_reference": "26/2026/DPA/G",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE GUERCIF",
+            "buyer_initials": "DIRPROAGRGUE",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541192"
+        },
+        {
+            "reference": "15/2026/DPETLM_DIRPROEQUTRALOGMEK",
+            "original_reference": "15/2026/DPETLM",
+            "buyer": "LE DIRECTEUR PROVINCIAL DE L'EQUIPEMENT ET DU TRANSPORT ET DE LA LOGISTIQUE DE MEKNES",
+            "buyer_initials": "DIRPROEQUTRALOGMEK",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541243"
+        },
+        {
+            "reference": "16/2026/ANEPCO_DIRREGAGENATEQUPUBCENOUE",
+            "original_reference": "16/2026/ANEPCO",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EQUIPEMENTS PUBLICS DU CENTRE OUEST",
+            "buyer_initials": "DIRREGAGENATEQUPUBCENOUE",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541282"
+        },
+        {
+            "reference": "02/DRO/RA/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "02/DRO/RA/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541332"
+        },
+        {
+            "reference": "06/2026/ABHS_AGEBASHYDSEB",
+            "original_reference": "06/2026/ABHS",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DU SEBOU",
+            "buyer_initials": "AGEBASHYDSEB",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541379"
+        },
+        {
+            "reference": "05/2026/ABHS_AGEBASHYDSEB",
+            "original_reference": "05/2026/ABHS",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DU SEBOU",
+            "buyer_initials": "AGEBASHYDSEB",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541474"
+        },
+        {
+            "reference": "04/2026/ABHS_AGEBASHYDSEB",
+            "original_reference": "04/2026/ABHS",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DU SEBOU",
+            "buyer_initials": "AGEBASHYDSEB",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541496"
+        },
+        {
+            "reference": "01/2026/ABOLAK_AMEBARSUROUELAK",
+            "original_reference": "01/2026/ABOLAK",
+            "buyer": "AMENAGEMENT DU BARRAGE SUR OUED LAKHDAR",
+            "buyer_initials": "AMEBARSUROUELAK",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541554"
+        },
+        {
+            "reference": "02/EXP/CPGE/BM/2026_LYCTECMOHBENMEL",
+            "original_reference": "02/EXP/CPGE/BM/2026",
+            "buyer": "LYCEE TECHNIQUE MOHAMED V - BENI MELLAL",
+            "buyer_initials": "LYCTECMOHBENMEL",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541648"
+        },
+        {
+            "reference": "12/2026/ABHOER_AGEBASHYDOUMERRBI",
+            "original_reference": "12/2026/ABHOER",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DE L'OUM-ER-RBIA",
+            "buyer_initials": "AGEBASHYDOUMERRBI",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541718"
+        },
+        {
+            "reference": "64/2026_SOCALOMRMARSAF",
+            "original_reference": "64/2026",
+            "buyer": "SOCIETE AL OMRANE MARRAKECH - SAFI",
+            "buyer_initials": "SOCALOMRMARSAF",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541767"
+        },
+        {
+            "reference": "03/2026/ABHS_AGEBASHYDSEB",
+            "original_reference": "03/2026/ABHS",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DU SEBOU",
+            "buyer_initials": "AGEBASHYDSEB",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541817"
+        },
+        {
+            "reference": "02/AURS/2026_AGEURBRABSAL",
+            "original_reference": "02/AURS/2026",
+            "buyer": "AGENCE URBAINE DE RABAT-SALE",
+            "buyer_initials": "AGEURBRABSAL",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541874"
+        },
+        {
+            "reference": "02/2026/ABHS_AGEBASHYDSEB",
+            "original_reference": "02/2026/ABHS",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DU SEBOU",
+            "buyer_initials": "AGEBASHYDSEB",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541903"
+        },
+        {
+            "reference": "TN4130020_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "TN4130020",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541931"
+        },
+        {
+            "reference": "15/2026/MEF/AC/FOR_MINISTEREECONOMIE,FINANCES",
+            "original_reference": "15/2026/MEF/AC/FOR",
+            "buyer": "MINISTERE DE L'ECONOMIE, ET DES FINANCES",
+            "buyer_initials": "MINISTEREECONOMIE,FINANCES",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.541993"
+        },
+        {
+            "reference": "07/2026/CTSA/ETU_CASTRASITAMESA",
+            "original_reference": "07/2026/CTSA/ETU",
+            "buyer": "CASABLANCA TRANSPORT EN SITE AMENAGE SA",
+            "buyer_initials": "CASTRASITAMESA",
+            "category": "Services",
+            "launch_date": "26/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.542022"
+        },
+        {
+            "reference": "SK15/2026_DIRPROEQUTRALOGSIDKAC",
+            "original_reference": "SK15/2026",
+            "buyer": "LE DIRECTEUR PROVINCIAL DE L'EQUIPEMENT ET DU TRANSPORT ET DE LA LOGISTIQUE DE SIDI KACEM",
+            "buyer_initials": "DIRPROEQUTRALOGSIDKAC",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542081"
+        },
+        {
+            "reference": "13/2026/INDH_GOUKELESSRA",
+            "original_reference": "13/2026/INDH",
+            "buyer": "GOUVERNEUR DE KELAA ES-SRAGHNA",
+            "buyer_initials": "GOUKELESSRA",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542144"
+        },
+        {
+            "reference": "07/INO/2026_INSNATONC\"SIMOHBENABD",
+            "original_reference": "07/INO/2026",
+            "buyer": "INSTITUT NATIONAL D'ONCOLOGIE \"SIDI MOHAMMED BEN ABDELLAH\"",
+            "buyer_initials": "INSNATONC\"SIMOHBENABD",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542168"
+        },
+        {
+            "reference": "13/2026/DPA/SMOPFPA_DIRPROAGRBOU",
+            "original_reference": "13/2026/DPA/SMOPFPA",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE BOULMANE",
+            "buyer_initials": "DIRPROAGRBOU",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542191"
+        },
+        {
+            "reference": "15/2026/DR9/C/SPN/1/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "15/2026/DR9/C/SPN/1/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542231"
+        },
+        {
+            "reference": "16/2026/DR9/F/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "16/2026/DR9/F/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542285"
+        },
+        {
+            "reference": "22/OC/DFRHMG/2026_OFFICECHANGES",
+            "original_reference": "22/OC/DFRHMG/2026",
+            "buyer": "OFFICE DES CHANGES",
+            "buyer_initials": "OFFICECHANGES",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542307"
+        },
+        {
+            "reference": "01/2026/ABHS_AGEBASHYDSEB",
+            "original_reference": "01/2026/ABHS",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DU SEBOU",
+            "buyer_initials": "AGEBASHYDSEB",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542331"
+        },
+        {
+            "reference": "147/2026/SRMCS_SOCREGMULCASSETSA",
+            "original_reference": "147/2026/SRMCS",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542355"
+        },
+        {
+            "reference": "26S022_OFFNATCHEFER",
+            "original_reference": "26S022",
+            "buyer": "OFFICE NATIONAL DES CHEMINS DE FER",
+            "buyer_initials": "OFFNATCHEFER",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542377"
+        },
+        {
+            "reference": "26S020_OFFNATCHEFER",
+            "original_reference": "26S020",
+            "buyer": "OFFICE NATIONAL DES CHEMINS DE FER",
+            "buyer_initials": "OFFNATCHEFER",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542402"
+        },
+        {
+            "reference": "28/2026/DRANEFDT/DPANEFTINGHIR_DIRREGAGENATEAUFORDRATAF",
+            "original_reference": "28/2026/DRANEFDT/DPANEFTINGHIR",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE DRAA-TAFILALET",
+            "buyer_initials": "DIRREGAGENATEAUFORDRATAF",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542460"
+        },
+        {
+            "reference": "19/DAM/S/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "19/DAM/S/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542495"
+        },
+        {
+            "reference": "15/DAM/S/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "15/DAM/S/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542542"
+        },
+        {
+            "reference": "20/DAM/S/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "20/DAM/S/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542566"
+        },
+        {
+            "reference": "02/2026/SPRSAFI_CHEFSURETESAFI",
+            "original_reference": "02/2026/SPRSAFI",
+            "buyer": "CHEF DE LA SURETE SAFI",
+            "buyer_initials": "CHEFSURETESAFI",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542587"
+        },
+        {
+            "reference": "27/2026/CM_COMMUNEURBAINEMARRAKECH",
+            "original_reference": "27/2026/CM",
+            "buyer": "Commune urbaine de MARRAKECH",
+            "buyer_initials": "COMMUNEURBAINEMARRAKECH",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542608"
+        },
+        {
+            "reference": "12/2026/B.G._GOUPROFAHANJ",
+            "original_reference": "12/2026/B.G.",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE FAHS-ANJRA",
+            "buyer_initials": "GOUPROFAHANJ",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542630"
+        },
+        {
+            "reference": "41/2026/RSK_ALOMRRABSALKEN",
+            "original_reference": "41/2026/RSK",
+            "buyer": "AL OMRANE RABAT SALE KENITRA",
+            "buyer_initials": "ALOMRRABSALKEN",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542677"
+        },
+        {
+            "reference": "07/2026/CG_COMURBELGAR",
+            "original_reference": "07/2026/CG",
+            "buyer": "Commune urbaine de EL GARA",
+            "buyer_initials": "COMURBELGAR",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542700"
+        },
+        {
+            "reference": "14/AOONM/DPSR/ANP/2026_AGENATPORDIRPORSAFREG",
+            "original_reference": "14/AOONM/DPSR/ANP/2026",
+            "buyer": "AGENCE NATIONALE DES PORTS/ DIRECTION DU PORT DE SAFI ET REGION",
+            "buyer_initials": "AGENATPORDIRPORSAFREG",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542748"
+        },
+        {
+            "reference": "12/2026/CB_COMMUNEURBAINEBERRECHID",
+            "original_reference": "12/2026/CB",
+            "buyer": "Commune urbaine de BERRECHID",
+            "buyer_initials": "COMMUNEURBAINEBERRECHID",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542770"
+        },
+        {
+            "reference": "AOOI01/2026_CAINATSECSOC",
+            "original_reference": "AOOI01/2026",
+            "buyer": "CAISSE NATIONALE DE SECURITE SOCIALE",
+            "buyer_initials": "CAINATSECSOC",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542790"
+        },
+        {
+            "reference": "06/WRLSH/INDH/2026_WALREGLAASAKELHAMGOUPROLAA",
+            "original_reference": "06/WRLSH/INDH/2026",
+            "buyer": "WALI DE LA REGION LAAYOUNE SAKIA EL HAMRA ET GOUVERNEUR DE LA PROVINCE DE LAAYOUNE",
+            "buyer_initials": "WALREGLAASAKELHAMGOUPROLAA",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542838"
+        },
+        {
+            "reference": "6/DAM/S/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "6/DAM/S/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542873"
+        },
+        {
+            "reference": "12DR3/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "12DR3/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542910"
+        },
+        {
+            "reference": "01/DRCRMS/2026_DIRREGAFFCULMARSAF",
+            "original_reference": "01/DRCRMS/2026",
+            "buyer": "DIRECTEUR REGIONALE DES AFFAIRES CULTURELLES MARRAKECH SAFI",
+            "buyer_initials": "DIRREGAFFCULMARSAF",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.542992"
+        },
+        {
+            "reference": "06/2026/DAAJ_MINAGRPECMARDEVRUREAUFOR",
+            "original_reference": "06/2026/DAAJ",
+            "buyer": "MINISTERE DE L'AGRICULTURE, DE LA PECHE MARITIME, DU DEVELOPPEMENT RURAL ET DES EAUX ET FORETS",
+            "buyer_initials": "MINAGRPECMARDEVRUREAUFOR",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543018"
+        },
+        {
+            "reference": "03/DRAI/DT/BG/2026_DELREGAFFISLREGDRATAF",
+            "original_reference": "03/DRAI/DT/BG/2026",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES REGION DRAA TAFILALT",
+            "buyer_initials": "DELREGAFFISLREGDRATAF",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543042"
+        },
+        {
+            "reference": "07/DRAILSH/BG/2026_DELREGAFFISLREGLAYSAKLHA",
+            "original_reference": "07/DRAILSH/BG/2026",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES DE LA REGION LAYOUNE-SAKIA A LHAMRA",
+            "buyer_initials": "DELREGAFFISLREGLAYSAKLHA",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543145"
+        },
+        {
+            "reference": "10/2026/DPA/FES_DIRPROAGRFES",
+            "original_reference": "10/2026/DPA/FES",
+            "buyer": "DIRECTEUR PROVINCIALE D'AGRICULTURE-FES",
+            "buyer_initials": "DIRPROAGRFES",
+            "category": "Services",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.543228"
+        },
+        {
+            "reference": "15/2026/ANEPCO_DIRREGAGENATEQUPUBCENOUE",
+            "original_reference": "15/2026/ANEPCO",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EQUIPEMENTS PUBLICS DU CENTRE OUEST",
+            "buyer_initials": "DIRREGAGENATEQUPUBCENOUE",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543252"
+        },
+        {
+            "reference": "13/2026/C.Z_COMMUNEURBAINEZMAMRA",
+            "original_reference": "13/2026/C.Z",
+            "buyer": "Commune urbaine de ZMAMRA",
+            "buyer_initials": "COMMUNEURBAINEZMAMRA",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543351"
+        },
+        {
+            "reference": "06/DBM/CT/2026_GOUVERNEURTAOURIRTE",
+            "original_reference": "06/DBM/CT/2026",
+            "buyer": "GOUVERNEUR DE TAOURIRTE",
+            "buyer_initials": "GOUVERNEURTAOURIRTE",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543374"
+        },
+        {
+            "reference": "13/DRAI/BG/2026_DELREGAFFISLREGFESMEK",
+            "original_reference": "13/DRAI/BG/2026",
+            "buyer": "DELEGUATION REGIONALE DES AFFAIRES ISLAMIQUES DE LA REGION FES-MEKNES",
+            "buyer_initials": "DELREGAFFISLREGFESMEK",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543421"
+        },
+        {
+            "reference": "11DR3/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "11DR3/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543451"
+        },
+        {
+            "reference": "01/DAR/CA/2026_GOUVERNEUROUARZAZATE",
+            "original_reference": "01/DAR/CA/2026",
+            "buyer": "GOUVERNEUR DE OUARZAZATE",
+            "buyer_initials": "GOUVERNEUROUARZAZATE",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543473"
+        },
+        {
+            "reference": "02/LOGDEV2026_SOCIETELOGDEV",
+            "original_reference": "02/LOGDEV2026",
+            "buyer": "SOCIETE LOGDEV",
+            "buyer_initials": "SOCIETELOGDEV",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543495"
+        },
+        {
+            "reference": "12/SNTL/2026_SOCNATTRALOG",
+            "original_reference": "12/SNTL/2026",
+            "buyer": "SOCIETE NATIONALE DES TRANSPORTS ET DE LA LOGISTIQUE",
+            "buyer_initials": "SOCNATTRALOG",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543518"
+        },
+        {
+            "reference": "11/2026/ANDA_AGENATPOUDEVAQU",
+            "original_reference": "11/2026/ANDA",
+            "buyer": "AGENCE NATIONALE POUR LE DEVELOPPEMENT DE L'AQUACULTURE",
+            "buyer_initials": "AGENATPOUDEVAQU",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543541"
+        },
+        {
+            "reference": "645/2026/MED/FIDA/MOEI_CASABLANCAAMENAGEMENTSA",
+            "original_reference": "645/2026/MED/FIDA/MOEI",
+            "buyer": "CASABLANCA AMENAGEMENT SA",
+            "buyer_initials": "CASABLANCAAMENAGEMENTSA",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543562"
+        },
+        {
+            "reference": "47/2026_OFFNATSECSANPROALI",
+            "original_reference": "47/2026",
+            "buyer": "OFFICE NATIONAL DE SECURITE SANITAIRE DES PRODUITS ALIMENTAIRES",
+            "buyer_initials": "OFFNATSECSANPROALI",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543585"
+        },
+        {
+            "reference": "06/2026/ANRAC_AGENATREGACTRELCAN",
+            "original_reference": "06/2026/ANRAC",
+            "buyer": "AGENCE NATIONALE DE REGLEMENTATION DES ACTIVITES RELATIVES AU CANNABIS",
+            "buyer_initials": "AGENATREGACTRELCAN",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543625"
+        },
+        {
+            "reference": "13/2026/ABHSM_AGEBASHYDSOUMAS",
+            "original_reference": "13/2026/ABHSM",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DE SOUSS MASSA",
+            "buyer_initials": "AGEBASHYDSOUMAS",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543649"
+        },
+        {
+            "reference": "10/2026/CP_PROVINCEZAGORA",
+            "original_reference": "10/2026/CP",
+            "buyer": "Province de ZAGORA",
+            "buyer_initials": "PROVINCEZAGORA",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543672"
+        },
+        {
+            "reference": "206/2026/SRMFM_SOCREGMULFESMEKS.A",
+            "original_reference": "206/2026/SRMFM",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES FES - MEKNES S.A",
+            "buyer_initials": "SOCREGMULFESMEKS.A",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543718"
+        },
+        {
+            "reference": "212/2026/SRMFM_SOCREGMULFESMEKS.A",
+            "original_reference": "212/2026/SRMFM",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES FES - MEKNES S.A",
+            "buyer_initials": "SOCREGMULFESMEKS.A",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543740"
+        },
+        {
+            "reference": "N03/NHC/BH/2026_NIDARAHABOUSCASABLANCA",
+            "original_reference": "N03/NHC/BH/2026",
+            "buyer": "NIDARA DES HABOUS DE CASABLANCA",
+            "buyer_initials": "NIDARAHABOUSCASABLANCA",
+            "category": "Services",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.543762"
+        },
+        {
+            "reference": "27/2026/apdnRE4_AGEPOUPRODEVECOSOCPREPRONORROY",
+            "original_reference": "27/2026/apdnRE4",
+            "buyer": "AGENCE POUR LA PROMOTION ET LE DEVELOPPEMENT ECONOMIQUE ET SOCIAL DES PREFECTURES ET PROVINCES DU NORD DU ROYAUME",
+            "buyer_initials": "AGEPOUPRODEVECOSOCPREPRONORROY",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543788"
+        },
+        {
+            "reference": "23/2026/DRANEFDT/DPANEFTINGHIR_DIRREGAGENATEAUFORDRATAF",
+            "original_reference": "23/2026/DRANEFDT/DPANEFTINGHIR",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE DRAA-TAFILALET",
+            "buyer_initials": "DIRREGAGENATEAUFORDRATAF",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543813"
+        },
+        {
+            "reference": "19/LAR/2026_DIRPROL’ENATLAR",
+            "original_reference": "19/LAR/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE LARACHE",
+            "buyer_initials": "DIRPROL’ENATLAR",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543840"
+        },
+        {
+            "reference": "18/LAR/2026_DIRPROL’ENATLAR",
+            "original_reference": "18/LAR/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE LARACHE",
+            "buyer_initials": "DIRPROL’ENATLAR",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543867"
+        },
+        {
+            "reference": "02/CCISTTA/2026_CHACOMINDSERREGTANTETALHOC",
+            "original_reference": "02/CCISTTA/2026",
+            "buyer": "CHAMBRE DE COMMERCE D'INDUSTRIE ET DE SERVICES DE LA REGION DE Tanger-Tetouan- Al hoceima",
+            "buyer_initials": "CHACOMINDSERREGTANTETALHOC",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543893"
+        },
+        {
+            "reference": "17/LAR/2026_DIRPROL’ENATLAR",
+            "original_reference": "17/LAR/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE LARACHE",
+            "buyer_initials": "DIRPROL’ENATLAR",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543919"
+        },
+        {
+            "reference": "16/LAR/2026_DIRPROL’ENATLAR",
+            "original_reference": "16/LAR/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE LARACHE",
+            "buyer_initials": "DIRPROL’ENATLAR",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.543943"
+        },
+        {
+            "reference": "17/INDH/2026_GOUPROALHOC",
+            "original_reference": "17/INDH/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE D'AL HOCEIMA",
+            "buyer_initials": "GOUPROALHOC",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544011"
+        },
+        {
+            "reference": "51/26_SOCALOMRCAS",
+            "original_reference": "51/26",
+            "buyer": "SOCIETE AL OMRANE CASABLANCA",
+            "buyer_initials": "SOCALOMRCAS",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544033"
+        },
+        {
+            "reference": "01/2026/CUS_CITEUNIVERSITAIRESETTAT",
+            "original_reference": "01/2026/CUS",
+            "buyer": "CITE UNIVERSITAIRE SETTAT",
+            "buyer_initials": "CITEUNIVERSITAIRESETTAT",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544054"
+        },
+        {
+            "reference": "644/2026/MED/FIDA/MOEA_CASABLANCAAMENAGEMENTSA",
+            "original_reference": "644/2026/MED/FIDA/MOEA",
+            "buyer": "CASABLANCA AMENAGEMENT SA",
+            "buyer_initials": "CASABLANCAAMENAGEMENTSA",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544075"
+        },
+        {
+            "reference": "02/2026/DRCATTH_OFFNATCONAGRDIRRÉGTANTETALHOC",
+            "original_reference": "02/2026/DRCATTH",
+            "buyer": "Office National du Conseil Agricole Direction Régionale Tanger Tetouan Al hoceima",
+            "buyer_initials": "OFFNATCONAGRDIRRÉGTANTETALHOC",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544119"
+        },
+        {
+            "reference": "AO/83/2026_SOCALOMRFESMEK",
+            "original_reference": "AO/83/2026",
+            "buyer": "SOCIETE AL OMRANE FES MEKNES",
+            "buyer_initials": "SOCALOMRFESMEK",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544144"
+        },
+        {
+            "reference": "15/LAR/2026_DIRPROL’ENATLAR",
+            "original_reference": "15/LAR/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE LARACHE",
+            "buyer_initials": "DIRPROL’ENATLAR",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544172"
+        },
+        {
+            "reference": "06/2026/ERR_DIRPROL’ENATERR",
+            "original_reference": "06/2026/ERR",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE D'ERRACHIDIA",
+            "buyer_initials": "DIRPROL’ENATERR",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544198"
+        },
+        {
+            "reference": "14/LAR/2026_DIRPROL’ENATLAR",
+            "original_reference": "14/LAR/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE LARACHE",
+            "buyer_initials": "DIRPROL’ENATLAR",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544222"
+        },
+        {
+            "reference": "01/CCISTTA/2026_CHACOMINDSERREGTANTETALHOC",
+            "original_reference": "01/CCISTTA/2026",
+            "buyer": "CHAMBRE DE COMMERCE D'INDUSTRIE ET DE SERVICES DE LA REGION DE Tanger-Tetouan- Al hoceima",
+            "buyer_initials": "CHACOMINDSERREGTANTETALHOC",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544274"
+        },
+        {
+            "reference": "02/DH/BG/2026_DIRECTEURHABOUS",
+            "original_reference": "02/DH/BG/2026",
+            "buyer": "DIRECTEUR DES HABOUS",
+            "buyer_initials": "DIRECTEURHABOUS",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544321"
+        },
+        {
+            "reference": "13/LAR/2026_DIRPROL’ENATLAR",
+            "original_reference": "13/LAR/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE LARACHE",
+            "buyer_initials": "DIRPROL’ENATLAR",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544347"
+        },
+        {
+            "reference": "12/LAR/2026_DIRPROL’ENATLAR",
+            "original_reference": "12/LAR/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE LARACHE",
+            "buyer_initials": "DIRPROL’ENATLAR",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544372"
+        },
+        {
+            "reference": "11/2026/DPA/FES_DIRPROAGRFES",
+            "original_reference": "11/2026/DPA/FES",
+            "buyer": "DIRECTEUR PROVINCIALE D'AGRICULTURE-FES",
+            "buyer_initials": "DIRPROAGRFES",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544465"
+        },
+        {
+            "reference": "09/2026/BG_GOUVERNEURPREFECTURESALE",
+            "original_reference": "09/2026/BG",
+            "buyer": "GOUVERNEUR DE LA PREFECTURE DE SALE",
+            "buyer_initials": "GOUVERNEURPREFECTURESALE",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544487"
+        },
+        {
+            "reference": "14/INDH/2026_GOUPROALHOC",
+            "original_reference": "14/INDH/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE D'AL HOCEIMA",
+            "buyer_initials": "GOUPROALHOC",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544511"
+        },
+        {
+            "reference": "06/AOO/DPAR/ANP/2026_AGENATPORDIRPORAGAREG",
+            "original_reference": "06/AOO/DPAR/ANP/2026",
+            "buyer": "AGENCE NATIONALE DES PORTS/ DIRECTION DU PORT D'AGADIR ET REGION",
+            "buyer_initials": "AGENATPORDIRPORAGAREG",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544559"
+        },
+        {
+            "reference": "07/AOO/DPAR/ANP/2026_AGENATPORDIRPORAGAREG",
+            "original_reference": "07/AOO/DPAR/ANP/2026",
+            "buyer": "AGENCE NATIONALE DES PORTS/ DIRECTION DU PORT D'AGADIR ET REGION",
+            "buyer_initials": "AGENATPORDIRPORAGAREG",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544582"
+        },
+        {
+            "reference": "08/AOO/DPAR/ANP/2026_AGENATPORDIRPORAGAREG",
+            "original_reference": "08/AOO/DPAR/ANP/2026",
+            "buyer": "AGENCE NATIONALE DES PORTS/ DIRECTION DU PORT D'AGADIR ET REGION",
+            "buyer_initials": "AGENATPORDIRPORAGAREG",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544605"
+        },
+        {
+            "reference": "02/FIG/2026_DIRPROL’ENATFIG",
+            "original_reference": "02/FIG/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE FIGUIG",
+            "buyer_initials": "DIRPROL’ENATFIG",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544630"
+        },
+        {
+            "reference": "50/26_SOCALOMRCAS",
+            "original_reference": "50/26",
+            "buyer": "SOCIETE AL OMRANE CASABLANCA",
+            "buyer_initials": "SOCALOMRCAS",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544652"
+        },
+        {
+            "reference": "11/SNTL/2026_SOCNATTRALOG",
+            "original_reference": "11/SNTL/2026",
+            "buyer": "SOCIETE NATIONALE DES TRANSPORTS ET DE LA LOGISTIQUE",
+            "buyer_initials": "SOCNATTRALOG",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544675"
+        },
+        {
+            "reference": "11/LAR/2026_DIRPROL’ENATLAR",
+            "original_reference": "11/LAR/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE LARACHE",
+            "buyer_initials": "DIRPROL’ENATLAR",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544725"
+        },
+        {
+            "reference": "05/2026/ERR_DIRPROL’ENATERR",
+            "original_reference": "05/2026/ERR",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE D'ERRACHIDIA",
+            "buyer_initials": "DIRPROL’ENATERR",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544750"
+        },
+        {
+            "reference": "36/2026/RSK_ALOMRRABSALKEN",
+            "original_reference": "36/2026/RSK",
+            "buyer": "AL OMRANE RABAT SALE KENITRA",
+            "buyer_initials": "ALOMRRABSALKEN",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544772"
+        },
+        {
+            "reference": "20/2026/ABHGZR_AGEBASHYDGUIZIZRHE",
+            "original_reference": "20/2026/ABHGZR",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DU GUIR-ZIZ-RHERRISS",
+            "buyer_initials": "AGEBASHYDGUIZIZRHE",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544796"
+        },
+        {
+            "reference": "19/2026/ABHGZR_AGEBASHYDGUIZIZRHE",
+            "original_reference": "19/2026/ABHGZR",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DU GUIR-ZIZ-RHERRISS",
+            "buyer_initials": "AGEBASHYDGUIZIZRHE",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544822"
+        },
+        {
+            "reference": "58/TTH/TA/2026_ALOMRTANTETALHOC",
+            "original_reference": "58/TTH/TA/2026",
+            "buyer": "AL OMRANE TANGER TETOUAN AL HOCEIMA",
+            "buyer_initials": "ALOMRTANTETALHOC",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544868"
+        },
+        {
+            "reference": "2/ESTC/2026_ECOECOSUPTECCAS",
+            "original_reference": "2/ESTC/2026",
+            "buyer": "ECOLE ECOLE SUPERIEURE DE TECHNOLOGIE - CASABLANCA",
+            "buyer_initials": "ECOECOSUPTECCAS",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544893"
+        },
+        {
+            "reference": "01/IFE2MARC10512/CARFM/2026_CHAARTREGFESMEK",
+            "original_reference": "01/IFE2MARC10512/CARFM/2026",
+            "buyer": "CHAMBRE DE L'ARTISANAT DE LA REGION FES MEKNES",
+            "buyer_initials": "CHAARTREGFESMEK",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544917"
+        },
+        {
+            "reference": "21/2026/DRANEFDT/DPANEFOZ_DIRREGAGENATEAUFORDRATAF",
+            "original_reference": "21/2026/DRANEFDT/DPANEFOZ",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE DRAA-TAFILALET",
+            "buyer_initials": "DIRREGAGENATEAUFORDRATAF",
+            "category": "Services",
+            "launch_date": "04/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544942"
+        },
+        {
+            "reference": "57/TTH/2026_ALOMRTANTETALHOC",
+            "original_reference": "57/TTH/2026",
+            "buyer": "AL OMRANE TANGER TETOUAN AL HOCEIMA",
+            "buyer_initials": "ALOMRTANTETALHOC",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544966"
+        },
+        {
+            "reference": "10/CA.CHT/2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "10/CA.CHT/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.544993"
+        },
+        {
+            "reference": "56/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "56/MEK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545016"
+        },
+        {
+            "reference": "55/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "55/MEK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545062"
+        },
+        {
+            "reference": "04_EXP_AGA_2026_ARESOUMASDIRPROAGAIDA",
+            "original_reference": "04_EXP_AGA_2026",
+            "buyer": "AREF SOUS MASSA / DIRECTION PROVINCIALE D'AGADIR IDAOUTANANE",
+            "buyer_initials": "ARESOUMASDIRPROAGAIDA",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545142"
+        },
+        {
+            "reference": "09/CA.CHT/2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "09/CA.CHT/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545205"
+        },
+        {
+            "reference": "54/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "54/MEK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545229"
+        },
+        {
+            "reference": "53/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "53/MEK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545265"
+        },
+        {
+            "reference": "012/2026/CHUMVIO_CENHOSUNIMOHVIOUJ",
+            "original_reference": "012/2026/CHUMVIO",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE MOHAMMED VI - OUJDA",
+            "buyer_initials": "CENHOSUNIMOHVIOUJ",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545318"
+        },
+        {
+            "reference": "52/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "52/MEK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545344"
+        },
+        {
+            "reference": "06/2026/DPETLSETTAT_DIRPROALEQUTRALOGSET",
+            "original_reference": "06/2026/DPETLSETTAT",
+            "buyer": "LE DIRECTEUR PROVINCIAL AL DE L'EQUIPEMENT ET DU TRANSPORT DE ET DE LA LOGISTIQUE DE SETTAT",
+            "buyer_initials": "DIRPROALEQUTRALOGSET",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545371"
+        },
+        {
+            "reference": "23/2026/CM_COMMUNEURBAINEMARRAKECH",
+            "original_reference": "23/2026/CM",
+            "buyer": "Commune urbaine de MARRAKECH",
+            "buyer_initials": "COMMUNEURBAINEMARRAKECH",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545437"
+        },
+        {
+            "reference": "CCA/08/TTH/CH/2026_ALOMRTANTETALHOC",
+            "original_reference": "CCA/08/TTH/CH/2026",
+            "buyer": "AL OMRANE TANGER TETOUAN AL HOCEIMA",
+            "buyer_initials": "ALOMRTANTETALHOC",
+            "category": "Services",
+            "launch_date": "19/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.545459"
+        },
+        {
+            "reference": "11/2026/admin12620049_COMMUNEURBAINECHICHAOUA",
+            "original_reference": "11/2026/admin12620049",
+            "buyer": "Commune urbaine de CHICHAOUA",
+            "buyer_initials": "COMMUNEURBAINECHICHAOUA",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545481"
+        },
+        {
+            "reference": "19/2026/cuva_COMURBVILAGA",
+            "original_reference": "19/2026/cuva",
+            "buyer": "Commune urbaine de la ville d'Agadir",
+            "buyer_initials": "COMURBVILAGA",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545503"
+        },
+        {
+            "reference": "61/2026_SOCALOMRMARSAF",
+            "original_reference": "61/2026",
+            "buyer": "SOCIETE AL OMRANE MARRAKECH - SAFI",
+            "buyer_initials": "SOCALOMRMARSAF",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545569"
+        },
+        {
+            "reference": "51/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "51/MEK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545594"
+        },
+        {
+            "reference": "02/FSR/2026_FACULTESCIENCESRABAT",
+            "original_reference": "02/FSR/2026",
+            "buyer": "FACULTE DES SCIENCES- RABAT",
+            "buyer_initials": "FACULTESCIENCESRABAT",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545621"
+        },
+        {
+            "reference": "04/2026/SAD/GSTTTA_GROSANTERTANTETALHOC",
+            "original_reference": "04/2026/SAD/GSTTTA",
+            "buyer": "GROUPEMENT SANITAIRE TERRITORIAL TANGER - TETOUAN - AL HOCEIMA",
+            "buyer_initials": "GROSANTERTANTETALHOC",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545648"
+        },
+        {
+            "reference": "04/TM/2026_SOCDÉVLOC\"TAMOB",
+            "original_reference": "04/TM/2026",
+            "buyer": "Société de Développement Local \"Tanja Mobilité\"",
+            "buyer_initials": "SOCDÉVLOC\"TAMOB",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545675"
+        },
+        {
+            "reference": "14/DRC/CI/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "14/DRC/CI/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545699"
+        },
+        {
+            "reference": "09/2026/GSTDSO_DISTRICTSANITAIREOUEZZANE",
+            "original_reference": "09/2026/GSTDSO",
+            "buyer": "DISTRICT SANITAIRE DE OUEZZANE",
+            "buyer_initials": "DISTRICTSANITAIREOUEZZANE",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545721"
+        },
+        {
+            "reference": "06/GISCAE/2026_INSSUPCOMADMENT",
+            "original_reference": "06/GISCAE/2026",
+            "buyer": "INSTITUT SUPERIEUR DE COMMERCE ET D'ADMINISTRATION DES ENTREPRISES",
+            "buyer_initials": "INSSUPCOMADMENT",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545745"
+        },
+        {
+            "reference": "007/2026/CHUMVIO_CENHOSUNIMOHVIOUJ",
+            "original_reference": "007/2026/CHUMVIO",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE MOHAMMED VI - OUJDA",
+            "buyer_initials": "CENHOSUNIMOHVIOUJ",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545769"
+        },
+        {
+            "reference": "01/D/P/J/S/2026_DIRPROJEUSPOSET",
+            "original_reference": "01/D/P/J/S/2026",
+            "buyer": "DIRECETEUR PROVINCIAL DE LA JEUNESSE ET DES SPORTS SETTAT",
+            "buyer_initials": "DIRPROJEUSPOSET",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545791"
+        },
+        {
+            "reference": "11/2026/ANEPRSK_DIRREGAGENATEQUPUBRABSALKEN",
+            "original_reference": "11/2026/ANEPRSK",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EQUIPEMENTS PUBLICS DE RABAT -SALE - KENITRA",
+            "buyer_initials": "DIRREGAGENATEQUPUBRABSALKEN",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545816"
+        },
+        {
+            "reference": "08/CA.CHT/2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "08/CA.CHT/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545841"
+        },
+        {
+            "reference": "04/2026/CB_COMMUNEURBAINEBIOUGRA",
+            "original_reference": "04/2026/CB",
+            "buyer": "Commune urbaine de BIOUGRA",
+            "buyer_initials": "COMMUNEURBAINEBIOUGRA",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545864"
+        },
+        {
+            "reference": "50/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "50/MEK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545888"
+        },
+        {
+            "reference": "06/DGICA/2026_MINDELAUPCHEGOUCHAINVCONEVAPOLPUB",
+            "original_reference": "06/DGICA/2026",
+            "buyer": "MINISTERE DELEGUE AUPRES DU CHEF DU GOUVERNEMENT CHARGE DE L'INVESTISSEMENT DE LA CONVERGENCE ET DE L'EVALUATION DES POLITIQUES PUBLIQUES",
+            "buyer_initials": "MINDELAUPCHEGOUCHAINVCONEVAPOLPUB",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.545968"
+        },
+        {
+            "reference": "19/2026/ADA/DDCPT/DPPT_AGEPOUDEVAGR",
+            "original_reference": "19/2026/ADA/DDCPT/DPPT",
+            "buyer": "AGENCE POUR LE DEVELOPPEMENT AGRICOLE",
+            "buyer_initials": "AGEPOUDEVAGR",
+            "category": "Services",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.545991"
+        },
+        {
+            "reference": "01/CA/INTERPROVINCIAL/2026_AGEREGEXEPROREGTANTETALHOC",
+            "original_reference": "01/CA/INTERPROVINCIAL/2026",
+            "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION TANGER-TETOUAN-AL HOCEIMA",
+            "buyer_initials": "AGEREGEXEPROREGTANTETALHOC",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546017"
+        },
+        {
+            "reference": "10006084_SOCREGMULSOUMASSA",
+            "original_reference": "10006084",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES SOUSS - MASSA SA",
+            "buyer_initials": "SOCREGMULSOUMASSA",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546042"
+        },
+        {
+            "reference": "32/2026/DDA_OFFREGMISVALAGRELGHA",
+            "original_reference": "32/2026/DDA",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE D'EL GHARB",
+            "buyer_initials": "OFFREGMISVALAGRELGHA",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546066"
+        },
+        {
+            "reference": "008/2026/CHUMVIO_CENHOSUNIMOHVIOUJ",
+            "original_reference": "008/2026/CHUMVIO",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE MOHAMMED VI - OUJDA",
+            "buyer_initials": "CENHOSUNIMOHVIOUJ",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546089"
+        },
+        {
+            "reference": "49/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "49/MEK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546120"
+        },
+        {
+            "reference": "01/DPAIT/BH/2026_MINHABAFFISL",
+            "original_reference": "01/DPAIT/BH/2026",
+            "buyer": "MINISTERE DES HABOUS ET DES AFFAIRES ISLAMIQUES",
+            "buyer_initials": "MINHABAFFISL",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546169"
+        },
+        {
+            "reference": "48/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "48/MEK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546220"
+        },
+        {
+            "reference": "01/2026/DAAJ_MINAGRPECMARDEVRUREAUFOR",
+            "original_reference": "01/2026/DAAJ",
+            "buyer": "MINISTERE DE L'AGRICULTURE, DE LA PECHE MARITIME, DU DEVELOPPEMENT RURAL ET DES EAUX ET FORETS",
+            "buyer_initials": "MINAGRPECMARDEVRUREAUFOR",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546248"
+        },
+        {
+            "reference": "17/2026/TGR_TRESORERIEGENERALEROYAUME",
+            "original_reference": "17/2026/TGR",
+            "buyer": "TRESORERIE GENERALE DU ROYAUME",
+            "buyer_initials": "TRESORERIEGENERALEROYAUME",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546396"
+        },
+        {
+            "reference": "N32/2026/DPAO_DIRPROAGROUJ",
+            "original_reference": "N32/2026/DPAO",
+            "buyer": "DIRECTION PROVINCIALE D'AGRICULTURE OUJDA",
+            "buyer_initials": "DIRPROAGROUJ",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546419"
+        },
+        {
+            "reference": "05/2026/KH_DIRPROEQUKHE",
+            "original_reference": "05/2026/KH",
+            "buyer": "DIRECTEUR PROVINCIAL D'EQUIPEMENT KHEMISSET",
+            "buyer_initials": "DIRPROEQUKHE",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546568"
+        },
+        {
+            "reference": "AOO018/SMIT/2026_SOCMARINGTOU",
+            "original_reference": "AOO018/SMIT/2026",
+            "buyer": "SOCIETE MAROCAINE D'INGENIERIE TOURISTIQUE",
+            "buyer_initials": "SOCMARINGTOU",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546590"
+        },
+        {
+            "reference": "44/2026/ORSM_OFFREGMISVALAGRSOUMAS",
+            "original_reference": "44/2026/ORSM",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE SOUSS MASSA",
+            "buyer_initials": "OFFREGMISVALAGRSOUMAS",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546614"
+        },
+        {
+            "reference": "10005513_SOCREGMULSOUMASSA",
+            "original_reference": "10005513",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES SOUSS - MASSA SA",
+            "buyer_initials": "SOCREGMULSOUMASSA",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546674"
+        },
+        {
+            "reference": "26/DAM/CE/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "26/DAM/CE/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546712"
+        },
+        {
+            "reference": "14/2026/OU_DIRPROEQUTRALOGOUJANG",
+            "original_reference": "14/2026/OU",
+            "buyer": "DIRECTION PROVINCIALE DE L'EQUIPEMENT, DU TRANSPORT ET DE LA LOGISTIQUE OUJDA ANGAD",
+            "buyer_initials": "DIRPROEQUTRALOGOUJANG",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546737"
+        },
+        {
+            "reference": "10/2026/GU/PRO_DIRPROEQUTRALOGQUE",
+            "original_reference": "10/2026/GU/PRO",
+            "buyer": "DIRECTION PROVINCIALE DE L'EQUIPEMENT DU TRANSPORT ET DE LA LOGISTIQUE DE QUELMIM",
+            "buyer_initials": "DIRPROEQUTRALOGQUE",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546793"
+        },
+        {
+            "reference": "23/2026/CH/INV_DIRPROL’ENATCHI",
+            "original_reference": "23/2026/CH/INV",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHICHAOUA",
+            "buyer_initials": "DIRPROL’ENATCHI",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546818"
+        },
+        {
+            "reference": "58/MEK/2026_DIRPROL’ENATMEK",
+            "original_reference": "58/MEK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE MEKNES",
+            "buyer_initials": "DIRPROL’ENATMEK",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546842"
+        },
+        {
+            "reference": "01/2026/_CITEUNIVERSITAIREMEKNES",
+            "original_reference": "01/2026/",
+            "buyer": "CITE UNIVERSITAIRE MEKNES",
+            "buyer_initials": "CITEUNIVERSITAIREMEKNES",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546891"
+        },
+        {
+            "reference": "03FSJESAC/2026_FACSCIJURECOSOCAINCHOCAS",
+            "original_reference": "03FSJESAC/2026",
+            "buyer": "FACULTE DES SCIENCES JURIDIQUES, ECONOMIQUES ET SOCIALES AIN CHOCK- CASABLANCA",
+            "buyer_initials": "FACSCIJURECOSOCAINCHOCAS",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546920"
+        },
+        {
+            "reference": "05/GISCAE/2026_INSSUPCOMADMENT",
+            "original_reference": "05/GISCAE/2026",
+            "buyer": "INSTITUT SUPERIEUR DE COMMERCE ET D'ADMINISTRATION DES ENTREPRISES",
+            "buyer_initials": "INSSUPCOMADMENT",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546969"
+        },
+        {
+            "reference": "044/26/AOO/ONDA_OFFICENATIONALAEROPORTS",
+            "original_reference": "044/26/AOO/ONDA",
+            "buyer": "OFFICE NATIONAL DES AEROPORTS",
+            "buyer_initials": "OFFICENATIONALAEROPORTS",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.546991"
+        },
+        {
+            "reference": "053/26/AOO/ONDA_OFFICENATIONALAEROPORTS",
+            "original_reference": "053/26/AOO/ONDA",
+            "buyer": "OFFICE NATIONAL DES AEROPORTS",
+            "buyer_initials": "OFFICENATIONALAEROPORTS",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547012"
+        },
+        {
+            "reference": "10/2026/ANEPRSK_DIRREGAGENATEQUPUBRABSALKEN",
+            "original_reference": "10/2026/ANEPRSK",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EQUIPEMENTS PUBLICS DE RABAT -SALE - KENITRA",
+            "buyer_initials": "DIRREGAGENATEQUPUBRABSALKEN",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547063"
+        },
+        {
+            "reference": "03_EXP_AGA_2026_ARESOUMASDIRPROAGAIDA",
+            "original_reference": "03_EXP_AGA_2026",
+            "buyer": "AREF SOUS MASSA / DIRECTION PROVINCIALE D'AGADIR IDAOUTANANE",
+            "buyer_initials": "ARESOUMASDIRPROAGAIDA",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547089"
+        },
+        {
+            "reference": "42/2026/SFRA_SDRFESREGAME",
+            "original_reference": "42/2026/SFRA",
+            "buyer": "SDR - FES REGION AMENAGEMENT",
+            "buyer_initials": "SDRFESREGAME",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547118"
+        },
+        {
+            "reference": "07/CA.CHT/2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "07/CA.CHT/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547145"
+        },
+        {
+            "reference": "12/2026/ABHGZR_AGEBASHYDGUIZIZRHE",
+            "original_reference": "12/2026/ABHGZR",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DU GUIR-ZIZ-RHERRISS",
+            "buyer_initials": "AGEBASHYDGUIZIZRHE",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547169"
+        },
+        {
+            "reference": "43/2026/ORSM_OFFREGMISVALAGRSOUMAS",
+            "original_reference": "43/2026/ORSM",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE SOUSS MASSA",
+            "buyer_initials": "OFFREGMISVALAGRSOUMAS",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547192"
+        },
+        {
+            "reference": "42/2026/ORSM_OFFREGMISVALAGRSOUMAS",
+            "original_reference": "42/2026/ORSM",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE SOUSS MASSA",
+            "buyer_initials": "OFFREGMISVALAGRSOUMAS",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547215"
+        },
+        {
+            "reference": "O/107/26_SOCREGMULRABSALKENSA",
+            "original_reference": "O/107/26",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES RABAT - SALE - KENITRA SA",
+            "buyer_initials": "SOCREGMULRABSALKENSA",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547239"
+        },
+        {
+            "reference": "11/2026/ABHGZR_AGEBASHYDGUIZIZRHE",
+            "original_reference": "11/2026/ABHGZR",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DU GUIR-ZIZ-RHERRISS",
+            "buyer_initials": "AGEBASHYDGUIZIZRHE",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547261"
+        },
+        {
+            "reference": "031DR5/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "031DR5/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547285"
+        },
+        {
+            "reference": "81/2026/SRMFM_SOCREGMULFESMEKS.A",
+            "original_reference": "81/2026/SRMFM",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES FES - MEKNES S.A",
+            "buyer_initials": "SOCREGMULFESMEKS.A",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547307"
+        },
+        {
+            "reference": "035DR5/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "035DR5/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547330"
+        },
+        {
+            "reference": "205/2026/SRMFM_SOCREGMULFESMEKS.A",
+            "original_reference": "205/2026/SRMFM",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES FES - MEKNES S.A",
+            "buyer_initials": "SOCREGMULFESMEKS.A",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547352"
+        },
+        {
+            "reference": "06/CA.CHT/2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "06/CA.CHT/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547381"
+        },
+        {
+            "reference": "10/2026/ABHGZR_AGEBASHYDGUIZIZRHE",
+            "original_reference": "10/2026/ABHGZR",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DU GUIR-ZIZ-RHERRISS",
+            "buyer_initials": "AGEBASHYDGUIZIZRHE",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547405"
+        },
+        {
+            "reference": "38/2026/INV_BET_DIRPROL’ENATTAR",
+            "original_reference": "38/2026/INV_BET",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE TAROUDANT",
+            "buyer_initials": "DIRPROL’ENATTAR",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547430"
+        },
+        {
+            "reference": "06/CPTT/2026_PROVINCETANTAN",
+            "original_reference": "06/CPTT/2026",
+            "buyer": "Province de TAN-TAN",
+            "buyer_initials": "PROVINCETANTAN",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547489"
+        },
+        {
+            "reference": "02/2026/S.R.F.E_COMRURS.HAJOUEHAS",
+            "original_reference": "02/2026/S.R.F.E",
+            "buyer": "Commune rurale de S. HAJJAJ OUED HASSAR",
+            "buyer_initials": "COMRURS.HAJOUEHAS",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547514"
+        },
+        {
+            "reference": "37/2026/INV_BET_DIRPROL’ENATTAR",
+            "original_reference": "37/2026/INV_BET",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE TAROUDANT",
+            "buyer_initials": "DIRPROL’ENATTAR",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547551"
+        },
+        {
+            "reference": "56/TTH/CH/2026_ALOMRTANTETALHOC",
+            "original_reference": "56/TTH/CH/2026",
+            "buyer": "AL OMRANE TANGER TETOUAN AL HOCEIMA",
+            "buyer_initials": "ALOMRTANTETALHOC",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547590"
+        },
+        {
+            "reference": "05/CA.CHT/2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "05/CA.CHT/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547632"
+        },
+        {
+            "reference": "33/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "33/2026/ORMVAL",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Services",
+            "launch_date": "05/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547679"
+        },
+        {
+            "reference": "36/2026/INV_BET_DIRPROL’ENATTAR",
+            "original_reference": "36/2026/INV_BET",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE TAROUDANT",
+            "buyer_initials": "DIRPROL’ENATTAR",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547718"
+        },
+        {
+            "reference": "55/TTH/CH/2026_ALOMRTANTETALHOC",
+            "original_reference": "55/TTH/CH/2026",
+            "buyer": "AL OMRANE TANGER TETOUAN AL HOCEIMA",
+            "buyer_initials": "ALOMRTANTETALHOC",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547758"
+        },
+        {
+            "reference": "91/2026_AGEREGEXEPROREGBENMELKHE",
+            "original_reference": "91/2026",
+            "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION BENI MELLAL- KHENIFRA",
+            "buyer_initials": "AGEREGEXEPROREGBENMELKHE",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547797"
+        },
+        {
+            "reference": "6/2026/C.S_COMURBESSEM",
+            "original_reference": "6/2026/C.S",
+            "buyer": "Commune urbaine de ES-SEMARA",
+            "buyer_initials": "COMURBESSEM",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547841"
+        },
+        {
+            "reference": "04/CA.CHT/2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "04/CA.CHT/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.547884"
+        },
+        {
+            "reference": "05/CPTT/2026_PROVINCETANTAN",
+            "original_reference": "05/CPTT/2026",
+            "buyer": "Province de TAN-TAN",
+            "buyer_initials": "PROVINCETANTAN",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.548047"
+        },
+        {
+            "reference": "01/TAG/2026_COMMUNERURALETAGOUNITE",
+            "original_reference": "01/TAG/2026",
+            "buyer": "Commune rurale de TAGOUNITE",
+            "buyer_initials": "COMMUNERURALETAGOUNITE",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.548300"
+        },
+        {
+            "reference": "09/DRAI/BG/2026_DELREGAFFISLREGFESMEK",
+            "original_reference": "09/DRAI/BG/2026",
+            "buyer": "DELEGUATION REGIONALE DES AFFAIRES ISLAMIQUES DE LA REGION FES-MEKNES",
+            "buyer_initials": "DELREGAFFISLREGFESMEK",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.548346"
+        },
+        {
+            "reference": "32/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "32/2026/ORMVAL",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Services",
+            "launch_date": "05/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.548789"
+        },
+        {
+            "reference": "35/2026/INV_BET_DIRPROL’ENATTAR",
+            "original_reference": "35/2026/INV_BET",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE TAROUDANT",
+            "buyer_initials": "DIRPROL’ENATTAR",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.548839"
+        },
+        {
+            "reference": "54/TTH/CH/2026_ALOMRTANTETALHOC",
+            "original_reference": "54/TTH/CH/2026",
+            "buyer": "AL OMRANE TANGER TETOUAN AL HOCEIMA",
+            "buyer_initials": "ALOMRTANTETALHOC",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.548884"
+        },
+        {
+            "reference": "89/2026_AGEREGEXEPROREGBENMELKHE",
+            "original_reference": "89/2026",
+            "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION BENI MELLAL- KHENIFRA",
+            "buyer_initials": "AGEREGEXEPROREGBENMELKHE",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.548956"
+        },
+        {
+            "reference": "03/DRTTAH/2026/SONARGES_SOCNATREAGESÉQUSPO",
+            "original_reference": "03/DRTTAH/2026/SONARGES",
+            "buyer": "SOCIETE NATIONALE DE REALISATION ET DE GESTION DES ÉQUIPEMENTS SPORTIFS",
+            "buyer_initials": "SOCNATREAGESÉQUSPO",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.548984"
+        },
+        {
+            "reference": "03/CA.CHT/2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "03/CA.CHT/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549025"
+        },
+        {
+            "reference": "45/2026/ORTAF_OFFREGMISVALAGRTAF",
+            "original_reference": "45/2026/ORTAF",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE TAFILALET",
+            "buyer_initials": "OFFREGMISVALAGRTAF",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549050"
+        },
+        {
+            "reference": "41/2026/ORSM_OFFREGMISVALAGRSOUMAS",
+            "original_reference": "41/2026/ORSM",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE SOUSS MASSA",
+            "buyer_initials": "OFFREGMISVALAGRSOUMAS",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549077"
+        },
+        {
+            "reference": "05/2026/DPETLM_DIRPROEQUTRALOGMEK",
+            "original_reference": "05/2026/DPETLM",
+            "buyer": "LE DIRECTEUR PROVINCIAL DE L'EQUIPEMENT ET DU TRANSPORT ET DE LA LOGISTIQUE DE MEKNES",
+            "buyer_initials": "DIRPROEQUTRALOGMEK",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549242"
+        },
+        {
+            "reference": "35/2026/DPAT_DIRPROAGRTAO",
+            "original_reference": "35/2026/DPAT",
+            "buyer": "Direction Provinciale de l'Agriculture de Taourirt",
+            "buyer_initials": "DIRPROAGRTAO",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549268"
+        },
+        {
+            "reference": "13/2026/DR9_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "13/2026/DR9",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "27/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.549384"
+        },
+        {
+            "reference": "11/2026/DR9/C_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "11/2026/DR9/C",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "27/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.549408"
+        },
+        {
+            "reference": "12/2026/DR9/C_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "12/2026/DR9/C",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Services",
+            "launch_date": "27/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.549432"
+        },
+        {
+            "reference": "11/INDH/2026_GOUPROALHOC",
+            "original_reference": "11/INDH/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE D'AL HOCEIMA",
+            "buyer_initials": "GOUPROALHOC",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549456"
+        },
+        {
+            "reference": "05/2026/INDH_GOUVERNEURPREFECTUREMEKNES",
+            "original_reference": "05/2026/INDH",
+            "buyer": "GOUVERNEUR DE LA PREFECTURE DE MEKNES",
+            "buyer_initials": "GOUVERNEURPREFECTUREMEKNES",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549478"
+        },
+        {
+            "reference": "08/DRAI/BG/2026_DELREGAFFISLREGFESMEK",
+            "original_reference": "08/DRAI/BG/2026",
+            "buyer": "DELEGUATION REGIONALE DES AFFAIRES ISLAMIQUES DE LA REGION FES-MEKNES",
+            "buyer_initials": "DELREGAFFISLREGFESMEK",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549502"
+        },
+        {
+            "reference": "10/2026/INDH_GOUVERNEURPREFECTURESALE",
+            "original_reference": "10/2026/INDH",
+            "buyer": "GOUVERNEUR DE LA PREFECTURE DE SALE",
+            "buyer_initials": "GOUVERNEURPREFECTURESALE",
+            "category": "Services",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549523"
+        },
+        {
+            "reference": "20/26/S_AUTOROUTESMAROC",
+            "original_reference": "20/26/S",
+            "buyer": "AUTOROUTES DU MAROC",
+            "buyer_initials": "AUTOROUTESMAROC",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549559"
+        },
+        {
+            "reference": "AO05/2026/DRDT/OFPPT_OFPDIRREGDRATAF",
+            "original_reference": "AO05/2026/DRDT/OFPPT",
+            "buyer": "OFPPT - DIRECTION REGIONALE DRAA TAFILALET",
+            "buyer_initials": "OFPDIRREGDRATAF",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549584"
+        },
+        {
+            "reference": "40/2026/ORSM_OFFREGMISVALAGRSOUMAS",
+            "original_reference": "40/2026/ORSM",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE SOUSS MASSA",
+            "buyer_initials": "OFFREGMISVALAGRSOUMAS",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549608"
+        },
+        {
+            "reference": "12/2026/EACCE_ETAAUTCONCOOEXP",
+            "original_reference": "12/2026/EACCE",
+            "buyer": "ETABLISSEMENT AUTONOME DE CONTROLE ET DE COORDINATION DES EXPORTATIONS",
+            "buyer_initials": "ETAAUTCONCOOEXP",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549631"
+        },
+        {
+            "reference": "31/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "31/2026/ORMVAL",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Services",
+            "launch_date": "05/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549655"
+        },
+        {
+            "reference": "34/2026/INV_BET_DIRPROL’ENATTAR",
+            "original_reference": "34/2026/INV_BET",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE TAROUDANT",
+            "buyer_initials": "DIRPROL’ENATTAR",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549683"
+        },
+        {
+            "reference": "02/CA.CHT/2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "02/CA.CHT/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549728"
+        },
+        {
+            "reference": "39/2026/ORSM_OFFREGMISVALAGRSOUMAS",
+            "original_reference": "39/2026/ORSM",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE SOUSS MASSA",
+            "buyer_initials": "OFFREGMISVALAGRSOUMAS",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549754"
+        },
+        {
+            "reference": "38/2026/ORSM_OFFREGMISVALAGRSOUMAS",
+            "original_reference": "38/2026/ORSM",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE SOUSS MASSA",
+            "buyer_initials": "OFFREGMISVALAGRSOUMAS",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549777"
+        },
+        {
+            "reference": "AS3129874_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "AS3129874",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Services",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.549803"
+        },
+        {
+            "reference": "01/CA.CHT/2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "01/CA.CHT/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.549841"
+        },
+        {
+            "reference": "4/2026/BR_REGIONCASABLANCASETTAT",
+            "original_reference": "4/2026/BR",
+            "buyer": "REGION CASABLANCA-SETTAT",
+            "buyer_initials": "REGIONCASABLANCASETTAT",
+            "category": "Services",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.549901"
+        },
+        {
+            "reference": "3/2026/BR_REGIONCASABLANCASETTAT",
+            "original_reference": "3/2026/BR",
+            "buyer": "REGION CASABLANCA-SETTAT",
+            "buyer_initials": "REGIONCASABLANCASETTAT",
+            "category": "Services",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.549925"
+        },
+        {
+            "reference": "11/DPH/2026_DELPROSECETAAUP1ERMINCHAJEUMARALHAO",
+            "original_reference": "11/DPH/2026",
+            "buyer": "DELEGUE PROVINCIAL DU SECRETARIAT D'ETAT AUPRES DU 1ER MINISTRE CHARGE DE LA JEUNESSE MARRAKECH-AL HAOUZ",
+            "buyer_initials": "DELPROSECETAAUP1ERMINCHAJEUMARALHAO",
+            "category": "Services",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.550003"
+        },
+        {
+            "reference": "07/2026/DRANEFCS_DIRREGAGENATEAUFORCASSET",
+            "original_reference": "07/2026/DRANEFCS",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS CASABLANCA SETTAT",
+            "buyer_initials": "DIRREGAGENATEAUFORCASSET",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.550049"
+        },
+        {
+            "reference": "30/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "30/2026/ORMVAL",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Services",
+            "launch_date": "05/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.550191"
+        },
+        {
+            "reference": "10/DPH/2026_DELPROSECETAAUP1ERMINCHAJEUMARALHAO",
+            "original_reference": "10/DPH/2026",
+            "buyer": "DELEGUE PROVINCIAL DU SECRETARIAT D'ETAT AUPRES DU 1ER MINISTRE CHARGE DE LA JEUNESSE MARRAKECH-AL HAOUZ",
+            "buyer_initials": "DELPROSECETAAUP1ERMINCHAJEUMARALHAO",
+            "category": "Services",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.550335"
+        },
+        {
+            "reference": "10/2026/DPETLSETTAT_DIRPROALEQUTRALOGSET",
+            "original_reference": "10/2026/DPETLSETTAT",
+            "buyer": "LE DIRECTEUR PROVINCIAL AL DE L'EQUIPEMENT ET DU TRANSPORT DE ET DE LA LOGISTIQUE DE SETTAT",
+            "buyer_initials": "DIRPROALEQUTRALOGSET",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.550512"
+        },
+        {
+            "reference": "09/DPH/2026_DELPROSECETAAUP1ERMINCHAJEUMARALHAO",
+            "original_reference": "09/DPH/2026",
+            "buyer": "DELEGUE PROVINCIAL DU SECRETARIAT D'ETAT AUPRES DU 1ER MINISTRE CHARGE DE LA JEUNESSE MARRAKECH-AL HAOUZ",
+            "buyer_initials": "DELPROSECETAAUP1ERMINCHAJEUMARALHAO",
+            "category": "Services",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.550909"
+        },
+        {
+            "reference": "AOS1/2026/CTA_COMMUNERURALEABTEH",
+            "original_reference": "AOS1/2026/CTA",
+            "buyer": "Commune rurale de ABTEH",
+            "buyer_initials": "COMMUNERURALEABTEH",
+            "category": "Services",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.550947"
+        },
+        {
+            "reference": "09/2026/CNOPS_CAINATORGPRESOC",
+            "original_reference": "09/2026/CNOPS",
+            "buyer": "CAISSE NATIONALE DES ORGANISMES DE PREVOYANCE SOCIALE",
+            "buyer_initials": "CAINATORGPRESOC",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.550988"
+        },
+        {
+            "reference": "004/2026_COMMUNEURBAINEYOUSSOUFIA",
+            "original_reference": "004/2026",
+            "buyer": "Commune urbaine de YOUSSOUFIA",
+            "buyer_initials": "COMMUNEURBAINEYOUSSOUFIA",
+            "category": "Services",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551028"
+        },
+        {
+            "reference": "07/2026/DRSPSSM_DIRREGSANREGSOUMAS",
+            "original_reference": "07/2026/DRSPSSM",
+            "buyer": "Directeur regional de la sante a la Region de Sous- Massa",
+            "buyer_initials": "DIRREGSANREGSOUMAS",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551070"
+        },
+        {
+            "reference": "10/S/2026_DIRPROL’ENATSAF",
+            "original_reference": "10/S/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE SAFI",
+            "buyer_initials": "DIRPROL’ENATSAF",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551131"
+        },
+        {
+            "reference": "13/2026/CHUIS_CENHOSUNIIBNSINRAB",
+            "original_reference": "13/2026/CHUIS",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE IBN SINA RABAT",
+            "buyer_initials": "CENHOSUNIIBNSINRAB",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551214"
+        },
+        {
+            "reference": "20/2026/DPETLC_DIRPROEQUCHE",
+            "original_reference": "20/2026/DPETLC",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'EQUIPEMENT CHEFCHAOUEN",
+            "buyer_initials": "DIRPROEQUCHE",
+            "category": "Services",
+            "launch_date": "04/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551270"
+        },
+        {
+            "reference": "44/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "44/2026/ORMVAL",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Services",
+            "launch_date": "05/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551408"
+        },
+        {
+            "reference": "13/DPK/2026_DIRPROL’ENATKEN",
+            "original_reference": "13/DPK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE KENITRA",
+            "buyer_initials": "DIRPROL’ENATKEN",
+            "category": "Services",
+            "launch_date": "05/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551464"
+        },
+        {
+            "reference": "08/SRAD/2026_SOCRABANIDEVSDL",
+            "original_reference": "08/SRAD/2026",
+            "buyer": "SOCIETE RABAT ANIMATION ET DEVELOPPEMENT SDL",
+            "buyer_initials": "SOCRABANIDEVSDL",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551542"
+        },
+        {
+            "reference": "44/AREPFM/2026_AGEREGEXEPROREGFESMEK",
+            "original_reference": "44/AREPFM/2026",
+            "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION FES-MEKNES",
+            "buyer_initials": "AGEREGEXEPROREGFESMEK",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551598"
+        },
+        {
+            "reference": "15/2026/DRH_OFFREGMISVALAGRDOU",
+            "original_reference": "15/2026/DRH",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE DOUKKALA",
+            "buyer_initials": "OFFREGMISVALAGRDOU",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551854"
+        },
+        {
+            "reference": "09/2026/GU/PRO_DIRPROEQUTRALOGQUE",
+            "original_reference": "09/2026/GU/PRO",
+            "buyer": "DIRECTION PROVINCIALE DE L'EQUIPEMENT DU TRANSPORT ET DE LA LOGISTIQUE DE QUELMIM",
+            "buyer_initials": "DIRPROEQUTRALOGQUE",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551900"
+        },
+        {
+            "reference": "12/DPK/2026_DIRPROL’ENATKEN",
+            "original_reference": "12/DPK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE KENITRA",
+            "buyer_initials": "DIRPROL’ENATKEN",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551948"
+        },
+        {
+            "reference": "E/102/26_SOCREGMULRABSALKENSA",
+            "original_reference": "E/102/26",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES RABAT - SALE - KENITRA SA",
+            "buyer_initials": "SOCREGMULRABSALKENSA",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.551990"
+        },
+        {
+            "reference": "05/CKS/2026_DIRPROL’ENATKELESSRA",
+            "original_reference": "05/CKS/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE KELAA ES-SRAGHNA",
+            "buyer_initials": "DIRPROL’ENATKELESSRA",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.552040"
+        },
+        {
+            "reference": "01/2026/DRA_DIRINTDOUAGA",
+            "original_reference": "01/2026/DRA",
+            "buyer": "DIRECTEUR INTERREGIONAL DES DOUANES D'AGADIR",
+            "buyer_initials": "DIRINTDOUAGA",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.552392"
+        },
+        {
+            "reference": "08/2026/NAD_DIRPROEQUNAD",
+            "original_reference": "08/2026/NAD",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'EQUIPEMENT NADOR",
+            "buyer_initials": "DIRPROEQUNAD",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.552678"
+        },
+        {
+            "reference": "16/2026/DPA/2/SMOPFPA_DIRPROAGRALHOC",
+            "original_reference": "16/2026/DPA/2/SMOPFPA",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE- AL HOCEIMA",
+            "buyer_initials": "DIRPROAGRALHOC",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.552720"
+        },
+        {
+            "reference": "14/2026/DPA/32/SMOPFA_DIRPROAGRTAZ",
+            "original_reference": "14/2026/DPA/32/SMOPFA",
+            "buyer": "LE DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE TAZA",
+            "buyer_initials": "DIRPROAGRTAZ",
+            "category": "Services",
+            "launch_date": "20/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.552846"
+        },
+        {
+            "reference": "SF07/2026/DPETLSEFROU_DIRPROEQUTRALOGSEF",
+            "original_reference": "SF07/2026/DPETLSEFROU",
+            "buyer": "LE DIRECTEUR PROVINCIAL DE L'EQUIPEMENT ET DU TRANSPORT ET DE LA LOGISTIQUE DE SEFROU",
+            "buyer_initials": "DIRPROEQUTRALOGSEF",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.553221"
+        },
+        {
+            "reference": "AOON17/2026_CAINATSECSOC",
+            "original_reference": "AOON17/2026",
+            "buyer": "CAISSE NATIONALE DE SECURITE SOCIALE",
+            "buyer_initials": "CAINATSECSOC",
+            "category": "Services",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.553420"
+        },
+        {
+            "reference": "85/2026/SAO_SOCALOREGL’O",
+            "original_reference": "85/2026/SAO",
+            "buyer": "SOCIETE ALOMRANE REGION DE L’ORIENTAL",
+            "buyer_initials": "SOCALOREGL’O",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.553487"
+        },
+        {
+            "reference": "37/2026/apdnRe3_AGEPOUPRODEVECOSOCPREPRONORROY",
+            "original_reference": "37/2026/apdnRe3",
+            "buyer": "AGENCE POUR LA PROMOTION ET LE DEVELOPPEMENT ECONOMIQUE ET SOCIAL DES PREFECTURES ET PROVINCES DU NORD DU ROYAUME",
+            "buyer_initials": "AGEPOUPRODEVECOSOCPREPRONORROY",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.553554"
+        },
+        {
+            "reference": "02/2026/CNOPS_CAINATORGPRESOC",
+            "original_reference": "02/2026/CNOPS",
+            "buyer": "CAISSE NATIONALE DES ORGANISMES DE PREVOYANCE SOCIALE",
+            "buyer_initials": "CAINATORGPRESOC",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.553608"
+        },
+        {
+            "reference": "58/2026/CHUIS_CENHOSUNIIBNSINRAB",
+            "original_reference": "58/2026/CHUIS",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE IBN SINA RABAT",
+            "buyer_initials": "CENHOSUNIIBNSINRAB",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.553658"
+        },
+        {
+            "reference": "16/2026/OFPPT_OFFFORPROPROTRA",
+            "original_reference": "16/2026/OFPPT",
+            "buyer": "OFFICE DE LA FORMATION PROFESSIONNELLE ET DE LA PROMOTION DU TRAVAIL",
+            "buyer_initials": "OFFFORPROPROTRA",
+            "category": "Services",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.553735"
+        },
+        {
+            "reference": "AOO017/SMIT/2026_SOCMARINGTOU",
+            "original_reference": "AOO017/SMIT/2026",
+            "buyer": "SOCIETE MAROCAINE D'INGENIERIE TOURISTIQUE",
+            "buyer_initials": "SOCMARINGTOU",
+            "category": "Services",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.553790"
+        },
+        {
+            "reference": "08/2026/GU/PRO_DIRPROEQUTRALOGQUE",
+            "original_reference": "08/2026/GU/PRO",
+            "buyer": "DIRECTION PROVINCIALE DE L'EQUIPEMENT DU TRANSPORT ET DE LA LOGISTIQUE DE QUELMIM",
+            "buyer_initials": "DIRPROEQUTRALOGQUE",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.553855"
+        },
+        {
+            "reference": "10/SUP/BM/2026_COMMUNEBENIMELLAL",
+            "original_reference": "10/SUP/BM/2026",
+            "buyer": "COMMUNE BENI MELLAL",
+            "buyer_initials": "COMMUNEBENIMELLAL",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554053"
+        },
+        {
+            "reference": "GN2130279/2026/DXG_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "GN2130279/2026/DXG",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Services",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554180"
+        },
+        {
+            "reference": "29/2025/ORH/SGRID_OFFREGMISVALAGRELHAO",
+            "original_reference": "29/2025/ORH/SGRID",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE D'EL HAOUZ",
+            "buyer_initials": "OFFREGMISVALAGRELHAO",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554285"
+        },
+        {
+            "reference": "28/2025/ORH/SGRID_OFFREGMISVALAGRELHAO",
+            "original_reference": "28/2025/ORH/SGRID",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE D'EL HAOUZ",
+            "buyer_initials": "OFFREGMISVALAGRELHAO",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554339"
+        },
+        {
+            "reference": "28/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "28/2026/ORMVAL",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Services",
+            "launch_date": "05/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554387"
+        },
+        {
+            "reference": "11/DPK/2026_DIRPROL’ENATKEN",
+            "original_reference": "11/DPK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE KENITRA",
+            "buyer_initials": "DIRPROL’ENATKEN",
+            "category": "Services",
+            "launch_date": "05/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554460"
+        },
+        {
+            "reference": "01/2026/CA/DRANEFDT/DPANEFMIDELT_DIRREGAGENATEAUFORDRATAF",
+            "original_reference": "01/2026/CA/DRANEFDT/DPANEFMIDELT",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE DRAA-TAFILALET",
+            "buyer_initials": "DIRREGAGENATEAUFORDRATAF",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554514"
+        },
+        {
+            "reference": "044/2026/CL_SOCREGMULTANTETALHOCSA",
+            "original_reference": "044/2026/CL",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES TANGER- TETOUAN-AL HOCEIMA SA",
+            "buyer_initials": "SOCREGMULTANTETALHOCSA",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554567"
+        },
+        {
+            "reference": "045/2026/CL_SOCREGMULTANTETALHOCSA",
+            "original_reference": "045/2026/CL",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES TANGER- TETOUAN-AL HOCEIMA SA",
+            "buyer_initials": "SOCREGMULTANTETALHOCSA",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554614"
+        },
+        {
+            "reference": "046/2026/EP_SOCREGMULTANTETALHOCSA",
+            "original_reference": "046/2026/EP",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES TANGER- TETOUAN-AL HOCEIMA SA",
+            "buyer_initials": "SOCREGMULTANTETALHOCSA",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554668"
+        },
+        {
+            "reference": "14/INZ/2026_DIRPROL’ENATINZAITMEL",
+            "original_reference": "14/INZ/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE D'INZEGANE AIT MELLOUL",
+            "buyer_initials": "DIRPROL’ENATINZAITMEL",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554733"
+        },
+        {
+            "reference": "04/CKS/2026_DIRPROL’ENATKELESSRA",
+            "original_reference": "04/CKS/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE KELAA ES-SRAGHNA",
+            "buyer_initials": "DIRPROL’ENATKELESSRA",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554790"
+        },
+        {
+            "reference": "10007568_SOCREGMULSOUMASSA",
+            "original_reference": "10007568",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES SOUSS - MASSA SA",
+            "buyer_initials": "SOCREGMULSOUMASSA",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554839"
+        },
+        {
+            "reference": "129/2026/SRMCS_SOCREGMULCASSETSA",
+            "original_reference": "129/2026/SRMCS",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Services",
+            "launch_date": "27/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.554896"
+        },
+        {
+            "reference": "10006802_SOCREGMULORIS.A",
+            "original_reference": "10006802",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Services",
+            "launch_date": "04/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.554953"
+        },
+        {
+            "reference": "10007038_SOCREGMULORIS.A",
+            "original_reference": "10007038",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Services",
+            "launch_date": "04/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.555001"
+        },
+        {
+            "reference": "10007544_SOCREGMULORIS.A",
+            "original_reference": "10007544",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Services",
+            "launch_date": "04/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.555054"
+        },
+        {
+            "reference": "01/2026/CTM_COMMUNERURALEMESKOURA",
+            "original_reference": "01/2026/CTM",
+            "buyer": "Commune rurale de MESKOURA",
+            "buyer_initials": "COMMUNERURALEMESKOURA",
+            "category": "Services",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.555125"
+        },
+        {
+            "reference": "O/106/26_SOCREGMULRABSALKENSA",
+            "original_reference": "O/106/26",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES RABAT - SALE - KENITRA SA",
+            "buyer_initials": "SOCREGMULRABSALKENSA",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.555177"
+        },
+        {
+            "reference": "C/094/26_SOCREGMULRABSALKENSA",
+            "original_reference": "C/094/26",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES RABAT - SALE - KENITRA SA",
+            "buyer_initials": "SOCREGMULRABSALKENSA",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.555231"
+        },
+        {
+            "reference": "19/INV.CHT/2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "19/INV.CHT/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Services",
+            "launch_date": "29/03/2026",
+            "scraped_at": "2026-04-10T12:27:49.555286"
+        },
+        {
+            "reference": "10/DPK/2026_DIRPROL’ENATKEN",
+            "original_reference": "10/DPK/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE KENITRA",
+            "buyer_initials": "DIRPROL’ENATKEN",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.555470"
+        },
+        {
+            "reference": "24/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "24/2026/ORMVAL",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Services",
+            "launch_date": "05/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.555560"
+        },
+        {
+            "reference": "O/077/26_SOCREGMULRABSALKENSA",
+            "original_reference": "O/077/26",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES RABAT - SALE - KENITRA SA",
+            "buyer_initials": "SOCREGMULRABSALKENSA",
+            "category": "Services",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.555612"
+        },
+        {
+            "reference": "17.CHT.2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "17.CHT.2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Services",
+            "launch_date": "04/04/2026",
+            "scraped_at": "2026-04-10T12:27:49.555659"
+        }
+    ]
+}

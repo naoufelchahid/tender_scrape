@@ -28,7 +28,16 @@ def _get_active_batch_id():
         return None
 
 # Logging setup
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+_log_dir = os.environ.get('LOG_DIR', os.path.join(os.path.dirname(__file__), '..', 'Logs', '4_Extraction'))
+os.makedirs(_log_dir, exist_ok=True)
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join(_log_dir, 'extraction.log')),
+        logging.StreamHandler()
+    ]
+)
 logger = logging.getLogger(__name__)
 
 # Load env vars for local dev

@@ -45,9 +45,15 @@ ALL_DOCUMENT_TYPES = [
 ]
 
 # Logging setup
+_log_dir = os.environ.get('LOG_DIR', os.path.join(os.path.dirname(__file__), '..', 'Logs', '3_Classification'))
+os.makedirs(_log_dir, exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join(_log_dir, 'classification.log')),
+        logging.StreamHandler()
+    ]
 )
 logger = logging.getLogger(__name__)
 

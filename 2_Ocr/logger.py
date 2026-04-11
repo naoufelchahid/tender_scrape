@@ -4,6 +4,7 @@ Provides JSON-formatted logs for CloudWatch.
 """
 import json
 import logging
+import os
 import sys
 from datetime import datetime
 from typing import Any, Dict, Optional
@@ -69,7 +70,14 @@ def setup_logger(name: str = 'ocr-service', level: int = logging.INFO) -> loggin
     handler = logging.StreamHandler(sys.stdout)
     handler.setFormatter(JSONFormatter())
     logger.addHandler(handler)
-    
+
+    # File handler
+    log_dir = os.environ.get('LOG_DIR', os.path.join(os.path.dirname(__file__), '..', 'Logs', '2_Ocr'))
+    os.makedirs(log_dir, exist_ok=True)
+    file_handler = logging.FileHandler(os.path.join(log_dir, 'ocr.log'))
+    file_handler.setFormatter(JSONFormatter())
+    logger.addHandler(file_handler)
+
     return logger
 
 

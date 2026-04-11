@@ -5,7 +5,7 @@ from src.data_tester import DataTester
 from src.uri_builder import TS
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ONTOLOGY_PATH = os.path.join(BASE_DIR, "ontology", "tender_structure.owl")
+ONTOLOGY_PATH = os.path.join(BASE_DIR, "..", "ontology_SHACL", "tender_structure_final.owl")
 ENRICHMENT_SHAPES_PATH = os.path.join(BASE_DIR, "ontology", "shapes_enrichment.ttl")
 
 

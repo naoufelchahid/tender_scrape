@@ -33,9 +33,16 @@ from dotenv import load_dotenv
 from rdflib import Graph, Literal, Namespace, RDF, RDFS, SKOS, XSD, URIRef
 
 # Setup logging
+_log_dir = os.environ.get('LOG_DIR', os.path.join(os.path.dirname(__file__), '..', 'Logs', '1_Update'))
+os.makedirs(_log_dir, exist_ok=True)
+_DATA_FLOW_ROOT = os.environ.get('DATA_FLOW_ROOT', os.path.join(os.path.dirname(__file__), '..', 'Data_flow'))
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join(_log_dir, 'kg_builder.log')),
+        logging.StreamHandler()
+    ]
 )
 logger = logging.getLogger(__name__)
 
@@ -1161,8 +1168,8 @@ def main():
     )
     parser.add_argument(
         '--output-dir',
-        default='output',
-        help='Output directory for N-Triples files (default: output/)'
+        default=os.path.join(_DATA_FLOW_ROOT, '3_tender_buyer_triples'),
+        help='Output directory for N-Triples files (default: Data_flow/3_tender_buyer_triples/)'
     )
     parser.add_argument(
         '--s3-bucket',

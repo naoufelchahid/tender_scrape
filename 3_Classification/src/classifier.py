@@ -46,6 +46,7 @@ class DocumentClassifier:
     )
 
     _SPEC_PATTERNS = (
+        # Universal / all tender types
         r"cahier\s+des\s+prescriptions",
         r"cahier\s+des\s+charges",
         r"دفتر\s+التحملات",
@@ -54,10 +55,23 @@ class DocumentClassifier:
         r"clauses\s+techniques",
         r"description\s+technique\s+des\s+prix",
         r"mode\s+de\s+passation\s+du\s+marché",
-        r"nantissement",
-        r"délai\s+d['']exécution",
         r"cctp",
         r"c\.c\.t\.p",
+        # Travaux-specific
+        r"nantissement",
+        r"délai\s+d['']exécution",
+        # Fournitures-specific
+        r"spécifications\s+techniques",
+        r"caractéristiques\s+techniques",
+        r"normes?\s+(?:marocaines?|applicables?|en\s+vigueur)",
+        r"livraison",
+        r"garantie\s+(?:minimale|de\s+\d+\s+an)",
+        # Services-specific
+        r"consistance\s+de\s+la\s+mission",
+        r"prestations\s+à\s+fournir",
+        r"livrables?",
+        r"mission\s+de\s+(?:maîtrise|suivi|contrôle|coordination)",
+        r"rapport\s+d['']études",
     )
 
     _ADMIN_PATTERNS = (
@@ -201,6 +215,24 @@ class DocumentClassifier:
             logger.error(f"Decompose cleaning failed: {e}")
             return content
 
+    @staticmethod
+    def _pseudo_filename_from_content(content: str) -> str:
+        """
+        Derive a pseudo-filename from the segment's first H1 heading so that
+        Step 1's filename-keyword matching works during segmentation mode
+        (where no real filename is available).
+
+        Scans the first 20 lines for the first markdown H1 (# Title) and
+        normalises it into a slug. Falls back to "segment" if no H1 is found.
+        """
+        for line in content.splitlines()[:20]:
+            stripped = line.strip()
+            if stripped.startswith("# ") and not stripped.startswith("## "):
+                # Remove the leading # and normalise
+                heading = stripped[2:].strip()
+                return DocumentClassifier._normalize_filename(heading)
+        return "segment"
+
     def classify(self, filename: str, content: str) -> ClassificationResult:
         """
         Classify document using 3-step process with noise cleaning.
@@ -331,66 +363,58 @@ class DocumentClassifier:
     def step2_classify(filename: str, content: str) -> Optional[ClassificationResult]:
         """
         Step 2: Content-based classification for unknowns.
-        
+
+        Specification and administrative are checked at all lengths (short or long)
+        because segment chunks can be any size. BDP, avis, acte, and declaration
+        use full content for short docs and a leading sample for long docs.
+
         Returns:
             ClassificationResult or None if no match
         """
         content_lower = content.lower()
         doc_length = len(content)
-        
-        # Short documents (<3000 chars)
-        if doc_length < 3000:
-            # 3. Product / BDP
-            matches = DocumentClassifier._count_matches(DocumentClassifier._BDP_PATTERNS_STEP2, content_lower)
-            result = DocumentClassifier._classify_by_pattern_count(matches, "product", step=2)
-            if result:
-                return result
-                
-            # 4. Avis_FR
-            matches = DocumentClassifier._count_matches(DocumentClassifier._AVIS_FR_PATTERNS_STEP2, content_lower)
-            result = DocumentClassifier._classify_by_pattern_count(matches, "avis_fr", step=2)
-            if result:
-                return result
-            
-            # 5. Avis_AR
-            matches = DocumentClassifier._count_matches(DocumentClassifier._AVIS_AR_PATTERNS, content_lower)
-            if matches >= 1:
-                return ClassificationResult(doc_type="avis_ar", confidence="high", step=2)
-            
-            # 6. Acte d'Engagement
-            matches = DocumentClassifier._count_matches(DocumentClassifier._AE_PATTERNS, content_lower)
-            if matches >= 1:
-                return ClassificationResult(doc_type="acte_engagement", confidence="high", step=2)
-            
-            # 7. Declaration
-            matches = DocumentClassifier._count_matches(DocumentClassifier._DECL_PATTERNS, content_lower)
-            if matches >= 1:
-                return ClassificationResult(doc_type="declaration", confidence="high", step=2)
-        
-        # Long documents (>3000 chars) - use first _SAMPLE_SIZE chars
-        else:
-            sample = content[:DocumentClassifier._SAMPLE_SIZE].lower()
-            
-            # 1. Specification (CPS)
-            matches = DocumentClassifier._count_matches(DocumentClassifier._SPEC_PATTERNS, sample)
-            result = DocumentClassifier._classify_by_pattern_count(matches, "specification", step=2)
-            if result:
-                return result
-            
-            # 2. Administrative (RC)
-            # RC in step 2 has an extra pattern
-            admin_patterns_step2 = list(DocumentClassifier._ADMIN_PATTERNS) + [r"cautionnement\s+provisoire\s+.*article"]
-            matches = DocumentClassifier._count_matches(admin_patterns_step2, sample)
-            result = DocumentClassifier._classify_by_pattern_count(matches, "administrative", step=2)
-            if result:
-                return result
+        sample = content[:DocumentClassifier._SAMPLE_SIZE].lower() if doc_length > DocumentClassifier._SAMPLE_SIZE else content_lower
 
-            # 3. Product / BDP (also check for long BDPs)
-            matches = DocumentClassifier._count_matches(DocumentClassifier._BDP_PATTERNS_STEP2, sample)
-            result = DocumentClassifier._classify_by_pattern_count(matches, "product", step=2)
-            if result:
-                return result
-        
+        # 1. Specification (CPS) — checked at all lengths
+        matches = DocumentClassifier._count_matches(DocumentClassifier._SPEC_PATTERNS, sample)
+        result = DocumentClassifier._classify_by_pattern_count(matches, "specification", step=2)
+        if result:
+            return result
+
+        # 2. Administrative (RC) — checked at all lengths
+        admin_patterns_step2 = list(DocumentClassifier._ADMIN_PATTERNS) + [r"cautionnement\s+provisoire\s+.*article"]
+        matches = DocumentClassifier._count_matches(admin_patterns_step2, sample)
+        result = DocumentClassifier._classify_by_pattern_count(matches, "administrative", step=2)
+        if result:
+            return result
+
+        # 3. Product / BDP
+        matches = DocumentClassifier._count_matches(DocumentClassifier._BDP_PATTERNS_STEP2, sample)
+        result = DocumentClassifier._classify_by_pattern_count(matches, "product", step=2)
+        if result:
+            return result
+
+        # 4. Avis_FR
+        matches = DocumentClassifier._count_matches(DocumentClassifier._AVIS_FR_PATTERNS_STEP2, content_lower)
+        result = DocumentClassifier._classify_by_pattern_count(matches, "avis_fr", step=2)
+        if result:
+            return result
+
+        # 5. Avis_AR
+        matches = DocumentClassifier._count_matches(DocumentClassifier._AVIS_AR_PATTERNS, content_lower)
+        if matches >= 1:
+            return ClassificationResult(doc_type="avis_ar", confidence="high", step=2)
+
+        # 6. Acte d'Engagement
+        matches = DocumentClassifier._count_matches(DocumentClassifier._AE_PATTERNS, content_lower)
+        if matches >= 1:
+            return ClassificationResult(doc_type="acte_engagement", confidence="high", step=2)
+
+        # 7. Declaration
+        matches = DocumentClassifier._count_matches(DocumentClassifier._DECL_PATTERNS, content_lower)
+        if matches >= 1:
+            return ClassificationResult(doc_type="declaration", confidence="high", step=2)
+
         return None
     
     def step3_classify(self, filename: str, content: str) -> Optional[ClassificationResult]:
@@ -491,10 +515,14 @@ Respond with ONLY the category name (avis_fr, avis_ar, administrative, specifica
 
         cleaned = self._clean_content_for_classification(sample_content)
 
-        # Run Steps 1-2 (use "segment" as filename since we have no filename)
-        step_result = self.step1_classify("segment", cleaned)
+        # Extract a pseudo-filename from the segment's first H1 heading so that
+        # Step 1's filename-keyword fast-paths are active during segmentation.
+        pseudo_filename = self._pseudo_filename_from_content(cleaned)
+
+        # Run Steps 1-2
+        step_result = self.step1_classify(pseudo_filename, cleaned)
         if not step_result:
-            step_result = self.step2_classify("segment", cleaned)
+            step_result = self.step2_classify(pseudo_filename, cleaned)
 
         has_hint = hint_type is not None and hint_strength > 0
         has_step_result = step_result is not None and step_result.doc_type != "unknown"

@@ -20,11 +20,13 @@ from scraper import ResultScraper
 
 load_dotenv()
 
+_log_dir = os.environ.get('LOG_DIR', os.path.join(os.path.dirname(__file__), '..', 'Logs', '6_Result_Update'))
+os.makedirs(_log_dir, exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[
-        logging.FileHandler("result_updater.log"),
+        logging.FileHandler(os.path.join(_log_dir, 'result_updater.log')),
         logging.StreamHandler(),
     ],
 )

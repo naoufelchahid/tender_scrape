@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  ocr:
+    build:
+      context: ./2_Ocr
+    container_name: OCR
+    env_file:
+      - 2_Ocr/.env
+    environment:
+      - AWS_DEFAULT_REGION=${AWS_REGION:-eu-west-3}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - LOG_DIR=/app/logs
+    volumes:
+      - ./Logs/2_Ocr:/app/logs
+      - ./2_Ocr/temp_run:/app/temp_run
+      - ./pipeline.db:/app/pipeline.db
+    restart: "no"
+    mem_limit: 8g
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  classification:
+    build:
+      context: ./3_Classification
+    container_name: Classification
+    env_file:
+      - 3_Classification/.env
+    environment:
+      - AWS_DEFAULT_REGION=${AWS_REGION:-eu-west-3}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - LOG_DIR=/app/logs
+    volumes:
+      - ./Logs/3_Classification:/app/logs
+      - ./pipeline.db:/app/pipeline.db
+    restart: "no"
+    depends_on:
+      - ocr
+
+  extraction:
+    build:
+      context: .
+      dockerfile: ./4_Extraction/Dockerfile
+    container_name: Extraction
+    env_file:
+      - 4_Extraction/.env
+    environment:
+      - AWS_DEFAULT_REGION=${AWS_REGION:-eu-west-3}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - LOG_DIR=/app/logs
+    volumes:
+      - ./Logs/4_Extraction:/app/logs
+      - ./pipeline.db:/app/pipeline.db
+    restart: "no"
+    depends_on:
+      - classification
+
+  ingestion:
+    build:
+      context: .
+      dockerfile: ./5_Ingestion/Dockerfile
+    container_name: Ingestion
+    env_file:
+      - 5_Ingestion/.env
+    environment:
+      - AWS_DEFAULT_REGION=${AWS_REGION:-eu-west-3}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - LOG_DIR=/app/logs
+      - NT_OUTPUT_DIR=/app/data_flow/4_tender_enrich_triples
+    volumes:
+      - ./Logs/5_Ingestion:/app/logs
+      - ./Data_flow/4_tender_enrich_triples:/app/data_flow/4_tender_enrich_triples
+      - ./pipeline.db:/app/pipeline.db
+    restart: "no"
+    depends_on:
+      - extraction

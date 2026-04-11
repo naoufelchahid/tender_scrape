@@ -12,11 +12,14 @@ node_modules/
 __pycache__
 dist/
 .DS_Store
+
+
 # Kubernetes secrets (never commit real values)
 k8s/secrets/secrets.yaml
 
 # Ignore logs
-*.log
+Logs/
+
 
 # Ignore dependencies
 .venv/
@@ -27,11 +30,12 @@ venv/
 .worktrees/
 
 # Ignore data 
-.knowledge_graph
-# Pipeline monitoring
+Data_flow/
 
+
+#data base file
 pipeline.db
-reports/
+pipeline.db-shm
 
-# Ignore local_llm images 
-local_llm/
+# Specs and implementation 
+docs/

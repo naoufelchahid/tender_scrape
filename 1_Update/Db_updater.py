@@ -38,11 +38,14 @@ from monitor import anomaly as mon_anomaly
 load_dotenv()
 
 # Configure logging
+_log_dir = os.environ.get('LOG_DIR', os.path.join(os.path.dirname(__file__), '..', 'Logs', '1_Update'))
+os.makedirs(_log_dir, exist_ok=True)
+_DATA_FLOW_ROOT = os.environ.get('DATA_FLOW_ROOT', os.path.join(os.path.dirname(__file__), '..', 'Data_flow'))
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('db_updater.log'),
+        logging.FileHandler(os.path.join(_log_dir, 'db_updater.log')),
         logging.StreamHandler()
     ]
 )
@@ -1468,13 +1471,13 @@ async def main():
     )
     parser.add_argument(
         '--input-file',
-        default='new_references.json',
-        help='Input JSON file with new references (default: new_references.json)'
+        default=os.path.join(_DATA_FLOW_ROOT, '1_New_ref', 'new_references.json'),
+        help='Input JSON file with new references (default: Data_flow/1_New_ref/new_references.json)'
     )
     parser.add_argument(
         '--output-file',
-        default='processed_tenders.json',
-        help='Output JSON file with processed tenders (default: processed_tenders.json)'
+        default=os.path.join(_DATA_FLOW_ROOT, '2_tender_meta_data', 'processed_tenders.json'),
+        help='Output JSON file with processed tenders (default: Data_flow/2_tender_meta_data/processed_tenders.json)'
     )
     parser.add_argument(
         '--downloads-dir',
@@ -1483,8 +1486,8 @@ async def main():
     )
     parser.add_argument(
         '--metadata-dir',
-        default='tenders_metadata',
-        help='Directory for per-tender metadata JSON files (default: tenders_metadata)'
+        default=os.path.join(_DATA_FLOW_ROOT, '2_tender_meta_data', 'tenders_metadata'),
+        help='Directory for per-tender metadata JSON files (default: Data_flow/2_tender_meta_data/tenders_metadata)'
     )
     parser.add_argument(
         '--max-tenders',

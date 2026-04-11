@@ -39,7 +39,7 @@ class OCRService:
         """Initialize OCR service."""
         self.s3_client = S3Client()
         self.sqs_client = SQSClient()
-        self.temp_dir = '/app/temp'
+        self.temp_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'temp_run')
         
         # Initialize Docling Processor
         try:

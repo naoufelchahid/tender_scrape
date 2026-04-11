@@ -7,6 +7,7 @@ COPY 5_Ingestion/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code and shared dependencies
+COPY ontology_SHACL/ ./ontology/
 COPY 5_Ingestion/ontology/ ./ontology/
 COPY 5_Ingestion/src/ ./src/
 COPY 5_Ingestion/tests/ ./tests/

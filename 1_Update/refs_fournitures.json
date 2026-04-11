@@ -1,0 +1,3276 @@
+{
+    "category": "fournitures",
+    "scan_date": "2026-04-10T12:27:05.075651",
+    "total_website_references": 500,
+    "total_jena_references": 2844,
+    "new_references_count": 363,
+    "new_references": [
+        {
+            "reference": "06/2026/DRSPSRO_DIRREGSANREGORI",
+            "original_reference": "06/2026/DRSPSRO",
+            "buyer": "DIRECTION REGIONALE DE LA SANTE A LA REGION DE L'ORIENTAL",
+            "buyer_initials": "DIRREGSANREGORI",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885097"
+        },
+        {
+            "reference": "1/DEDEE/2026_MINTRAENEDEVDURDEPTRAENE",
+            "original_reference": "1/DEDEE/2026",
+            "buyer": "MINISTERE DE LA TRANSITION ENERGETIQUE ET DU DEVELOPPEMENT DURABLE, DEPARTEMENT DE LA TRANSITION ENERGETIQUE",
+            "buyer_initials": "MINTRAENEDEVDURDEPTRAENE",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885418"
+        },
+        {
+            "reference": "8/2026/MAPMDREF/DSI_DIRSYSINFAUPMINAGRPECMAR",
+            "original_reference": "8/2026/MAPMDREF/DSI",
+            "buyer": "DIRECTEUR DES SYSTEMES D'INFORMATION AUPRES DU MINISTERE DE L'AGRICULTURE ET DE LA PECHE MARITIME",
+            "buyer_initials": "DIRSYSINFAUPMINAGRPECMAR",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885451"
+        },
+        {
+            "reference": "15/2026/DPA/G_DIRPROAGRGUE",
+            "original_reference": "15/2026/DPA/G",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE-GUELMIM",
+            "buyer_initials": "DIRPROAGRGUE",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885505"
+        },
+        {
+            "reference": "14/2026/DPJM_SOUDIRRÉGAUPCOUAPPMAR",
+            "original_reference": "14/2026/DPJM",
+            "buyer": "Sous Direction Régionale auprès de la Cour d'Appel Marrakech",
+            "buyer_initials": "SOUDIRRÉGAUPCOUAPPMAR",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885536"
+        },
+        {
+            "reference": "19/FA/DIV.G.F./DIV.S.I.T/ZN/2026_INSGENFORAUXZONNOR",
+            "original_reference": "19/FA/DIV.G.F./DIV.S.I.T/ZN/2026",
+            "buyer": "INSPECTION GENERALE DES FORCES AUXILIAIRES - ZONE NORD",
+            "buyer_initials": "INSGENFORAUXZONNOR",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885563"
+        },
+        {
+            "reference": "40/2026/DRSPSFM_DIRREGSANREGFESMEK",
+            "original_reference": "40/2026/DRSPSFM",
+            "buyer": "DIRECTION REGIONALE DE LA SANTE A LA REGION DE FES MEKNES",
+            "buyer_initials": "DIRREGSANREGFESMEK",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885589"
+        },
+        {
+            "reference": "31/2026_DIRPROJUSAGA",
+            "original_reference": "31/2026",
+            "buyer": "DIRECTION PROVINCIALE DE LA JUSTICE D'AGADIR",
+            "buyer_initials": "DIRPROJUSAGA",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885618"
+        },
+        {
+            "reference": "10/FA/DIV.G.F./DIV.M.EQ/ZN/2026_INSGENFORAUXZONNOR",
+            "original_reference": "10/FA/DIV.G.F./DIV.M.EQ/ZN/2026",
+            "buyer": "INSPECTION GENERALE DES FORCES AUXILIAIRES - ZONE NORD",
+            "buyer_initials": "INSGENFORAUXZONNOR",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885672"
+        },
+        {
+            "reference": "33/2026/2_DIREQUMAIRAB",
+            "original_reference": "33/2026/2",
+            "buyer": "DIRECTEUR DES EQUIPEMENTS ET DE MAINTENANCE RABAT",
+            "buyer_initials": "DIREQUMAIRAB",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885699"
+        },
+        {
+            "reference": "02/2026/UMPO_PRESIDENCEUNIVERSITEMOHAMMED",
+            "original_reference": "02/2026/UMPO",
+            "buyer": "PRESIDENCE DE L'UNIVERSITE MOHAMMED I",
+            "buyer_initials": "PRESIDENCEUNIVERSITEMOHAMMED",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.885724"
+        },
+        {
+            "reference": "AO024/2026/ANCFCC/DLAG_AGENATCONFONCADCAR",
+            "original_reference": "AO024/2026/ANCFCC/DLAG",
+            "buyer": "AGENCE NATIONALE DE LA CONSERVATION FONCIERE, DU CADASTRE ET DE LA CARTOGRAPHIE",
+            "buyer_initials": "AGENATCONFONCADCAR",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885749"
+        },
+        {
+            "reference": "14/2026/DPA/G_DIRPROAGRGUE",
+            "original_reference": "14/2026/DPA/G",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE-GUELMIM",
+            "buyer_initials": "DIRPROAGRGUE",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885849"
+        },
+        {
+            "reference": "31/DGPC/PF/2026_DIRGENPROCIV",
+            "original_reference": "31/DGPC/PF/2026",
+            "buyer": "DIRECTION GENERALE DE LA PROTECTION CIVILE",
+            "buyer_initials": "DIRGENPROCIV",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885896"
+        },
+        {
+            "reference": "26F005_OFFNATCHEFER",
+            "original_reference": "26F005",
+            "buyer": "OFFICE NATIONAL DES CHEMINS DE FER",
+            "buyer_initials": "OFFNATCHEFER",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885943"
+        },
+        {
+            "reference": "22/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "22/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.885967"
+        },
+        {
+            "reference": "03/2026/DAAJ_MINAGRPECMARDEVRUREAUFOR",
+            "original_reference": "03/2026/DAAJ",
+            "buyer": "MINISTERE DE L'AGRICULTURE, DE LA PECHE MARITIME, DU DEVELOPPEMENT RURAL ET DES EAUX ET FORETS",
+            "buyer_initials": "MINAGRPECMARDEVRUREAUFOR",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.885997"
+        },
+        {
+            "reference": "29/2026_DIRDOUIMPINDRAB",
+            "original_reference": "29/2026",
+            "buyer": "DIRECTEUR DES DOUANES ET IMPOTS INDIRECTS RABAT",
+            "buyer_initials": "DIRDOUIMPINDRAB",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886022"
+        },
+        {
+            "reference": "4/DDE/DISI/2026_DIRECTEURDOMAINES",
+            "original_reference": "4/DDE/DISI/2026",
+            "buyer": "DIRECTEUR DES DOMAINES",
+            "buyer_initials": "DIRECTEURDOMAINES",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886045"
+        },
+        {
+            "reference": "PX3128911/DXR/2026_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "PX3128911/DXR/2026",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886071"
+        },
+        {
+            "reference": "170/2026/SRMFM_SOCREGMULFESMEKS.A",
+            "original_reference": "170/2026/SRMFM",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES FES - MEKNES S.A",
+            "buyer_initials": "SOCREGMULFESMEKS.A",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886094"
+        },
+        {
+            "reference": "TS2130416/2026/06/ONEEBELEC_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "TS2130416/2026/06/ONEEBELEC",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886134"
+        },
+        {
+            "reference": "033/2026/CHUIRC_CENHOSIBNROCCAS",
+            "original_reference": "033/2026/CHUIRC",
+            "buyer": "CENTRE HOSPITALIER IBN ROCHED CASABLANCA",
+            "buyer_initials": "CENHOSIBNROCCAS",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886158"
+        },
+        {
+            "reference": "06/DRCFM/2026_DIRREGMINCULFESMEK",
+            "original_reference": "06/DRCFM/2026",
+            "buyer": "DIRECTION REGIONALE DU MINISTERE DE LA CULTURE DE FES MEKNES",
+            "buyer_initials": "DIRREGMINCULFESMEK",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886219"
+        },
+        {
+            "reference": "31/2026/2_DIREQUMAIRAB",
+            "original_reference": "31/2026/2",
+            "buyer": "DIRECTEUR DES EQUIPEMENTS ET DE MAINTENANCE RABAT",
+            "buyer_initials": "DIREQUMAIRAB",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886245"
+        },
+        {
+            "reference": "19/2026/INDH_GOUVERNEURELJADIDA",
+            "original_reference": "19/2026/INDH",
+            "buyer": "GOUVERNEUR D'EL JADIDA",
+            "buyer_initials": "GOUVERNEURELJADIDA",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886270"
+        },
+        {
+            "reference": "44/2026_DELGENADMPENREI",
+            "original_reference": "44/2026",
+            "buyer": "DELEGATION GENERALE A L'ADMINISTRATION PENITENTIAIRE ET A LA REINSERTION",
+            "buyer_initials": "DELGENADMPENREI",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886326"
+        },
+        {
+            "reference": "05/2026/DRANEFFM/CNHP_DIRREGAGENATEAUFORFESMEK",
+            "original_reference": "05/2026/DRANEFFM/CNHP",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+            "buyer_initials": "DIRREGAGENATEAUFORFESMEK",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886355"
+        },
+        {
+            "reference": "04/2026/DRANEFFM/CNHP_DIRREGAGENATEAUFORFESMEK",
+            "original_reference": "04/2026/DRANEFFM/CNHP",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+            "buyer_initials": "DIRREGAGENATEAUFORFESMEK",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886379"
+        },
+        {
+            "reference": "04/SAP/2026_CHESURPROKEN",
+            "original_reference": "04/SAP/2026",
+            "buyer": "CHEF DE LA SURETE PROVINCIAL DE KENITRA",
+            "buyer_initials": "CHESURPROKEN",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886403"
+        },
+        {
+            "reference": "30/2026/2_DIREQUMAIRAB",
+            "original_reference": "30/2026/2",
+            "buyer": "DIRECTEUR DES EQUIPEMENTS ET DE MAINTENANCE RABAT",
+            "buyer_initials": "DIREQUMAIRAB",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.886428"
+        },
+        {
+            "reference": "05/2026/SPRSAFI_CHEFSURETESAFI",
+            "original_reference": "05/2026/SPRSAFI",
+            "buyer": "CHEF DE LA SURETE SAFI",
+            "buyer_initials": "CHEFSURETESAFI",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886451"
+        },
+        {
+            "reference": "03/2026/DRANEFFM/CNHP_DIRREGAGENATEAUFORFESMEK",
+            "original_reference": "03/2026/DRANEFFM/CNHP",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+            "buyer_initials": "DIRREGAGENATEAUFORFESMEK",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886476"
+        },
+        {
+            "reference": "07/2026/MB_MINEDUNATENSSUPFORCADRECSCIENSSUPFORCADRECSCI",
+            "original_reference": "07/2026/MB",
+            "buyer": "Ministère de l'education nationale, de l'enseignement superieur, de la formation des cadres et de la recherche scientifique - l'enseignement superieur, la formation des cadres et la recherche scientifique",
+            "buyer_initials": "MINEDUNATENSSUPFORCADRECSCIENSSUPFORCADRECSCI",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886513"
+        },
+        {
+            "reference": "04/2026/DPTR/ANP_AGENATPORDIRPORTANREG",
+            "original_reference": "04/2026/DPTR/ANP",
+            "buyer": "AGENCE NATIONALE DES PORTS/ DIRECTION DU PORT DE TANGER ET REGION",
+            "buyer_initials": "AGENATPORDIRPORTANREG",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886585"
+        },
+        {
+            "reference": "TO4129339/2026/ONEEBELEC_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "TO4129339/2026/ONEEBELEC",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.886610"
+        },
+        {
+            "reference": "026/2026/CHUIRC_CENHOSIBNROCCAS",
+            "original_reference": "026/2026/CHUIRC",
+            "buyer": "CENTRE HOSPITALIER IBN ROCHED CASABLANCA",
+            "buyer_initials": "CENHOSIBNROCCAS",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886634"
+        },
+        {
+            "reference": "01/TAF/2026_COMMUNERURALETAFTECHNA",
+            "original_reference": "01/TAF/2026",
+            "buyer": "Commune rurale de TAFTECHNA",
+            "buyer_initials": "COMMUNERURALETAFTECHNA",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886657"
+        },
+        {
+            "reference": "13/2026/DPANEF/SE_DIRREGAGENATEAUFORFESMEK",
+            "original_reference": "13/2026/DPANEF/SE",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+            "buyer_initials": "DIRREGAGENATEAUFORFESMEK",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.886683"
+        },
+        {
+            "reference": "12/2026/DPANEF/SE_DIRREGAGENATEAUFORFESMEK",
+            "original_reference": "12/2026/DPANEF/SE",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+            "buyer_initials": "DIRREGAGENATEAUFORFESMEK",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.886729"
+        },
+        {
+            "reference": "11/2026/EQ_ACAREGEDUFORSOUMAS",
+            "original_reference": "11/2026/EQ",
+            "buyer": "ACADEMIE REGIONALE D'EDUCATION ET DE FORMATION SOUSS-MASSA",
+            "buyer_initials": "ACAREGEDUFORSOUMAS",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886757"
+        },
+        {
+            "reference": "14/2026/DPANEF/TAZA_DIRREGAGENATEAUFORFESMEK",
+            "original_reference": "14/2026/DPANEF/TAZA",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+            "buyer_initials": "DIRREGAGENATEAUFORFESMEK",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886783"
+        },
+        {
+            "reference": "13/2026/DPANEF/TAZA_DIRREGAGENATEAUFORFESMEK",
+            "original_reference": "13/2026/DPANEF/TAZA",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+            "buyer_initials": "DIRREGAGENATEAUFORFESMEK",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886810"
+        },
+        {
+            "reference": "04/2026/MAPMDREF/OR/TAF_OFFREGMISVALAGRTAF",
+            "original_reference": "04/2026/MAPMDREF/OR/TAF",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE TAFILALET",
+            "buyer_initials": "OFFREGMISVALAGRTAF",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.886836"
+        },
+        {
+            "reference": "01/2026/CSAL_COMRURS.AHMLAA",
+            "original_reference": "01/2026/CSAL",
+            "buyer": "Commune rurale de S. AHMED LAAROUSSI",
+            "buyer_initials": "COMRURS.AHMLAA",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886860"
+        },
+        {
+            "reference": "12/2026/DPANEF/TAZA_DIRREGAGENATEAUFORFESMEK",
+            "original_reference": "12/2026/DPANEF/TAZA",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE FES-MEKNES",
+            "buyer_initials": "DIRREGAGENATEAUFORFESMEK",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.886886"
+        },
+        {
+            "reference": "29/2026_DELGENADMPENREI",
+            "original_reference": "29/2026",
+            "buyer": "DELEGATION GENERALE A L'ADMINISTRATION PENITENTIAIRE ET A LA REINSERTION",
+            "buyer_initials": "DELGENADMPENREI",
+            "category": "Fournitures",
+            "launch_date": "28/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.886911"
+        },
+        {
+            "reference": "25/2026_DELGENADMPENREI",
+            "original_reference": "25/2026",
+            "buyer": "DELEGATION GENERALE A L'ADMINISTRATION PENITENTIAIRE ET A LA REINSERTION",
+            "buyer_initials": "DELGENADMPENREI",
+            "category": "Fournitures",
+            "launch_date": "27/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.886934"
+        },
+        {
+            "reference": "03/2026/MAPMDREF/OR/TAF_OFFREGMISVALAGRTAF",
+            "original_reference": "03/2026/MAPMDREF/OR/TAF",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE TAFILALET",
+            "buyer_initials": "OFFREGMISVALAGRTAF",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.886958"
+        },
+        {
+            "reference": "04/DRAILSH/BG/2026_DELREGAFFISLREGLAYSAKLHA",
+            "original_reference": "04/DRAILSH/BG/2026",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES DE LA REGION LAYOUNE-SAKIA A LHAMRA",
+            "buyer_initials": "DELREGAFFISLREGLAYSAKLHA",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.887006"
+        },
+        {
+            "reference": "02/DRAI/BK/BG/2026_DELREGAFFISLREGBENKHE",
+            "original_reference": "02/DRAI/BK/BG/2026",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES DE LA REGION BENIMELLAL-KHENIFRA",
+            "buyer_initials": "DELREGAFFISLREGBENKHE",
+            "category": "Fournitures",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.887054"
+        },
+        {
+            "reference": "02/2026/MAPMDREF/OR/TAF_OFFREGMISVALAGRTAF",
+            "original_reference": "02/2026/MAPMDREF/OR/TAF",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE TAFILALET",
+            "buyer_initials": "OFFREGMISVALAGRTAF",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.887078"
+        },
+        {
+            "reference": "28/2026/DPA/G_DIRPROAGRGUE",
+            "original_reference": "28/2026/DPA/G",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE GUERCIF",
+            "buyer_initials": "DIRPROAGRGUE",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.887103"
+        },
+        {
+            "reference": "29/BG/F/2026_GOUVERNEURPROVINCESETTAT",
+            "original_reference": "29/BG/F/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE SETTAT",
+            "buyer_initials": "GOUVERNEURPROVINCESETTAT",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.887255"
+        },
+        {
+            "reference": "29/2026/2_DIREQUMAIRAB",
+            "original_reference": "29/2026/2",
+            "buyer": "DIRECTEUR DES EQUIPEMENTS ET DE MAINTENANCE RABAT",
+            "buyer_initials": "DIREQUMAIRAB",
+            "category": "Fournitures",
+            "launch_date": "26/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.887278"
+        },
+        {
+            "reference": "31/2026/DRANEFDT/DPANEFMIDELT_DIRREGAGENATEAUFORDRATAF",
+            "original_reference": "31/2026/DRANEFDT/DPANEFMIDELT",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE DRAA-TAFILALET",
+            "buyer_initials": "DIRREGAGENATEAUFORDRATAF",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.887339"
+        },
+        {
+            "reference": "30/2026/DRANEFDT/DPANEFMIDELT_DIRREGAGENATEAUFORDRATAF",
+            "original_reference": "30/2026/DRANEFDT/DPANEFMIDELT",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE DRAA-TAFILALET",
+            "buyer_initials": "DIRREGAGENATEAUFORDRATAF",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.887379"
+        },
+        {
+            "reference": "SLM/02/2026_SERLOGMATTAN",
+            "original_reference": "SLM/02/2026",
+            "buyer": "SERVICE DE LOGISTIQUE ET DE MATERIEL DE TANGER",
+            "buyer_initials": "SERLOGMATTAN",
+            "category": "Fournitures",
+            "launch_date": "24/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.887402"
+        },
+        {
+            "reference": "27/2026/DPA/G_DIRPROAGRGUE",
+            "original_reference": "27/2026/DPA/G",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE GUERCIF",
+            "buyer_initials": "DIRPROAGRGUE",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.887472"
+        },
+        {
+            "reference": "05/2026/INDH_WALREGDRATAFGOUPROERR",
+            "original_reference": "05/2026/INDH",
+            "buyer": "WALI DE LA REGION DRAA - TAFILALET ET GOUVERNEUR DE LA PROVINCE D'ERRACHIDIA",
+            "buyer_initials": "WALREGDRATAFGOUPROERR",
+            "category": "Fournitures",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.887524"
+        },
+        {
+            "reference": "05/2026/GAMDU_SOCDÉVLOCGRAAGAPOUMOBDEPURB",
+            "original_reference": "05/2026/GAMDU",
+            "buyer": "Société de développement local \" GRAND AGADIR POUR LA MOBILITE ET LES DEPLACEMENTS URBAINS \"",
+            "buyer_initials": "SOCDÉVLOCGRAAGAPOUMOBDEPURB",
+            "category": "Fournitures",
+            "launch_date": "27/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.887555"
+        },
+        {
+            "reference": "61/2026/CHUIS_CENHOSUNIIBNSINRAB",
+            "original_reference": "61/2026/CHUIS",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE IBN SINA RABAT",
+            "buyer_initials": "CENHOSUNIIBNSINRAB",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.887579"
+        },
+        {
+            "reference": "45/2026_DELGENADMPENREI",
+            "original_reference": "45/2026",
+            "buyer": "DELEGATION GENERALE A L'ADMINISTRATION PENITENTIAIRE ET A LA REINSERTION",
+            "buyer_initials": "DELGENADMPENREI",
+            "category": "Fournitures",
+            "launch_date": "23/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.887626"
+        },
+        {
+            "reference": "28/2026/2_DIREQUMAIRAB",
+            "original_reference": "28/2026/2",
+            "buyer": "DIRECTEUR DES EQUIPEMENTS ET DE MAINTENANCE RABAT",
+            "buyer_initials": "DIREQUMAIRAB",
+            "category": "Fournitures",
+            "launch_date": "18/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.887649"
+        },
+        {
+            "reference": "08/INDH/PSS/2026_PROVINCESIDISLIMANE",
+            "original_reference": "08/INDH/PSS/2026",
+            "buyer": "Province Sidi Slimane",
+            "buyer_initials": "PROVINCESIDISLIMANE",
+            "category": "Fournitures",
+            "launch_date": "26/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.887696"
+        },
+        {
+            "reference": "30/2026_DIRPROJUSAGA",
+            "original_reference": "30/2026",
+            "buyer": "DIRECTION PROVINCIALE DE LA JUSTICE D'AGADIR",
+            "buyer_initials": "DIRPROJUSAGA",
+            "category": "Fournitures",
+            "launch_date": "26/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.887747"
+        },
+        {
+            "reference": "09/2026/DPA/4/SMOPFPA_DIRPROAGRBEN",
+            "original_reference": "09/2026/DPA/4/SMOPFPA",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE BENIMELLAL",
+            "buyer_initials": "DIRPROAGRBEN",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.887771"
+        },
+        {
+            "reference": "27/2026/DAM/CM_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "27/2026/DAM/CM",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.887796"
+        },
+        {
+            "reference": "GN4130310/2026/DXG_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "GN4130310/2026/DXG",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.887846"
+        },
+        {
+            "reference": "09/2026/DRADOE_DIRRÉGAGRDAKOUEEDD",
+            "original_reference": "09/2026/DRADOE",
+            "buyer": "Direction Régionale d'Agriculture Dakhla Oued Eddahab",
+            "buyer_initials": "DIRRÉGAGRDAKOUEEDD",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.887904"
+        },
+        {
+            "reference": "26/2026/2_DIREQUMAIRAB",
+            "original_reference": "26/2026/2",
+            "buyer": "DIRECTEUR DES EQUIPEMENTS ET DE MAINTENANCE RABAT",
+            "buyer_initials": "DIREQUMAIRAB",
+            "category": "Fournitures",
+            "launch_date": "19/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.887973"
+        },
+        {
+            "reference": "12/2026/SCP_CENHOSUNIHASIIFES",
+            "original_reference": "12/2026/SCP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.887995"
+        },
+        {
+            "reference": "11/2026/ABHOER_AGEBASHYDOUMERRBI",
+            "original_reference": "11/2026/ABHOER",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DE L'OUM-ER-RBIA",
+            "buyer_initials": "AGEBASHYDOUMERRBI",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888093"
+        },
+        {
+            "reference": "134/DGPC/2025_DIRGENPROCIV",
+            "original_reference": "134/DGPC/2025",
+            "buyer": "DIRECTION GENERALE DE LA PROTECTION CIVILE",
+            "buyer_initials": "DIRGENPROCIV",
+            "category": "Fournitures",
+            "launch_date": "24/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.888125"
+        },
+        {
+            "reference": "AAO02/2026/DPA/20/MARRAKECH_DIRPROAGRMAR",
+            "original_reference": "AAO02/2026/DPA/20/MARRAKECH",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE-MARRAKECH",
+            "buyer_initials": "DIRPROAGRMAR",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888149"
+        },
+        {
+            "reference": "AAO13/2026/DPA/20/MARRAKECH_DIRPROAGRMAR",
+            "original_reference": "AAO13/2026/DPA/20/MARRAKECH",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE-MARRAKECH",
+            "buyer_initials": "DIRPROAGRMAR",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888172"
+        },
+        {
+            "reference": "12/2026/DPETLM_DIRPROEQUTRALOGMEK",
+            "original_reference": "12/2026/DPETLM",
+            "buyer": "LE DIRECTEUR PROVINCIAL DE L'EQUIPEMENT ET DU TRANSPORT ET DE LA LOGISTIQUE DE MEKNES",
+            "buyer_initials": "DIRPROEQUTRALOGMEK",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888225"
+        },
+        {
+            "reference": "38/DAILEX2526_SOCNATCOMSEM",
+            "original_reference": "38/DAILEX2526",
+            "buyer": "SOCIETE NATIONALE DE COMMERCIALISATION DES SEMENCES",
+            "buyer_initials": "SOCNATCOMSEM",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888248"
+        },
+        {
+            "reference": "10/2026/ABHOER_AGEBASHYDOUMERRBI",
+            "original_reference": "10/2026/ABHOER",
+            "buyer": "AGENCE DU BASSIN HYDRAULIQUE DE L'OUM-ER-RBIA",
+            "buyer_initials": "AGEBASHYDOUMERRBI",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888273"
+        },
+        {
+            "reference": "26S021_OFFNATCHEFER",
+            "original_reference": "26S021",
+            "buyer": "OFFICE NATIONAL DES CHEMINS DE FER",
+            "buyer_initials": "OFFNATCHEFER",
+            "category": "Fournitures",
+            "launch_date": "18/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.888297"
+        },
+        {
+            "reference": "26F006_OFFNATCHEFER",
+            "original_reference": "26F006",
+            "buyer": "OFFICE NATIONAL DES CHEMINS DE FER",
+            "buyer_initials": "OFFNATCHEFER",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888320"
+        },
+        {
+            "reference": "26F004_OFFNATCHEFER",
+            "original_reference": "26F004",
+            "buyer": "OFFICE NATIONAL DES CHEMINS DE FER",
+            "buyer_initials": "OFFNATCHEFER",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888344"
+        },
+        {
+            "reference": "18/2026/DPA/IF_DIRPROAGRSIDIFN",
+            "original_reference": "18/2026/DPA/IF",
+            "buyer": "Direction Pronvinciale de l'Agriculture de Sidi Ifni",
+            "buyer_initials": "DIRPROAGRSIDIFN",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888368"
+        },
+        {
+            "reference": "16/2026/DPA/IF_DIRPROAGRSIDIFN",
+            "original_reference": "16/2026/DPA/IF",
+            "buyer": "Direction Pronvinciale de l'Agriculture de Sidi Ifni",
+            "buyer_initials": "DIRPROAGRSIDIFN",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888391"
+        },
+        {
+            "reference": "07/2026/DSPS_DELMINSANPROSET",
+            "original_reference": "07/2026/DSPS",
+            "buyer": "DELEGUE DU MINISTERE DE LA SANTE A LA PROVINCE SETTAT",
+            "buyer_initials": "DELMINSANPROSET",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888415"
+        },
+        {
+            "reference": "05/2026/INDH_GOUKELESSRA",
+            "original_reference": "05/2026/INDH",
+            "buyer": "GOUVERNEUR DE KELAA ES-SRAGHNA",
+            "buyer_initials": "GOUKELESSRA",
+            "category": "Fournitures",
+            "launch_date": "16/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.888438"
+        },
+        {
+            "reference": "05/2026/DRI_SEREQUTRALOGDRI",
+            "original_reference": "05/2026/DRI",
+            "buyer": "SERVICE DE L'EQUIPEMENT DU TRANSPORT ET DE LA LOGISTIQUE D DRIOUCH",
+            "buyer_initials": "SEREQUTRALOGDRI",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888461"
+        },
+        {
+            "reference": "08/ODCO/2026_OFFICEDEVELOPPEMENTCOOPERATION",
+            "original_reference": "08/ODCO/2026",
+            "buyer": "OFFICE DE DEVELOPPEMENT DE LA COOPERATION",
+            "buyer_initials": "OFFICEDEVELOPPEMENTCOOPERATION",
+            "category": "Fournitures",
+            "launch_date": "16/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.888512"
+        },
+        {
+            "reference": "19/2026/CD/SM_COMURBEDDAK",
+            "original_reference": "19/2026/CD/SM",
+            "buyer": "Commune urbaine de ED-DAKHLA",
+            "buyer_initials": "COMURBEDDAK",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888536"
+        },
+        {
+            "reference": "18/DAM/S/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "18/DAM/S/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888561"
+        },
+        {
+            "reference": "59/2026/CHUIS_CENHOSUNIIBNSINRAB",
+            "original_reference": "59/2026/CHUIS",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE IBN SINA RABAT",
+            "buyer_initials": "CENHOSUNIIBNSINRAB",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888583"
+        },
+        {
+            "reference": "01/2026/BC_COMMUNESBOUYA",
+            "original_reference": "01/2026/BC",
+            "buyer": "Commune de SBOUYA",
+            "buyer_initials": "COMMUNESBOUYA",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888605"
+        },
+        {
+            "reference": "04AOM/SNRT/2026_SOCNATRADTEL",
+            "original_reference": "04AOM/SNRT/2026",
+            "buyer": "LA SOCIETE NATIONALE DE RADIODIFFUSION ET DE TELEVISION",
+            "buyer_initials": "SOCNATRADTEL",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888628"
+        },
+        {
+            "reference": "13DR3/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "13DR3/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888677"
+        },
+        {
+            "reference": "06/RFM/2026_REGIONFESMEKNES",
+            "original_reference": "06/RFM/2026",
+            "buyer": "REGION de FES - MEKNES",
+            "buyer_initials": "REGIONFESMEKNES",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888700"
+        },
+        {
+            "reference": "55/2026/CHUIS_CENHOSUNIIBNSINRAB",
+            "original_reference": "55/2026/CHUIS",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE IBN SINA RABAT",
+            "buyer_initials": "CENHOSUNIIBNSINRAB",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888722"
+        },
+        {
+            "reference": "01/2026/DRSPSRO_DIRREGSANREGORI",
+            "original_reference": "01/2026/DRSPSRO",
+            "buyer": "DIRECTION REGIONALE DE LA SANTE A LA REGION DE L'ORIENTAL",
+            "buyer_initials": "DIRREGSANREGORI",
+            "category": "Fournitures",
+            "launch_date": "18/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.888745"
+        },
+        {
+            "reference": "11/2026/CHR/BM_CENHOSREGBENMEL",
+            "original_reference": "11/2026/CHR/BM",
+            "buyer": "CENTRE HOSPITALIER REGIONAL DE BENI MELLAL",
+            "buyer_initials": "CENHOSREGBENMEL",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888769"
+        },
+        {
+            "reference": "15/2026/2_DIREQUMAIRAB",
+            "original_reference": "15/2026/2",
+            "buyer": "DIRECTEUR DES EQUIPEMENTS ET DE MAINTENANCE RABAT",
+            "buyer_initials": "DIREQUMAIRAB",
+            "category": "Fournitures",
+            "launch_date": "19/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.888793"
+        },
+        {
+            "reference": "03/DP/2026_SOUDIRREGAUPCOUAPPSAF",
+            "original_reference": "03/DP/2026",
+            "buyer": "SOUS DIRECTEUR REGIONAL AUPRES DE LA COURS D'APPEL DE SAFI",
+            "buyer_initials": "SOUDIRREGAUPCOUAPPSAF",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888818"
+        },
+        {
+            "reference": "02/2026/DMST_DELMINSANPROTAZ",
+            "original_reference": "02/2026/DMST",
+            "buyer": "DELEGUE DU MINISTERE DE LA SANTE A LA PROVINCE TAZA",
+            "buyer_initials": "DELMINSANPROTAZ",
+            "category": "Fournitures",
+            "launch_date": "17/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.888841"
+        },
+        {
+            "reference": "04/2026/INDH_GOUKELESSRA",
+            "original_reference": "04/2026/INDH",
+            "buyer": "GOUVERNEUR DE KELAA ES-SRAGHNA",
+            "buyer_initials": "GOUKELESSRA",
+            "category": "Fournitures",
+            "launch_date": "16/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.888863"
+        },
+        {
+            "reference": "23/2026/MEF/AC/FB_MINISTEREECONOMIE,FINANCES",
+            "original_reference": "23/2026/MEF/AC/FB",
+            "buyer": "MINISTERE DE L'ECONOMIE, ET DES FINANCES",
+            "buyer_initials": "MINISTEREECONOMIE,FINANCES",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888886"
+        },
+        {
+            "reference": "76/2026/AREF/FM_ACAREGEDUFORFESMEK",
+            "original_reference": "76/2026/AREF/FM",
+            "buyer": "ACADEMIE REGIONALE D'EDUCATION ET DE FORMATION FES-MEKNES",
+            "buyer_initials": "ACAREGEDUFORFESMEK",
+            "category": "Fournitures",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.888966"
+        },
+        {
+            "reference": "10/2026/DPA/4/SMOPFPA_DIRPROAGRBEN",
+            "original_reference": "10/2026/DPA/4/SMOPFPA",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE BENIMELLAL",
+            "buyer_initials": "DIRPROAGRBEN",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.888989"
+        },
+        {
+            "reference": "31/2026/DPA/IF._DIRPROAGRSIDIFN",
+            "original_reference": "31/2026/DPA/IF.",
+            "buyer": "Direction Pronvinciale de l'Agriculture de Sidi Ifni",
+            "buyer_initials": "DIRPROAGRSIDIFN",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889013"
+        },
+        {
+            "reference": "21/2026/DPA/32/SMOPFA_DIRPROAGRTAZ",
+            "original_reference": "21/2026/DPA/32/SMOPFA",
+            "buyer": "LE DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE TAZA",
+            "buyer_initials": "DIRPROAGRTAZ",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889035"
+        },
+        {
+            "reference": "GN3130265/2026/DXG_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "GN3130265/2026/DXG",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889083"
+        },
+        {
+            "reference": "37/DAILEX2526_SOCNATCOMSEM",
+            "original_reference": "37/DAILEX2526",
+            "buyer": "SOCIETE NATIONALE DE COMMERCIALISATION DES SEMENCES",
+            "buyer_initials": "SOCNATCOMSEM",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889113"
+        },
+        {
+            "reference": "036/26/AOO/ONDA_OFFICENATIONALAEROPORTS",
+            "original_reference": "036/26/AOO/ONDA",
+            "buyer": "OFFICE NATIONAL DES AEROPORTS",
+            "buyer_initials": "OFFICENATIONALAEROPORTS",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889144"
+        },
+        {
+            "reference": "2/MAT/SAP/2026_PREFECTUREPOLICEMEKNES",
+            "original_reference": "2/MAT/SAP/2026",
+            "buyer": "LE PREFECTURE DE POLICE DE MEKNES",
+            "buyer_initials": "PREFECTUREPOLICEMEKNES",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889169"
+        },
+        {
+            "reference": "143/2026/SRMCS_SOCREGMULCASSETSA",
+            "original_reference": "143/2026/SRMCS",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889246"
+        },
+        {
+            "reference": "036/2026/CHUIRC_CENHOSIBNROCCAS",
+            "original_reference": "036/2026/CHUIRC",
+            "buyer": "CENTRE HOSPITALIER IBN ROCHED CASABLANCA",
+            "buyer_initials": "CENHOSIBNROCCAS",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889266"
+        },
+        {
+            "reference": "PM1130342/2026/DXM_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "PM1130342/2026/DXM",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889310"
+        },
+        {
+            "reference": "PM2130155/2026/DXM_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "PM2130155/2026/DXM",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889334"
+        },
+        {
+            "reference": "PM3130194/2026/DXM_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "PM3130194/2026/DXM",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889355"
+        },
+        {
+            "reference": "PM3130158/2026/DXM_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "PM3130158/2026/DXM",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889377"
+        },
+        {
+            "reference": "25/2026_FONMOHVIPOUPROOEUSOCEDUFOR",
+            "original_reference": "25/2026",
+            "buyer": "FONDATION MOHAMMED VI POUR LA PROMOTION DES OEUVRES SOCIALES DE L'EDUCATION-FORMATION",
+            "buyer_initials": "FONMOHVIPOUPROOEUSOCEDUFOR",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889399"
+        },
+        {
+            "reference": "24/2026_FONMOHVIPOUPROOEUSOCEDUFOR",
+            "original_reference": "24/2026",
+            "buyer": "FONDATION MOHAMMED VI POUR LA PROMOTION DES OEUVRES SOCIALES DE L'EDUCATION-FORMATION",
+            "buyer_initials": "FONMOHVIPOUPROOEUSOCEDUFOR",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889422"
+        },
+        {
+            "reference": "24/2026/DRANEFDT/DPANEFTINGHIR_DIRREGAGENATEAUFORDRATAF",
+            "original_reference": "24/2026/DRANEFDT/DPANEFTINGHIR",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE DRAA-TAFILALET",
+            "buyer_initials": "DIRREGAGENATEAUFORDRATAF",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889467"
+        },
+        {
+            "reference": "05/CTI/2026_COMMUNEIDAOUGNIDIF",
+            "original_reference": "05/CTI/2026",
+            "buyer": "Commune IDAOUGNIDIF",
+            "buyer_initials": "COMMUNEIDAOUGNIDIF",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889487"
+        },
+        {
+            "reference": "08/2026/DRADOE_DIRRÉGAGRDAKOUEEDD",
+            "original_reference": "08/2026/DRADOE",
+            "buyer": "Direction Régionale d'Agriculture Dakhla Oued Eddahab",
+            "buyer_initials": "DIRRÉGAGRDAKOUEEDD",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889510"
+        },
+        {
+            "reference": "12/DRAI/BG/2026_DELREGAFFISLREGFESMEK",
+            "original_reference": "12/DRAI/BG/2026",
+            "buyer": "DELEGUATION REGIONALE DES AFFAIRES ISLAMIQUES DE LA REGION FES-MEKNES",
+            "buyer_initials": "DELREGAFFISLREGFESMEK",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889534"
+        },
+        {
+            "reference": "10/DP/2026_SOUDIRREGAUPCOUAPPSAF",
+            "original_reference": "10/DP/2026",
+            "buyer": "SOUS DIRECTEUR REGIONAL AUPRES DE LA COURS D'APPEL DE SAFI",
+            "buyer_initials": "SOUDIRREGAUPCOUAPPSAF",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889578"
+        },
+        {
+            "reference": "13/2026/DPA/G_DIRPROAGRGUE",
+            "original_reference": "13/2026/DPA/G",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE-GUELMIM",
+            "buyer_initials": "DIRPROAGRGUE",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889598"
+        },
+        {
+            "reference": "07/2026/DRADOE_DIRRÉGAGRDAKOUEEDD",
+            "original_reference": "07/2026/DRADOE",
+            "buyer": "Direction Régionale d'Agriculture Dakhla Oued Eddahab",
+            "buyer_initials": "DIRRÉGAGRDAKOUEEDD",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889620"
+        },
+        {
+            "reference": "11/DRAI/BG/2026_DELREGAFFISLREGFESMEK",
+            "original_reference": "11/DRAI/BG/2026",
+            "buyer": "DELEGUATION REGIONALE DES AFFAIRES ISLAMIQUES DE LA REGION FES-MEKNES",
+            "buyer_initials": "DELREGAFFISLREGFESMEK",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889644"
+        },
+        {
+            "reference": "08/NARSA/2026_AGENATSECROU(NA",
+            "original_reference": "08/NARSA/2026",
+            "buyer": "AGENCE NATIONALE DE LA SECURITE ROUTIERE (NARSA)",
+            "buyer_initials": "AGENATSECROU(NA",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889665"
+        },
+        {
+            "reference": "08/CD/2026_COMMUNERURALEDEROUA",
+            "original_reference": "08/CD/2026",
+            "buyer": "Commune rurale de DEROUA",
+            "buyer_initials": "COMMUNERURALEDEROUA",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889709"
+        },
+        {
+            "reference": "06/2026/DGM_DIRECTEURMETEOROLOGIENATIONALE",
+            "original_reference": "06/2026/DGM",
+            "buyer": "DIRECTEUR DE LA METEOROLOGIE NATIONALE",
+            "buyer_initials": "DIRECTEURMETEOROLOGIENATIONALE",
+            "category": "Fournitures",
+            "launch_date": "19/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.889749"
+        },
+        {
+            "reference": "AAO09/2026/DPA/20/MARRAKECH_DIRPROAGRMAR",
+            "original_reference": "AAO09/2026/DPA/20/MARRAKECH",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE-MARRAKECH",
+            "buyer_initials": "DIRPROAGRMAR",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889769"
+        },
+        {
+            "reference": "01/DP/2026_SOUDIRREGAUPCOUAPPSAF",
+            "original_reference": "01/DP/2026",
+            "buyer": "SOUS DIRECTEUR REGIONAL AUPRES DE LA COURS D'APPEL DE SAFI",
+            "buyer_initials": "SOUDIRREGAUPCOUAPPSAF",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889811"
+        },
+        {
+            "reference": "01/2026/MAPMDREF/OR/TAF_OFFREGMISVALAGRTAF",
+            "original_reference": "01/2026/MAPMDREF/OR/TAF",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE TAFILALET",
+            "buyer_initials": "OFFREGMISVALAGRTAF",
+            "category": "Fournitures",
+            "launch_date": "26/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.889834"
+        },
+        {
+            "reference": "11/2026/DPETLM_DIRPROEQUTRALOGMEK",
+            "original_reference": "11/2026/DPETLM",
+            "buyer": "LE DIRECTEUR PROVINCIAL DE L'EQUIPEMENT ET DU TRANSPORT ET DE LA LOGISTIQUE DE MEKNES",
+            "buyer_initials": "DIRPROEQUTRALOGMEK",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889856"
+        },
+        {
+            "reference": "01/2026/DRMS_DIRREGMETSUDLAA",
+            "original_reference": "01/2026/DRMS",
+            "buyer": "DIRECTEUR REGIONAL DE LA METEOROLOGIE DU SUD LAAYOUNE",
+            "buyer_initials": "DIRREGMETSUDLAA",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889877"
+        },
+        {
+            "reference": "10/2026/DPA/48/SMOPFPA_DIRPROAGRBOU",
+            "original_reference": "10/2026/DPA/48/SMOPFPA",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE BOULMANE",
+            "buyer_initials": "DIRPROAGRBOU",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889898"
+        },
+        {
+            "reference": "08/2026/DPA/36_DIRPROAGRESS",
+            "original_reference": "08/2026/DPA/36",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE D'ESSAOUIRA",
+            "buyer_initials": "DIRPROAGRESS",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889919"
+        },
+        {
+            "reference": "01/2026/DRMC_DIRREGMETCENAGA",
+            "original_reference": "01/2026/DRMC",
+            "buyer": "DIRECTEUR REGIONAL DE LA METEOROLOGIE DU CENTRE AGADIR",
+            "buyer_initials": "DIRREGMETCENAGA",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889963"
+        },
+        {
+            "reference": "07/2026/INDH_GOUVERNEURPREFECTUREMEKNES",
+            "original_reference": "07/2026/INDH",
+            "buyer": "GOUVERNEUR DE LA PREFECTURE DE MEKNES",
+            "buyer_initials": "GOUVERNEURPREFECTUREMEKNES",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.889984"
+        },
+        {
+            "reference": "10/DRAI/BG/2026_DELREGAFFISLREGFESMEK",
+            "original_reference": "10/DRAI/BG/2026",
+            "buyer": "DELEGUATION REGIONALE DES AFFAIRES ISLAMIQUES DE LA REGION FES-MEKNES",
+            "buyer_initials": "DELREGAFFISLREGFESMEK",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890005"
+        },
+        {
+            "reference": "132/2026/SRMCS_SOCREGMULCASSETSA",
+            "original_reference": "132/2026/SRMCS",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890049"
+        },
+        {
+            "reference": "07/CAC/2026_COMMUNEAINCHKEF",
+            "original_reference": "07/CAC/2026",
+            "buyer": "Commune AIN CHKEF",
+            "buyer_initials": "COMMUNEAINCHKEF",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.890069"
+        },
+        {
+            "reference": "TMPA_AO_14_26_AGESPETANMEDTANMEDPORAUT",
+            "original_reference": "TMPA_AO_14_26",
+            "buyer": "AGENCE SPECIALE TANGER MEDITERRANEE / TANGER MED PORT AUTHORITY",
+            "buyer_initials": "AGESPETANMEDTANMEDPORAUT",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890091"
+        },
+        {
+            "reference": "20/2026/DRANEFDT/DPANEFOZ_DIRREGAGENATEAUFORDRATAF",
+            "original_reference": "20/2026/DRANEFDT/DPANEFOZ",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE DRAA-TAFILALET",
+            "buyer_initials": "DIRREGAGENATEAUFORDRATAF",
+            "category": "Fournitures",
+            "launch_date": "04/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890116"
+        },
+        {
+            "reference": "28/2026/DRSPSFM_DIRREGSANREGFESMEK",
+            "original_reference": "28/2026/DRSPSFM",
+            "buyer": "DIRECTION REGIONALE DE LA SANTE A LA REGION DE FES MEKNES",
+            "buyer_initials": "DIRREGSANREGFESMEK",
+            "category": "Fournitures",
+            "launch_date": "18/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.890182"
+        },
+        {
+            "reference": "N45/2026/DPAO_DIRPROAGROUJ",
+            "original_reference": "N45/2026/DPAO",
+            "buyer": "DIRECTION PROVINCIALE D'AGRICULTURE OUJDA",
+            "buyer_initials": "DIRPROAGROUJ",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890242"
+        },
+        {
+            "reference": "19/2026/DRANEFDT/DPANEFOZ_DIRREGAGENATEAUFORDRATAF",
+            "original_reference": "19/2026/DRANEFDT/DPANEFOZ",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE DRAA-TAFILALET",
+            "buyer_initials": "DIRREGAGENATEAUFORDRATAF",
+            "category": "Fournitures",
+            "launch_date": "04/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890284"
+        },
+        {
+            "reference": "02/2026/DRMS_CNSDIRREGTENATL",
+            "original_reference": "02/2026/DRMS",
+            "buyer": "CNSS DIRECTION REGIONALE TENSIFT ATLANTIQUE",
+            "buyer_initials": "CNSDIRREGTENATL",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890305"
+        },
+        {
+            "reference": "27/2026/DRSPSFM_DIRREGSANREGFESMEK",
+            "original_reference": "27/2026/DRSPSFM",
+            "buyer": "DIRECTION REGIONALE DE LA SANTE A LA REGION DE FES MEKNES",
+            "buyer_initials": "DIRREGSANREGFESMEK",
+            "category": "Fournitures",
+            "launch_date": "18/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.890347"
+        },
+        {
+            "reference": "08/DP/2026_SOUDIRREGAUPCOUAPPSAF",
+            "original_reference": "08/DP/2026",
+            "buyer": "SOUS DIRECTEUR REGIONAL AUPRES DE LA COURS D'APPEL DE SAFI",
+            "buyer_initials": "SOUDIRREGAUPCOUAPPSAF",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890368"
+        },
+        {
+            "reference": "03/2026/SAP_CHESURNATFES",
+            "original_reference": "03/2026/SAP",
+            "buyer": "CHEF DE LA SURETE NATIONALE A FES",
+            "buyer_initials": "CHESURNATFES",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890410"
+        },
+        {
+            "reference": "01/2026/CT_COMMUNEURBAINETARGUIST",
+            "original_reference": "01/2026/CT",
+            "buyer": "Commune urbaine de TARGUIST",
+            "buyer_initials": "COMMUNEURBAINETARGUIST",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890430"
+        },
+        {
+            "reference": "23/2026/DPA/G_DIRPROAGRGUE",
+            "original_reference": "23/2026/DPA/G",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE GUERCIF",
+            "buyer_initials": "DIRPROAGRGUE",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890472"
+        },
+        {
+            "reference": "02/DRAI/DOE/BG/2026_DIRREGAFFISLDAKOUEEDD",
+            "original_reference": "02/DRAI/DOE/BG/2026",
+            "buyer": "DIRECTION REGIONALE DES AFFAIRES ISLAMIQUES de Dakhla Oued EDDAHAB",
+            "buyer_initials": "DIRREGAFFISLDAKOUEEDD",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890537"
+        },
+        {
+            "reference": "05/2026/DPETLG_DIRPROEQUTRALOGGUE",
+            "original_reference": "05/2026/DPETLG",
+            "buyer": "Direction Provinciale de l'Equipement, du Transport et de la Logistique de Guercif",
+            "buyer_initials": "DIRPROEQUTRALOGGUE",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890558"
+        },
+        {
+            "reference": "03/AREP/TTA/OZ/2026_AGEREGEXEPROREGTANTETALHOC",
+            "original_reference": "03/AREP/TTA/OZ/2026",
+            "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION TANGER-TETOUAN-AL HOCEIMA",
+            "buyer_initials": "AGEREGEXEPROREGTANTETALHOC",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890581"
+        },
+        {
+            "reference": "05/2026/CPD_CONSEILPROVINCEDRIOUCH",
+            "original_reference": "05/2026/CPD",
+            "buyer": "CONSEIL DE LA PROVINCE DE DRIOUCH",
+            "buyer_initials": "CONSEILPROVINCEDRIOUCH",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890601"
+        },
+        {
+            "reference": "21/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "21/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890622"
+        },
+        {
+            "reference": "2/2026SAISS3FES_CITUNISAIIIIFES",
+            "original_reference": "2/2026SAISS3FES",
+            "buyer": "CITE UNIVERSITAIRE SAISS III FES",
+            "buyer_initials": "CITUNISAIIIIFES",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890643"
+        },
+        {
+            "reference": "05/2026/DT_FONMOSHASIICAS",
+            "original_reference": "05/2026/DT",
+            "buyer": "FONDATION DE LA MOSQUEE HASSAN II CASABLANCA",
+            "buyer_initials": "FONMOSHASIICAS",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890663"
+        },
+        {
+            "reference": "13/2026/1379_COMMUNEURBAINEMARTIL",
+            "original_reference": "13/2026/1379",
+            "buyer": "Commune urbaine de MARTIL",
+            "buyer_initials": "COMMUNEURBAINEMARTIL",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890706"
+        },
+        {
+            "reference": "02/2026/DPA/B_DIRPROAGRBER",
+            "original_reference": "02/2026/DPA/B",
+            "buyer": "DIRECTION PROVINCIALE D'AGRICULTURE DE BERRECHID",
+            "buyer_initials": "DIRPROAGRBER",
+            "category": "Fournitures",
+            "launch_date": "18/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.890727"
+        },
+        {
+            "reference": "04/2026/DRSPSCS_DIRREGSANREGCASSET",
+            "original_reference": "04/2026/DRSPSCS",
+            "buyer": "Directeur regional de la sante a la Region de Casablanca-Settat",
+            "buyer_initials": "DIRREGSANREGCASSET",
+            "category": "Fournitures",
+            "launch_date": "18/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.890748"
+        },
+        {
+            "reference": "C/108/26_SOCREGMULRABSALKENSA",
+            "original_reference": "C/108/26",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES RABAT - SALE - KENITRA SA",
+            "buyer_initials": "SOCREGMULRABSALKENSA",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.890769"
+        },
+        {
+            "reference": "17/DGPC/2026_DIRGENPROCIV",
+            "original_reference": "17/DGPC/2026",
+            "buyer": "DIRECTION GENERALE DE LA PROTECTION CIVILE",
+            "buyer_initials": "DIRGENPROCIV",
+            "category": "Fournitures",
+            "launch_date": "16/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.890791"
+        },
+        {
+            "reference": "26/2026/DRSPSFM_DIRREGSANREGFESMEK",
+            "original_reference": "26/2026/DRSPSFM",
+            "buyer": "DIRECTION REGIONALE DE LA SANTE A LA REGION DE FES MEKNES",
+            "buyer_initials": "DIRREGSANREGFESMEK",
+            "category": "Fournitures",
+            "launch_date": "18/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.890813"
+        },
+        {
+            "reference": "14/2026/CHR/BM_CENHOSREGBENMEL",
+            "original_reference": "14/2026/CHR/BM",
+            "buyer": "CENTRE HOSPITALIER REGIONAL DE BENI MELLAL",
+            "buyer_initials": "CENHOSREGBENMEL",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891448"
+        },
+        {
+            "reference": "07/DP/2026_SOUDIRREGAUPCOUAPPSAF",
+            "original_reference": "07/DP/2026",
+            "buyer": "SOUS DIRECTEUR REGIONAL AUPRES DE LA COURS D'APPEL DE SAFI",
+            "buyer_initials": "SOUDIRREGAUPCOUAPPSAF",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891514"
+        },
+        {
+            "reference": "18/FA/DIV.G.F./DIV.M.EQ/ZN/2026_INSGENFORAUXZONNOR",
+            "original_reference": "18/FA/DIV.G.F./DIV.M.EQ/ZN/2026",
+            "buyer": "INSPECTION GENERALE DES FORCES AUXILIAIRES - ZONE NORD",
+            "buyer_initials": "INSGENFORAUXZONNOR",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891537"
+        },
+        {
+            "reference": "3/INDH/2026_GOUVERNEURPROVINCECHICHAOUA",
+            "original_reference": "3/INDH/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE CHICHAOUA",
+            "buyer_initials": "GOUVERNEURPROVINCECHICHAOUA",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891558"
+        },
+        {
+            "reference": "4/INDH/2026_GOUVERNEURPROVINCECHICHAOUA",
+            "original_reference": "4/INDH/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE CHICHAOUA",
+            "buyer_initials": "GOUVERNEURPROVINCECHICHAOUA",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891579"
+        },
+        {
+            "reference": "5/INDH/2026_GOUVERNEURPROVINCECHICHAOUA",
+            "original_reference": "5/INDH/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE CHICHAOUA",
+            "buyer_initials": "GOUVERNEURPROVINCECHICHAOUA",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891599"
+        },
+        {
+            "reference": "28/2026/SGRID_OFFREGMISVALAGRMEL",
+            "original_reference": "28/2026/SGRID",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE MELOUIA",
+            "buyer_initials": "OFFREGMISVALAGRMEL",
+            "category": "Fournitures",
+            "launch_date": "19/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.891641"
+        },
+        {
+            "reference": "08/PA/BG/2026_GOUPROALHOC",
+            "original_reference": "08/PA/BG/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE D'AL HOCEIMA",
+            "buyer_initials": "GOUPROALHOC",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891663"
+        },
+        {
+            "reference": "05/DRC/CI/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "05/DRC/CI/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891687"
+        },
+        {
+            "reference": "40/2026/DAM_OFFREGMISVALAGRELGHA",
+            "original_reference": "40/2026/DAM",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE D'EL GHARB",
+            "buyer_initials": "OFFREGMISVALAGRELGHA",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891733"
+        },
+        {
+            "reference": "02/2026/CAGCS_CHAAGRRÉGCASSET",
+            "original_reference": "02/2026/CAGCS",
+            "buyer": "Chambre d'Agriculture de la Région Casasblanca - Settat",
+            "buyer_initials": "CHAAGRRÉGCASSET",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891761"
+        },
+        {
+            "reference": "01/2026/DRMS_CNSDIRREGTENATL",
+            "original_reference": "01/2026/DRMS",
+            "buyer": "CNSS DIRECTION REGIONALE TENSIFT ATLANTIQUE",
+            "buyer_initials": "CNSDIRREGTENATL",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891784"
+        },
+        {
+            "reference": "113/2026/SRMCS_SOCREGMULCASSETSA",
+            "original_reference": "113/2026/SRMCS",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Fournitures",
+            "launch_date": "18/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.891806"
+        },
+        {
+            "reference": "058/2026/CHUIRC_CENHOSIBNROCCAS",
+            "original_reference": "058/2026/CHUIRC",
+            "buyer": "CENTRE HOSPITALIER IBN ROCHED CASABLANCA",
+            "buyer_initials": "CENHOSIBNROCCAS",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891827"
+        },
+        {
+            "reference": "062/2026/CHUIRC_CENHOSIBNROCCAS",
+            "original_reference": "062/2026/CHUIRC",
+            "buyer": "CENTRE HOSPITALIER IBN ROCHED CASABLANCA",
+            "buyer_initials": "CENHOSIBNROCCAS",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891848"
+        },
+        {
+            "reference": "09/2026/DRANEF/GON_DIRREGAGENATEAUFORGUEOUENOU",
+            "original_reference": "09/2026/DRANEF/GON",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS GUELMIM OUED NOUN",
+            "buyer_initials": "DIRREGAGENATEAUFORGUEOUENOU",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891872"
+        },
+        {
+            "reference": "N39/2026/DPAO_DIRPROAGROUJ",
+            "original_reference": "N39/2026/DPAO",
+            "buyer": "DIRECTION PROVINCIALE D'AGRICULTURE OUJDA",
+            "buyer_initials": "DIRPROAGROUJ",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891893"
+        },
+        {
+            "reference": "03/DRCC/2026_DIRREGCULPOUREGGRACAS",
+            "original_reference": "03/DRCC/2026",
+            "buyer": "DIRECTION REGIONALE DE LA CULTURE POUR LA REGION DU GRAND CASABLANCA",
+            "buyer_initials": "DIRREGCULPOUREGGRACAS",
+            "category": "Fournitures",
+            "launch_date": "16/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.891915"
+        },
+        {
+            "reference": "02/2026/CPM_CONSEILPROVINCIALMEDIOUNA",
+            "original_reference": "02/2026/CPM",
+            "buyer": "CONSEIL PROVINCIAL DE MEDIOUNA",
+            "buyer_initials": "CONSEILPROVINCIALMEDIOUNA",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.891938"
+        },
+        {
+            "reference": "01/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "01/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.892003"
+        },
+        {
+            "reference": "20/DPJ/2026E/F_SOCREGMULCASSETSA",
+            "original_reference": "20/DPJ/2026E/F",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892047"
+        },
+        {
+            "reference": "20/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "20/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892068"
+        },
+        {
+            "reference": "13/2026/EACCE_ETAAUTCONCOOEXP",
+            "original_reference": "13/2026/EACCE",
+            "buyer": "ETABLISSEMENT AUTONOME DE CONTROLE ET DE COORDINATION DES EXPORTATIONS",
+            "buyer_initials": "ETAAUTCONCOOEXP",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892158"
+        },
+        {
+            "reference": "06/DRAI/GON/BG/2026_DELREGAFFISLREGGUEOUENOU",
+            "original_reference": "06/DRAI/GON/BG/2026",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES DE LA REGION GUELMIM OUED NOUN",
+            "buyer_initials": "DELREGAFFISLREGGUEOUENOU",
+            "category": "Fournitures",
+            "launch_date": "16/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.892220"
+        },
+        {
+            "reference": "02/PP.AGADIR/2026_PREFETPOLICEAGADIR",
+            "original_reference": "02/PP.AGADIR/2026",
+            "buyer": "PREFET DE LA POLICE DE AGADIR",
+            "buyer_initials": "PREFETPOLICEAGADIR",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.892262"
+        },
+        {
+            "reference": "N38/2026/DPAO_DIRPROAGROUJ",
+            "original_reference": "N38/2026/DPAO",
+            "buyer": "DIRECTION PROVINCIALE D'AGRICULTURE OUJDA",
+            "buyer_initials": "DIRPROAGROUJ",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892302"
+        },
+        {
+            "reference": "05/SROUARZAZATE/2026_CHEFSURETEOUARZAZATE",
+            "original_reference": "05/SROUARZAZATE/2026",
+            "buyer": "CHEF DE LA SURETE OUARZAZATE",
+            "buyer_initials": "CHEFSURETEOUARZAZATE",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892324"
+        },
+        {
+            "reference": "SR4129877/2026/ONEEBELEC_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "SR4129877/2026/ONEEBELEC",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.892347"
+        },
+        {
+            "reference": "07/DRAI/DT/BG/2026_DELREGAFFISLREGDRATAF",
+            "original_reference": "07/DRAI/DT/BG/2026",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES REGION DRAA TAFILALT",
+            "buyer_initials": "DELREGAFFISLREGDRATAF",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892369"
+        },
+        {
+            "reference": "18/DPJ/2026E/F_SOCREGMULCASSETSA",
+            "original_reference": "18/DPJ/2026E/F",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892392"
+        },
+        {
+            "reference": "16/INO/2026_INSNATONC\"SIMOHBENABD",
+            "original_reference": "16/INO/2026",
+            "buyer": "INSTITUT NATIONAL D'ONCOLOGIE \"SIDI MOHAMMED BEN ABDELLAH\"",
+            "buyer_initials": "INSNATONC\"SIMOHBENABD",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892414"
+        },
+        {
+            "reference": "085/2026/SRMCS_SOCREGMULCASSETSA",
+            "original_reference": "085/2026/SRMCS",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892479"
+        },
+        {
+            "reference": "015/2026/SRMCS_SOCREGMULCASSETSA",
+            "original_reference": "015/2026/SRMCS",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892500"
+        },
+        {
+            "reference": "52577/C2/PM_OFFNATCHEFER",
+            "original_reference": "52577/C2/PM",
+            "buyer": "OFFICE NATIONAL DES CHEMINS DE FER",
+            "buyer_initials": "OFFNATCHEFER",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.892521"
+        },
+        {
+            "reference": "14/2026/SMG_OFFREGMISVALAGRDOU",
+            "original_reference": "14/2026/SMG",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE DOUKKALA",
+            "buyer_initials": "OFFREGMISVALAGRDOU",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892544"
+        },
+        {
+            "reference": "05/AON/PT/2026_GOUVERNEURPROVINCETARFAYA",
+            "original_reference": "05/AON/PT/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE TARFAYA",
+            "buyer_initials": "GOUVERNEURPROVINCETARFAYA",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892564"
+        },
+        {
+            "reference": "06/DRAI/DT/BG/2026_DELREGAFFISLREGDRATAF",
+            "original_reference": "06/DRAI/DT/BG/2026",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES REGION DRAA TAFILALT",
+            "buyer_initials": "DELREGAFFISLREGDRATAF",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892607"
+        },
+        {
+            "reference": "04/2026/BG/F_WALREGTANTETALHOCGOUPRETANASS",
+            "original_reference": "04/2026/BG/F",
+            "buyer": "WALI DE LA REGION TANGER TETOUAN AL HOCEIMA ET GOUVERNEUR DE LA PREFECTURE DE TANGER ASSILAH",
+            "buyer_initials": "WALREGTANTETALHOCGOUPRETANASS",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.892632"
+        },
+        {
+            "reference": "04/AON/PT/2026_GOUVERNEURPROVINCETARFAYA",
+            "original_reference": "04/AON/PT/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE TARFAYA",
+            "buyer_initials": "GOUVERNEURPROVINCETARFAYA",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892673"
+        },
+        {
+            "reference": "10/2026/cuva_COMURBVILAGA",
+            "original_reference": "10/2026/cuva",
+            "buyer": "Commune urbaine de la ville d'Agadir",
+            "buyer_initials": "COMURBVILAGA",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.892693"
+        },
+        {
+            "reference": "22/2026/DPA/G_DIRPROAGRGUE",
+            "original_reference": "22/2026/DPA/G",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'AGRICULTURE DE GUERCIF",
+            "buyer_initials": "DIRPROAGRGUE",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892753"
+        },
+        {
+            "reference": "11/2026/DPA/Hj_DIRPROAGRELH",
+            "original_reference": "11/2026/DPA/Hj",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE D'ELHAJEB",
+            "buyer_initials": "DIRPROAGRELH",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892793"
+        },
+        {
+            "reference": "1/2026/CT_Zghira_COMMUNERURALEZGHIRA",
+            "original_reference": "1/2026/CT_Zghira",
+            "buyer": "Commune rurale de ZGHIRA",
+            "buyer_initials": "COMMUNERURALEZGHIRA",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892874"
+        },
+        {
+            "reference": "04/2026/ITSASBT_DIRINSTECAGRSAHBOU",
+            "original_reference": "04/2026/ITSASBT",
+            "buyer": "DIRECTEUR DE L'INSTITUT TECHNIQUE AGRICOLE DE SAHEL BOUTAHER",
+            "buyer_initials": "DIRINSTECAGRSAHBOU",
+            "category": "Fournitures",
+            "launch_date": "04/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892898"
+        },
+        {
+            "reference": "16/BG/2026_GOUVERNEURPROVINCETATA",
+            "original_reference": "16/BG/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE TATA",
+            "buyer_initials": "GOUVERNEURPROVINCETATA",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892918"
+        },
+        {
+            "reference": "VT01/2026_SOCREGMULSOUMASSA",
+            "original_reference": "VT01/2026",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES SOUSS - MASSA SA",
+            "buyer_initials": "SOCREGMULSOUMASSA",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.892960"
+        },
+        {
+            "reference": "100/DGPC/2025_DIRGENPROCIV",
+            "original_reference": "100/DGPC/2025",
+            "buyer": "DIRECTION GENERALE DE LA PROTECTION CIVILE",
+            "buyer_initials": "DIRGENPROCIV",
+            "category": "Fournitures",
+            "launch_date": "17/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.893002"
+        },
+        {
+            "reference": "02/2026/DGM_DIRECTEURMETEOROLOGIENATIONALE",
+            "original_reference": "02/2026/DGM",
+            "buyer": "DIRECTEUR DE LA METEOROLOGIE NATIONALE",
+            "buyer_initials": "DIRECTEURMETEOROLOGIENATIONALE",
+            "category": "Fournitures",
+            "launch_date": "16/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.893025"
+        },
+        {
+            "reference": "AAO04/2026/DPA/20/MARRAKECH_DIRPROAGRMAR",
+            "original_reference": "AAO04/2026/DPA/20/MARRAKECH",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE-MARRAKECH",
+            "buyer_initials": "DIRPROAGRMAR",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893066"
+        },
+        {
+            "reference": "11/2026/DPA/1/SMOPFP_DIRPROAGRAGA",
+            "original_reference": "11/2026/DPA/1/SMOPFP",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE AGADIR",
+            "buyer_initials": "DIRPROAGRAGA",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893086"
+        },
+        {
+            "reference": "35/BG/F/2026_GOUVERNEURPROVINCESETTAT",
+            "original_reference": "35/BG/F/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE SETTAT",
+            "buyer_initials": "GOUVERNEURPROVINCESETTAT",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893155"
+        },
+        {
+            "reference": "04/2026/DPA/CH/SMOPFPA_DIRPROAGRCHI",
+            "original_reference": "04/2026/DPA/CH/SMOPFPA",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE CHICHAOUA",
+            "buyer_initials": "DIRPROAGRCHI",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893196"
+        },
+        {
+            "reference": "09/2026/cuva_COMURBVILAGA",
+            "original_reference": "09/2026/cuva",
+            "buyer": "Commune urbaine de la ville d'Agadir",
+            "buyer_initials": "COMURBVILAGA",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893216"
+        },
+        {
+            "reference": "06/CPT/2026_CONSEILPROVINCIALTINGHIR",
+            "original_reference": "06/CPT/2026",
+            "buyer": "CONSEIL PROVINCIAL DE TINGHIR",
+            "buyer_initials": "CONSEILPROVINCIALTINGHIR",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893297"
+        },
+        {
+            "reference": "11/2026/DAAC/BG_DIRAFFADMCOO",
+            "original_reference": "11/2026/DAAC/BG",
+            "buyer": "DIRECTION DES AFFAIRES ADMINISTRATIVES ET DE COOPERATION",
+            "buyer_initials": "DIRAFFADMCOO",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893338"
+        },
+        {
+            "reference": "01/CQAOB/2026_CHAFONCENQUAAGROULBOUKELESSRA",
+            "original_reference": "01/CQAOB/2026",
+            "buyer": "CHARGE DE FONCTION DU CENTRE QUALIFICATION AGRICOLE OULAD BOUKRINE A KELAA ES-SRAGHNA",
+            "buyer_initials": "CHAFONCENQUAAGROULBOUKELESSRA",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893361"
+        },
+        {
+            "reference": "05/DRAI/DT/BG/2026_DELREGAFFISLREGDRATAF",
+            "original_reference": "05/DRAI/DT/BG/2026",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES REGION DRAA TAFILALT",
+            "buyer_initials": "DELREGAFFISLREGDRATAF",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893405"
+        },
+        {
+            "reference": "05/2026/CHI_DIRPROEQUTRACHI",
+            "original_reference": "05/2026/CHI",
+            "buyer": "Directeur Provincial de l'Equipement et des Transports de Chichaoua",
+            "buyer_initials": "DIRPROEQUTRACHI",
+            "category": "Fournitures",
+            "launch_date": "04/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893453"
+        },
+        {
+            "reference": "17/DAM/S/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "17/DAM/S/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.893477"
+        },
+        {
+            "reference": "11/BG/2026_GOUVERNEURPROVINCETINGHIR",
+            "original_reference": "11/BG/2026",
+            "buyer": "Gouverneur de la Province de Tinghir",
+            "buyer_initials": "GOUVERNEURPROVINCETINGHIR",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893497"
+        },
+        {
+            "reference": "GN2130045/2026/AGS/DXG_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "GN2130045/2026/AGS/DXG",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893521"
+        },
+        {
+            "reference": "GN2130097/2026/AGS/DXG_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "GN2130097/2026/AGS/DXG",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893542"
+        },
+        {
+            "reference": "48/2026/DRSPSFM_DIRREGSANREGFESMEK",
+            "original_reference": "48/2026/DRSPSFM",
+            "buyer": "DIRECTION REGIONALE DE LA SANTE A LA REGION DE FES MEKNES",
+            "buyer_initials": "DIRREGSANREGFESMEK",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.893563"
+        },
+        {
+            "reference": "001/2026_COMMUNEOURIKA",
+            "original_reference": "001/2026",
+            "buyer": "Commune OURIKA",
+            "buyer_initials": "COMMUNEOURIKA",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893604"
+        },
+        {
+            "reference": "16/INDH/2026_GOUVERNEURZAGOURA",
+            "original_reference": "16/INDH/2026",
+            "buyer": "GOUVERNEUR DE ZAGOURA",
+            "buyer_initials": "GOUVERNEURZAGOURA",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893623"
+        },
+        {
+            "reference": "04/ONSSA/DR9/2026_OFFNATSECSANPROALIDIRREGREGBNIMELKHE",
+            "original_reference": "04/ONSSA/DR9/2026",
+            "buyer": "OFFICE NATIONAL DE SECURITE SANITAIRE DES PRODUITS ALIMENTAIRES - DIRECTION REGIONALE DE LA REGION BNI MELLAL - KHENIFRA",
+            "buyer_initials": "OFFNATSECSANPROALIDIRREGREGBNIMELKHE",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893646"
+        },
+        {
+            "reference": "AMI/04/2026/CIE_CASABLANCAISKANEEQUIPEMENTS",
+            "original_reference": "AMI/04/2026/CIE",
+            "buyer": "CASABLANCA ISKANE & EQUIPEMENTS",
+            "buyer_initials": "CASABLANCAISKANEEQUIPEMENTS",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893666"
+        },
+        {
+            "reference": "15/DRG/CI/I/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "15/DRG/CI/I/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893687"
+        },
+        {
+            "reference": "07/AOO/DPMR/ANP/2026_AGENATPORDIRPORMOHREG",
+            "original_reference": "07/AOO/DPMR/ANP/2026",
+            "buyer": "AGENCE NATIONALE DES PORTS/ DIRECTION DU PORT MOHAMMEDIA ET REGION",
+            "buyer_initials": "AGENATPORDIRPORMOHREG",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893708"
+        },
+        {
+            "reference": "16DRG/CI/I/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "16DRG/CI/I/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893729"
+        },
+        {
+            "reference": "25/2026/ORH/SM/CSI_OFFREGMISVALAGRELHAO",
+            "original_reference": "25/2026/ORH/SM/CSI",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE D'EL HAOUZ",
+            "buyer_initials": "OFFREGMISVALAGRELHAO",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893753"
+        },
+        {
+            "reference": "01/FLCI/2026_GOUVERNEURPROVINCETATA",
+            "original_reference": "01/FLCI/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE TATA",
+            "buyer_initials": "GOUVERNEURPROVINCETATA",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893772"
+        },
+        {
+            "reference": "15/DPJ/2026OF_SOCREGMULCASSETSA",
+            "original_reference": "15/DPJ/2026OF",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Fournitures",
+            "launch_date": "04/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893793"
+        },
+        {
+            "reference": "3/AOO/DSITD/DG/ANP/2026_AGENCENATIONALEPORTS",
+            "original_reference": "3/AOO/DSITD/DG/ANP/2026",
+            "buyer": "AGENCE NATIONALE DES PORTS",
+            "buyer_initials": "AGENCENATIONALEPORTS",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893813"
+        },
+        {
+            "reference": "10006382_SOCREGMULSOUMASSA",
+            "original_reference": "10006382",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES SOUSS - MASSA SA",
+            "buyer_initials": "SOCREGMULSOUMASSA",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893834"
+        },
+        {
+            "reference": "73/2026/SRMCS_SOCREGMULCASSETSA",
+            "original_reference": "73/2026/SRMCS",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Fournitures",
+            "launch_date": "18/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.893877"
+        },
+        {
+            "reference": "10006263_SOCREGMULSOUMASSA",
+            "original_reference": "10006263",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES SOUSS - MASSA SA",
+            "buyer_initials": "SOCREGMULSOUMASSA",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893897"
+        },
+        {
+            "reference": "15/2026/CMR_CAISSEMAROCAINERETRAITES",
+            "original_reference": "15/2026/CMR",
+            "buyer": "LA CAISSE MAROCAINE DES RETRAITES",
+            "buyer_initials": "CAISSEMAROCAINERETRAITES",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893917"
+        },
+        {
+            "reference": "034/2026/CHUIRC_CENHOSIBNROCCAS",
+            "original_reference": "034/2026/CHUIRC",
+            "buyer": "CENTRE HOSPITALIER IBN ROCHED CASABLANCA",
+            "buyer_initials": "CENHOSIBNROCCAS",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893936"
+        },
+        {
+            "reference": "183/2026/SRMFM_SOCREGMULFESMEKS.A",
+            "original_reference": "183/2026/SRMFM",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES FES - MEKNES S.A",
+            "buyer_initials": "SOCREGMULFESMEKS.A",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893956"
+        },
+        {
+            "reference": "18/DKHT/2026_DIRPROL’ENATKHE",
+            "original_reference": "18/DKHT/2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE KHEMISSET",
+            "buyer_initials": "DIRPROL’ENATKHE",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.893984"
+        },
+        {
+            "reference": "08/2026/B.G.C/P.AZ_GROCOMHAUMOYATL",
+            "original_reference": "08/2026/B.G.C/P.AZ",
+            "buyer": "Groupement de communes HAUT ET MOYEN ATLAS",
+            "buyer_initials": "GROCOMHAUMOYATL",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894006"
+        },
+        {
+            "reference": "42/2026/DRANEFRSK/DP/KH_DIRREGAGENATEAUFORRABSALKEN",
+            "original_reference": "42/2026/DRANEFRSK/DP/KH",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS RABAT SALE KENITRA",
+            "buyer_initials": "DIRREGAGENATEAUFORRABSALKEN",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894030"
+        },
+        {
+            "reference": "14/2026/CF_COMMUNEURBAINEFES",
+            "original_reference": "14/2026/CF",
+            "buyer": "Commune urbaine de FES",
+            "buyer_initials": "COMMUNEURBAINEFES",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894049"
+        },
+        {
+            "reference": "09/DGSN/DEB/DF/SA/2026_DIRGENSURNAT",
+            "original_reference": "09/DGSN/DEB/DF/SA/2026",
+            "buyer": "DIRECTION GENERALE DE LA SURETE NATIONALE",
+            "buyer_initials": "DIRGENSURNAT",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894069"
+        },
+        {
+            "reference": "KE23/2026_DIRPROEQUTRALOGKEN",
+            "original_reference": "KE23/2026",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'EQUIPEMENT, DU TRANSPORT ET DE LA LOGISTIQUE DE KENITRA",
+            "buyer_initials": "DIRPROEQUTRALOGKEN",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894093"
+        },
+        {
+            "reference": "AAO06/2026/DPA/20/MARRAKECH_DIRPROAGRMAR",
+            "original_reference": "AAO06/2026/DPA/20/MARRAKECH",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE-MARRAKECH",
+            "buyer_initials": "DIRPROAGRMAR",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894116"
+        },
+        {
+            "reference": "08/2026/DRAIRSK/BG_DELREGAFFISLREGRABSALKEN",
+            "original_reference": "08/2026/DRAIRSK/BG",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES DE LA REGION RABAT SALE KENITRA",
+            "buyer_initials": "DELREGAFFISLREGRABSALKEN",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894223"
+        },
+        {
+            "reference": "17/2026/DPETLM_DIRPROEQUTRALOGMEK",
+            "original_reference": "17/2026/DPETLM",
+            "buyer": "LE DIRECTEUR PROVINCIAL DE L'EQUIPEMENT ET DU TRANSPORT ET DE LA LOGISTIQUE DE MEKNES",
+            "buyer_initials": "DIRPROEQUTRALOGMEK",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894246"
+        },
+        {
+            "reference": "18/2026/ORMVAL_OFFREGMISVALAGRLOU",
+            "original_reference": "18/2026/ORMVAL",
+            "buyer": "OFFICE REGIONAL DE MISE EN VALEUR AGRICOLE DE LOUKKOUS",
+            "buyer_initials": "OFFREGMISVALAGRLOU",
+            "category": "Fournitures",
+            "launch_date": "05/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894266"
+        },
+        {
+            "reference": "C/098/26_SOCREGMULRABSALKENSA",
+            "original_reference": "C/098/26",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES RABAT - SALE - KENITRA SA",
+            "buyer_initials": "SOCREGMULRABSALKENSA",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894289"
+        },
+        {
+            "reference": "64/EL/26_SOCREGMULBENMELKHESA",
+            "original_reference": "64/EL/26",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES BENI MELLAL-KHENIFRA SA",
+            "buyer_initials": "SOCREGMULBENMELKHESA",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894331"
+        },
+        {
+            "reference": "67/O/26_SOCREGMULBENMELKHESA",
+            "original_reference": "67/O/26",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES BENI MELLAL-KHENIFRA SA",
+            "buyer_initials": "SOCREGMULBENMELKHESA",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894352"
+        },
+        {
+            "reference": "13.CHT.2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "13.CHT.2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894398"
+        },
+        {
+            "reference": "02/2026/PR_DIRPROEQU,DUTRALOGEAUDAK",
+            "original_reference": "02/2026/PR",
+            "buyer": "Direction Provinciale de l'Equipement ,du Transport , de la Logistique et de l'Eau de DAKHLA",
+            "buyer_initials": "DIRPROEQU,DUTRALOGEAUDAK",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.894421"
+        },
+        {
+            "reference": "01/2026/DPAIA/BH_DELREGAFFISLREGSOUMAS",
+            "original_reference": "01/2026/DPAIA/BH",
+            "buyer": "DELEGUE REGIONAL DES AFFAIRES ISLAMIQUES DE LA REGION SOUS-MASSA",
+            "buyer_initials": "DELREGAFFISLREGSOUMAS",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.894442"
+        },
+        {
+            "reference": "12/2026/1379_COMMUNEURBAINEMARTIL",
+            "original_reference": "12/2026/1379",
+            "buyer": "Commune urbaine de MARTIL",
+            "buyer_initials": "COMMUNEURBAINEMARTIL",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894462"
+        },
+        {
+            "reference": "01/CK/2026_COLLECTIVITÉTERRITORIALEKCEIBYA",
+            "original_reference": "01/CK/2026",
+            "buyer": "Collectivité territoriale de KCEIBYA",
+            "buyer_initials": "COLLECTIVITÉTERRITORIALEKCEIBYA",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894483"
+        },
+        {
+            "reference": "12.CHT.2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "12.CHT.2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894527"
+        },
+        {
+            "reference": "19/BG/F/2026_GOUVERNEURPROVINCESETTAT",
+            "original_reference": "19/BG/F/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE SETTAT",
+            "buyer_initials": "GOUVERNEURPROVINCESETTAT",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894547"
+        },
+        {
+            "reference": "02/2026/CARMS_CHAARTREGMARSAF",
+            "original_reference": "02/2026/CARMS",
+            "buyer": "CHAMBRE DE L'ARTISANAT DE LA REGION MARRAKECH SAFI",
+            "buyer_initials": "CHAARTREGMARSAF",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894610"
+        },
+        {
+            "reference": "KE22/2026_DIRPROEQUTRALOGKEN",
+            "original_reference": "KE22/2026",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'EQUIPEMENT, DU TRANSPORT ET DE LA LOGISTIQUE DE KENITRA",
+            "buyer_initials": "DIRPROEQUTRALOGKEN",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894634"
+        },
+        {
+            "reference": "10007460_SOCREGMULORIS.A",
+            "original_reference": "10007460",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894696"
+        },
+        {
+            "reference": "06/2026/DMSPSD_DÉLÉGATIONPROVINCIALEDRIOUCH",
+            "original_reference": "06/2026/DMSPSD",
+            "buyer": "Délégation Provinciale de Driouch",
+            "buyer_initials": "DÉLÉGATIONPROVINCIALEDRIOUCH",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894751"
+        },
+        {
+            "reference": "DS/03/2026/CFR_CAIPOUFINROU",
+            "original_reference": "DS/03/2026/CFR",
+            "buyer": "CAISSE POUR LE FINANCEMENT ROUTIER",
+            "buyer_initials": "CAIPOUFINROU",
+            "category": "Fournitures",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.894794"
+        },
+        {
+            "reference": "10006457_SOCREGMULORIS.A",
+            "original_reference": "10006457",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894815"
+        },
+        {
+            "reference": "C/018/26_SOCREGMULGUEOUENOUS.A",
+            "original_reference": "C/018/26",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES GUELMIM - OUED NOUN S.A",
+            "buyer_initials": "SOCREGMULGUEOUENOUS.A",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.894871"
+        },
+        {
+            "reference": "17/ENSM/2026_ECONORSUPMAR",
+            "original_reference": "17/ENSM/2026",
+            "buyer": "ECOLE NORMALE SUPERIEURE MARRAKECH",
+            "buyer_initials": "ECONORSUPMAR",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.894892"
+        },
+        {
+            "reference": "22/2026/CT_COMMUNEURBAINETETOUAN",
+            "original_reference": "22/2026/CT",
+            "buyer": "Commune urbaine de TETOUAN",
+            "buyer_initials": "COMMUNEURBAINETETOUAN",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894912"
+        },
+        {
+            "reference": "10007507_SOCREGMULORIS.A",
+            "original_reference": "10007507",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.894983"
+        },
+        {
+            "reference": "O/104/26_SOCREGMULRABSALKENSA",
+            "original_reference": "O/104/26",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES RABAT - SALE - KENITRA SA",
+            "buyer_initials": "SOCREGMULRABSALKENSA",
+            "category": "Fournitures",
+            "launch_date": "27/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.895007"
+        },
+        {
+            "reference": "47/2026/CHUIS_CENHOSUNIIBNSINRAB",
+            "original_reference": "47/2026/CHUIS",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE IBN SINA RABAT",
+            "buyer_initials": "CENHOSUNIIBNSINRAB",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.895030"
+        },
+        {
+            "reference": "10007295_SOCREGMULORIS.A",
+            "original_reference": "10007295",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.895053"
+        },
+        {
+            "reference": "05/BM/2026_COMMUNEALOUIDANE",
+            "original_reference": "05/BM/2026",
+            "buyer": "Commune AL OUIDANE",
+            "buyer_initials": "COMMUNEALOUIDANE",
+            "category": "Fournitures",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.895191"
+        },
+        {
+            "reference": "6/CE/2026_COMMUNEURBAINEESSAOUIRA",
+            "original_reference": "6/CE/2026",
+            "buyer": "Commune urbaine de ESSAOUIRA",
+            "buyer_initials": "COMMUNEURBAINEESSAOUIRA",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.895228"
+        },
+        {
+            "reference": "08/BP/2026_PROVINCETATA",
+            "original_reference": "08/BP/2026",
+            "buyer": "Province de TATA",
+            "buyer_initials": "PROVINCETATA",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.895270"
+        },
+        {
+            "reference": "05/2026/DMSPSD_DÉLÉGATIONPROVINCIALEDRIOUCH",
+            "original_reference": "05/2026/DMSPSD",
+            "buyer": "Délégation Provinciale de Driouch",
+            "buyer_initials": "DÉLÉGATIONPROVINCIALEDRIOUCH",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.895330"
+        },
+        {
+            "reference": "10006381_SOCREGMULORIS.A",
+            "original_reference": "10006381",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.895397"
+        },
+        {
+            "reference": "15/INDH/2026_GOUVERNEURZAGOURA",
+            "original_reference": "15/INDH/2026",
+            "buyer": "GOUVERNEUR DE ZAGOURA",
+            "buyer_initials": "GOUVERNEURZAGOURA",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.895531"
+        },
+        {
+            "reference": "10/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "10/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.895600"
+        },
+        {
+            "reference": "11/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "11/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.895652"
+        },
+        {
+            "reference": "12/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "12/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.895754"
+        },
+        {
+            "reference": "13/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "13/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.895819"
+        },
+        {
+            "reference": "14/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "14/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.895868"
+        },
+        {
+            "reference": "15/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "15/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.895932"
+        },
+        {
+            "reference": "16/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "16/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896005"
+        },
+        {
+            "reference": "17/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "17/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896035"
+        },
+        {
+            "reference": "18/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "18/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896059"
+        },
+        {
+            "reference": "02/BNRM/2026_DIRBIBNATROYMAR",
+            "original_reference": "02/BNRM/2026",
+            "buyer": "DIRECTEUR DE LA BIBLIOTHEQUE NATIONALE DU ROYAUME DU MAROC",
+            "buyer_initials": "DIRBIBNATROYMAR",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.896082"
+        },
+        {
+            "reference": "19/2026/SAPP_CENHOSUNIHASIIFES",
+            "original_reference": "19/2026/SAPP",
+            "buyer": "CENTRE HOSPITALIER UNIVERSITAIRE HASSAN II FES",
+            "buyer_initials": "CENHOSUNIHASIIFES",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896116"
+        },
+        {
+            "reference": "11.CHT.2026_DIRPROL’ENATCHTAITBAH",
+            "original_reference": "11.CHT.2026",
+            "buyer": "DIRECTION PROVINCIALE DE L’EDUCATION NATIONALE DE CHTOUKA AIT BAHA",
+            "buyer_initials": "DIRPROL’ENATCHTAITBAH",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.896151"
+        },
+        {
+            "reference": "07/2026/ONICL/DRHAA/SAMG_OFFNATINTCERLEG",
+            "original_reference": "07/2026/ONICL/DRHAA/SAMG",
+            "buyer": "OFFICE NATIONAL INTERPROFESSIONNEL DES CEREALES ET LEGUMINEUSES",
+            "buyer_initials": "OFFNATINTCERLEG",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896229"
+        },
+        {
+            "reference": "07/AOO/DPLR/ANP/2026_AGENATPORDIRPORLAAREG",
+            "original_reference": "07/AOO/DPLR/ANP/2026",
+            "buyer": "AGENCE NATIONALE DES PORTS/ DIRECTION DU PORT DE LAAYOUNE ET REGION",
+            "buyer_initials": "AGENATPORDIRPORLAAREG",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896285"
+        },
+        {
+            "reference": "21/2026/CT_COMMUNEURBAINETETOUAN",
+            "original_reference": "21/2026/CT",
+            "buyer": "Commune urbaine de TETOUAN",
+            "buyer_initials": "COMMUNEURBAINETETOUAN",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896345"
+        },
+        {
+            "reference": "15/BG/2026_GOUVERNEURPROVINCETATA",
+            "original_reference": "15/BG/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE TATA",
+            "buyer_initials": "GOUVERNEURPROVINCETATA",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896369"
+        },
+        {
+            "reference": "01/2026/11990773_COLLECTIVITÉTERRITORIALEARBAOUA",
+            "original_reference": "01/2026/11990773",
+            "buyer": "Collectivité territoriale de ARBAOUA",
+            "buyer_initials": "COLLECTIVITÉTERRITORIALEARBAOUA",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896392"
+        },
+        {
+            "reference": "02/2026/DRMNE_DIRREGMETNORESTFES",
+            "original_reference": "02/2026/DRMNE",
+            "buyer": "DIRECTION REGIONALE DE LA METEOROLOGIE DU NORD EST FES",
+            "buyer_initials": "DIRREGMETNORESTFES",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896415"
+        },
+        {
+            "reference": "04/2026/BP/PAZ_CONSEILPROVINCIALAZILAL",
+            "original_reference": "04/2026/BP/PAZ",
+            "buyer": "LE CONSEIL PROVINCIAL D'AZILAL",
+            "buyer_initials": "CONSEILPROVINCIALAZILAL",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896436"
+        },
+        {
+            "reference": "06/2026/CG_COMURBELGAR",
+            "original_reference": "06/2026/CG",
+            "buyer": "Commune urbaine de EL GARA",
+            "buyer_initials": "COMURBELGAR",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896460"
+        },
+        {
+            "reference": "10007223_SOCREGMULSOUMASSA",
+            "original_reference": "10007223",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES SOUSS - MASSA SA",
+            "buyer_initials": "SOCREGMULSOUMASSA",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.896481"
+        },
+        {
+            "reference": "05/2026/AG_ARRONDISSEMENTGUELIZ",
+            "original_reference": "05/2026/AG",
+            "buyer": "Arrondissement GUELIZ",
+            "buyer_initials": "ARRONDISSEMENTGUELIZ",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896523"
+        },
+        {
+            "reference": "E/103/26_SOCREGMULRABSALKENSA",
+            "original_reference": "E/103/26",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES RABAT - SALE - KENITRA SA",
+            "buyer_initials": "SOCREGMULRABSALKENSA",
+            "category": "Fournitures",
+            "launch_date": "27/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.896544"
+        },
+        {
+            "reference": "EEI01/2026/ONICL/DRHAA/SAMG_OFFNATINTCERLEG",
+            "original_reference": "EEI01/2026/ONICL/DRHAA/SAMG",
+            "buyer": "OFFICE NATIONAL INTERPROFESSIONNEL DES CEREALES ET LEGUMINEUSES",
+            "buyer_initials": "OFFNATINTCERLEG",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896588"
+        },
+        {
+            "reference": "7/FA/DIV.G.F./DIV.S/ZN/2026_INSGENFORAUXZONNOR",
+            "original_reference": "7/FA/DIV.G.F./DIV.S/ZN/2026",
+            "buyer": "INSPECTION GENERALE DES FORCES AUXILIAIRES - ZONE NORD",
+            "buyer_initials": "INSGENFORAUXZONNOR",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896610"
+        },
+        {
+            "reference": "06/2026/DRSM_DIRREGMINJEUSPOREGSOUMAS",
+            "original_reference": "06/2026/DRSM",
+            "buyer": "DIRECTEUR REGIONAL DU MINISTERE DE LA JEUNESSE ET DES SPORTS REGION SOUSS - MASSA",
+            "buyer_initials": "DIRREGMINJEUSPOREGSOUMAS",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896633"
+        },
+        {
+            "reference": "33/2026/DRSPSFM_DIRREGSANREGFESMEK",
+            "original_reference": "33/2026/DRSPSFM",
+            "buyer": "DIRECTION REGIONALE DE LA SANTE A LA REGION DE FES MEKNES",
+            "buyer_initials": "DIRREGSANREGFESMEK",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896703"
+        },
+        {
+            "reference": "03/PA/BP/2026_PROVINCEALHOCEIMA",
+            "original_reference": "03/PA/BP/2026",
+            "buyer": "Province de AL HOCEIMA",
+            "buyer_initials": "PROVINCEALHOCEIMA",
+            "category": "Fournitures",
+            "launch_date": "26/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.896789"
+        },
+        {
+            "reference": "07/DTM_COMMUNEURBAINETAZA",
+            "original_reference": "07/DTM",
+            "buyer": "Commune urbaine de TAZA",
+            "buyer_initials": "COMMUNEURBAINETAZA",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.896809"
+        },
+        {
+            "reference": "13/2026/DPETLM_DIRPROEQUTRALOGMEK",
+            "original_reference": "13/2026/DPETLM",
+            "buyer": "LE DIRECTEUR PROVINCIAL DE L'EQUIPEMENT ET DU TRANSPORT ET DE LA LOGISTIQUE DE MEKNES",
+            "buyer_initials": "DIRPROEQUTRALOGMEK",
+            "category": "Fournitures",
+            "launch_date": "26/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.896831"
+        },
+        {
+            "reference": "05/2026/IF_DIRPROEQUTRALOGIFR",
+            "original_reference": "05/2026/IF",
+            "buyer": "DIRECTEUR PROVINCIAL DE L'EQUIPEMENT ET DU TRANSPORT ET DE LA LOGISTIQUE D'IFRANE",
+            "buyer_initials": "DIRPROEQUTRALOGIFR",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896854"
+        },
+        {
+            "reference": "04/2026/ISPITSA_DIRINSSUPPROINFTECSANAGA",
+            "original_reference": "04/2026/ISPITSA",
+            "buyer": "DIRECTEUR DE L'INSTITUT SUPERIEURE DES PROFISSIONS INFERMIERES ET TECHNIQUES DE SANTE AGADIR",
+            "buyer_initials": "DIRINSSUPPROINFTECSANAGA",
+            "category": "Fournitures",
+            "launch_date": "28/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.896876"
+        },
+        {
+            "reference": "25/2026/MEF/AC/FB_MINISTEREECONOMIE,FINANCES",
+            "original_reference": "25/2026/MEF/AC/FB",
+            "buyer": "MINISTERE DE L'ECONOMIE, ET DES FINANCES",
+            "buyer_initials": "MINISTEREECONOMIE,FINANCES",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.896920"
+        },
+        {
+            "reference": "15/PPOUJDA/2026_PREFETPOLICEOUJDA",
+            "original_reference": "15/PPOUJDA/2026",
+            "buyer": "PREFET DE LA POLICE DE OUJDA",
+            "buyer_initials": "PREFETPOLICEOUJDA",
+            "category": "Fournitures",
+            "launch_date": "26/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.896966"
+        },
+        {
+            "reference": "06/2026/0324_DIRPROJUSFES",
+            "original_reference": "06/2026/0324",
+            "buyer": "DIRECTION PROVINCIALE DE LA JUSTICE FES",
+            "buyer_initials": "DIRPROJUSFES",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.897007"
+        },
+        {
+            "reference": "09/2026/DPAAG/SG_CHEDIVPARAUTAFFGEN",
+            "original_reference": "09/2026/DPAAG/SG",
+            "buyer": "CHEF DE DIVISION DU PARC-AUTO ET DES AFFAIRES GENERALES",
+            "buyer_initials": "CHEDIVPARAUTAFFGEN",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.897029"
+        },
+        {
+            "reference": "05/DRAI/BG/2026_DELREGAFFISLREGFESMEK",
+            "original_reference": "05/DRAI/BG/2026",
+            "buyer": "DELEGUATION REGIONALE DES AFFAIRES ISLAMIQUES DE LA REGION FES-MEKNES",
+            "buyer_initials": "DELREGAFFISLREGFESMEK",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.897073"
+        },
+        {
+            "reference": "10/DRC/CI/2026_OFFNATELEEAUPOTBRAEAU",
+            "original_reference": "10/DRC/CI/2026",
+            "buyer": "OFFICE NATIONAL DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE EAU",
+            "buyer_initials": "OFFNATELEEAUPOTBRAEAU",
+            "category": "Fournitures",
+            "launch_date": "26/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.897095"
+        },
+        {
+            "reference": "14/INDH/2026_GOUVERNEURZAGOURA",
+            "original_reference": "14/INDH/2026",
+            "buyer": "GOUVERNEUR DE ZAGOURA",
+            "buyer_initials": "GOUVERNEURZAGOURA",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.897120"
+        },
+        {
+            "reference": "30/2026_DIRREGMINJEUSPOREGGUEOUENOU",
+            "original_reference": "30/2026",
+            "buyer": "DIRECTEUR REGIONAL DU MINISTERE DE LA JEUNESSE ET DES SPORTS REGION GUELMIM OUED NOUN",
+            "buyer_initials": "DIRREGMINJEUSPOREGGUEOUENOU",
+            "category": "Fournitures",
+            "launch_date": "29/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.897203"
+        },
+        {
+            "reference": "15/SMIT/2026_SOCMARINGTOU",
+            "original_reference": "15/SMIT/2026",
+            "buyer": "SOCIETE MAROCAINE D'INGENIERIE TOURISTIQUE",
+            "buyer_initials": "SOCMARINGTOU",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.897226"
+        },
+        {
+            "reference": "11/SGPTV/2026_SOCGESPORTANVIL",
+            "original_reference": "11/SGPTV/2026",
+            "buyer": "SOCIETE DE GESTION DU PORT DE TANGER VILLE",
+            "buyer_initials": "SOCGESPORTANVIL",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.897252"
+        },
+        {
+            "reference": "05/STU/2026_COMMUNERURALELAAOUNATE",
+            "original_reference": "05/STU/2026",
+            "buyer": "Commune rurale de LAAOUNATE",
+            "buyer_initials": "COMMUNERURALELAAOUNATE",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.897276"
+        },
+        {
+            "reference": "02/2026/DRRS_CNSDIRREGRABSAL",
+            "original_reference": "02/2026/DRRS",
+            "buyer": "CNSS DIRECTION REGIONALE RABAT SALE",
+            "buyer_initials": "CNSDIRREGRABSAL",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.897298"
+        },
+        {
+            "reference": "16/ENSM/2026_ECONORSUPMAR",
+            "original_reference": "16/ENSM/2026",
+            "buyer": "ECOLE NORMALE SUPERIEURE MARRAKECH",
+            "buyer_initials": "ECONORSUPMAR",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.897320"
+        },
+        {
+            "reference": "20/2026/CL/SUP/SRMDO_SOCREGMULDAKOUEEDDS.A",
+            "original_reference": "20/2026/CL/SUP/SRMDO",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DAKHLA OUED EDDAHAB S.A",
+            "buyer_initials": "SOCREGMULDAKOUEEDDS.A",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.897444"
+        },
+        {
+            "reference": "21/2026/C/SUP/SRMDO_SOCREGMULDAKOUEEDDS.A",
+            "original_reference": "21/2026/C/SUP/SRMDO",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DAKHLA OUED EDDAHAB S.A",
+            "buyer_initials": "SOCREGMULDAKOUEEDDS.A",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.897467"
+        },
+        {
+            "reference": "23/2026/E/EXP/SRMDO_SOCREGMULDAKOUEEDDS.A",
+            "original_reference": "23/2026/E/EXP/SRMDO",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DAKHLA OUED EDDAHAB S.A",
+            "buyer_initials": "SOCREGMULDAKOUEEDDS.A",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.897490"
+        },
+        {
+            "reference": "06/2026/ONICL/DRHAA/SAMG_OFFNATINTCERLEG",
+            "original_reference": "06/2026/ONICL/DRHAA/SAMG",
+            "buyer": "OFFICE NATIONAL INTERPROFESSIONNEL DES CEREALES ET LEGUMINEUSES",
+            "buyer_initials": "OFFNATINTCERLEG",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.897513"
+        },
+        {
+            "reference": "AMI/03/2026/CIE_CASABLANCAISKANEEQUIPEMENTS",
+            "original_reference": "AMI/03/2026/CIE",
+            "buyer": "CASABLANCA ISKANE & EQUIPEMENTS",
+            "buyer_initials": "CASABLANCAISKANEEQUIPEMENTS",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.897563"
+        },
+        {
+            "reference": "50/2026/SRMCS_SOCREGMULCASSETSA",
+            "original_reference": "50/2026/SRMCS",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES CASABLANCA - SETTAT SA",
+            "buyer_initials": "SOCREGMULCASSETSA",
+            "category": "Fournitures",
+            "launch_date": "27/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.897659"
+        },
+        {
+            "reference": "08/2026/CMR_CAISSEMAROCAINERETRAITES",
+            "original_reference": "08/2026/CMR",
+            "buyer": "LA CAISSE MAROCAINE DES RETRAITES",
+            "buyer_initials": "CAISSEMAROCAINERETRAITES",
+            "category": "Fournitures",
+            "launch_date": "02/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.897683"
+        },
+        {
+            "reference": "10007269_SOCREGMULORIS.A",
+            "original_reference": "10007269",
+            "buyer": "SOCIETE REGIONALE MULTISERVICES DE L'ORIENTAL S.A",
+            "buyer_initials": "SOCREGMULORIS.A",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.897707"
+        },
+        {
+            "reference": "29/2026_DIRREGMINJEUSPOREGGUEOUENOU",
+            "original_reference": "29/2026",
+            "buyer": "DIRECTEUR REGIONAL DU MINISTERE DE LA JEUNESSE ET DES SPORTS REGION GUELMIM OUED NOUN",
+            "buyer_initials": "DIRREGMINJEUSPOREGGUEOUENOU",
+            "category": "Fournitures",
+            "launch_date": "29/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.897870"
+        },
+        {
+            "reference": "27/2026_DELGENADMPENREI",
+            "original_reference": "27/2026",
+            "buyer": "DELEGATION GENERALE A L'ADMINISTRATION PENITENTIAIRE ET A LA REINSERTION",
+            "buyer_initials": "DELGENADMPENREI",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.897921"
+        },
+        {
+            "reference": "19/2026/DPA/2/SS_DIRPROAGRALHOC",
+            "original_reference": "19/2026/DPA/2/SS",
+            "buyer": "DIRECTEUR PROVINCIAL D'AGRICULTURE- AL HOCEIMA",
+            "buyer_initials": "DIRPROAGRALHOC",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.897967"
+        },
+        {
+            "reference": "05/2026/DRHMAS_CNSDIRREGHAYMOHAINSEB",
+            "original_reference": "05/2026/DRHMAS",
+            "buyer": "CNSS DIRECTION REGIONALE HAY MOHAMMADI AIN SEBAA",
+            "buyer_initials": "CNSDIRREGHAYMOHAINSEB",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.898033"
+        },
+        {
+            "reference": "09/2026/SB_COMURBSIDBEN",
+            "original_reference": "09/2026/SB",
+            "buyer": "Commune urbaine de SIDI BENNOUR",
+            "buyer_initials": "COMURBSIDBEN",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.898058"
+        },
+        {
+            "reference": "47/BG/F/2026_GOUVERNEURPROVINCESETTAT",
+            "original_reference": "47/BG/F/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE SETTAT",
+            "buyer_initials": "GOUVERNEURPROVINCESETTAT",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.898081"
+        },
+        {
+            "reference": "05/2026/C.S_COMURBESSEM",
+            "original_reference": "05/2026/C.S",
+            "buyer": "Commune urbaine de ES-SEMARA",
+            "buyer_initials": "COMURBESSEM",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.898103"
+        },
+        {
+            "reference": "43/DRANEF.O/2026_DIRREGAGENATEAUFORORI",
+            "original_reference": "43/DRANEF.O/2026",
+            "buyer": "DIRECTION REGIONALE DE L'AGENCE NATIONALE DES EAUX ET FORETS DE L'ORIENTAL",
+            "buyer_initials": "DIRREGAGENATEAUFORORI",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.898159"
+        },
+        {
+            "reference": "04/ISM/2026_INSTITUTSUPERIEURMAGISTRATURE",
+            "original_reference": "04/ISM/2026",
+            "buyer": "INSTITUT SUPERIEUR DE LA MAGISTRATURE",
+            "buyer_initials": "INSTITUTSUPERIEURMAGISTRATURE",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.898242"
+        },
+        {
+            "reference": "01/2026/B.C_COLLECTIVITÉTERRITORIALEANZI",
+            "original_reference": "01/2026/B.C",
+            "buyer": "Collectivité territoriale de ANZI",
+            "buyer_initials": "COLLECTIVITÉTERRITORIALEANZI",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.898289"
+        },
+        {
+            "reference": "04/2026/ESTg/GST.TTA_ESPDISSANTAN",
+            "original_reference": "04/2026/ESTg/GST.TTA",
+            "buyer": "ESPACE - DISTRICT SANITAIRE TANGER",
+            "buyer_initials": "ESPDISSANTAN",
+            "category": "Fournitures",
+            "launch_date": "06/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.898348"
+        },
+        {
+            "reference": "09/2026/CHP_CENHOSPROTAZ",
+            "original_reference": "09/2026/CHP",
+            "buyer": "CENTRE HOSPITALIER PROVINCIAL DE TAZA",
+            "buyer_initials": "CENHOSPROTAZ",
+            "category": "Fournitures",
+            "launch_date": "10/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.898371"
+        },
+        {
+            "reference": "02/2026/AREP/MS_AGEREGEXEPROREGMARSAF",
+            "original_reference": "02/2026/AREP/MS",
+            "buyer": "AGENCE REGIONALE D'EXECUTION DES PROJETS DE LA REGION MARRAKECH SAFI",
+            "buyer_initials": "AGEREGEXEPROREGMARSAF",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.898431"
+        },
+        {
+            "reference": "18/BG/F/2026_GOUVERNEURPROVINCESETTAT",
+            "original_reference": "18/BG/F/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE DE SETTAT",
+            "buyer_initials": "GOUVERNEURPROVINCESETTAT",
+            "category": "Fournitures",
+            "launch_date": "03/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.898493"
+        },
+        {
+            "reference": "06/2026/DPAJ/SMOP_DIRPROAGRJER",
+            "original_reference": "06/2026/DPAJ/SMOP",
+            "buyer": "DIRECTION PROVINCIALE DE L'AGRICULTURE DE JERADA",
+            "buyer_initials": "DIRPROAGRJER",
+            "category": "Fournitures",
+            "launch_date": "24/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.898520"
+        },
+        {
+            "reference": "04.SROUARZAZATE.2026_CHEFSURETEOUARZAZATE",
+            "original_reference": "04.SROUARZAZATE.2026",
+            "buyer": "CHEF DE LA SURETE OUARZAZATE",
+            "buyer_initials": "CHEFSURETEOUARZAZATE",
+            "category": "Fournitures",
+            "launch_date": "21/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.898592"
+        },
+        {
+            "reference": "AO/08/2026SETLBerrechid_CHESEREQUTRALOGBER",
+            "original_reference": "AO/08/2026SETLBerrechid",
+            "buyer": "CHEF DE SERVICE DE L'EQUIPEMENT, DU TRANSPORT ET DE LA LOGISTIQUE DE BERRECHID",
+            "buyer_initials": "CHESEREQUTRALOGBER",
+            "category": "Fournitures",
+            "launch_date": "01/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.898618"
+        },
+        {
+            "reference": "02/2026/DRIMA_DIRREGIMPWILMARPROELKALSRAOUA",
+            "original_reference": "02/2026/DRIMA",
+            "buyer": "DIRECTEUR REGIONAL DES IMPOTS A LA WILAYA MARRAKECH ET PROVINCE EL KALAA SRAGHNA OUARZAZATE",
+            "buyer_initials": "DIRREGIMPWILMARPROELKALSRAOUA",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.898667"
+        },
+        {
+            "reference": "04/2026/DRHMAS_CNSDIRREGHAYMOHAINSEB",
+            "original_reference": "04/2026/DRHMAS",
+            "buyer": "CNSS DIRECTION REGIONALE HAY MOHAMMADI AIN SEBAA",
+            "buyer_initials": "CNSDIRREGHAYMOHAINSEB",
+            "category": "Fournitures",
+            "launch_date": "09/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.898740"
+        },
+        {
+            "reference": "04/DRAI/BG/2026_DELREGAFFISLREGFESMEK",
+            "original_reference": "04/DRAI/BG/2026",
+            "buyer": "DELEGUATION REGIONALE DES AFFAIRES ISLAMIQUES DE LA REGION FES-MEKNES",
+            "buyer_initials": "DELREGAFFISLREGFESMEK",
+            "category": "Fournitures",
+            "launch_date": "31/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.898788"
+        },
+        {
+            "reference": "SR3130122/2026/ONEEBELEC_OFFNATELEEAUPOTBRAELE",
+            "original_reference": "SR3130122/2026/ONEEBELEC",
+            "buyer": "OFFICE NATIONALE DE L'ELECTRICITE ET DE L'EAU POTABLE - BRANCHE ELECTRICITE",
+            "buyer_initials": "OFFNATELEEAUPOTBRAELE",
+            "category": "Fournitures",
+            "launch_date": "25/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.898814"
+        },
+        {
+            "reference": "10/PA/BG/2026_GOUPROALHOC",
+            "original_reference": "10/PA/BG/2026",
+            "buyer": "GOUVERNEUR DE LA PROVINCE D'AL HOCEIMA",
+            "buyer_initials": "GOUPROALHOC",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.898838"
+        },
+        {
+            "reference": "08/SGPTV/2026_SOCGESPORTANVIL",
+            "original_reference": "08/SGPTV/2026",
+            "buyer": "SOCIETE DE GESTION DU PORT DE TANGER VILLE",
+            "buyer_initials": "SOCGESPORTANVIL",
+            "category": "Fournitures",
+            "launch_date": "30/03/2026",
+            "scraped_at": "2026-04-10T12:27:04.898957"
+        },
+        {
+            "reference": "15/2026/DPJK_DIRPROJUSCIRJUDCOUD’AKEN",
+            "original_reference": "15/2026/DPJK",
+            "buyer": "DIRECTEUR PROVINCIALE DE LA JUSTICE DE LA CIRCONSCRIPTION JUDICIAIRE DE LA COUR D’APPEL DE KENITRA",
+            "buyer_initials": "DIRPROJUSCIRJUDCOUD’AKEN",
+            "category": "Fournitures",
+            "launch_date": "08/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.899006"
+        },
+        {
+            "reference": "11/SB/2026_DIRPROSIDBEN",
+            "original_reference": "11/SB/2026",
+            "buyer": "DIRECTION PROVINCIAL SIDI BENNOUR",
+            "buyer_initials": "DIRPROSIDBEN",
+            "category": "Fournitures",
+            "launch_date": "07/04/2026",
+            "scraped_at": "2026-04-10T12:27:04.899065"
+        }
+    ]
+}

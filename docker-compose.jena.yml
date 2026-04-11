@@ -7,15 +7,10 @@ services:
     ports:
       - "3030:3030"
     environment:
-      # Set fixed admin password (must match JENA_PASSWORD in .env)
       ADMIN_PASSWORD: admin
-      # Optional: JVM memory settings
       JVM_ARGS: "-Xmx2g"
     volumes:
-      # Persist Fuseki data between container restarts
       - fuseki_data:/fuseki
-      # Optional: Mount custom configuration
-      # - ./fuseki-config:/fuseki-config
     networks:
       - tender_network
     restart: unless-stopped
@@ -26,11 +21,11 @@ services:
       retries: 3
       start_period: 40s
 
-
 networks:
   tender_network:
     driver: bridge
     name: tender_network
+    external: false
 
 volumes:
   fuseki_data:

@@ -24,11 +24,14 @@ from rdflib import URIRef, Literal, Namespace
 load_dotenv()
 
 # Configure logging
+_log_dir = os.environ.get('LOG_DIR', os.path.join(os.path.dirname(__file__), '..', 'Logs', '1_Update'))
+os.makedirs(_log_dir, exist_ok=True)
+_DATA_FLOW_ROOT = os.environ.get('DATA_FLOW_ROOT', os.path.join(os.path.dirname(__file__), '..', 'Data_flow'))
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('ref_updater.log'),
+        logging.FileHandler(os.path.join(_log_dir, 'ref_updater.log')),
         logging.StreamHandler()
     ]
 )
@@ -728,8 +731,8 @@ async def main():
     )
     parser.add_argument(
         '--output',
-        default='new_references.json',
-        help='Output JSON file (default: new_references.json)'
+        default=os.path.join(_DATA_FLOW_ROOT, '1_New_ref', 'new_references.json'),
+        help='Output JSON file (default: Data_flow/1_New_ref/new_references.json)'
     )
     parser.add_argument(
         '--max-pages',

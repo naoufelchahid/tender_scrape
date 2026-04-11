@@ -16,7 +16,16 @@ from src.jena_client import JenaClient
 from monitor import enter as mon_enter, complete as mon_complete, failed as mon_failed, anomaly as mon_anomaly
 
 # Logging Setup
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+_log_dir = os.environ.get('LOG_DIR', os.path.join(os.path.dirname(__file__), '..', 'Logs', '5_Ingestion'))
+os.makedirs(_log_dir, exist_ok=True)
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(os.path.join(_log_dir, 'ingestion.log')),
+        logging.StreamHandler()
+    ]
+)
 logger = logging.getLogger(__name__)
 
 

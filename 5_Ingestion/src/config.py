@@ -24,7 +24,7 @@ class Settings(BaseSettings):
 
     # Ontology Configuration
     ONTOLOGY_DIR: str = "/app/ontology"
-    TENDER_STRUCTURE_FILE: str = "tender_structure.owl"
+    TENDER_STRUCTURE_FILE: str = "tender_structure_final.owl"
     SHACL_SHAPES_FILE: str = "shapes.ttl"
     ENRICHMENT_SHAPES_FILE: str = "shapes_enrichment.ttl"
 
@@ -37,7 +37,7 @@ class Settings(BaseSettings):
     VECTOR_S3_PREFIX: str = "index/tender-index/"
 
     # N-Triples Output
-    NT_OUTPUT_DIR: str = "/tmp/nt_output"
+    NT_OUTPUT_DIR: str = "Data_flow/4_tender_enrich_triples"
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 

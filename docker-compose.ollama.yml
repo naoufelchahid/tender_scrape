@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  ollama:
+    image: ollama/ollama:0.5.11
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - tender_network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - OLLAMA_KEEP_ALIVE=24h
+    restart: always
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:11434/api/tags" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  tender_network:
+    driver: bridge
+    name: tender_network
+    external: false
+
+volumes:
+  ollama_data:
+    driver: local
